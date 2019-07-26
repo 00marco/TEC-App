@@ -3,8 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TEC_App"
              xmlns:helpers="clr-namespace:TEC_App.Helpers"
+             xmlns:viewModels="clr-namespace:TEC_App.ViewModels"
+             xmlns:views="clr-namespace:TEC_App.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-		<helpers:ViewModelLocator x:Key="Locator"></helpers:ViewModelLocator>
-    </Application.Resources>
+	    <ResourceDictionary>
+		    <helpers:ViewModelLocator x:Key="Locator"></helpers:ViewModelLocator>
+
+			<DataTemplate DataType="{x:Type viewModels:JobOpenings_ViewModel}">
+			    <views:JobOpeningsView />
+		    </DataTemplate>
+		    <DataTemplate DataType="{x:Type viewModels:CandidateView_ViewModel}">
+			    <views:CandidateView />
+		    </DataTemplate>
+
+		</ResourceDictionary>
+	</Application.Resources>
 </Application>

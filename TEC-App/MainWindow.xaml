@@ -7,7 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         DataContext="{Binding Path=MainViewModel, Source={StaticResource Locator}}">
-    <Grid>
-        <TextBlock Text="{Binding Path=Test}"></TextBlock>
-    </Grid>
+	<Grid>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Column="0">
+			<Button Command="{Binding Path=GotoCandidateViewCommand}"
+			        Content="Candidate View"/>
+			<Button Command="{Binding Path=GotoJobOpeningsViewCommand}"
+			        Content="Job Openings"></Button>
+		</StackPanel>
+		<ContentControl Content="{Binding Path=CurrentVM}"
+		                Grid.Column="1"></ContentControl>	   
+	</Grid>
 </Window>
