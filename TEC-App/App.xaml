@@ -1,0 +1,10 @@
+﻿<Application x:Class="TEC_App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TEC_App"
+             xmlns:helpers="clr-namespace:TEC_App.Helpers"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+		<helpers:ViewModelLocator x:Key="Locator"></helpers:ViewModelLocator>
+    </Application.Resources>
+</Application>
