@@ -2,6 +2,6 @@
 {
 	public class JobHistory
 	{
-
+		public int JobHistoryId { get; set; }
 	}
 }

@@ -2,6 +2,6 @@
 {
 	public class Company
 	{
-
+		public int CompanyId { get; set; }
 	}
 }

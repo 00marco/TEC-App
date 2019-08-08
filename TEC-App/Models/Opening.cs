@@ -2,6 +2,7 @@
 {
 	public class Opening
 	{
-
+		public int OpeningId { get; set; }
 	}
+
 }

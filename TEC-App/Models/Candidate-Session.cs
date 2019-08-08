@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TEC_App.Models
 {
-	public class Candidate
+	class Candidate_Session
 	{
 		public int CandidateId { get; set; }
+		public int SessionId { get; set; }
+		public int CandidateSessionId { get; set; }
 	}
 }

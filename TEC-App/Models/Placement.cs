@@ -2,6 +2,6 @@
 {
 	public class Placement
 	{
-
+		public int PlacementId { get; set; }
 	}
 }
