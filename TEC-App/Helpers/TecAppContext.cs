@@ -41,12 +41,11 @@ namespace TEC_App.Helpers
 					c.ToTable("Address");
 					c.HasKey(d => d.Id);
 					c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-					c.HasMany(d => d.Candidates)
-						.WithOne(d => d.Address)
-						.HasForeignKey(d => d.AddressId);
-					c.HasMany(d=>d.Locations)
-						.WithOne(d=>d.Address)
-						.HasForeignKey(d=>d.AddressId)
+					c.HasOne(d => d.Candidate)
+						.WithOne(d => d.Address);
+
+					c.HasOne(d => d.Location)
+						.WithOne(d => d.Address);
 				}
 			);
 
@@ -57,6 +56,9 @@ namespace TEC_App.Helpers
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 				c.Property(d => d.NameId).IsRequired();
 				c.Property(d => d.AddressId).IsRequired();
+
+				c.HasOne(d => d.Address)
+					.WithOne(d => d.Candidate);
 			});
 
 			modelBuilder.Entity<Candidate_Session>(c =>
