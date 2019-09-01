@@ -163,14 +163,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\TecAppContext.cs" />
+    <Compile Include="Helpers\Test.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
     <Compile Include="Migrations\20190901085907_CreateTecDb_v0.0.0.cs" />
     <Compile Include="Migrations\20190901085907_CreateTecDb_v0.0.0.designer.cs">
       <DependentUpon>20190901085907_CreateTecDb_v0.0.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20190901092919_CreateTecDb_v1.0.0.cs" />
+    <Compile Include="Migrations\20190901092919_CreateTecDb_v1.0.0.designer.cs">
+      <DependentUpon>20190901092919_CreateTecDb_v1.0.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\Candidate-Session.cs" />
+    <Compile Include="Models\Candidate_Session.cs" />
     <Compile Include="Models\CandidateQualification.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Location.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TEC_App.Models
 {
-	class Candidate_Session
+	public class Candidate_Session
 	{
 		public int CandidateId { get; set; }
 		public int SessionId { get; set; }

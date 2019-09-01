@@ -8,7 +8,6 @@ namespace TEC_App.Models
 {
 	public class Address
 	{
-		//TODO add properties
 		public int Id { get; set; }
 		public string ZipCode { get; set; }
 		public string Province { get; set; }
