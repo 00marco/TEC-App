@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace TEC_App.Models
 {
-	public class Candidate
+	public class Name
 	{
+		//TODO add properties
 		public int Id { get; set; }
-		public int NameId { get; set; }
-		public int AddressId { get; set; }
+		public string FirstName { get; set; }
+		public string MiddleName { get; set; }
+		public string LastName { get; set; }
 	}
+
 }

@@ -4,6 +4,6 @@
 	{
 		public int QualificationId { get; set; }
 		public int CourseId { get; set; }
-		public int PrerequisitesForCourseId { get; set; }
+		public int Id { get; set; }
 	}
 }

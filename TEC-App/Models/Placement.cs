@@ -2,6 +2,9 @@
 {
 	public class Placement
 	{
-		public int PlacementId { get; set; }
+		public int Id { get; set; }
+		public int OpeningId { get; set; }
+		public int CandidateId { get; set; }
+
 	}
 }

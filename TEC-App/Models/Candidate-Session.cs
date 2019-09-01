@@ -10,6 +10,6 @@ namespace TEC_App.Models
 	{
 		public int CandidateId { get; set; }
 		public int SessionId { get; set; }
-		public int CandidateSessionId { get; set; }
+		public int Id { get; set; }
 	}
 }

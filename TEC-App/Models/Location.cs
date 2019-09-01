@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TEC_App.Models
 {
-	public class QualifiedCandidates
+	public class Location
 	{
-		public int CandidateId { get; set; }
-		public int OpeningId { get; set; }
-		public int Id { get; set; }	
+		public int Id { get; set; }
+		public int AddressId { get; set; }
+		public int Capacity { get; set; }
 	}
 }

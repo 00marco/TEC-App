@@ -2,6 +2,9 @@
 {
 	public class Qualification
 	{
-		public int QualificationId { get; set; }
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public string Difficulty { get; set; }
+		public int SourceCourseId { get; set; }
 	}
 }
