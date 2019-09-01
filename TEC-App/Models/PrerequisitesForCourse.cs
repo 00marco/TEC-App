@@ -3,7 +3,9 @@
 	public class PrerequisitesForCourse
 	{
 		public int QualificationId { get; set; }
+		public Qualification Qualification { get; set; }
 		public int CourseId { get; set; }
+		public Course Course { get; set; }
 		public int Id { get; set; }
 	}
 }

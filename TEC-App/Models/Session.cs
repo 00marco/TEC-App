@@ -10,10 +10,12 @@ namespace TEC_App.Models
 		}
 		public int Id { get; set; }
 		public int CourseId { get; set; }
+		public Course Course { get; set; }
 		public DateTime DateTimeStart { get; set; }
 		public DateTime DateTimeEnd { get; set; }
 		public float Price { get; set; }
 		public int LocationId { get; set; }
+		public Location Location { get; set; }
 
 	}
 }
