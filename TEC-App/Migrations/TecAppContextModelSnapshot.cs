@@ -147,7 +147,7 @@ namespace TEC_App.Migrations
                     b.ToTable("JobHistories");
                 });
 
-            modelBuilder.Entity("TEC_App.Models.Location", b =>
+            modelBuilder.Entity("TEC_App.Models.Locations", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

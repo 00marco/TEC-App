@@ -13,5 +13,16 @@ namespace TEC_App.Models
 		public string Province { get; set; }
 		public string City { get; set; }
 		public string Street { get; set; }
+		//todo not sure
+		//TODO Reference for reasoning why properties are made like this https://www.entityframeworktutorial.net/code-first/configure-one-to-many-relationship-in-code-first.aspx
+
+
+		public int CandidateId { get; set; }
+		public Candidate Candidate { get; set; }
+
+
+		public int LocationId { get; set; }
+		public Location Location { get; set; }
+
 	}
 }

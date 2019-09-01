@@ -7,8 +7,12 @@ namespace TEC_App.Models
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
+
+
 		public int QualificationId { get; set; }
 		public ICollection<Qualification> Qualifications { get; set; }
+
+		public ICollection<PrerequisitesForCourse> PrerequisitesForCourse { get; set; }
 	}
 
 }

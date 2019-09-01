@@ -41,7 +41,12 @@ namespace TEC_App.Helpers
 					c.ToTable("Address");
 					c.HasKey(d => d.Id);
 					c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-					
+					c.HasMany(d => d.Candidates)
+						.WithOne(d => d.Address)
+						.HasForeignKey(d => d.AddressId);
+					c.HasMany(d=>d.Locations)
+						.WithOne(d=>d.Address)
+						.HasForeignKey(d=>d.AddressId)
 				}
 			);
 
@@ -62,6 +67,7 @@ namespace TEC_App.Helpers
 				c.Property(d => d.CandidateId).IsRequired();
 				c.Property(d => d.SessionId).IsRequired();
 				//TODO setup foreign keys
+
 			});
 			modelBuilder.Entity<CandidateQualification>(c =>
 			{
@@ -110,7 +116,7 @@ namespace TEC_App.Helpers
 			});
 			modelBuilder.Entity<Location>(c =>
 			{
-				c.ToTable("Location");
+				c.ToTable("Locations");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 				c.Property(d => d.AddressId).IsRequired();
