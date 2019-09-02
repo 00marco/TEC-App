@@ -18,9 +18,10 @@ namespace TEC_App.Models
 
 
 		public Candidate Candidate { get; set; }
-
+		public int CandidateId { get; set; }
 
 		public Location Location { get; set; }
+		public int LocationId { get; set; }
 
 	}
 }

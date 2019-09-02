@@ -59,6 +59,9 @@ namespace TEC_App.Helpers
 
 				c.HasOne(d => d.Address)
 					.WithOne(d => d.Candidate);
+
+				c.HasOne(d => d.Name)
+					.WithOne(d => d.Candidate);
 			});
 
 			modelBuilder.Entity<Candidate_Session>(c =>

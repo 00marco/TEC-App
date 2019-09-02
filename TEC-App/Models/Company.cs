@@ -9,6 +9,6 @@ namespace TEC_App.Models
 		public bool IsIncludedInList { get; set; }
 
 		public ICollection<Opening> Openings { get; set; }
-		public JobHistory JobHistory { get; set; } 
+		public ICollection<JobHistory> JobHistories { get; set; } 
 	}
 }
