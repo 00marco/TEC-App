@@ -183,7 +183,7 @@ namespace TEC_App.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "QualifiedCandidates",
+                name: "CandidatesQualifiedForOpening",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -254,7 +254,7 @@ namespace TEC_App.Migrations
                 name: "Qualifications");
 
             migrationBuilder.DropTable(
-                name: "QualifiedCandidates");
+                name: "CandidatesQualifiedForOpening");
 
             migrationBuilder.DropTable(
                 name: "Sessions");

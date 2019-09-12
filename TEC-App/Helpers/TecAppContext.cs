@@ -20,11 +20,11 @@ namespace TEC_App.Helpers
 		public DbSet<Session> Sessions { get; set; }
 		public DbSet<PrerequisitesForCourse> PrerequisitesForCourses { get; set; }
 		public DbSet<Name> Names { get; set; }
-		public DbSet<QualifiedCandidates> QualifiedCandidates { get; set; }
+		public DbSet<CandidatesQualifiedForOpening> QualifiedCandidates { get; set; }
 		public DbSet<Address> Addresses { get; set; }
 		public DbSet<Job> Jobs { get; set; }
 		public DbSet<Location> Locations { get; set; }
-		public DbSet<CandidateQualification> CandidateQualifications { get; set; }
+		public DbSet<Candidate_Qualification> CandidateQualifications { get; set; }
 		public DbSet<Candidate_Session> Candidate_Session_Pairs { get; set; }	
 
 
@@ -42,10 +42,13 @@ namespace TEC_App.Helpers
 					c.HasKey(d => d.Id);
 					c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 					c.HasOne(d => d.Candidate)
-						.WithOne(d => d.Address);
+						.WithOne(d => d.Address)
+						.HasForeignKey<Candidate>(d=>d.AddressId);
+						
 
 					c.HasOne(d => d.Location)
-						.WithOne(d => d.Address);
+						.WithOne(d => d.Address)
+						.HasForeignKey<Location>(d=>d.AddressId);
 				}
 			);
 
@@ -54,14 +57,11 @@ namespace TEC_App.Helpers
 				c.ToTable("Candidate");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.NameId).IsRequired();
 				c.Property(d => d.AddressId).IsRequired();
 
-				c.HasOne(d => d.Address)
-					.WithOne(d => d.Candidate);
+				//c.HasOne(d => d.Address)
+				//	.WithOne(d => d.Candidate);
 
-				c.HasOne(d => d.Name)
-					.WithOne(d => d.Candidate);
 			});
 
 			modelBuilder.Entity<Candidate_Session>(c =>
@@ -73,8 +73,9 @@ namespace TEC_App.Helpers
 				c.Property(d => d.SessionId).IsRequired();
 				//TODO setup foreign keys
 
+
 			});
-			modelBuilder.Entity<CandidateQualification>(c =>
+			modelBuilder.Entity<Candidate_Qualification>(c =>
 			{
 				c.ToTable("Candidate_Qualification");
 				c.HasKey(d => d.Id);
@@ -97,7 +98,7 @@ namespace TEC_App.Helpers
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 				c.Property(d => d.Name).IsRequired();
-				c.Property(d => d.QualificationId).IsRequired();
+				//c.Property(d => d.QualificationId).IsRequired();
 				//TODO setup foreign keys
 			});
 			modelBuilder.Entity<Job>(c =>
@@ -106,6 +107,7 @@ namespace TEC_App.Helpers
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 				c.Property(d => d.Name).IsRequired();
+
 			});
 			modelBuilder.Entity<JobHistory>(c =>
 			{
@@ -118,6 +120,9 @@ namespace TEC_App.Helpers
 				c.Property(d => d.DateTimeEnd).IsRequired();
 				c.Property(d => d.DateTimeStart).IsRequired();
 				//TODO setup foreign keys
+				c.HasOne(d => d.Job)
+					.WithOne(d => d.JobHistory)
+					.HasForeignKey<Job>(d=>d.JobHistoryId);
 			});
 			modelBuilder.Entity<Location>(c =>
 			{
@@ -127,12 +132,10 @@ namespace TEC_App.Helpers
 				c.Property(d => d.AddressId).IsRequired();
 				c.Property(d => d.Capacity).IsRequired();
 				//TODO setup foreign keys
-			});
-			modelBuilder.Entity<Name>(c =>
-			{
-				c.ToTable("Name");
-				c.HasKey(d => d.Id);
-				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+
+				c.HasOne(d => d.Session)
+					.WithOne(d => d.Location)
+					.HasForeignKey<Session>(d=>d.LocationId);
 			});
 			modelBuilder.Entity<Opening>(c =>
 			{
@@ -150,9 +153,12 @@ namespace TEC_App.Helpers
 				c.ToTable("Placement");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CandidateId).IsRequired();
+				//c.Property(d => d.CandidateId).IsRequired();
 				c.Property(d => d.OpeningId).IsRequired();
 				//todo setup foreign keys
+				c.HasOne(d => d.Opening)
+					.WithOne(d => d.Placement)
+					.HasForeignKey<Opening>(d=>d.PlacementId);
 			});
 			modelBuilder.Entity<PrerequisitesForCourse>(c =>
 			{
@@ -173,9 +179,9 @@ namespace TEC_App.Helpers
 				c.Property(d => d.SourceCourseId).IsRequired();
 				//todo setup foreign keys
 			});
-			modelBuilder.Entity<QualifiedCandidates>(c =>
+			modelBuilder.Entity<CandidatesQualifiedForOpening>(c =>
 			{
-				c.ToTable("QualifiedCandidates");
+				c.ToTable("CandidatesQualifiedForOpening");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 				c.Property(d => d.CandidateId).IsRequired();
@@ -184,7 +190,7 @@ namespace TEC_App.Helpers
 			});
 			modelBuilder.Entity<Session>(c =>
 			{
-				c.ToTable("QualifiedCandidates");
+				c.ToTable("Session");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 				c.Property(d => d.CourseId).IsRequired();
@@ -193,6 +199,9 @@ namespace TEC_App.Helpers
 				c.Property(d => d.LocationId).IsRequired();
 				c.Property(d => d.Price).IsRequired();
 				//todo setup foreign keys
+				c.HasOne(d=>d.Location)
+					.WithOne(d=>d.Session)
+					.HasForeignKey<Location>(d=>d.SessionId);
 			});
 
 

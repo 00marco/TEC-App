@@ -173,15 +173,22 @@
     <Compile Include="Migrations\20190901092919_CreateTecDb_v1.0.0.designer.cs">
       <DependentUpon>20190901092919_CreateTecDb_v1.0.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20190903072659_v2.0.0.cs" />
+    <Compile Include="Migrations\20190903072659_v2.0.0.designer.cs">
+      <DependentUpon>20190903072659_v2.0.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Address_Candidate.cs" />
+    <Compile Include="Models\Address_Location.cs" />
     <Compile Include="Models\Candidate_Session.cs" />
-    <Compile Include="Models\CandidateQualification.cs" />
+    <Compile Include="Models\Candidate_Qualification.cs" />
     <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\JobHistory_Job.cs" />
+    <Compile Include="Models\JobHistory_Company.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\Name.cs" />
     <Compile Include="Models\PrerequisitesForCourse.cs" />
-    <Compile Include="Models\QualifiedCandidates.cs" />
+    <Compile Include="Models\Session_Location.cs" />
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\JobOpenings_ViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TEC_App.Models
 {
@@ -12,13 +13,9 @@ namespace TEC_App.Models
 		public int CandidateId { get; set; }
 		public Candidate Candidate { get; set; }
 
+		public ICollection<JobHistory_Company> JobHistory_Company_Pairs { get; set; }
+		public ICollection<JobHistory_Job> JobHistory_Job_Pairs { get; set; }
 
-		public int JobId { get; set; }
-		public Job Job { get; set; }
-
-
-		public int CompanyId { get; set; }
-		public Company Company { get; set; }
 
 
 		

@@ -9,20 +9,18 @@ namespace TEC_App.Models
 		public DateTime DateTimeStart { get; set; }
 		public DateTime DateTimeEnd { get; set; }
 		public float HourlyPay { get; set; }
-		public int RequiredQualificationId { get; set; }
 
 
 		public int CompanyId { get; set; }
 		public Company Company { get; set; }
 
 
-		public int PlacementId { get; set; }
-		public Placement Placement { get; set; }
+		public int RequiredQualificationId { get; set; }
+		public Qualification RequiredQualification { get; set; }
 
 
-		public ICollection<Qualification> Qualifications { get; set; }
-		public ICollection<QualifiedCandidates> QualifiedCandidates { get; set; }
-
+		public int JobId { get; set; }
+		public Job Job { get; set; }
 
 	}
 

@@ -10,12 +10,10 @@ namespace TEC_App.Models
 	{
 		public int Id { get; set; }
 		public int Capacity { get; set; }
+		public ICollection<Address_Location> Address_Location_Pairs { get; set; }
+		public ICollection<Session_Location> Session_Location_Pairs { get; set; }
 
 
-		public int AddressId { get; set; }
-		public Address Address { get; set; }
 
-		public int SessionId { get; set; }
-		public Session Session { get; set; }
 	}
 }

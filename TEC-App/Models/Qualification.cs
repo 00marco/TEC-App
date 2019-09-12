@@ -7,16 +7,12 @@ namespace TEC_App.Models
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Difficulty { get; set; }
+		public string Code { get; set; }
 
 
-		public int SourceCourseId { get; set; }
-		public Course Course { get; set; }
-
-		public int OpeningId { get; set; }
-		public Opening Opening { get; set; }
-
-
-		public ICollection<CandidateQualification> CandidatesQualifications { get; set; }
+		public ICollection<Course> Courses { get; set; }
+		public ICollection<Opening> Openings { get; set; }
+		public ICollection<Candidate_Qualification> CandidatesQualifications { get; set; }
 		public ICollection<PrerequisitesForCourse> PrerequisitesForCourse { get; set; }
 	}
 }

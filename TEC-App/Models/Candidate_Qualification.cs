@@ -1,6 +1,6 @@
 ﻿namespace TEC_App.Models
 {
-	public class CandidateQualification
+	public class Candidate_Qualification
 	{
 		public int Id { get; set; }
 

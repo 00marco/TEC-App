@@ -42,7 +42,7 @@ namespace TEC_App.Migrations
                     b.ToTable("Candidates");
                 });
 
-            modelBuilder.Entity("TEC_App.Models.CandidateQualification", b =>
+            modelBuilder.Entity("TEC_App.Models.Candidate_Qualification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -188,7 +188,7 @@ namespace TEC_App.Migrations
                     b.ToTable("Qualifications");
                 });
 
-            modelBuilder.Entity("TEC_App.Models.QualifiedCandidates", b =>
+            modelBuilder.Entity("TEC_App.Models.CandidatesQualifiedForOpening", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -200,7 +200,7 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("QualifiedCandidates");
+                    b.ToTable("CandidatesQualifiedForOpening");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Session", b =>

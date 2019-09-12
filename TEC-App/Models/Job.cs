@@ -10,8 +10,7 @@ namespace TEC_App.Models
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-
-		public int JobHistoryId { get; set; }
-		public JobHistory JobHistory { get; set; }
+		public ICollection<Opening> Openings { get; set; }
+		public ICollection<JobHistory_Job> JobHistory_Job_Pairs { get; set; }
 	}
 }

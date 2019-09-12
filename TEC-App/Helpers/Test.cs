@@ -23,7 +23,7 @@ namespace TEC_App.Helpers
 					.ToList();
 				foreach (var v in list)
 				{
-					Console.WriteLine(v.NameId);
+					Console.WriteLine(v.FirstName);
 				}
 			}
 		}
