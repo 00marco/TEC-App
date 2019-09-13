@@ -14,5 +14,8 @@ namespace TEC_App.Models
 		public string City { get; set; }
 		public string Street { get; set; }
 
+		public ICollection<Address_Location> Address_Location_Pairs { get; set; }
+		public ICollection<Address_Candidate> Address_Candidate_Pairs { get; set; }
+
 	}
 }

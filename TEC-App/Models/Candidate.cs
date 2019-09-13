@@ -12,6 +12,7 @@ namespace TEC_App.Models
 		public string FirstName { get; set; }
 		public string MiddleName { get; set; }
 		public string LastName { get; set; }
+		public DateTime Timestamp { get; set; }
 
 
 		public ICollection<Address_Candidate> Addresses { get; set; }
@@ -19,8 +20,5 @@ namespace TEC_App.Models
 		public ICollection<Placement> Placements { get; set; }
 		public ICollection<Candidate_Qualification> CandidateQualifications { get; set; }
 		public ICollection<Candidate_Session> Candidate_Session_Pairs { get; set; }
-
-
-
 	}
 }

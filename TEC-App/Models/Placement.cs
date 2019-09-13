@@ -1,8 +1,11 @@
-﻿namespace TEC_App.Models
+﻿using System;
+
+namespace TEC_App.Models
 {
 	public class Placement
 	{
 		public int Id { get; set; }
+		public DateTime Timestamp { get; set; }
 
 		public int OpeningId { get; set; }
 		public Opening Opening { get; set; }

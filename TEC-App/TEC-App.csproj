@@ -163,7 +163,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\TecAppContext.cs" />
-    <Compile Include="Helpers\Test.cs" />
+    <Compile Include="Helpers\TestCases.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
     <Compile Include="Migrations\20190901085907_CreateTecDb_v0.0.0.cs" />
     <Compile Include="Migrations\20190901085907_CreateTecDb_v0.0.0.designer.cs">

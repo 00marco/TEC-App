@@ -9,8 +9,14 @@ using TEC_App.Models;
 
 namespace TEC_App.Helpers
 {
-	public class Test
+	public class TestCases
 	{
+		[Test]
+		public void AddCandidate(Candidate candidate)
+		{
+			throw new NotImplementedException();
+		}
+
 		[Test]
 		public void GetCandidatesTest()
 		{
@@ -28,5 +34,6 @@ namespace TEC_App.Helpers
 			}
 		}
 
+		
 	}
 }

@@ -25,11 +25,7 @@ namespace TEC_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CandidateId");
-
                     b.Property<string>("City");
-
-                    b.Property<int>("LocationId");
 
                     b.Property<string>("Province");
 
@@ -39,7 +35,7 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Address");
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Candidate", b =>
@@ -50,18 +46,11 @@ namespace TEC_App.Migrations
 
                     b.Property<int>("AddressId");
 
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("MiddleName");
+                    b.Property<int>("NameId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId")
-                        .IsUnique();
-
-                    b.ToTable("Candidate");
+                    b.ToTable("Candidates");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Candidate_Qualification", b =>
@@ -76,11 +65,7 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CandidateId");
-
-                    b.HasIndex("QualificationId");
-
-                    b.ToTable("Candidate_Qualification");
+                    b.ToTable("CandidateQualifications");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Candidate_Session", b =>
@@ -95,11 +80,7 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CandidateId");
-
-                    b.HasIndex("SessionId");
-
-                    b.ToTable("Candidate_Session");
+                    b.ToTable("Candidate_Session_Pairs");
                 });
 
             modelBuilder.Entity("TEC_App.Models.CandidatesQualifiedForOpening", b =>
@@ -114,10 +95,6 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CandidateId");
-
-                    b.HasIndex("OpeningId");
-
                     b.ToTable("CandidatesQualifiedForOpening");
                 });
 
@@ -129,12 +106,11 @@ namespace TEC_App.Migrations
 
                     b.Property<bool>("IsIncludedInList");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Company");
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Course", b =>
@@ -143,12 +119,13 @@ namespace TEC_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
+
+                    b.Property<int>("QualificationId");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Job", b =>
@@ -157,17 +134,11 @@ namespace TEC_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("JobHistoryId");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("JobHistoryId")
-                        .IsUnique();
-
-                    b.ToTable("Job");
+                    b.ToTable("Jobs");
                 });
 
             modelBuilder.Entity("TEC_App.Models.JobHistory", b =>
@@ -188,14 +159,10 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CandidateId");
-
-                    b.HasIndex("CompanyId");
-
-                    b.ToTable("JobHistory");
+                    b.ToTable("JobHistories");
                 });
 
-            modelBuilder.Entity("TEC_App.Models.Location", b =>
+            modelBuilder.Entity("TEC_App.Models.Locations", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -205,15 +172,7 @@ namespace TEC_App.Migrations
 
                     b.Property<int>("Capacity");
 
-                    b.Property<int>("SessionId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AddressId")
-                        .IsUnique();
-
-                    b.HasIndex("SessionId")
-                        .IsUnique();
 
                     b.ToTable("Locations");
                 });
@@ -224,11 +183,13 @@ namespace TEC_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CandidateId");
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("MiddleName");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CandidateId");
 
                     b.ToTable("Names");
                 });
@@ -247,18 +208,11 @@ namespace TEC_App.Migrations
 
                     b.Property<float>("HourlyPay");
 
-                    b.Property<int>("PlacementId");
-
                     b.Property<int>("RequiredQualificationId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("PlacementId")
-                        .IsUnique();
-
-                    b.ToTable("Opening");
+                    b.ToTable("Openings");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Placement", b =>
@@ -267,15 +221,13 @@ namespace TEC_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CandidateId");
+                    b.Property<int>("CandidateId");
 
                     b.Property<int>("OpeningId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CandidateId");
-
-                    b.ToTable("Placement");
+                    b.ToTable("Placements");
                 });
 
             modelBuilder.Entity("TEC_App.Models.PrerequisitesForCourse", b =>
@@ -290,11 +242,7 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("QualificationId");
-
-                    b.ToTable("PrerequisitesForCourse");
+                    b.ToTable("PrerequisitesForCourses");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Qualification", b =>
@@ -303,25 +251,15 @@ namespace TEC_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CourseId");
+                    b.Property<string>("Difficulty");
 
-                    b.Property<string>("Difficulty")
-                        .IsRequired();
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<int>("OpeningId");
+                    b.Property<string>("Name");
 
                     b.Property<int>("SourceCourseId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("OpeningId");
-
-                    b.ToTable("Qualification");
+                    b.ToTable("Qualifications");
                 });
 
             modelBuilder.Entity("TEC_App.Models.Session", b =>
@@ -342,151 +280,7 @@ namespace TEC_App.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
-                    b.ToTable("Session");
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Candidate", b =>
-                {
-                    b.HasOne("TEC_App.Models.Address", "Address")
-                        .WithOne("Candidate")
-                        .HasForeignKey("TEC_App.Models.Candidate", "AddressId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Candidate_Qualification", b =>
-                {
-                    b.HasOne("TEC_App.Models.Candidate", "Candidate")
-                        .WithMany("CandidatesQualifications")
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TEC_App.Models.Qualification", "Qualification")
-                        .WithMany("CandidatesQualifications")
-                        .HasForeignKey("QualificationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Candidate_Session", b =>
-                {
-                    b.HasOne("TEC_App.Models.Candidate", "Candidate")
-                        .WithMany("Candidate_Session_Pairs")
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TEC_App.Models.Session", "Session")
-                        .WithMany("Candidate_Sessions")
-                        .HasForeignKey("SessionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.CandidatesQualifiedForOpening", b =>
-                {
-                    b.HasOne("TEC_App.Models.Candidate", "Candidate")
-                        .WithMany("QualifiedCandidates")
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TEC_App.Models.Opening", "Opening")
-                        .WithMany("QualifiedCandidates")
-                        .HasForeignKey("OpeningId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Job", b =>
-                {
-                    b.HasOne("TEC_App.Models.JobHistory", "JobHistory")
-                        .WithOne("Job")
-                        .HasForeignKey("TEC_App.Models.Job", "JobHistoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.JobHistory", b =>
-                {
-                    b.HasOne("TEC_App.Models.Candidate", "Candidate")
-                        .WithMany("JobHistories")
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TEC_App.Models.Company", "Company")
-                        .WithMany("JobHistories")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Location", b =>
-                {
-                    b.HasOne("TEC_App.Models.Address", "Address")
-                        .WithOne("Location")
-                        .HasForeignKey("TEC_App.Models.Location", "AddressId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TEC_App.Models.Session", "Session")
-                        .WithOne("Location")
-                        .HasForeignKey("TEC_App.Models.Location", "SessionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Name", b =>
-                {
-                    b.HasOne("TEC_App.Models.Candidate", "Candidate")
-                        .WithMany()
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Opening", b =>
-                {
-                    b.HasOne("TEC_App.Models.Company", "Company")
-                        .WithMany("Openings")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TEC_App.Models.Placement", "Placement")
-                        .WithOne("Opening")
-                        .HasForeignKey("TEC_App.Models.Opening", "PlacementId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Placement", b =>
-                {
-                    b.HasOne("TEC_App.Models.Candidate")
-                        .WithMany("Placements")
-                        .HasForeignKey("CandidateId");
-                });
-
-            modelBuilder.Entity("TEC_App.Models.PrerequisitesForCourse", b =>
-                {
-                    b.HasOne("TEC_App.Models.Course", "Course")
-                        .WithMany("PrerequisitesForCourse")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TEC_App.Models.Qualification", "Qualification")
-                        .WithMany("PrerequisitesForCourse")
-                        .HasForeignKey("QualificationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Qualification", b =>
-                {
-                    b.HasOne("TEC_App.Models.Course", "Course")
-                        .WithMany("Qualifications")
-                        .HasForeignKey("CourseId");
-
-                    b.HasOne("TEC_App.Models.Opening", "Opening")
-                        .WithMany("Qualifications")
-                        .HasForeignKey("OpeningId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TEC_App.Models.Session", b =>
-                {
-                    b.HasOne("TEC_App.Models.Course", "Course")
-                        .WithMany("Sessions")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.ToTable("Sessions");
                 });
 #pragma warning restore 612, 618
         }

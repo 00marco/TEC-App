@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -8,8 +9,9 @@ using TEC_App.Models;
 
 namespace TEC_App.Helpers
 {
-	class TecAppContext : DbContext
+	public class TecAppContext : DbContext
 	{
+		#region Properties
 		public DbSet<Candidate> Candidates { get; set; }
 		public DbSet<Company> Companies { get; set; }
 		public DbSet<Course> Courses { get; set; }
@@ -19,14 +21,12 @@ namespace TEC_App.Helpers
 		public DbSet<Qualification> Qualifications { get; set; }
 		public DbSet<Session> Sessions { get; set; }
 		public DbSet<PrerequisitesForCourse> PrerequisitesForCourses { get; set; }
-		public DbSet<Name> Names { get; set; }
-		public DbSet<CandidatesQualifiedForOpening> QualifiedCandidates { get; set; }
 		public DbSet<Address> Addresses { get; set; }
 		public DbSet<Job> Jobs { get; set; }
 		public DbSet<Location> Locations { get; set; }
 		public DbSet<Candidate_Qualification> CandidateQualifications { get; set; }
-		public DbSet<Candidate_Session> Candidate_Session_Pairs { get; set; }	
-
+		public DbSet<Candidate_Session> Candidate_Session_Pairs { get; set; }
+		#endregion
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -37,178 +37,124 @@ namespace TEC_App.Helpers
 		{
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.Entity<Address>(c =>
-				{
-					c.ToTable("Address");
-					c.HasKey(d => d.Id);
-					c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-					c.HasOne(d => d.Candidate)
-						.WithOne(d => d.Address)
-						.HasForeignKey<Candidate>(d=>d.AddressId);
-						
-
-					c.HasOne(d => d.Location)
-						.WithOne(d => d.Address)
-						.HasForeignKey<Location>(d=>d.AddressId);
-				}
-			);
-
-			modelBuilder.Entity<Candidate>(c =>
 			{
+				c.ToTable("Address");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+
+				c.HasMany(d => d.Address_Location_Pairs)
+					.WithOne(d => d.Address)
+					.HasForeignKey(d => d.AddressId);
+
+				c.HasMany(d => d.Address_Candidate_Pairs)
+					.WithOne(d => d.Address)
+					.HasForeignKey(d => d.AddressId);
+			});
+			modelBuilder.Entity<Address_Candidate>(c => {
+				c.ToTable("Address_Candidate");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			});
+			modelBuilder.Entity<Address_Location>(c => {
+				c.ToTable("Address_Location");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			});
+			modelBuilder.Entity<Candidate>(c => {
 				c.ToTable("Candidate");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.AddressId).IsRequired();
-
-				//c.HasOne(d => d.Address)
-				//	.WithOne(d => d.Candidate);
-
 			});
-
-			modelBuilder.Entity<Candidate_Session>(c =>
-			{
-				c.ToTable("Candidate_Session");
-				c.HasKey(d => d.Id);
-				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CandidateId).IsRequired();
-				c.Property(d => d.SessionId).IsRequired();
-				//TODO setup foreign keys
-
-
-			});
-			modelBuilder.Entity<Candidate_Qualification>(c =>
-			{
+			modelBuilder.Entity<Candidate_Qualification>(c => {
 				c.ToTable("Candidate_Qualification");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CandidateId).IsRequired();
-				c.Property(d => d.QualificationId).IsRequired();
-				//TODO setup foreign keys
 			});
-			modelBuilder.Entity<Company>(c =>
-			{
+			modelBuilder.Entity<Candidate_Session>(c => {
+				c.ToTable("Candidate_Session");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			});
+			modelBuilder.Entity<Company>(c => {
 				c.ToTable("Company");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.IsIncludedInList).IsRequired();
-				c.Property(d => d.Name).IsRequired();
 			});
-			modelBuilder.Entity<Course>(c =>
-			{
+			modelBuilder.Entity<Course>(c => {
 				c.ToTable("Course");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.Name).IsRequired();
-				//c.Property(d => d.QualificationId).IsRequired();
-				//TODO setup foreign keys
 			});
-			modelBuilder.Entity<Job>(c =>
-			{
+			modelBuilder.Entity<Job>(c => {
 				c.ToTable("Job");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.Name).IsRequired();
-
 			});
-			modelBuilder.Entity<JobHistory>(c =>
-			{
+			modelBuilder.Entity<JobHistory>(c => {
 				c.ToTable("JobHistory");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CandidateId).IsRequired();
-				c.Property(d => d.CompanyId).IsRequired();
-				c.Property(d => d.JobId).IsRequired();
-				c.Property(d => d.DateTimeEnd).IsRequired();
-				c.Property(d => d.DateTimeStart).IsRequired();
-				//TODO setup foreign keys
-				c.HasOne(d => d.Job)
-					.WithOne(d => d.JobHistory)
-					.HasForeignKey<Job>(d=>d.JobHistoryId);
 			});
-			modelBuilder.Entity<Location>(c =>
-			{
-				c.ToTable("Locations");
+			modelBuilder.Entity<JobHistory_Company>(c => {
+				c.ToTable("JobHistory_Company");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.AddressId).IsRequired();
-				c.Property(d => d.Capacity).IsRequired();
-				//TODO setup foreign keys
-
-				c.HasOne(d => d.Session)
-					.WithOne(d => d.Location)
-					.HasForeignKey<Session>(d=>d.LocationId);
 			});
-			modelBuilder.Entity<Opening>(c =>
-			{
+			modelBuilder.Entity<JobHistory_Job>(c => {
+				c.ToTable("JobHistory_Job");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			});
+			modelBuilder.Entity<Location>(c => {
+				c.ToTable("Location");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			});
+			modelBuilder.Entity<Opening>(c => {
 				c.ToTable("Opening");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CompanyId).IsRequired();
-				c.Property(d => d.DateTimeEnd).IsRequired();
-				c.Property(d => d.DateTimeStart).IsRequired();
-				c.Property(d => d.HourlyPay).IsRequired();
-				//todo setup foreign keys
 			});
-			modelBuilder.Entity<Placement>(c =>
-			{
+			modelBuilder.Entity<Placement>(c => {
 				c.ToTable("Placement");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				//c.Property(d => d.CandidateId).IsRequired();
-				c.Property(d => d.OpeningId).IsRequired();
-				//todo setup foreign keys
-				c.HasOne(d => d.Opening)
-					.WithOne(d => d.Placement)
-					.HasForeignKey<Opening>(d=>d.PlacementId);
 			});
-			modelBuilder.Entity<PrerequisitesForCourse>(c =>
-			{
+			modelBuilder.Entity<PrerequisitesForCourse>(c => {
 				c.ToTable("PrerequisitesForCourse");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CourseId).IsRequired();
-				c.Property(d => d.QualificationId).IsRequired();
-				//todo setup foreign keys
 			});
-			modelBuilder.Entity<Qualification>(c =>
-			{
+			modelBuilder.Entity<Qualification>(c => {
 				c.ToTable("Qualification");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.Difficulty).IsRequired();
-				c.Property(d => d.Name).IsRequired();
-				c.Property(d => d.SourceCourseId).IsRequired();
-				//todo setup foreign keys
 			});
-			modelBuilder.Entity<CandidatesQualifiedForOpening>(c =>
-			{
-				c.ToTable("CandidatesQualifiedForOpening");
-				c.HasKey(d => d.Id);
-				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CandidateId).IsRequired();
-				c.Property(d => d.OpeningId).IsRequired();
-				//todo setup foreign keys
-			});
-			modelBuilder.Entity<Session>(c =>
-			{
+			modelBuilder.Entity<Session>(c => {
 				c.ToTable("Session");
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-				c.Property(d => d.CourseId).IsRequired();
-				c.Property(d => d.DateTimeEnd).IsRequired();
-				c.Property(d => d.DateTimeStart).IsRequired();
-				c.Property(d => d.LocationId).IsRequired();
-				c.Property(d => d.Price).IsRequired();
-				//todo setup foreign keys
-				c.HasOne(d=>d.Location)
-					.WithOne(d=>d.Session)
-					.HasForeignKey<Location>(d=>d.SessionId);
 			});
+			modelBuilder.Entity<Session_Location>(c => {
+				c.ToTable("Session_Location");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			});
+			//modelBuilder.Entity<Address>(c =>
+			//	{
+			//		c.ToTable("Address");
+			//		c.HasKey(d => d.Id);
+			//		c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			//		c.HasOne(d => d.Candidate)
+			//			.WithOne(d => d.Address)
+			//			.HasForeignKey<Candidate>(d=>d.AddressId);
 
 
-
-
-
-
+			//		c.HasOne(d => d.Location)
+			//			.WithOne(d => d.Address)
+			//			.HasForeignKey<Location>(d=>d.AddressId);
+			//	}
+			//);
 
 		}
 	}
