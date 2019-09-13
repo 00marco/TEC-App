@@ -22,6 +22,7 @@ namespace TEC_App.Models
 		public int JobId { get; set; }
 		public Job Job { get; set; }
 
+		public ICollection<Placement> Placements { get; set; }
 	}
 
 }
