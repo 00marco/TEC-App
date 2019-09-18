@@ -156,9 +156,9 @@ namespace TEC_App.Helpers
 					.WithOne(d => d.Course)
 					.HasForeignKey(d => d.CourseId);
 
-				c.HasOne(d => d.Qualification)
-					.WithMany(d => d.Courses)
-					.HasForeignKey(d => d.QualificationId);
+				//c.HasOne(d => d.Qualification)
+				//	.WithMany(d => d.Courses)
+				//	.HasForeignKey(d => d.QualificationId);
 			});
 			modelBuilder.Entity<Job>(c => {
 				c.ToTable("Job");
@@ -293,10 +293,23 @@ namespace TEC_App.Helpers
 					.WithOne(d => d.Qualification)
 					.HasForeignKey(d => d.QualificationId);
 
-				c.HasMany(d => d.Courses)
-					.WithOne(d => d.Qualification)
+				//c.HasMany(d => d.Courses)
+				//	.WithOne(d => d.Qualification)
+				//	.HasForeignKey(d => d.QualificationId);
+
+			});
+			modelBuilder.Entity<QualificationDevelopedByCourse>(c => {
+				c.ToTable("QualificationDevelopedByCourse");
+				c.HasKey(d => d.Id);
+				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+
+				c.HasOne(d => d.Qualification)
+					.WithMany(d => d.QualificationsDevelopedByCourse)
 					.HasForeignKey(d => d.QualificationId);
 
+				c.HasOne(d => d.Course)
+					.WithMany(d => d.QualificationsDevelopedByCourse)
+					.HasForeignKey(d => d.CourseId);
 			});
 			modelBuilder.Entity<Session>(c => {
 				c.ToTable("Session");

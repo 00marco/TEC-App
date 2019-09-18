@@ -165,6 +165,11 @@
     <Compile Include="Helpers\TecAppContext.cs" />
     <Compile Include="Helpers\TestCases.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
+    <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.cs" />
+    <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.designer.cs">
+      <DependentUpon>20190918145215_CreateTECDb-v1.0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Address_Candidate.cs" />
     <Compile Include="Models\Address_Location.cs" />
@@ -175,6 +180,7 @@
     <Compile Include="Models\JobHistory_Company.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\PrerequisitesForCourse.cs" />
+    <Compile Include="Models\QualificationDevelopedByCourse.cs" />
     <Compile Include="Models\Session_Location.cs" />
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\JobOpenings_ViewModel.cs" />
