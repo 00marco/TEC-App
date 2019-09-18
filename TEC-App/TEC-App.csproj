@@ -163,7 +163,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\TecAppContext.cs" />
-    <Compile Include="Helpers\TestCases.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.designer.cs">
@@ -182,6 +181,10 @@
     <Compile Include="Models\PrerequisitesForCourse.cs" />
     <Compile Include="Models\QualificationDevelopedByCourse.cs" />
     <Compile Include="Models\Session_Location.cs" />
+    <Compile Include="Tests\CompanyManagement.cs" />
+    <Compile Include="Tests\CompanyOperations.cs" />
+    <Compile Include="Tests\CourseManagement.cs" />
+    <Compile Include="Tests\EmployeeManagement.cs" />
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\JobOpenings_ViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

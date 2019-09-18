@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FluentAssertions;
 using NUnit.Framework;
+using TEC_App.Helpers;
 using TEC_App.Models;
 
-namespace TEC_App.Helpers
+namespace TEC_App.Tests
 {
-	public class TestCases
+	public class EmployeeManagement
 	{
 		[Test]
 		public void AddCandidate(Candidate candidate)
@@ -18,7 +18,7 @@ namespace TEC_App.Helpers
 		}
 
 		[Test]
-		public void GetCandidatesTest()
+		public void GetCandidates()
 		{
 			using (var context = new TecAppContext())
 			{
@@ -34,6 +34,16 @@ namespace TEC_App.Helpers
 			}
 		}
 
-		
+		[Test]
+		public void UpdateCandidateDetails()
+		{
+			throw new NotImplementedException();
+		}
+
+		[Test]
+		public void RemoveCandidate()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
