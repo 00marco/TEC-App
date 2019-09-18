@@ -165,19 +165,6 @@
     <Compile Include="Helpers\TecAppContext.cs" />
     <Compile Include="Helpers\TestCases.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
-    <Compile Include="Migrations\20190901085907_CreateTecDb_v0.0.0.cs" />
-    <Compile Include="Migrations\20190901085907_CreateTecDb_v0.0.0.designer.cs">
-      <DependentUpon>20190901085907_CreateTecDb_v0.0.0.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190901092919_CreateTecDb_v1.0.0.cs" />
-    <Compile Include="Migrations\20190901092919_CreateTecDb_v1.0.0.designer.cs">
-      <DependentUpon>20190901092919_CreateTecDb_v1.0.0.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190903072659_v2.0.0.cs" />
-    <Compile Include="Migrations\20190903072659_v2.0.0.designer.cs">
-      <DependentUpon>20190903072659_v2.0.0.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Address_Candidate.cs" />
     <Compile Include="Models\Address_Location.cs" />

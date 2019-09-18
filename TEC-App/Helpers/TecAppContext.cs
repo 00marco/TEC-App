@@ -35,7 +35,9 @@ namespace TEC_App.Helpers
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+
 			base.OnModelCreating(modelBuilder);
+			
 			modelBuilder.Entity<Address>(c =>
 			{
 				c.ToTable("Address");
