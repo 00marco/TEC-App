@@ -13,12 +13,172 @@ namespace TEC_App.Tests
 	public class EmployeeManagement
 	{
 
-		[Test]
-		public void AddCandidate(Candidate candidate)
+		//[Test]
+		public void AddQualifications()
 		{
-			throw new NotImplementedException();
+			#region 12 Qualifications
+
+			var q1 = new Qualification()
+			{
+				Code = "SEC-45",
+				Description = "Secretarial work, at least 45 words per minute",
+			};
+			var q2 = new Qualification()
+			{
+				Code = "SEC-60",
+				Description = "Secretarial work, at least 60 words per minute",
+			};
+
+			var q3 = new Qualification()
+			{
+				Code = "CLERK",
+				Description = "General clerking work",
+			};
+			var q4 = new Qualification()
+			{
+				Code = "PRG-VB",
+				Description = "Programmer, Visual Basic",
+			};
+
+			var q5 = new Qualification()
+			{
+				Code = "PRG-C++",
+				Description = "Programmer, C++",
+			};
+			var q6 = new Qualification()
+			{
+				Code = "DBA-ORA",
+				Description = "Database Administrator, Oracle",
+			};
+			var q7 = new Qualification()
+			{
+				Code = "DBA-DB2",
+				Description = "Database Administrator,IBMDB2",
+			};
+
+			var q8 = new Qualification()
+			{
+				Code = "DBA-SQLSERV",
+				Description = "Database Administrator, MS SQL Server",
+			};
+			var q9 = new Qualification()
+			{
+				Code = "SYS-1",
+				Description = "Systems Analyst, level 1",
+			};
+			var q10 = new Qualification()
+			{
+				Code = "SYS-2",
+				Description = "Systems Analyst, level2",
+			};
+
+			var q11 = new Qualification()
+			{
+				Code = "NW-NOV",
+				Description = "Network Administrator, Novell experience",
+			};
+			var q12 = new Qualification()
+			{
+				Code = "WD-CF",
+				Description = "Web Developer, ColdFusion",
+			};
+
+
+			#endregion
+
+			var qualifications = new List<Qualification>() {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12};
+			using (var context = new TecAppContext())
+			{
+				foreach (var v in qualifications)
+				{
+					context.Set<Qualification>().Add(v);
+					context.SaveChanges();
+				}
+			}
 		}
 
+		public void AddPlacementAndJobHistory()
+		{
+			#region 12 Qualifications
+
+			var q1 = new Qualification()
+			{
+				Code = "SEC-45",
+				Description = "Secretarial work, at least 45 words per minute",
+			};
+			var q2 = new Qualification()
+			{
+				Code = "SEC-60",
+				Description = "Secretarial work, at least 60 words per minute",
+			};
+
+			var q3 = new Qualification()
+			{
+				Code = "CLERK",
+				Description = "General clerking work",
+			};
+			var q4 = new Qualification()
+			{
+				Code = "PRG-VB",
+				Description = "Programmer, Visual Basic",
+			};
+
+			var q5 = new Qualification()
+			{
+				Code = "PRG-C++",
+				Description = "Programmer, C++",
+			};
+			var q6 = new Qualification()
+			{
+				Code = "DBA-ORA",
+				Description = "Database Administrator, Oracle",
+			};
+			var q7 = new Qualification()
+			{
+				Code = "DBA-DB2",
+				Description = "Database Administrator,IBMDB2",
+			};
+
+			var q8 = new Qualification()
+			{
+				Code = "DBA-SQLSERV",
+				Description = "Database Administrator, MS SQL Server",
+			};
+			var q9 = new Qualification()
+			{
+				Code = "SYS-1",
+				Description = "Systems Analyst, level 1",
+			};
+			var q10 = new Qualification()
+			{
+				Code = "SYS-2",
+				Description = "Systems Analyst, level2",
+			};
+
+			var q11 = new Qualification()
+			{
+				Code = "NW-NOV",
+				Description = "Network Administrator, Novell experience",
+			};
+			var q12 = new Qualification()
+			{
+				Code = "WD-CF",
+				Description = "Web Developer, ColdFusion",
+			};
+
+
+			#endregion
+
+			var qualifications = new List<Qualification>() { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12 };
+			using (var context = new TecAppContext())
+			{
+				foreach (var v in qualifications)
+				{
+					context.Set<Qualification>().Add(v);
+					context.SaveChanges();
+				}
+			}
+		}
 		[Test]
 		public void GetCandidates()
 		{
@@ -87,7 +247,7 @@ namespace TEC_App.Tests
 					{
 						foreach (var qualification in candidateQualifications)
 						{
-							Console.WriteLine($"\t{qualification.Qualification.Code}-{qualification.Qualification.Name}-({qualification.QualificationId})");
+							Console.WriteLine($"\t{qualification.Qualification.Code}-({qualification.QualificationId})");
 						}
 					}
 					else
@@ -100,12 +260,13 @@ namespace TEC_App.Tests
 					if (jobHistory.Count() > 0)
 					{
 
-						foreach (var jobhistory in jobHistory)
+						foreach (var x in jobHistory)
 						{
-							Console.WriteLine(
-								$"\t({jobhistory.Id})-{jobhistory.JobHistory_Job_Pairs.FirstOrDefault(c => c.JobHistory.Id == jobhistory.Id).Job.Name}" +
-								$" at {jobhistory.JobHistory_Company_Pairs.FirstOrDefault(c=>c.JobHistoryId==jobhistory.Id).Company.Name}" +
-								$" from {jobhistory.DateTimeStart} to {jobhistory.DateTimeEnd}");
+							var jobName = x.JobHistory_Job_Pairs.FirstOrDefault(c => c.JobHistory.Id == x.Id)?.Job.Name;
+							var companyName = x.JobHistory_Company_Pairs.FirstOrDefault(c => c.JobHistoryId == x.Id)?.Company.Name;
+							var start = x.DateTimeStart;
+							var end = x.DateTimeEnd;
+							Console.WriteLine($"\t{jobName} at {companyName} from {start} to {end}");
 						}
 					}
 					else

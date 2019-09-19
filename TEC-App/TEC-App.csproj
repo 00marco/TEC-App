@@ -176,6 +176,10 @@
     <Compile Include="Migrations\20190919075156_CreateTECDb-v3.0.0.designer.cs">
       <DependentUpon>20190919075156_CreateTECDb-v3.0.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20190919083219_CreateTECDb-v4.0.0.cs" />
+    <Compile Include="Migrations\20190919083219_CreateTECDb-v4.0.0.designer.cs">
+      <DependentUpon>20190919083219_CreateTECDb-v4.0.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Address_Candidate.cs" />
