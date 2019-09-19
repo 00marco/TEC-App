@@ -44,7 +44,11 @@ namespace TEC_App.Helpers
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 
-				c.HasMany(d => d.Address_Location_Pairs)
+				//c.HasMany(d => d.Address_Location_Pairs)
+				//	.WithOne(d => d.Address)
+				//	.HasForeignKey(d => d.AddressId);
+
+				c.HasMany(d => d.Locations)
 					.WithOne(d => d.Address)
 					.HasForeignKey(d => d.AddressId);
 
@@ -65,19 +69,19 @@ namespace TEC_App.Helpers
 					.WithMany(d => d.Addresses)
 					.HasForeignKey(d => d.CandidateId);
 			});
-			modelBuilder.Entity<Address_Location>(c => {
-				c.ToTable("Address_Location");
-				c.HasKey(d => d.Id);
-				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+			//modelBuilder.Entity<Address_Location>(c => {
+			//	c.ToTable("Address_Location");
+			//	c.HasKey(d => d.Id);
+			//	c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 
-				c.HasOne(d => d.Address)
-					.WithMany(d => d.Address_Location_Pairs)
-					.HasForeignKey(d => d.AddressId);
+			//	c.HasOne(d => d.Address)
+			//		.WithMany(d => d.Address_Location_Pairs)
+			//		.HasForeignKey(d => d.AddressId);
 
-				c.HasOne(d => d.Location)
-					.WithMany(d => d.Address_Location_Pairs)
-					.HasForeignKey(d => d.LocationId);
-			});
+			//	c.HasOne(d => d.Location)
+			//		.WithMany(d => d.Address_Location_Pairs)
+			//		.HasForeignKey(d => d.LocationId);
+			//});
 			modelBuilder.Entity<Candidate>(c => {
 				c.ToTable("Candidate");
 				c.HasKey(d => d.Id);
@@ -221,9 +225,13 @@ namespace TEC_App.Helpers
 				c.HasKey(d => d.Id);
 				c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
 
-				c.HasMany(d => d.Address_Location_Pairs)
-					.WithOne(d => d.Location)
-					.HasForeignKey(d => d.LocationId);
+				//c.HasMany(d => d.Address_Location_Pairs)
+				//	.WithOne(d => d.Location)
+				//	.HasForeignKey(d => d.LocationId);
+
+				c.HasOne(d => d.Address)
+					.WithMany(d => d.Locations)
+					.HasForeignKey(d => d.AddressId);
 
 				c.HasMany(d => d.Session_Location_Pairs)
 					.WithOne(d => d.Location)
