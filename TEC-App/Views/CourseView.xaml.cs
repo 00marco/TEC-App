@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace TEC_App.Views
 {
 	/// <summary>
-	/// Interaction logic for JobOpeningsView.xaml
+	/// Interaction logic for CourseView.xaml
 	/// </summary>
-	public partial class JobOpeningsView : UserControl
+	public partial class CourseView : UserControl
 	{
-		public JobOpeningsView()
+		public CourseView()
 		{
 			InitializeComponent();
 		}

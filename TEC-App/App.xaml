@@ -10,13 +10,6 @@
 	    <ResourceDictionary>
 		    <helpers:ViewModelLocator x:Key="Locator"></helpers:ViewModelLocator>
 
-			<DataTemplate DataType="{x:Type viewModels:JobOpenings_ViewModel}">
-			    <views:JobOpeningsView />
-		    </DataTemplate>
-		    <DataTemplate DataType="{x:Type viewModels:CandidateView_ViewModel}">
-			    <views:CandidateView />
-		    </DataTemplate>
-
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

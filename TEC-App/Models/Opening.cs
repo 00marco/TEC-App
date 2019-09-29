@@ -6,6 +6,7 @@ namespace TEC_App.Models
 	public class Opening
 	{
 		public int Id { get; set; }
+		public Guid OpeningNumber { get; set; }
 		public DateTime DateTimeStart { get; set; }
 		public DateTime DateTimeEnd { get; set; }
 		public float HourlyPay { get; set; }
