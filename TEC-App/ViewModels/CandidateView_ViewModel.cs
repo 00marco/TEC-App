@@ -7,9 +7,9 @@ using TEC_App.Services;
 
 namespace TEC_App.ViewModels
 {
-    public class CandidateView_ViewModel
+    public class CandidateView_ViewModel : ViewModelBase
     {
-	    public CandidateView_ViewModel(CompanyService companyService)
+	    public CandidateView_ViewModel()
 	    {
 		    
 	    }

@@ -16,8 +16,15 @@
 		<StackPanel Grid.Column="0">
 			<Button Command="{Binding Path=GotoCandidateViewCommand}"
 			        Content="Candidate View"/>
-			<Button Command="{Binding Path=GotoJobOpeningsViewCommand}"
-			        Content="Job Openings"></Button>
+			<Button Command="{Binding Path=GotoCompaniesViewCommand}"
+			        Content="Companies View"/>
+			<Button Command="{Binding Path=GotoCourseViewCommand}"
+			        Content="Course View"/>
+			<Button Command="{Binding Path=GotoOpeningsViewCommand}"
+			        Content="Openings View"/>
+			<Button Command="{Binding Path=GotoPlacementsViewCommand}"
+			        Content="Placements View"/>
+
 		</StackPanel>
 		<ContentControl Content="{Binding Path=CurrentVM}"
 		                Grid.Column="1"></ContentControl>	   

@@ -9,6 +9,21 @@
     <Application.Resources>
 	    <ResourceDictionary>
 		    <helpers:ViewModelLocator x:Key="Locator"></helpers:ViewModelLocator>
+			<DataTemplate DataType="{x:Type viewModels:CandidateView_ViewModel}">
+				<views:CandidateView/>
+			</DataTemplate>
+		    <DataTemplate DataType="{x:Type viewModels:CompaniesView_ViewModel}">
+			    <views:CompaniesView/>
+		    </DataTemplate>
+		    <DataTemplate DataType="{x:Type viewModels:CourseView_ViewModel}">
+			    <views:CourseView/>
+		    </DataTemplate>
+		    <DataTemplate DataType="{x:Type viewModels:OpeningsView_ViewModel}">
+			    <views:OpeningsView/>
+		    </DataTemplate>
+		    <DataTemplate DataType="{x:Type viewModels:PlacementsView_ViewModel}">
+			    <views:PlacementsView/>
+		    </DataTemplate>
 
 		</ResourceDictionary>
 	</Application.Resources>

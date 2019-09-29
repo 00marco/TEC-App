@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TEC_App.ViewModels
 {
-    public class CourseView_ViewModel
-    {
+    public class CourseView_ViewModel : ViewModelBase
+	{
         
     }
 }

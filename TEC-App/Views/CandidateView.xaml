@@ -7,7 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding Path=CandidateViewViewModel, Source={StaticResource Locator}}">
-    <Grid>
-            <TextBlock Text="Candidate View"></TextBlock>
+	<Grid>
+		<TextBlock Text="CandidateView"></TextBlock>
+		<!--<ListBox>
+			   <ListBox.ItemTemplate>
+				   <DataTemplate>
+
+				   </DataTemplate>
+			   </ListBox.ItemTemplate>
+           </ListBox>-->
     </Grid>
 </UserControl>

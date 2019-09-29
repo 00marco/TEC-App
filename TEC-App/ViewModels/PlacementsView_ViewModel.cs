@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TEC_App.ViewModels
 {
-    public class PlacementsView_ViewModel
-    {
+    public class PlacementsView_ViewModel : ViewModelBase
+	{
         
     }
 }

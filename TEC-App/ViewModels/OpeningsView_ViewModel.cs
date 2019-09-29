@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TEC_App.ViewModels
 {
-    public class OpeningsView_ViewModel
-    {
+    public class OpeningsView_ViewModel : ViewModelBase
+	{
     }
 }

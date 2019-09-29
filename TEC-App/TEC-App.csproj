@@ -211,7 +211,6 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OpeningsView_ViewModel.cs" />
     <Compile Include="ViewModels\PlacementsView_ViewModel.cs" />
-    <Compile Include="ViewModels\Sidebar_ViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\CandidateView.xaml.cs">
       <DependentUpon>CandidateView.xaml</DependentUpon>
@@ -227,9 +226,6 @@
     </Compile>
     <Compile Include="Views\PlacementsView.xaml.cs">
       <DependentUpon>PlacementsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Sidebar.xaml.cs">
-      <DependentUpon>Sidebar.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -260,10 +256,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlacementsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Sidebar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
