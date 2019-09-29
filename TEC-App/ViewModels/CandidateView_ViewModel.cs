@@ -21,7 +21,7 @@ namespace TEC_App.ViewModels
 
 	    private void TestProc()
 	    {
-		    var message = new NotificationMessage("Opening");
+		    var message = new NotificationMessage(nameof(OpeningsView_ViewModel));
 		    Messenger.Default.Send(message);
 		}
     }

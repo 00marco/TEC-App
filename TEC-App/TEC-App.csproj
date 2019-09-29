@@ -196,6 +196,10 @@
     <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\Interfaces\ICompanyService.cs" />
+    <Compile Include="Services\Interfaces\ICourseService.cs" />
+    <Compile Include="Services\Interfaces\IEmployeeService.cs" />
+    <Compile Include="Services\Interfaces\IOpeningsService.cs" />
     <Compile Include="Services\MockServices\MockCompanyService.cs" />
     <Compile Include="Services\MockServices\MockCourseService.cs" />
     <Compile Include="Services\MockServices\MockEmployeeService.cs" />
@@ -208,6 +212,7 @@
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\CompaniesView_ViewModel.cs" />
     <Compile Include="ViewModels\CourseView_ViewModel.cs" />
+    <Compile Include="Helpers\InitializeIoc.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OpeningsView_ViewModel.cs" />
     <Compile Include="ViewModels\PlacementsView_ViewModel.cs" />

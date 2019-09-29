@@ -9,6 +9,7 @@ namespace TEC_App.Helpers
 {
 	public class ViewModelLocator
 	{
+		private readonly InitializeIoc initializeIoc;
 		public ViewModelLocator()
 		{
 			MainViewModel = new MainViewModel();
@@ -17,6 +18,7 @@ namespace TEC_App.Helpers
 			CourseViewViewModel = new CourseView_ViewModel();
 			OpeningsViewViewModel = new OpeningsView_ViewModel();
 			PlacementsViewViewModel = new PlacementsView_ViewModel();
+			initializeIoc = new InitializeIoc();
 		}
 		public MainViewModel MainViewModel { get; set; }
 		public CandidateView_ViewModel CandidateViewViewModel { get; set; }

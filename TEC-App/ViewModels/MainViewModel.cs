@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,20 +23,23 @@ namespace TEC_App.ViewModels
 		{
 			switch (message.Notification)
 			{
-				case "Opening":
-					CurrentVM = new OpeningsView_ViewModel();
+				case nameof(OpeningsView_ViewModel):
+					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
 					break;
-				case "Candidate":
-					CurrentVM = new CandidateView_ViewModel();
+				case nameof(CandidateView_ViewModel):
+					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateView_ViewModel>();
 					break;
-				case "Course":
-					CurrentVM = new CourseView_ViewModel();
+				case nameof(CourseView_ViewModel):
+					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CourseView_ViewModel>();
+
 					break;
-				case "Company":
-					CurrentVM = new CompaniesView_ViewModel();
+				case nameof(CompaniesView_ViewModel):
+					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CompaniesView_ViewModel>();
+
 					break;
-				case "Placement":
-					CurrentVM = new PlacementsView_ViewModel();
+				case nameof(PlacementsView_ViewModel):
+					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<PlacementsView_ViewModel>();
+
 					break;
 				default:
 					MessageBox.Show($"{message.Notification} notification message error. Not recognized");
