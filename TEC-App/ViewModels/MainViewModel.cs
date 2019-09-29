@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace TEC_App.ViewModels
 {
@@ -15,6 +17,35 @@ namespace TEC_App.ViewModels
 		public MainViewModel()
 		{
 			CurrentVM = new OpeningsView_ViewModel();
+			Messenger.Default.Register<NotificationMessage>(this, NotifyMe);
+		}
+
+		private void NotifyMe(NotificationMessage message)
+		{
+			switch (message.Notification)
+			{
+				case "Opening":
+					CurrentVM = new OpeningsView_ViewModel();
+					break;
+				case "Candidate":
+					CurrentVM = new CandidateView_ViewModel();
+					break;
+				case "Course":
+					CurrentVM = new CourseView_ViewModel();
+					break;
+				case "Company":
+					CurrentVM = new CompaniesView_ViewModel();
+					break;
+				case "Placement":
+					CurrentVM = new PlacementsView_ViewModel();
+					break;
+				default:
+					MessageBox.Show($"{message.Notification} notification message error. Not recognized");
+					CurrentVM = new OpeningsView_ViewModel();
+					break;
+
+			}
+
 		}
 
 		public ViewModelBase CurrentVM
