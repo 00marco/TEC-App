@@ -12,9 +12,9 @@ namespace TEC_App.ViewModels
 	public class CompanyViewDTO
 	{
 		public string CompanyNAme { get; set; }
-		public List<string> OpeningsByCompany { get; set; }
-		public List<string> OngoingJobsByCompany { get; set; }
-		public List<string> SatisfiedJobsByCompany { get; set; }
+		public string OpeningsByCompany { get; set; }
+		public string OngoingJobsByCompany { get; set; }
+		public string SatisfiedJobsByCompany { get; set; }
 
 	}
     public class CompaniesView_ViewModel : ViewModelBase

@@ -7,7 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Path=PlacementsViewViewModel, Source={StaticResource Locator}}">
     <Grid>
-		<TextBlock Text="Placements"></TextBlock>
 
+		<ListBox ItemsSource="{Binding Path=PlacementViewDtos}"
+		         Margin="10">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock Text="{Binding Path=CandidateName}"></TextBlock>
+						<TextBlock Text="{Binding Path=HoursWorked}"></TextBlock>
+						<TextBlock Text="{Binding Path=Payment}"></TextBlock>
+						<TextBlock Text="{Binding Path=DateTimeStart}"></TextBlock>
+						<TextBlock Text="{Binding Path=DateTimeEnd}"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 </Grid>
 </UserControl>

@@ -15,8 +15,10 @@ namespace TEC_App.ViewModels
 		public DateTime DateTimeStart { get; set; }
 		public DateTime DateTimeEnd { get; set; }
 	}
-    public class CourseView_ViewModel : ViewModelBase
-    {
-	    public ObservableCollection<CourseViewDTO> CourseViewDtos { get; set; } =
-		    new ObservableCollection<CourseViewDTO>();
+
+	public class CourseView_ViewModel : ViewModelBase
+	{
+		public ObservableCollection<CourseViewDTO> CourseViewDtos { get; set; } =
+			new ObservableCollection<CourseViewDTO>();
+	}
 }

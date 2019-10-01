@@ -9,17 +9,22 @@
              DataContext="{Binding Path=CandidateViewViewModel, Source={StaticResource Locator}}">
 	<Grid>
 		<!--<TextBlock Text="CandidateView"></TextBlock>-->
-		<Button Content="Go to openings"
+		<!--<Button Content="Go to openings"
 		        Command="{Binding Path=TestChangeToOpeningsViewCommand}"
 		        HorizontalAlignment="Center"
 		        VerticalAlignment="Center"
-		        Padding="5,2"></Button>
-		<!--<ListBox>
+		        Padding="5,2"></Button>-->
+		<ListBox Margin="10"
+		         ItemsSource="{Binding Path=Candidates}">
 			   <ListBox.ItemTemplate>
 				   <DataTemplate>
+					<StackPanel>
+						<TextBlock Text="{Binding Path=CandidateName}"/>
+						<TextBlock Text="{Binding Path=Qualifications}"/>
 
+</StackPanel>
 				   </DataTemplate>
 			   </ListBox.ItemTemplate>
-           </ListBox>-->
+           </ListBox>
     </Grid>
 </UserControl>

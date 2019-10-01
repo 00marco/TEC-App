@@ -6,8 +6,19 @@
              xmlns:local="clr-namespace:TEC_App.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Path=CourseViewViewModel, Source={StaticResource Locator}}">
-    <Grid>
-		<TextBlock Text="Course"></TextBlock>
-
-</Grid>
+	<Grid>
+		<ListBox ItemsSource="{Binding Path=CourseViewDtos}"
+		         Margin="10">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock Text="{Binding Path=CourseName}"/>
+						<TextBlock Text="{Binding Path=Location}"/>
+						<TextBlock Text="{Binding Path=DateTimeStart}"/>
+						<TextBlock Text="{Binding Path=DateTimeEnd}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
 </UserControl>

@@ -7,7 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Path=CompaniesViewViewModel, Source={StaticResource Locator}}">
     <Grid>
-		<TextBlock Text="Companies"></TextBlock>
+		<ListBox Margin ="10"
+		         ItemsSource="{Binding Path=CompanyViewDtos}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
 
-</Grid>
+						<TextBlock Text="{Binding Path=CompanyNAme}"/>
+						<TextBlock Text="Ongoing jobs"></TextBlock>
+
+						<TextBlock Text="{Binding Path=OngoingJobsByCompany}"/>
+						<TextBlock Text="Openings"></TextBlock>
+
+<TextBlock Text="{Binding Path=OpeningsByCompany}"/>
+						<TextBlock Text="Satisfied jobs"></TextBlock>
+						<TextBlock Text="{Binding Path=SatisfiedJobsByCompany}"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+    </Grid>
 </UserControl>
