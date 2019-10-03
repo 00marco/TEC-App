@@ -19,8 +19,10 @@
 			   <ListBox.ItemTemplate>
 				   <DataTemplate>
 					<StackPanel>
-						<TextBlock Text="{Binding Path=CandidateName}"/>
-						<TextBlock Text="{Binding Path=Qualifications}"/>
+						<TextBlock Text="{Binding Path=CandidateWithQualificationsDto.CandidateName}"/>
+						<TextBlock Text="{Binding Path=CandidateWithQualificationsDto.Qualifications}"/>
+						<Button Content="View Details"
+						        Command="{Binding Path=GotoCandidateDetailsCommand}"></Button>
 
 </StackPanel>
 				   </DataTemplate>

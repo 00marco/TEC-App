@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using TEC_App.Helpers;
 using TEC_App.Models;
+using TEC_App.Models.Db;
 
 namespace TEC_App.Tests
 {

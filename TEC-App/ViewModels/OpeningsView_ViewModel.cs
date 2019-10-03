@@ -6,22 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
+using TEC_App.Models.DTO;
 
 namespace TEC_App.ViewModels
 {
-	public class CompanyOpeningDTO
-	{
-		public string CompanyName { get; set; }
-		public string OpeningName { get; set; }
-		public string RequiredQualifications { get; set; }
-		public DateTime StartDate { get; set; }
-		public DateTime EndDate { get; set; }
-		public float HourlyPay { get; set; }
-	}
-    public class OpeningsView_ViewModel : ViewModelBase
+	public class OpeningsView_ViewModel : ViewModelBase
     {
-	    public ObservableCollection<CompanyOpeningDTO> CompanyOpeningDtos { get; set; } =
-		    new ObservableCollection<CompanyOpeningDTO>();
+	    public ObservableCollection<CompanyWithOpeningDetailsDTO> CompanyOpeningDtos { get; set; } =
+		    new ObservableCollection<CompanyWithOpeningDetailsDTO>();
 
 		public ICommand GotoListOfQualifiedCandidatesForOpeningCommand => new RelayCommand(GotoListOfQualifiedCandidatesForOpeningProc);
 

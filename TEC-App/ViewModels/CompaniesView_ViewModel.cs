@@ -6,18 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
+using TEC_App.Models.DTO;
 
 namespace TEC_App.ViewModels
 {
-	public class CompanyViewDTO
-	{
-		public string CompanyNAme { get; set; }
-		public string OpeningsByCompany { get; set; }
-		public string OngoingJobsByCompany { get; set; }
-		public string SatisfiedJobsByCompany { get; set; }
-
-	}
-    public class CompaniesView_ViewModel : ViewModelBase
+	public class CompaniesView_ViewModel : ViewModelBase
 	{
 	    public CompaniesView_ViewModel()
 	    {

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TEC_App.Models;
+using TEC_App.Models.Db;
 
 namespace TEC_App.Helpers
 {

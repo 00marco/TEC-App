@@ -181,41 +181,47 @@
       <DependentUpon>20190919083219_CreateTECDb-v4.0.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\Address_Candidate.cs" />
-    <Compile Include="Models\Address_Location.cs" />
-    <Compile Include="Models\Candidate_Session.cs" />
-    <Compile Include="Models\Candidate_Qualification.cs" />
-    <Compile Include="Models\Job.cs" />
-    <Compile Include="Models\JobHistory_Job.cs" />
-    <Compile Include="Models\JobHistory_Company.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\PrerequisitesForCourse.cs" />
-    <Compile Include="Models\QualificationDevelopedByCourse.cs" />
-    <Compile Include="Models\Session_Location.cs" />
-    <Compile Include="Services\CompanyService.cs" />
-    <Compile Include="Services\CourseService.cs" />
-    <Compile Include="Services\EmployeeService.cs" />
-    <Compile Include="Services\Interfaces\ICompanyService.cs" />
-    <Compile Include="Services\Interfaces\ICourseService.cs" />
-    <Compile Include="Services\Interfaces\IEmployeeService.cs" />
-    <Compile Include="Services\Interfaces\IOpeningsService.cs" />
-    <Compile Include="Services\MockServices\MockCompanyService.cs" />
-    <Compile Include="Services\MockServices\MockCourseService.cs" />
-    <Compile Include="Services\MockServices\MockEmployeeService.cs" />
-    <Compile Include="Services\MockServices\MockOpeningsService.cs" />
-    <Compile Include="Services\OpeningsService.cs" />
+    <Compile Include="Models\Db\Address.cs" />
+    <Compile Include="Models\Db\Address_Candidate.cs" />
+    <Compile Include="Models\Db\Address_Location.cs" />
+    <Compile Include="Models\Db\Candidate_Session.cs" />
+    <Compile Include="Models\Db\Candidate_Qualification.cs" />
+    <Compile Include="Models\Db\Job.cs" />
+    <Compile Include="Models\Db\JobHistory_Job.cs" />
+    <Compile Include="Models\Db\JobHistory_Company.cs" />
+    <Compile Include="Models\Db\Location.cs" />
+    <Compile Include="Models\Db\PrerequisitesForCourse.cs" />
+    <Compile Include="Models\Db\QualificationDevelopedByCourse.cs" />
+    <Compile Include="Models\Db\Session_Location.cs" />
+    <Compile Include="Models\ViewDTO\CandidateViewDTO.cs" />
+    <Compile Include="Services\CompanyService\CompanyService.cs" />
+    <Compile Include="Services\CourseService\CourseService.cs" />
+    <Compile Include="Services\EmployeeService\CandidateService.cs" />
+    <Compile Include="Services\CompanyService\ICompanyService.cs" />
+    <Compile Include="Services\CourseService\ICourseService.cs" />
+    <Compile Include="Services\EmployeeService\IEmployeeService.cs" />
+    <Compile Include="Services\OpeningsService\IOpeningsService.cs" />
+    <Compile Include="Services\CompanyService\MockCompanyService.cs" />
+    <Compile Include="Services\CourseService\MockCourseService.cs" />
+    <Compile Include="Services\EmployeeService\MockEmployeeService.cs" />
+    <Compile Include="Services\OpeningsService\MockOpeningsService.cs" />
+    <Compile Include="Services\OpeningsService\OpeningsService.cs" />
     <Compile Include="Tests\CompanyManagement.cs" />
     <Compile Include="Tests\CompanyOperations.cs" />
     <Compile Include="Tests\CourseManagement.cs" />
     <Compile Include="Tests\EmployeeManagement.cs" />
+    <Compile Include="Models\DTO\CandidateWithQualificationsDTO.cs" />
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\CompaniesView_ViewModel.cs" />
+    <Compile Include="Models\DTO\CompanyViewDTO.cs" />
+    <Compile Include="Models\DTO\CourseWithLocationDTO.cs" />
+    <Compile Include="Models\DTO\CompanyWithOpeningDetailsDTO.cs" />
     <Compile Include="ViewModels\CourseView_ViewModel.cs" />
     <Compile Include="Helpers\InitializeIoc.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OpeningsView_ViewModel.cs" />
     <Compile Include="ViewModels\PlacementsView_ViewModel.cs" />
+    <Compile Include="Models\DTO\PlacementWithCandidateDTO.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\CandidateView.xaml.cs">
       <DependentUpon>CandidateView.xaml</DependentUpon>
@@ -266,14 +272,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Candidate.cs" />
-    <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\JobHistory.cs" />
-    <Compile Include="Models\Opening.cs" />
-    <Compile Include="Models\Placement.cs" />
-    <Compile Include="Models\Qualification.cs" />
-    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\Db\Candidate.cs" />
+    <Compile Include="Models\Db\Company.cs" />
+    <Compile Include="Models\Db\Course.cs" />
+    <Compile Include="Models\Db\JobHistory.cs" />
+    <Compile Include="Models\Db\Opening.cs" />
+    <Compile Include="Models\Db\Placement.cs" />
+    <Compile Include="Models\Db\Qualification.cs" />
+    <Compile Include="Models\Db\Session.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

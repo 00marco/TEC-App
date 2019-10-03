@@ -12,13 +12,14 @@ namespace TEC_App.Helpers
 		private readonly InitializeIoc initializeIoc;
 		public ViewModelLocator()
 		{
-			MainViewModel = new MainViewModel();
-			CandidateViewViewModel = new CandidateView_ViewModel();
-			CompaniesViewViewModel = new CompaniesView_ViewModel();
-			CourseViewViewModel = new CourseView_ViewModel();
-			OpeningsViewViewModel = new OpeningsView_ViewModel();
-			PlacementsViewViewModel = new PlacementsView_ViewModel();
 			initializeIoc = new InitializeIoc();
+			MainViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<MainViewModel>();
+			CandidateViewViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateView_ViewModel>();
+			CompaniesViewViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<CompaniesView_ViewModel>();
+			CourseViewViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<CourseView_ViewModel>();
+			OpeningsViewViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
+			PlacementsViewViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<PlacementsView_ViewModel>();
+			
 		}
 		public MainViewModel MainViewModel { get; set; }
 		public CandidateView_ViewModel CandidateViewViewModel { get; set; }

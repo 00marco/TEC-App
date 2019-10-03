@@ -1,8 +1,10 @@
 ﻿using System;
 using GalaSoft.MvvmLight.Ioc;
 using TEC_App.Services;
-using TEC_App.Services.Interfaces;
-using TEC_App.Services.MockServices;
+using TEC_App.Services.CompanyService;
+using TEC_App.Services.CourseService;
+using TEC_App.Services.EmployeeService;
+using TEC_App.Services.OpeningsService;
 using TEC_App.ViewModels;
 
 namespace TEC_App.Helpers
@@ -28,6 +30,7 @@ namespace TEC_App.Helpers
 		private void RegisterViewModels()
 		{
 			SimpleIoc.Default.Register<CandidateView_ViewModel>();
+			SimpleIoc.Default.Register<MainViewModel>();
 			SimpleIoc.Default.Register<CompaniesView_ViewModel>();
 			SimpleIoc.Default.Register<CourseView_ViewModel>();
 			SimpleIoc.Default.Register<OpeningsView_ViewModel>();
@@ -38,7 +41,7 @@ namespace TEC_App.Helpers
 		{
 			SimpleIoc.Default.Register<ICompanyService, CompanyService>();
 			SimpleIoc.Default.Register<ICourseService, CourseService>();
-			SimpleIoc.Default.Register<IEmployeeService, EmployeeService>();
+			SimpleIoc.Default.Register<IEmployeeService, CandidateService>();
 			SimpleIoc.Default.Register<IOpeningsService, OpeningsService>();
 		}
 

@@ -27,18 +27,18 @@ namespace TEC_App.ViewModels
 					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
 					break;
 				case nameof(CandidateView_ViewModel):
-					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateView_ViewModel>();
+					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateView_ViewModel>();
 					break;
 				case nameof(CourseView_ViewModel):
-					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CourseView_ViewModel>();
+					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CourseView_ViewModel>();
 
 					break;
 				case nameof(CompaniesView_ViewModel):
-					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CompaniesView_ViewModel>();
+					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CompaniesView_ViewModel>();
 
 					break;
 				case nameof(PlacementsView_ViewModel):
-					CurrentVM = CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<PlacementsView_ViewModel>();
+					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<PlacementsView_ViewModel>();
 
 					break;
 				default:
@@ -64,35 +64,41 @@ namespace TEC_App.ViewModels
 
 		private void GotoCandidateViewProc()
 		{
-			CurrentVM = new CandidateView_ViewModel();
+			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateView_ViewModel>();
+			var loadDetails = "load";
+			Messenger.Default.Send(loadDetails);
 		}
 
 		public ICommand GotoCompaniesViewCommand => new RelayCommand(GotoCompaniesViewProc);
 
 		private void GotoCompaniesViewProc()
 		{
-			CurrentVM = new CompaniesView_ViewModel();
+			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CompaniesView_ViewModel>();
+
 		}
 
 		public ICommand GotoCourseViewCommand => new RelayCommand(GotoCourseViewProc);
 
 		private void GotoCourseViewProc()
 		{
-			CurrentVM = new CourseView_ViewModel();
+			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CourseView_ViewModel>();
+
 		}
 
 		public ICommand GotoOpeningsViewCommand => new RelayCommand(GotoOpeningsViewProc);
 
 		private void GotoOpeningsViewProc()
 		{
-			CurrentVM = new OpeningsView_ViewModel();
+			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
+
 		}
 
 		public ICommand GotoPlacementsViewCommand => new RelayCommand(GotoPlacementsViewProc);
 
 		private void GotoPlacementsViewProc()
 		{
-			CurrentVM = new PlacementsView_ViewModel();
+			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<PlacementsView_ViewModel>();
+
 		}
 	}
 }
