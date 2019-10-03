@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Models.DTO;
 using TEC_App.ViewModels;
 
@@ -23,6 +24,7 @@ namespace TEC_App.Models.ViewDTO
 	    private void GotoCandidateDetails()
 	    {
 		    MessageBox.Show(CandidateWithQualificationsDto.CandidateName);
+			Messenger.Default.Send<NotificationMessage>(new NotificationMessage(nameof(IndividualCandidateDetailsView_ViewModel)));
 	    }
     }
 }

@@ -31,6 +31,7 @@ namespace TEC_App.Helpers
 		{
 			SimpleIoc.Default.Register<CandidateView_ViewModel>();
 			SimpleIoc.Default.Register<MainViewModel>();
+			SimpleIoc.Default.Register<IndividualCandidateDetailsView_ViewModel>();
 			SimpleIoc.Default.Register<CompaniesView_ViewModel>();
 			SimpleIoc.Default.Register<CourseView_ViewModel>();
 			SimpleIoc.Default.Register<OpeningsView_ViewModel>();

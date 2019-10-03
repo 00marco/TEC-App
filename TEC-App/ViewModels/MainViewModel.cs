@@ -23,6 +23,10 @@ namespace TEC_App.ViewModels
 		{
 			switch (message.Notification)
 			{
+				case nameof(IndividualCandidateDetailsView_ViewModel):
+					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<IndividualCandidateDetailsView_ViewModel>();
+					break;
+
 				case nameof(OpeningsView_ViewModel):
 					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
 					break;

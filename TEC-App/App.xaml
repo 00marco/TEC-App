@@ -12,7 +12,11 @@
 			<DataTemplate DataType="{x:Type viewModels:CandidateView_ViewModel}">
 				<views:CandidateView/>
 			</DataTemplate>
-		    <DataTemplate DataType="{x:Type viewModels:CompaniesView_ViewModel}">
+		    <DataTemplate DataType="{x:Type viewModels:IndividualCandidateDetailsView_ViewModel}">
+			    <views:IndividualCandidateDetailsView/>
+		    </DataTemplate>
+
+			<DataTemplate DataType="{x:Type viewModels:CompaniesView_ViewModel}">
 			    <views:CompaniesView/>
 		    </DataTemplate>
 		    <DataTemplate DataType="{x:Type viewModels:CourseView_ViewModel}">

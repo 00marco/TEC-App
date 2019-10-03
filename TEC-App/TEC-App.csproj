@@ -218,10 +218,12 @@
     <Compile Include="Models\DTO\CompanyWithOpeningDetailsDTO.cs" />
     <Compile Include="ViewModels\CourseView_ViewModel.cs" />
     <Compile Include="Helpers\InitializeIoc.cs" />
+    <Compile Include="ViewModels\IndividualCandidateDetailsView_ViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OpeningsView_ViewModel.cs" />
     <Compile Include="ViewModels\PlacementsView_ViewModel.cs" />
     <Compile Include="Models\DTO\PlacementWithCandidateDTO.cs" />
+    <Compile Include="ViewModels\test.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\CandidateView.xaml.cs">
       <DependentUpon>CandidateView.xaml</DependentUpon>
@@ -231,6 +233,9 @@
     </Compile>
     <Compile Include="Views\CourseView.xaml.cs">
       <DependentUpon>CourseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IndividualCandidateDetailsView.xaml.cs">
+      <DependentUpon>IndividualCandidateDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OpeningsView.xaml.cs">
       <DependentUpon>OpeningsView.xaml</DependentUpon>
@@ -259,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CourseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IndividualCandidateDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
