@@ -14,6 +14,9 @@ namespace TEC_App.ViewModels
     public class AddCandidateViewModel : ViewModelBase
     {
         public Candidate Candidate { get; set; }
+        public Address Address1 { get; set; }
+        public Address Address2 { get; set; }
+        public Address Address3 { get; set; }
 
         public ICommand BackCommand => new RelayCommand(BackProc);
         private void BackProc()
