@@ -6,7 +6,7 @@ using TEC_App.Models.DTO;
 
 namespace TEC_App.Services.EmployeeService
 {
-    public class CandidateService : IEmployeeService
+    public class CandidateService : ICandidateService
     {
 	    private readonly TecAppContext _context;
 
@@ -19,5 +19,10 @@ namespace TEC_App.Services.EmployeeService
 	    {
 		    throw new NotImplementedException();
 	    }
+
+        public AddCandidateDTO AddCandidate(AddCandidateDTO candidate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

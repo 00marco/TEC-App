@@ -45,14 +45,15 @@ namespace TEC_App.ViewModels
 					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<PlacementsView_ViewModel>();
 
 					break;
-				default:
-					MessageBox.Show($"{message.Notification} notification message error. Not recognized");
-					CurrentVM = new OpeningsView_ViewModel();
-					break;
+                case nameof(AddCandidateViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCandidateViewModel>();
 
-			}
+                    break;
 
-		}
+
+            }
+
+        }
 
 		public ViewModelBase CurrentVM
 		{

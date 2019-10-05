@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TEC_App.Models.DTO;
 
 namespace TEC_App.Services.EmployeeService
 {
-    public class MockEmployeeService : IEmployeeService
+    public class MockCandidateService : ICandidateService
     {
 	    public List<CandidateWithQualificationsDTO> GetCandidateList()
 	    {
@@ -22,5 +23,11 @@ namespace TEC_App.Services.EmployeeService
 		    return candidateList;
 
 		}
-	}
+
+        public AddCandidateDTO AddCandidate(AddCandidateDTO candidate)
+        {
+            return new AddCandidateDTO();
+            
+        }
+    }
 }

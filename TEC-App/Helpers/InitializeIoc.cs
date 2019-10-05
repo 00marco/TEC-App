@@ -36,13 +36,14 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<CourseView_ViewModel>();
 			SimpleIoc.Default.Register<OpeningsView_ViewModel>();
 			SimpleIoc.Default.Register<PlacementsView_ViewModel>();
-		}
+			SimpleIoc.Default.Register<AddCandidateViewModel>();
+        }
 
 		private void RegisterServices()
 		{
 			SimpleIoc.Default.Register<ICompanyService, CompanyService>();
 			SimpleIoc.Default.Register<ICourseService, CourseService>();
-			SimpleIoc.Default.Register<IEmployeeService, CandidateService>();
+			SimpleIoc.Default.Register<ICandidateService, CandidateService>();
 			SimpleIoc.Default.Register<IOpeningsService, OpeningsService>();
 		}
 
@@ -50,7 +51,7 @@ namespace TEC_App.Helpers
 		{
 			SimpleIoc.Default.Register<ICompanyService, MockCompanyService>();
 			SimpleIoc.Default.Register<ICourseService, MockCourseService>();
-			SimpleIoc.Default.Register<IEmployeeService, MockEmployeeService>();
+			SimpleIoc.Default.Register<ICandidateService, MockCandidateService>();
 			SimpleIoc.Default.Register<IOpeningsService, MockOpeningsService>();
 
 		}

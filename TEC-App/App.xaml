@@ -28,7 +28,11 @@
 		    <DataTemplate DataType="{x:Type viewModels:PlacementsView_ViewModel}">
 			    <views:PlacementsView/>
 		    </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:AddCandidateViewModel}">
+                <views:AddCandidateView/>
+            </DataTemplate>
 
-		</ResourceDictionary>
+
+</ResourceDictionary>
 	</Application.Resources>
 </Application>

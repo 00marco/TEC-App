@@ -23,7 +23,6 @@ namespace TEC_App.Models.ViewDTO
 
 	    private void GotoCandidateDetails()
 	    {
-		    MessageBox.Show(CandidateWithQualificationsDto.CandidateName);
 			Messenger.Default.Send<NotificationMessage>(new NotificationMessage(nameof(IndividualCandidateDetailsView_ViewModel)));
 	    }
     }

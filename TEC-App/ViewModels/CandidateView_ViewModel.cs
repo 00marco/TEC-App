@@ -16,9 +16,9 @@ namespace TEC_App.ViewModels
 {
 	public class CandidateView_ViewModel : ViewModelBase
     {
-	    public CandidateView_ViewModel(IEmployeeService employeeService)
+	    public CandidateView_ViewModel(ICandidateService candidateService)
 	    {
-		    EmployeeService = employeeService;
+		    CandidateService = candidateService;
 
 		    Messenger.Default.Register<string>(this, s => NotifyMe(s));
 		}
@@ -31,7 +31,7 @@ namespace TEC_App.ViewModels
 		    }
 	    }
 
-	    public IEmployeeService EmployeeService { get; set; }
+	    public ICandidateService CandidateService { get; set; }
 		public ObservableCollection<CandidateViewDTO> Candidates { get; set; } = new ObservableCollection<CandidateViewDTO>();
 	    public ICommand GotoCandidateDetailsView => new RelayCommand(GotoCandidateDetailsProc);
 
@@ -42,7 +42,7 @@ namespace TEC_App.ViewModels
 
 	    public void LoadCandidateDetails()
 	    {
-		    var candidates = EmployeeService.GetCandidateList();
+		    var candidates = CandidateService.GetCandidateList();
 		    var viewCandidates = new List<CandidateViewDTO>();
 		    foreach (var v in candidates)
 		    {
@@ -61,5 +61,13 @@ namespace TEC_App.ViewModels
 		    var message = new NotificationMessage(nameof(OpeningsView_ViewModel));
 		    Messenger.Default.Send(message);
 		}
+
+        public ICommand AddCandidateCommand => new RelayCommand(AddCandidate);
+
+        private void AddCandidate()
+        {
+
+            Messenger.Default.Send<NotificationMessage>(new NotificationMessage(nameof(AddCandidateViewModel)));
+        }
     }
 }

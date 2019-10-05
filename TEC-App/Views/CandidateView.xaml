@@ -14,7 +14,32 @@
 		        HorizontalAlignment="Center"
 		        VerticalAlignment="Center"
 		        Padding="5,2"></Button>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+            <Button Margin="0,5"
+                    Padding="5,2"
+                    Content="Add Candidate"
+                    Command="{Binding Path=AddCandidateCommand}"></Button>
+        </StackPanel>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Candidates"
+                   Margin="10"></TextBlock>
 		<ListBox Margin="10"
+                 Grid.Row="1"
+                 Grid.ColumnSpan="2"
 		         ItemsSource="{Binding Path=Candidates}">
 			   <ListBox.ItemTemplate>
 				   <DataTemplate>
