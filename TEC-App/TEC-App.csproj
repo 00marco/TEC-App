@@ -212,6 +212,7 @@
     <Compile Include="Tests\EmployeeManagement.cs" />
     <Compile Include="Models\DTO\CandidateWithQualificationsDTO.cs" />
     <Compile Include="ViewModels\AddCandidateViewModel.cs" />
+    <Compile Include="ViewModels\AddCompanyViewModel.cs" />
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\CompaniesView_ViewModel.cs" />
     <Compile Include="Models\DTO\CompanyViewDTO.cs" />
@@ -228,6 +229,9 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AddCandidateView.xaml.cs">
       <DependentUpon>AddCandidateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddCompanyView.xaml.cs">
+      <DependentUpon>AddCompanyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CandidateView.xaml.cs">
       <DependentUpon>CandidateView.xaml</DependentUpon>
@@ -260,6 +264,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AddCandidateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddCompanyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

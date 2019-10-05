@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Models.DTO;
 
 namespace TEC_App.ViewModels
@@ -27,6 +28,12 @@ namespace TEC_App.ViewModels
 		}
 
 		public string Test { get; set; }
+        public ICommand AddCompanyCommand => new RelayCommand(AddCompany);
 
+        private void AddCompany()
+        {
+            
+            Messenger.Default.Send(new NotificationMessage(nameof(AddCompanyViewModel)));
+        }
     }
 }
