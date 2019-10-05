@@ -57,8 +57,11 @@
                  ></ListBox>
         <Button Content="Back"
                 Grid.Row="4"
-                Padding="5,2"
+                Padding="5"
+                Foreground="White"
+                BorderThickness="0"
                 Margin="10"
+                    Background="{StaticResource ThemeColorDark}"
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"

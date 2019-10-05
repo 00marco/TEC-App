@@ -21,7 +21,10 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
             <Button Margin="0,5"
-                    Padding="5,2"
+                    Background="{StaticResource ThemeColorDark}"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
                     Content="Add Course"
                     Command="{Binding Path=AddCourseCommand}"></Button>
         </StackPanel>

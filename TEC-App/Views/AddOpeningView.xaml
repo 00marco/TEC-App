@@ -75,8 +75,11 @@
                  ></TextBox>
         <Button Content="Back"
                 Grid.Row="6"
-                Padding="5,2"
+                Padding="5"
+                Foreground="White"
+                BorderThickness="0"
                 Grid.ColumnSpan="2"
+                    Background="{StaticResource ThemeColorDark}"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Margin="10"

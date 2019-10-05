@@ -22,9 +22,12 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
             <Button Margin="0,5"
-                    Padding="5,2"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource ThemeColorDark}"
                     Content="Add Opening"
-                    Command="{Binding Path=AddOpeningCommand}"></Button>
+                    Command="{Binding Path=AddOpeningCommand}" Click="Button_Click"></Button>
         </StackPanel>
 
         <TextBlock Grid.Row="0"

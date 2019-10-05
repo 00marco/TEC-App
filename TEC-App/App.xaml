@@ -45,7 +45,9 @@
                 <Setter Property="FontFamily" Value="./Fonts/#Montserrat" />
             </Style>
 
-
+            <SolidColorBrush x:Key="ThemeColorLight" Color="#2ecc71"/>
+            <SolidColorBrush x:Key="ThemeColorDark" Color="#27ae60"/>
+            <SolidColorBrush x:Key="AccentColorLight" Color="#f39c12"/>
 
         </ResourceDictionary>
 	</Application.Resources>
