@@ -24,32 +24,29 @@
 				<RowDefinition />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			<Rectangle Height="90"
+			<Rectangle 
 			           Grid.Row="0"></Rectangle>
 			<Button Command="{Binding Path=GotoCandidateViewCommand}"
 			        Content="Candidate View"
-			        Height="70"
 			        Grid.Row="1"/>
 			<Button Command="{Binding Path=GotoCompaniesViewCommand}"
 			        Content="Companies View"
-			        Height="70"
 			        Grid.Row="2"/>
 			<Button Command="{Binding Path=GotoCourseViewCommand}"
 			        Content="Course View"
-			        Height="70"
 			        Grid.Row="3"/>
 			<Button Command="{Binding Path=GotoOpeningsViewCommand}"
 			        Content="Openings View"
-			        Height="70"
 			        Grid.Row="4"/>
 			<Button Command="{Binding Path=GotoPlacementsViewCommand}"
 			        Content="Placements View"
-			        Height="70"
 			        Grid.Row="5"/>
 
 		</Grid>
-		<ContentControl Content="{Binding Path=CurrentVM}"
-		                Grid.Column="1"
-		                Margin="10"></ContentControl>	   
+        <ScrollViewer Grid.Column="1">
+            <ContentControl Content="{Binding Path=CurrentVM}"
+                            Margin="10"></ContentControl>
+
+</ScrollViewer>
 	</Grid>
 </Window>

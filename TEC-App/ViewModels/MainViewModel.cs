@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using TEC_App.Messages;
 
 namespace TEC_App.ViewModels
 {
@@ -83,8 +84,7 @@ namespace TEC_App.ViewModels
 		private void GotoCandidateViewProc()
 		{
 			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateView_ViewModel>();
-			var loadDetails = "load";
-			Messenger.Default.Send(loadDetails);
+			Messenger.Default.Send(new LoadCandidateViewMessage());
 		}
 
 		public ICommand GotoCompaniesViewCommand => new RelayCommand(GotoCompaniesViewProc);
@@ -92,31 +92,35 @@ namespace TEC_App.ViewModels
 		private void GotoCompaniesViewProc()
 		{
 			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CompaniesView_ViewModel>();
+            Messenger.Default.Send(new LoadCompanyViewMessage());
 
-		}
+        }
 
-		public ICommand GotoCourseViewCommand => new RelayCommand(GotoCourseViewProc);
+        public ICommand GotoCourseViewCommand => new RelayCommand(GotoCourseViewProc);
 
 		private void GotoCourseViewProc()
 		{
 			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CourseView_ViewModel>();
+            Messenger.Default.Send(new LoadCourseViewMessage());
 
-		}
+        }
 
-		public ICommand GotoOpeningsViewCommand => new RelayCommand(GotoOpeningsViewProc);
+        public ICommand GotoOpeningsViewCommand => new RelayCommand(GotoOpeningsViewProc);
 
 		private void GotoOpeningsViewProc()
 		{
 			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
+            Messenger.Default.Send(new LoadOpeningsViewMessage());
 
-		}
+        }
 
-		public ICommand GotoPlacementsViewCommand => new RelayCommand(GotoPlacementsViewProc);
+        public ICommand GotoPlacementsViewCommand => new RelayCommand(GotoPlacementsViewProc);
 
 		private void GotoPlacementsViewProc()
 		{
 			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<PlacementsView_ViewModel>();
+            Messenger.Default.Send(new LoadPlacementsViewMessage());
 
-		}
-	}
+        }
+    }
 }

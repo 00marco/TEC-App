@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using TEC_App.Messages;
 using TEC_App.Models.DTO;
 using TEC_App.Models.ViewDTO;
 using TEC_App.Services;
@@ -20,15 +21,14 @@ namespace TEC_App.ViewModels
 	    {
 		    CandidateService = candidateService;
 
-		    Messenger.Default.Register<string>(this, s => NotifyMe(s));
+		    Messenger.Default.Register<LoadCandidateViewMessage>(this, s => NotifyMe(s));
 		}
 
-	    private void NotifyMe(string message)
+	    private void NotifyMe(LoadCandidateViewMessage message)
 	    {
-		    if (message == "load")
-		    {
-			    LoadCandidateDetails();
-		    }
+		    
+            LoadCandidateDetails();
+		    
 	    }
 
 	    public ICandidateService CandidateService { get; set; }
@@ -54,13 +54,7 @@ namespace TEC_App.ViewModels
 
 		    Candidates = new ObservableCollection<CandidateViewDTO>(viewCandidates);
 	    }
-	    public ICommand TestChangeToOpeningsViewCommand => new RelayCommand(TestProc);
-
-	    private void TestProc()
-	    {
-		    var message = new NotificationMessage(nameof(OpeningsView_ViewModel));
-		    Messenger.Default.Send(message);
-		}
+	  
 
         public ICommand AddCandidateCommand => new RelayCommand(AddCandidate);
 

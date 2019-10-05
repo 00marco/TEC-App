@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
+using TEC_App.Models.Db;
 
 namespace TEC_App.ViewModels
 {
     public class AddCompanyViewModel : ViewModelBase
     {
+        public Company Company { get; set; }
+
         public ICommand BackCommand => new RelayCommand(BackProc);
 
         private void BackProc()
