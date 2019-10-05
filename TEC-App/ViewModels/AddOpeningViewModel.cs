@@ -13,6 +13,8 @@ namespace TEC_App.ViewModels
     public class AddOpeningViewModel : ViewModelBase
     {
         public Opening Opening { get; set; }
+        public List<Company> Companies { get; set; }
+
         public ICommand BackCommand => new RelayCommand(BackProc);
 
         private void BackProc()
