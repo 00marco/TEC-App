@@ -41,8 +41,12 @@
                 <views:AddOpeningView/>
             </DataTemplate>
 
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="./Fonts/#Montserrat" />
+            </Style>
 
 
-</ResourceDictionary>
+
+        </ResourceDictionary>
 	</Application.Resources>
 </Application>

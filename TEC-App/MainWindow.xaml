@@ -28,17 +28,22 @@
 			           Grid.Row="0"></Rectangle>
 			<Button Command="{Binding Path=GotoCandidateViewCommand}"
 			        Content="Candidate View"
+                    BorderThickness="0"
 			        Grid.Row="1"/>
 			<Button Command="{Binding Path=GotoCompaniesViewCommand}"
+                    BorderThickness="0"
 			        Content="Companies View"
 			        Grid.Row="2"/>
 			<Button Command="{Binding Path=GotoCourseViewCommand}"
+                    BorderThickness="0"
 			        Content="Course View"
 			        Grid.Row="3"/>
 			<Button Command="{Binding Path=GotoOpeningsViewCommand}"
+                    BorderThickness="0"
 			        Content="Openings View"
 			        Grid.Row="4"/>
 			<Button Command="{Binding Path=GotoPlacementsViewCommand}"
+                    BorderThickness="0"
 			        Content="Placements View"
 			        Grid.Row="5"/>
 
