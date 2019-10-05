@@ -38,12 +38,14 @@
                    Text="Candidates"
                    Margin="10"></TextBlock>
 		<ListBox Margin="10"
+                 Padding="10"
+                 BorderThickness="0"
                  Grid.Row="1"
                  Grid.ColumnSpan="2"
 		         ItemsSource="{Binding Path=Candidates}">
 			   <ListBox.ItemTemplate>
 				   <DataTemplate>
-					<StackPanel>
+					<StackPanel Margin="0,5">
 						<TextBlock Text="{Binding Path=CandidateWithQualificationsDto.CandidateName}"/>
 						<TextBlock Text="{Binding Path=CandidateWithQualificationsDto.Qualifications}"/>
 						<Button Content="View Details"

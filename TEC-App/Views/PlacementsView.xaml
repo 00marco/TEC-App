@@ -18,7 +18,9 @@
                    Text="Placements"
                    Margin="10"></TextBlock>
         <ListBox ItemsSource="{Binding Path=PlacementViewDtos}"
+                 Padding="10"
 		         Margin="10"
+                 BorderThickness="0"
                  Grid.Row="1">
 			<ListBox.ItemTemplate>
 				<DataTemplate>

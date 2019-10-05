@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:TEC_App.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Path=OpeningsViewViewModel, Source={StaticResource Locator}}">
-    <Grid>
+    <Grid Background="#f5f5f5"
+        >
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -33,7 +34,9 @@
                    Margin="10"></TextBlock>
 
         <ListBox Margin="10"
+                 Padding="10"
                  Grid.Row="1"
+                 BorderThickness="0"
                  Grid.ColumnSpan="2"
 		         ItemsSource="{Binding Path=CompanyOpeningDtos}">
 			<ListBox.ItemTemplate>

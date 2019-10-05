@@ -33,6 +33,9 @@
                    Margin="10"></TextBlock>
         <ListBox Margin ="10"
                  Grid.Row="1"
+                 BorderThickness="0"
+                 Padding="10"
+
                  ItemsSource="{Binding Path=CompanyViewDtos}"
                  Grid.ColumnSpan="2">
 			<ListBox.ItemTemplate>
