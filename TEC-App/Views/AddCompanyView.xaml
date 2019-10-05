@@ -7,17 +7,38 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Path=AddCompanyViewModel,Source={StaticResource Locator}}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="30"/>
             <RowDefinition />
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Add Company"
                    Grid.Row="0"
                    Margin="10"
                    VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Name:"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"
+                   Margin="5"></TextBlock>
+        <TextBox Text="{Binding Path=Company.Name}"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="5"
+                 Padding="3"
+                 ></TextBox>
         <Button Content="Back"
-                Grid.Row="1"
+                Grid.Row="3"
                 Padding="5,2"
+                Grid.ColumnSpan="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
                 Margin="10"
                 Command="{Binding Path=BackCommand}"></Button>
     </Grid>
