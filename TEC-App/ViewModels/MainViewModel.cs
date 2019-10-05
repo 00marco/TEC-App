@@ -53,6 +53,15 @@ namespace TEC_App.ViewModels
                     CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCompanyViewModel>();
 
                     break;
+                case nameof(AddCourseViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCourseViewModel>();
+
+                    break;
+                case nameof(AddOpeningViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddOpeningViewModel>();
+
+                    break;
+
 
 
             }

@@ -11,6 +11,7 @@
             <RowDefinition Height="0.1*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
+
         <TextBlock Grid.Row="0"
                    Grid.Column="0"
                    VerticalAlignment="Center"

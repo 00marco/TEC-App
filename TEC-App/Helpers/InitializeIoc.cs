@@ -38,6 +38,8 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<PlacementsView_ViewModel>();
 			SimpleIoc.Default.Register<AddCandidateViewModel>();
 			SimpleIoc.Default.Register<AddCompanyViewModel>();
+			SimpleIoc.Default.Register<AddCourseViewModel>();
+			SimpleIoc.Default.Register<AddOpeningViewModel>();
         }
 
 		private void RegisterServices()

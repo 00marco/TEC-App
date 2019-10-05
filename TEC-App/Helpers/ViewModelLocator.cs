@@ -22,6 +22,8 @@ namespace TEC_App.Helpers
 			IndividualCandidateDetailsViewViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<IndividualCandidateDetailsView_ViewModel>();
 			AddCandidateViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCandidateViewModel>();
 			AddCompanyViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCompanyViewModel>();
+            AddCourseViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCourseViewModel>();
+            AddOpeningViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddOpeningViewModel>();
 			
 		}
 		public MainViewModel MainViewModel { get; set; }
@@ -33,5 +35,7 @@ namespace TEC_App.Helpers
 		public OpeningsView_ViewModel OpeningsViewViewModel { get; set; }
 		public PlacementsView_ViewModel PlacementsViewViewModel { get; set; }
 		public AddCompanyViewModel AddCompanyViewModel { get; set; }
+		public AddCourseViewModel AddCourseViewModel { get; set; }
+		public AddOpeningViewModel AddOpeningViewModel { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Models.DTO;
 
 namespace TEC_App.ViewModels
@@ -21,5 +22,12 @@ namespace TEC_App.ViewModels
 		{
 			throw new NotImplementedException();
 		}
+
+        public ICommand AddOpeningCommand => new RelayCommand(AddOpeningProc);
+
+        private void AddOpeningProc()
+        {
+            Messenger.Default.Send(new NotificationMessage(nameof(AddOpeningViewModel)));
+        }
     }
 }

@@ -213,6 +213,8 @@
     <Compile Include="Models\DTO\CandidateWithQualificationsDTO.cs" />
     <Compile Include="ViewModels\AddCandidateViewModel.cs" />
     <Compile Include="ViewModels\AddCompanyViewModel.cs" />
+    <Compile Include="ViewModels\AddCourseViewModel.cs" />
+    <Compile Include="ViewModels\AddOpeningViewModel.cs" />
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\CompaniesView_ViewModel.cs" />
     <Compile Include="Models\DTO\CompanyViewDTO.cs" />
@@ -232,6 +234,12 @@
     </Compile>
     <Compile Include="Views\AddCompanyView.xaml.cs">
       <DependentUpon>AddCompanyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddCourseView.xaml.cs">
+      <DependentUpon>AddCourseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddOpeningView.xaml.cs">
+      <DependentUpon>AddOpeningView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CandidateView.xaml.cs">
       <DependentUpon>CandidateView.xaml</DependentUpon>
@@ -268,6 +276,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddCompanyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddCourseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddOpeningView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

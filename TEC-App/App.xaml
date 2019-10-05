@@ -34,6 +34,13 @@
             <DataTemplate DataType="{x:Type viewModels:AddCompanyViewModel}">
                 <views:AddCompanyView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:AddCourseViewModel}">
+                <views:AddCourseView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:AddOpeningViewModel}">
+                <views:AddOpeningView/>
+            </DataTemplate>
+
 
 
 </ResourceDictionary>
