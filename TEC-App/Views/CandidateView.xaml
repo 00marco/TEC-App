@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding Path=CandidateViewViewModel, Source={StaticResource Locator}}">
-	<Grid>
+	<Grid Margin="10"
+          Background="White">
 		<!--<TextBlock Text="CandidateView"></TextBlock>-->
 		<!--<Button Content="Go to openings"
 		        Command="{Binding Path=TestChangeToOpeningsViewCommand}"
@@ -19,7 +20,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.15*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
@@ -37,6 +38,7 @@
         </StackPanel>
         <TextBlock Grid.Row="0"
                    Grid.Column="0"
+                   FontSize="20"
                    VerticalAlignment="Center"
                    Text="Candidates"
                    Margin="10"></TextBlock>

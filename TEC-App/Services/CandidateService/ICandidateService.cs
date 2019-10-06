@@ -12,5 +12,6 @@ namespace TEC_App.Services.EmployeeService
     {
 	    List<CandidateWithQualificationsDTO> GetCandidateList();
         AddCandidateDTO AddCandidate(AddCandidateDTO candidate);
+        Candidate GetCandidateFromId(int id);
     }
 }

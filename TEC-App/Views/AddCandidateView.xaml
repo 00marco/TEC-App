@@ -5,15 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TEC_App.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800"
+             d:DesignHeight="700" d:DesignWidth="800"
              DataContext="{Binding Path=AddCandidateViewModel,Source={StaticResource Locator}}">
-    <Grid>
+    <Grid Background="White"
+          Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
@@ -25,7 +26,10 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Add Candidate"
                    Grid.Row="0"
-                   Margin="10"
+                   FontSize="20"
+                   Margin="20"
+                   HorizontalAlignment="Left"
+                   Grid.ColumnSpan="2"
                    VerticalAlignment="Center"></TextBlock>
 
         <TextBlock Text="First name:"
@@ -39,7 +43,7 @@
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Grid.Column="1"
-                 Margin="5"></TextBox>
+                 Margin="10,5"></TextBox>
 
         <TextBlock Text="Middle name:"
                    HorizontalAlignment="Right"
@@ -52,7 +56,7 @@
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Grid.Column="1"
-                 Margin="5"></TextBox>
+                 Margin="10,5"></TextBox>
 
         <TextBlock Text="Last name:"
                    HorizontalAlignment="Right"
@@ -65,7 +69,7 @@
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Grid.Column="1"
-                 Margin="5"></TextBox>
+                 Margin="10,5"></TextBox>
 
         <TextBlock Text="Address 1:"
                    HorizontalAlignment="Right"
@@ -78,7 +82,7 @@
                  Grid.Row="4"
                  VerticalAlignment="Top"
                  Grid.Column="1"
-                 Margin="5"></TextBox>
+                 Margin="10,5"></TextBox>
 
         <TextBlock Text="Address 2:"
                    HorizontalAlignment="Right"
@@ -91,7 +95,7 @@
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Grid.Column="1"
-                 Margin="5"></TextBox>
+                 Margin="10,5"></TextBox>
 
         <TextBlock Text="Address 3"
                    HorizontalAlignment="Right"
@@ -104,7 +108,7 @@
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Grid.Column="1"
-                 Margin="5"></TextBox>
+                 Margin="10,5"></TextBox>
 
 
         <TextBlock Text="Qualifications:"
@@ -115,7 +119,7 @@
         <ListBox ItemsSource="{Binding Path=Candidate.CandidateQualifications}"
                  Grid.Row="7"
                  Grid.Column="1"
-                 Margin="5"></ListBox>
+                 Margin="10,5"></ListBox>
 
 
         <Button Content="Back"

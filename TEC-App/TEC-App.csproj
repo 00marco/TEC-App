@@ -169,6 +169,7 @@
     <Compile Include="Messages\LoadCourseViewMessage.cs" />
     <Compile Include="Messages\LoadOpeningsViewMessage.cs" />
     <Compile Include="Messages\LoadPlacementsViewMessage.cs" />
+    <Compile Include="Messages\ViewCandidateDetailsMessage.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.designer.cs">
       <DependentUpon>20190918145215_CreateTECDb-v1.0.0.cs</DependentUpon>
