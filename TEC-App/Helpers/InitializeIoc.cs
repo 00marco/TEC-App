@@ -40,6 +40,7 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<AddCompanyViewModel>();
 			SimpleIoc.Default.Register<AddCourseViewModel>();
 			SimpleIoc.Default.Register<AddOpeningViewModel>();
+			SimpleIoc.Default.Register<CandidateQualifiedForOpeningViewModel>();
         }
 
 		private void RegisterServices()

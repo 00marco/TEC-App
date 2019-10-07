@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="TEC_App.Views.CandidatesQualifiedForOpening"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TEC_App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding Source={StaticResource Locator}, Path=CandidateQualifiedForOpeningViewModel}">
+    <Grid Margin="10"
+          Background="White">
+        <!--<TextBlock Text="CandidateView"></TextBlock>-->
+        <!--<Button Content="Go to openings"
+		        Command="{Binding Path=TestChangeToOpeningsViewCommand}"
+		        HorizontalAlignment="Center"
+		        VerticalAlignment="Center"
+		        Padding="5,2"></Button>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+            <Button Margin="0,5"
+                    Padding="5,5"
+                    Background="{StaticResource ThemeColorDark}"
+                    Content="Hire Candidate"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Command="{Binding Path=HireCandidateCommand}"></Button>
+        </StackPanel>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   FontSize="20"
+                   VerticalAlignment="Center"
+                   Text="Candidates Qualified For Opening"
+                   Margin="10"></TextBlock>
+        <ListBox Margin="10"
+                 Padding="10"
+                 BorderThickness="0"
+                 Grid.Row="1"
+                 Grid.ColumnSpan="2"
+		         ItemsSource="{Binding Path=Candidates}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,5">
+                        <TextBlock Text="{Binding Path=CandidateWithQualificationsDto.CandidateName}"/>
+                        <TextBlock Text="{Binding Path=CandidateWithQualificationsDto.Qualifications}"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

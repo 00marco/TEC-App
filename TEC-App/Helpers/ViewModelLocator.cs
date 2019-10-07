@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TEC_App.Models.ViewDTO;
 using TEC_App.ViewModels;
 
 namespace TEC_App.Helpers
@@ -24,6 +25,7 @@ namespace TEC_App.Helpers
 			AddCompanyViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCompanyViewModel>();
             AddCourseViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddCourseViewModel>();
             AddOpeningViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddOpeningViewModel>();
+            CandidateQualifiedForOpeningViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateQualifiedForOpeningViewModel>();
 			
 		}
 		public MainViewModel MainViewModel { get; set; }
@@ -37,5 +39,6 @@ namespace TEC_App.Helpers
 		public AddCompanyViewModel AddCompanyViewModel { get; set; }
 		public AddCourseViewModel AddCourseViewModel { get; set; }
 		public AddOpeningViewModel AddOpeningViewModel { get; set; }
+		public CandidateQualifiedForOpeningViewModel CandidateQualifiedForOpeningViewModel { get; set; }
     }
 }

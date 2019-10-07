@@ -170,6 +170,7 @@
     <Compile Include="Messages\LoadOpeningsViewMessage.cs" />
     <Compile Include="Messages\LoadPlacementsViewMessage.cs" />
     <Compile Include="Messages\ViewCandidateDetailsMessage.cs" />
+    <Compile Include="Messages\ViewQualifiedCandidatesForOpeningViewMessage.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.designer.cs">
       <DependentUpon>20190918145215_CreateTECDb-v1.0.0.cs</DependentUpon>
@@ -199,7 +200,9 @@
     <Compile Include="Models\Db\PrerequisitesForCourse.cs" />
     <Compile Include="Models\Db\QualificationDevelopedByCourse.cs" />
     <Compile Include="Models\Db\Session_Location.cs" />
+    <Compile Include="Models\ViewDTO\CandidatesQualifiedForOpeningDTO.cs" />
     <Compile Include="Models\ViewDTO\CandidateViewDTO.cs" />
+    <Compile Include="Models\ViewDTO\OpeningViewDTO.cs" />
     <Compile Include="Services\CompanyService\CompanyService.cs" />
     <Compile Include="Services\CourseService\CourseService.cs" />
     <Compile Include="Services\CandidateService\CandidateService.cs" />
@@ -221,6 +224,7 @@
     <Compile Include="ViewModels\AddCompanyViewModel.cs" />
     <Compile Include="ViewModels\AddCourseViewModel.cs" />
     <Compile Include="ViewModels\AddOpeningViewModel.cs" />
+    <Compile Include="ViewModels\CandidateQualifiedForOpeningViewModel.cs" />
     <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
     <Compile Include="ViewModels\CompaniesView_ViewModel.cs" />
     <Compile Include="Models\DTO\CompanyViewDTO.cs" />
@@ -246,6 +250,9 @@
     </Compile>
     <Compile Include="Views\AddOpeningView.xaml.cs">
       <DependentUpon>AddOpeningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CandidatesQualifiedForOpening.xaml.cs">
+      <DependentUpon>CandidatesQualifiedForOpening.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CandidateView.xaml.cs">
       <DependentUpon>CandidateView.xaml</DependentUpon>
@@ -290,6 +297,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddOpeningView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CandidatesQualifiedForOpening.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

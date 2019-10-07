@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace TEC_App.Models.DTO
 {
@@ -10,5 +12,7 @@ namespace TEC_App.Models.DTO
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }
 		public float HourlyPay { get; set; }
-	}
+
+       
+    }
 }

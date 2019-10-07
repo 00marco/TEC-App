@@ -16,9 +16,10 @@ namespace TEC_App.ViewModels
 
 		public MainViewModel()
 		{
-			CurrentVM = new OpeningsView_ViewModel();
+			CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
+            Messenger.Default.Send(new LoadOpeningsViewMessage());
 			Messenger.Default.Register<NotificationMessage>(this, NotifyMe);
-		}
+        }
 
 		private void NotifyMe(NotificationMessage message)
 		{
@@ -62,6 +63,11 @@ namespace TEC_App.ViewModels
                     CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddOpeningViewModel>();
 
                     break;
+                case nameof(CandidateQualifiedForOpeningViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateQualifiedForOpeningViewModel>();
+
+                    break;
+
 
 
 
