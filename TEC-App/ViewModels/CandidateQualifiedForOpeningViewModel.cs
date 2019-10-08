@@ -43,5 +43,12 @@ namespace TEC_App.ViewModels
         {
             throw new NotImplementedException();
         }
-    }
+
+        public ICommand BackCommand => new RelayCommand(BackProc);
+
+        private void BackProc()
+        {
+	        Messenger.Default.Send(new NotificationMessage(nameof(OpeningsView_ViewModel)));
+        }
+	}
 }
