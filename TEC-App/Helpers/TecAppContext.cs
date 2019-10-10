@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Microsoft.EntityFrameworkCore;
 using TEC_App.Models;
 using TEC_App.Models.Db;
@@ -35,8 +36,19 @@ namespace TEC_App.Helpers
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-UL75UB3\SQLEXPRESS;Integrated Security=False;User ID=marpmpulido;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Database=TEC_Db");
-		}
+
+            if (MessageBox.Show("PC?", "Setup", MessageBoxButton.YesNo, MessageBoxImage.Warning) ==
+                MessageBoxResult.Yes)
+            {
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8K7EJ6S;Integrated Security=False;User ID=dev;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Database=TEC_Db");
+
+            }
+            else
+            {
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-UL75UB3\SQLEXPRESS;Integrated Security=False;User ID=marpmpulido;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Database=TEC_Db");
+
+            }
+        }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

@@ -64,6 +64,7 @@
                         <TextBlock Text="{Binding Path=CandidateWithQualificationsDto.CandidateName}"/>
                         <TextBlock Text="{Binding Path=CandidateWithQualificationsDto.Qualifications}"/>
 
+
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
