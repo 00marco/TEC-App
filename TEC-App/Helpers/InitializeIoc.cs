@@ -11,11 +11,13 @@ namespace TEC_App.Helpers
 {
 	public class InitializeIoc
 	{
-		private bool isTestMode = true;
+		private bool isTestMode = false;
 		public InitializeIoc()
 		{
 			CommonServiceLocator.ServiceLocator.SetLocatorProvider(()=>SimpleIoc.Default);
-			if (isTestMode)
+            SimpleIoc.Default.Register<TecAppContext>();
+
+            if (isTestMode)
 			{
 				RegisterTestServices();
 			}
