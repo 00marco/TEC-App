@@ -9,7 +9,18 @@ namespace TEC_App.Services.EmployeeService
     {
 	    public List<CandidateWithQualificationsDTO> GetCandidateWithQualificationsDtoList()
         {
-            throw new NotImplementedException();
+            var testList = new List<CandidateWithQualificationsDTO>();
+            for (int x = 0; x < 3; x++)
+            {
+                testList.Add(new CandidateWithQualificationsDTO()
+                {
+                    ActualCandidateId = x,
+                    CandidateName = $"Student-{x}",
+                    Qualifications = $"{x},{x+1},{x+2}"
+                });
+            }
+
+            return testList;
         }
 
         public List<Candidate> GetCandidateList()

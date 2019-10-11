@@ -103,6 +103,7 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -216,9 +217,9 @@
     <Compile Include="Services\OpeningsService\MockOpeningsService.cs" />
     <Compile Include="Services\OpeningsService\OpeningsService.cs" />
     <Compile Include="Tests\CompanyManagement.cs" />
-    <Compile Include="Tests\CompanyOperations.cs" />
+    <Compile Include="Tests\CompanyOperationsTests.cs" />
     <Compile Include="Tests\CourseManagement.cs" />
-    <Compile Include="Tests\EmployeeManagement.cs" />
+    <Compile Include="Tests\EmployeeManagementTests.cs" />
     <Compile Include="Models\DTO\CandidateWithQualificationsDTO.cs" />
     <Compile Include="ViewModels\AddCandidateViewModel.cs" />
     <Compile Include="ViewModels\AddCompanyViewModel.cs" />

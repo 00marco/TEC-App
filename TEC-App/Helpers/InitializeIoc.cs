@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlTypes;
 using GalaSoft.MvvmLight.Ioc;
 using TEC_App.Services;
 using TEC_App.Services.CompanyService;
@@ -11,7 +12,7 @@ namespace TEC_App.Helpers
 {
 	public class InitializeIoc
 	{
-		private bool isTestMode = false;
+		private bool isTestMode = true;
 		public InitializeIoc()
 		{
 			CommonServiceLocator.ServiceLocator.SetLocatorProvider(()=>SimpleIoc.Default);

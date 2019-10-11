@@ -8,6 +8,7 @@ namespace TEC_App.Services.OpeningsService
     {
         Opening GetOpeningFromId(int id);
         List<OpeningViewDTO> GetOpeningViewDTOList();
+        List<Opening> GetOpenings();
         //TODO Fix this. You should only have GetOpenings - you need a function to map the resulting openings to a dto
     }
 }

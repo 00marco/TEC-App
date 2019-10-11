@@ -506,7 +506,7 @@ namespace TEC_App.Migrations
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TEC_App.Models.Qualification", "RequiredQualification")
+                    b.HasOne("TEC_App.Models.Qualification", "RequiredQualifications")
                         .WithMany("Openings")
                         .HasForeignKey("RequiredQualificationId")
                         .OnDelete(DeleteBehavior.Cascade);
