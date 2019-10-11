@@ -13,6 +13,10 @@ namespace TEC_App.Helpers
 {
 	public class TecAppContext : DbContext
 	{
+		public TecAppContext()
+		{
+			
+		}
 		#region Properties
 		public DbSet<Candidate> Candidates { get; set; }
 		public DbSet<Company> Companies { get; set; }

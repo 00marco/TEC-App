@@ -76,6 +76,15 @@
                   Grid.Column="1"
         ></ListView>
 
+		<Button Grid.Row="5"
+		        Margin="5"
+		        Padding="5,2"
+				Content="Back"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Grid.ColumnSpan="2"
+		        Command="{Binding Path=BackCommand}"></Button>
+
         <!--<TextBlock Text="Placements: "
                    Grid.Row="5"
                    HorizontalAlignment="Right"
