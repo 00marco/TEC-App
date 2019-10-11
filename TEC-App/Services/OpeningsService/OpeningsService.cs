@@ -67,5 +67,10 @@ namespace TEC_App.Services.OpeningsService
                 return openings;
             }
         }
+
+        public List<Opening> GetUniqueOpenings()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
