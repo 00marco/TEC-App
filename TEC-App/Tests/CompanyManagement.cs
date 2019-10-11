@@ -33,6 +33,18 @@ namespace TEC_App.Tests
                 Console.WriteLine();
             }
         }
+
+        [Test]
+        public void GetCompanyViewDtoList()
+        {
+            var companies = CompanyService.GetCompanyViewDtos();
+            foreach (var v in companies)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Id\t{v.CompanyNAme}");
+                Console.WriteLine();
+            }
+        }
 		//	Edit company details
 		//	Remove company
 		//	Let company create an OPENING
