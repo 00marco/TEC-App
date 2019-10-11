@@ -7,6 +7,17 @@ using TEC_App.Services.CourseService;
 using TEC_App.Services.EmployeeService;
 using TEC_App.Services.OpeningsService;
 using TEC_App.ViewModels;
+using TEC_App.Views.AddCandidateView;
+using TEC_App.Views.AddCompanyView;
+using TEC_App.Views.AddCourseView;
+using TEC_App.Views.AddOpeningView;
+using TEC_App.Views.CandidatesQualifiedForOpeningView;
+using TEC_App.Views.CandidateView;
+using TEC_App.Views.CompaniesView;
+using TEC_App.Views.CourseView;
+using TEC_App.Views.IndividualCandidateDetailsView;
+using TEC_App.Views.OpeningsView;
+using TEC_App.Views.PlacementsView;
 
 namespace TEC_App.Helpers
 {

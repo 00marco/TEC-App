@@ -222,56 +222,56 @@
     <Compile Include="Tests\CourseManagement.cs" />
     <Compile Include="Tests\EmployeeManagementTests.cs" />
     <Compile Include="Models\DTO\CandidateWithQualificationsDTO.cs" />
-    <Compile Include="ViewModels\AddCandidateViewModel.cs" />
-    <Compile Include="ViewModels\AddCompanyViewModel.cs" />
-    <Compile Include="ViewModels\AddCourseViewModel.cs" />
-    <Compile Include="ViewModels\AddOpeningViewModel.cs" />
-    <Compile Include="ViewModels\CandidateQualifiedForOpeningViewModel.cs" />
-    <Compile Include="ViewModels\CandidateView_ViewModel.cs" />
-    <Compile Include="ViewModels\CompaniesView_ViewModel.cs" />
+    <Compile Include="Views\AddCandidateView\AddCandidateViewModel.cs" />
+    <Compile Include="Views\AddCompanyView\AddCompanyViewModel.cs" />
+    <Compile Include="Views\AddCourseView\AddCourseViewModel.cs" />
+    <Compile Include="Views\AddOpeningView\AddOpeningViewModel.cs" />
+    <Compile Include="Views\CandidatesQualifiedForOpeningView\CandidateQualifiedForOpeningViewModel.cs" />
+    <Compile Include="Views\CandidateView\CandidateView_ViewModel.cs" />
+    <Compile Include="Views\CompaniesView\CompaniesView_ViewModel.cs" />
     <Compile Include="Models\DTO\CompanyViewDTO.cs" />
     <Compile Include="Models\DTO\CourseWithLocationDTO.cs" />
     <Compile Include="Models\DTO\CompanyWithOpeningDetailsDTO.cs" />
-    <Compile Include="ViewModels\CourseView_ViewModel.cs" />
+    <Compile Include="Views\CourseView\CourseView_ViewModel.cs" />
     <Compile Include="Helpers\InitializeIoc.cs" />
-    <Compile Include="ViewModels\IndividualCandidateDetailsView_ViewModel.cs" />
+    <Compile Include="Views\IndividualCandidateDetailsView\IndividualCandidateDetailsView_ViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\OpeningsView_ViewModel.cs" />
-    <Compile Include="ViewModels\PlacementsView_ViewModel.cs" />
+    <Compile Include="Views\OpeningsView\OpeningsView_ViewModel.cs" />
+    <Compile Include="Views\PlacementsView\PlacementsView_ViewModel.cs" />
     <Compile Include="Models\DTO\PlacementWithCandidateDTO.cs" />
     <Compile Include="ViewModels\test.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\AddCandidateView.xaml.cs">
+    <Compile Include="Views\AddCandidateView\AddCandidateView.xaml.cs">
       <DependentUpon>AddCandidateView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddCompanyView.xaml.cs">
+    <Compile Include="Views\AddCompanyView\AddCompanyView.xaml.cs">
       <DependentUpon>AddCompanyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddCourseView.xaml.cs">
+    <Compile Include="Views\AddCourseView\AddCourseView.xaml.cs">
       <DependentUpon>AddCourseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddOpeningView.xaml.cs">
+    <Compile Include="Views\AddOpeningView\AddOpeningView.xaml.cs">
       <DependentUpon>AddOpeningView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CandidatesQualifiedForOpening.xaml.cs">
+    <Compile Include="Views\CandidatesQualifiedForOpeningView\CandidatesQualifiedForOpening.xaml.cs">
       <DependentUpon>CandidatesQualifiedForOpening.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CandidateView.xaml.cs">
+    <Compile Include="Views\CandidateView\CandidateView.xaml.cs">
       <DependentUpon>CandidateView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CompaniesView.xaml.cs">
+    <Compile Include="Views\CompaniesView\CompaniesView.xaml.cs">
       <DependentUpon>CompaniesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CourseView.xaml.cs">
+    <Compile Include="Views\CourseView\CourseView.xaml.cs">
       <DependentUpon>CourseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\IndividualCandidateDetailsView.xaml.cs">
+    <Compile Include="Views\IndividualCandidateDetailsView\IndividualCandidateDetailsView.xaml.cs">
       <DependentUpon>IndividualCandidateDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpeningsView.xaml.cs">
+    <Compile Include="Views\OpeningsView\OpeningsView.xaml.cs">
       <DependentUpon>OpeningsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PlacementsView.xaml.cs">
+    <Compile Include="Views\PlacementsView\PlacementsView.xaml.cs">
       <DependentUpon>PlacementsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -286,47 +286,47 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\AddCandidateView.xaml">
+    <Page Include="Views\AddCandidateView\AddCandidateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddCompanyView.xaml">
+    <Page Include="Views\AddCompanyView\AddCompanyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddCourseView.xaml">
+    <Page Include="Views\AddCourseView\AddCourseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddOpeningView.xaml">
+    <Page Include="Views\AddOpeningView\AddOpeningView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CandidatesQualifiedForOpening.xaml">
+    <Page Include="Views\CandidatesQualifiedForOpeningView\CandidatesQualifiedForOpening.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CandidateView.xaml">
+    <Page Include="Views\CandidateView\CandidateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CompaniesView.xaml">
+    <Page Include="Views\CompaniesView\CompaniesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CourseView.xaml">
+    <Page Include="Views\CourseView\CourseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\IndividualCandidateDetailsView.xaml">
+    <Page Include="Views\IndividualCandidateDetailsView\IndividualCandidateDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OpeningsView.xaml">
+    <Page Include="Views\OpeningsView\OpeningsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PlacementsView.xaml">
+    <Page Include="Views\PlacementsView\PlacementsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

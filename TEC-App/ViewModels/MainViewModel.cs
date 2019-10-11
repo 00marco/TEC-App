@@ -7,6 +7,17 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
+using TEC_App.Views.AddCandidateView;
+using TEC_App.Views.AddCompanyView;
+using TEC_App.Views.AddCourseView;
+using TEC_App.Views.AddOpeningView;
+using TEC_App.Views.CandidatesQualifiedForOpeningView;
+using TEC_App.Views.CandidateView;
+using TEC_App.Views.CompaniesView;
+using TEC_App.Views.CourseView;
+using TEC_App.Views.IndividualCandidateDetailsView;
+using TEC_App.Views.OpeningsView;
+using TEC_App.Views.PlacementsView;
 
 namespace TEC_App.ViewModels
 {

@@ -9,6 +9,7 @@ using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.DTO;
 using TEC_App.ViewModels;
+using TEC_App.Views.CandidatesQualifiedForOpeningView;
 
 namespace TEC_App.Models.ViewDTO
 {

@@ -39,5 +39,9 @@ namespace TEC_App.Tests
                 Console.WriteLine();
             }
         }
+
+        public void GetCourseViewDtoTest()
+        {
+        }
     }
 }
