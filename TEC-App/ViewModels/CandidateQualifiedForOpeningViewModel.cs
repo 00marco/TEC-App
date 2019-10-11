@@ -25,7 +25,7 @@ namespace TEC_App.ViewModels
         public ICandidateService CandidateService { get; set; }
         private void NotifyMe(ViewQualifiedCandidatesForOpeningViewMessage obj)
         {
-            var candidates = CandidateService.GetCandidateList();
+            var candidates = CandidateService.GetCandidateWithQualificationsDtoList();
             var candidateDTO = new List<CandidatesQualifiedForOpeningDTO>();
             foreach (var v in candidates)
             {

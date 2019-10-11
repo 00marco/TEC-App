@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,21 @@ using NUnit.Framework;
 using TEC_App.Helpers;
 using TEC_App.Models;
 using TEC_App.Models.Db;
+using TEC_App.Services.EmployeeService;
+using TEC_App.ViewModels;
 
 namespace TEC_App.Tests
 {
 	public class EmployeeManagement
 	{
+        public EmployeeManagement()
+        {
+            TecAppContext = new TecAppContext();
+            CandidateService = new CandidateService(TecAppContext);
+        }
+        public ICandidateService CandidateService { get; set; }
 
+        public TecAppContext TecAppContext { get; set; }
 		//[Test]
 		public void AddQualifications()
 		{
@@ -180,35 +190,32 @@ namespace TEC_App.Tests
 				}
 			}
 		}
-		[Test]
+        [Test]
+        public void GetCandidateWithQualificationsDtoList()
+        {
+                //Movie movie = context.Set<Movie>().Find(movieId);
+                //movie.Should().BeNull();
+
+                var list = CandidateService.GetCandidateWithQualificationsDtoList();
+                foreach (var v in list)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"{v.ActualCandidateId}");
+                    Console.WriteLine($"{v.Qualifications}");
+                    Console.WriteLine($"{v.CandidateName}");
+                    Console.WriteLine();
+
+
+                }
+        }
+
+        [Test]
 		public void GetCandidates()
 		{
-			using (var context = new TecAppContext())
-			{
 				//Movie movie = context.Set<Movie>().Find(movieId);
 				//movie.Should().BeNull();
 
-				var list = context.Set<Candidate>()
-					.Include(d=>d.Addresses)
-					.ThenInclude(d=>d.Address)
-					.Include(d=>d.Candidate_Session_Pairs)
-					.ThenInclude(d=>d.Session)
-					.ThenInclude(d=>d.Session_Location_Pairs)
-					.ThenInclude(d=>d.Location)
-					//.ThenInclude(d=>d.Address_Location_Pairs)
-					//.ThenInclude(d=>d.Address)
-					.Include(d=>d.CandidateQualifications)
-					.ThenInclude(d=>d.Qualification)
-					.Include(d=>d.JobHistories)
-					.ThenInclude(d=>d.JobHistory_Job_Pairs)
-					.ThenInclude(d=>d.Job)
-					.Include(d=>d.JobHistories)
-					.ThenInclude(d=>d.JobHistory_Company_Pairs)
-					.ThenInclude(d=>d.Company)
-					.Include(d=>d.Placements)
-					.ThenInclude(d=>d.Opening)
-					.ThenInclude(d=>d.Company)
-					.ToList();
+                var list = CandidateService.GetCandidateList();
 				foreach (var v in list)
 				{
 					Console.WriteLine();
@@ -300,7 +307,6 @@ namespace TEC_App.Tests
 					}
 
 				}
-			}
 		}
 
 		[Test]

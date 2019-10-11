@@ -42,7 +42,7 @@ namespace TEC_App.ViewModels
 
 	    public void LoadCandidateDetails()
 	    {
-		    var candidates = CandidateService.GetCandidateList();
+		    var candidates = CandidateService.GetCandidateWithQualificationsDtoList();
 		    var viewCandidates = new List<CandidateViewDTO>();
 		    foreach (var v in candidates)
 		    {

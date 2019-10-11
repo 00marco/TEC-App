@@ -7,23 +7,15 @@ namespace TEC_App.Services.EmployeeService
 {
     public class MockCandidateService : ICandidateService
     {
-	    public List<CandidateWithQualificationsDTO> GetCandidateList()
-	    {
-		    var candidateList = new List<CandidateWithQualificationsDTO>();
-		    candidateList.Add(new CandidateWithQualificationsDTO()
-		    {
-			    CandidateName = "Marco",
-			    Qualifications = "A,B"
-		    });
-		    candidateList.Add(new CandidateWithQualificationsDTO()
-		    {
-			    CandidateName = "Paolo",
-			    Qualifications = "A,B"
-		    });
+	    public List<CandidateWithQualificationsDTO> GetCandidateWithQualificationsDtoList()
+        {
+            throw new NotImplementedException();
+        }
 
-		    return candidateList;
-
-		}
+        public List<Candidate> GetCandidateList()
+        {
+            throw new NotImplementedException();
+        }
 
         public AddCandidateDTO AddCandidate(AddCandidateDTO candidate)
         {
