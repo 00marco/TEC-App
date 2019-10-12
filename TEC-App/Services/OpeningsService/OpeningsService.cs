@@ -11,11 +11,11 @@ namespace TEC_App.Services.OpeningsService
 {
     public class OpeningsService : IOpeningsService
     {
-        private readonly TecAppContext _context;
+        private readonly TecAppContext context;
 
         public OpeningsService(TecAppContext context)
         {
-            _context = context;
+            this.context = context;
         }
         public Opening GetOpeningFromId(int id)
         {
@@ -57,7 +57,7 @@ namespace TEC_App.Services.OpeningsService
 
         public List<Opening> GetOpenings()
         {
-                var openings = _context.Set<Opening>()
+                var openings = context.Set<Opening>()
                     .Include(c => c.RequiredQualification)
                     .Include(c => c.Company)
                     .Include(c => c.Job)
@@ -69,6 +69,12 @@ namespace TEC_App.Services.OpeningsService
         public List<Opening> GetUniqueOpenings()
         {
             throw new NotImplementedException();
+        }
+
+        public void AddOpening(Opening opening)
+        {
+            context.Openings.Add(opening);
+            context.SaveChanges();
         }
     }
 }

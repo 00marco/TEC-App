@@ -52,6 +52,7 @@ namespace TEC_App.Views.OpeningsView
         private void AddOpeningProc()
         {
             Messenger.Default.Send(new NotificationMessage(nameof(AddOpeningViewModel)));
+            Messenger.Default.Send(new LoadAddOpeningViewMessage());
         }
     }
 }

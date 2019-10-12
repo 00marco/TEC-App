@@ -17,8 +17,13 @@ namespace TEC_App.Services.OpeningsService
         {
 throw new NotImplementedException();        }
 
+        public void AddOpening(Opening opening)
+        {
+            throw new NotImplementedException();
+        }
 
-		public List<OpeningViewDTO> GetOpeningViewDTOList()
+
+        public List<OpeningViewDTO> GetOpeningViewDTOList()
         {
             var openings = new List<OpeningViewDTO>();
             var opening1 = new CompanyWithOpeningDetailsDTO()

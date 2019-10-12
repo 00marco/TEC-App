@@ -6,8 +6,10 @@ using TEC_App.Services;
 using TEC_App.Services.CompanyService;
 using TEC_App.Services.CourseService;
 using TEC_App.Services.EmployeeService;
+using TEC_App.Services.JobService;
 using TEC_App.Services.OpeningsService;
 using TEC_App.Services.PlacementsService;
+using TEC_App.Services.QualificationsService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;
 using TEC_App.Views.AddCompanyView;
@@ -66,6 +68,8 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<ICandidateService, CandidateService>();
 			SimpleIoc.Default.Register<IPlacementService, PlacementService>(); 
 			SimpleIoc.Default.Register<IOpeningsService, OpeningsService>();
+			SimpleIoc.Default.Register<IQualificationsService, QualificationsService>();
+			SimpleIoc.Default.Register<IJobService, JobService>();
         }
 
 		private void RegisterTestServices()
@@ -74,8 +78,10 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<IPlacementService, PlacementService>(); //no test service for PlacementService
             SimpleIoc.Default.Register<ICourseService, MockCourseService>();
 			SimpleIoc.Default.Register<ICandidateService, MockCandidateService>();
+			SimpleIoc.Default.Register<IQualificationsService, QualificationsService>(); // no test service for QualificationsService
+			SimpleIoc.Default.Register<IJobService, JobService>(); // no test service for job service
 			SimpleIoc.Default.Register<IOpeningsService, MockOpeningsService>();
 
-		}
+        }
 	}
 }

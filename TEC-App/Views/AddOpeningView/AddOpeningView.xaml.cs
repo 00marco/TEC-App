@@ -25,5 +25,9 @@ namespace TEC_App.Views.AddOpeningView
             return !_regex.IsMatch(text);
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

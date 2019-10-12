@@ -11,5 +11,7 @@ namespace TEC_App.Services.OpeningsService
         List<Opening> GetOpenings();
         List<Opening> GetUniqueOpenings();
         //TODO Fix this. You should only have GetOpenings - you need a function to map the resulting openings to a dto
+        void AddOpening(Opening opening);
+
     }
 }
