@@ -59,9 +59,18 @@ namespace TEC_App.Services.EmployeeService
                 .ToList();
         }
 
-        public AddCandidateDTO AddCandidate(AddCandidateDTO candidate)
+        public Candidate GetCandidateFromAddCandidateDTO(AddCandidateDTO addCandidateDto)
         {
-            throw new NotImplementedException();
+            var candidate = new Candidate()
+            {
+                //TODO finish this
+            };
+            return candidate;
+        }
+        public void AddCandidate(AddCandidateDTO candidateDto)
+        {
+            var candidate = GetCandidateFromAddCandidateDTO(candidateDto);
+            _context.Candidates.Add(candidate);
         }
 
         public Candidate GetCandidateFromId(int id)

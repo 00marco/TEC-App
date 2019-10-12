@@ -28,10 +28,9 @@ namespace TEC_App.Services.EmployeeService
             throw new NotImplementedException();
         }
 
-        public AddCandidateDTO AddCandidate(AddCandidateDTO candidate)
+        public void AddCandidate(AddCandidateDTO candidate)
         {
-            return new AddCandidateDTO();
-            
+            throw new NotImplementedException();
         }
 
         public Candidate GetCandidateFromId(int id)
