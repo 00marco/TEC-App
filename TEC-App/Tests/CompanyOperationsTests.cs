@@ -5,6 +5,7 @@ using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Services.EmployeeService;
 using TEC_App.Services.OpeningsService;
+using TEC_App.Services.PlacementsService;
 
 namespace TEC_App.Tests
 {
@@ -14,13 +15,47 @@ namespace TEC_App.Tests
         {
             TecAppContext = new TecAppContext();
             OpeningsService = new OpeningsService(TecAppContext);
+            PlacementService = new PlacementService(TecAppContext);
         }
         public IOpeningsService OpeningsService { get; set; }
+        public IPlacementService PlacementService { get; set; }
 
         public TecAppContext TecAppContext { get; set; }
         //	Let company create an opening
         //	view all openings
 
+
+        [Test]
+        public void GetPlacementsTest()
+        {
+            var placements = PlacementService.GetPlacement();
+            foreach (var v in placements)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Placement id\t\t{v.Id}");
+                Console.WriteLine($"Timestamp \t\t{v.Timestamp}");
+                Console.WriteLine($"Total hours worked \t{v.TotalHoursWorked}");
+                Console.WriteLine($"Opening id\t\t{v.Opening.Id}");
+                Console.WriteLine($"Candidate name\t\t'{v.Candidate.FullName}");
+                Console.WriteLine();
+            }
+        }
+        [Test]
+        public void GetPlacementsWithCandidateDtosTest()
+        {
+            var placements = PlacementService.GetPlacementWithCandidateDtos();
+            foreach (var v in placements)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Candidate \t{v.CandidateName}");
+                Console.WriteLine($"Company\t{v.CompanyName}");
+                Console.WriteLine($"Start \t\t{v.DateTimeStart}");
+                Console.WriteLine($"End\t\t{v.DateTimeEnd}");
+                Console.WriteLine($"Hours worked\t{v.HoursWorked}");
+                Console.WriteLine($"Payment\t\t{v.Payment}");
+                Console.WriteLine();
+            }
+        }
         [Test]
         public void GetOpeningsTest()
         {

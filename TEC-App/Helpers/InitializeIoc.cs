@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Data.SqlTypes;
 using GalaSoft.MvvmLight.Ioc;
+using TEC_App.Models.Db;
 using TEC_App.Services;
 using TEC_App.Services.CompanyService;
 using TEC_App.Services.CourseService;
 using TEC_App.Services.EmployeeService;
 using TEC_App.Services.OpeningsService;
+using TEC_App.Services.PlacementsService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;
 using TEC_App.Views.AddCompanyView;
@@ -62,13 +64,15 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<ICompanyService, CompanyService>();
 			SimpleIoc.Default.Register<ICourseService, CourseService>();
 			SimpleIoc.Default.Register<ICandidateService, CandidateService>();
+			SimpleIoc.Default.Register<IPlacementService, PlacementService>(); 
 			SimpleIoc.Default.Register<IOpeningsService, OpeningsService>();
-		}
+        }
 
 		private void RegisterTestServices()
 		{
 			SimpleIoc.Default.Register<ICompanyService, MockCompanyService>();
-			SimpleIoc.Default.Register<ICourseService, MockCourseService>();
+			SimpleIoc.Default.Register<IPlacementService, PlacementService>(); //no test service for PlacementService
+            SimpleIoc.Default.Register<ICourseService, MockCourseService>();
 			SimpleIoc.Default.Register<ICandidateService, MockCandidateService>();
 			SimpleIoc.Default.Register<IOpeningsService, MockOpeningsService>();
 

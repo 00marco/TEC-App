@@ -217,6 +217,8 @@
     <Compile Include="Services\OpeningsService\MockOpeningsService.cs" />
     <Compile Include="Services\OpeningsService\OpeningsService.cs" />
     <Compile Include="Services\OpeningsService\OpeningViewDTOSelect.cs" />
+    <Compile Include="Services\PlacementsService\IPlacementService.cs" />
+    <Compile Include="Services\PlacementsService\PlacementService.cs" />
     <Compile Include="Tests\CompanyManagement.cs" />
     <Compile Include="Tests\CompanyOperationsTests.cs" />
     <Compile Include="Tests\CourseManagement.cs" />
