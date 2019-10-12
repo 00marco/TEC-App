@@ -68,7 +68,7 @@ namespace TEC_App.Helpers
 		private void RegisterTestServices()
 		{
 			SimpleIoc.Default.Register<ICompanyService, MockCompanyService>();
-			SimpleIoc.Default.Register<ICourseService, MockCourseService>();
+			SimpleIoc.Default.Register<ICourseService, CourseService>();
 			SimpleIoc.Default.Register<ICandidateService, MockCandidateService>();
 			SimpleIoc.Default.Register<IOpeningsService, MockOpeningsService>();
 
