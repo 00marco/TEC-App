@@ -57,15 +57,13 @@ namespace TEC_App.Services.OpeningsService
 
         public List<Opening> GetOpenings()
         {
-            using (var context = _context)
-            {
-                var openings = context.Set<Opening>()
+                var openings = _context.Set<Opening>()
                     .Include(c => c.RequiredQualification)
                     .Include(c => c.Company)
                     .Include(c => c.Job)
                     .ToList();
                 return openings;
-            }
+            
         }
 
         public List<Opening> GetUniqueOpenings()
