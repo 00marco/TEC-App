@@ -4,6 +4,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
+using TEC_App.Models.Db;
 using TEC_App.Models.ViewDTO;
 using TEC_App.Services.OpeningsService;
 using TEC_App.ViewModels;
@@ -29,7 +30,11 @@ namespace TEC_App.Views.OpeningsView
         private void LoadOpenings()
         {
             var openings = OpeningsService.GetOpeningViewDTOList();
-            CompanyOpeningDtos = new ObservableCollection<OpeningViewDTO>(openings);
+            CompanyOpeningDtos.Clear();
+            foreach (var v in openings)
+            {
+                CompanyOpeningDtos.Add(v);
+            }
         }
 
         public ObservableCollection<OpeningViewDTO> CompanyOpeningDtos { get; set; } =

@@ -40,16 +40,15 @@ namespace TEC_App.Views.CandidateView
 	    public void LoadCandidateDetails()
 	    {
 		    var candidates = CandidateService.GetCandidateWithQualificationsDtoList();
-		    var viewCandidates = new List<CandidateViewDTO>();
+            Candidates.Clear();
 		    foreach (var v in candidates)
 		    {
-				viewCandidates.Add(new CandidateViewDTO()
+                Candidates.Add(new CandidateViewDTO()
 				{
 					CandidateWithQualificationsDto = v
 				});
 		    }
 
-		    Candidates = new ObservableCollection<CandidateViewDTO>(viewCandidates);
 	    }
 	  
 
