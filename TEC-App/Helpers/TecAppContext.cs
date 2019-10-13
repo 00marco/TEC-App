@@ -36,7 +36,7 @@ namespace TEC_App.Helpers
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+             
             bool workingOnPc = true;
             if(workingOnPc)
             {
