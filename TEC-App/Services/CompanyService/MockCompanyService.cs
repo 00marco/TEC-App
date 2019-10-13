@@ -11,6 +11,11 @@ namespace TEC_App.Services.CompanyService
             throw new System.NotImplementedException();
         }
 
+        public List<CompanyViewDTO> GetAllCompanyViewDtos()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Company GetCompanyFromId(int id)
         {
             throw new System.NotImplementedException();

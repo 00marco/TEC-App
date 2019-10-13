@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
 
 namespace TEC_App.Services.EmployeeService
 {
@@ -29,6 +30,11 @@ namespace TEC_App.Services.EmployeeService
         }
 
         public List<Candidate> GetAllCandidates()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CandidateViewDTO> GetAllCandidateViewDtos()
         {
             throw new NotImplementedException();
         }

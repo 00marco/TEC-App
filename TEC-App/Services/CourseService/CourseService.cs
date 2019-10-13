@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
+using TEC_App.Services.CourseService.QueryObjects;
 
 namespace TEC_App.Services.CourseService
 {
@@ -25,6 +27,19 @@ namespace TEC_App.Services.CourseService
                 .ThenInclude(c=>c.Location)
                 .ToList();
         }
+
+        public List<CourseViewDTO> GetCourseViewDtos()
+        {
+            return context.Set<Course>()
+                .Include(c => c.PrerequisitesForCourse)
+                .Include(c => c.QualificationsDevelopedByCourse)
+                .Include(c => c.Sessions)
+                .ThenInclude(c => c.Session_Location_Pairs)
+                .ThenInclude(c => c.Location)
+                .MapCourseToDto()
+                .ToList();
+        }
+
 
         public Course GetCourseFromId(int id)
         {

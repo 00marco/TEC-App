@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
+using TEC_App.Models.ViewDTO;
+using TEC_App.Services.PlacementService.QueryObjects;
 
 namespace TEC_App.Services.PlacementService
 {
@@ -36,7 +38,18 @@ namespace TEC_App.Services.PlacementService
         {
             return context.Set<Placement>()
                 .Include(d => d.Opening)
+                .ThenInclude(d=>d.Job)
                 .Include(d => d.Candidate)
+                .ToList();
+        }
+
+        public List<PlacementViewDTO> GetAllPlacementViewDtos()
+        {
+            return context.Set<Placement>()
+                .Include(d => d.Opening)
+                .ThenInclude(d=>d.Job)
+                .Include(d => d.Candidate)
+                .MapPlacementToDtos()
                 .ToList();
         }
 

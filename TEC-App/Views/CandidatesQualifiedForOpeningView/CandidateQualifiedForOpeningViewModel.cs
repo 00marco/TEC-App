@@ -22,6 +22,8 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
             Messenger.Default.Register<ViewQualifiedCandidatesForOpeningViewMessage>(this, LoadCandidatesQualifiedForOpening);
         }
 
+        public ObservableCollection<Candidate> Candidates { get; set; } = new ObservableCollection<Candidate>();
+        public Candidate SelectedCandidate { get; set; }
         public ICandidateService CandidateService { get; set; }
         private void LoadCandidatesQualifiedForOpening(ViewQualifiedCandidatesForOpeningViewMessage obj)
         {
@@ -34,7 +36,8 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
             //TODO might want to use DTO instead of full candidate soon
         }
 
-        public ObservableCollection<Candidate> Candidates { get; set; } = new ObservableCollection<Candidate>();
+
+
         public ICommand HireCandidateCommand => new RelayCommand(HireCandidate);
         public void HireCandidate()
         {

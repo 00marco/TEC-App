@@ -3,6 +3,7 @@ using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
 using TEC_App.Services.PlacementService;
 using TEC_App.ViewModels;
 
@@ -21,11 +22,17 @@ namespace TEC_App.Views.PlacementsView
         {
             LoadPlacements();
         }
-        public ObservableCollection<PlacementWithCandidateDTO> PlacementViewDtos { get; set; } =
-		    new ObservableCollection<PlacementWithCandidateDTO>();
+        public ObservableCollection<PlacementViewDTO> PlacementViewDtos { get; set; } =
+		    new ObservableCollection<PlacementViewDTO>();
 
         public void LoadPlacements()
         {
+            var placements = PlacementService.GetAllPlacementViewDtos();
+            PlacementViewDtos.Clear();
+            foreach (var v in placements)
+            {
+                PlacementViewDtos.Add(v);
+            }
         }
 
     }

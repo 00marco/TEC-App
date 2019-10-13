@@ -9,6 +9,7 @@ using TEC_App.Models.ViewDTO;
 using TEC_App.Services.EmployeeService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;
+using TEC_App.Views.IndividualCandidateDetailsView;
 
 namespace TEC_App.Views.CandidateView
 {
@@ -34,29 +35,26 @@ namespace TEC_App.Views.CandidateView
 
 	    private void GotoCandidateDetailsProc()
 	    {
-		    throw new NotImplementedException();
-	    }
+            Messenger.Default.Send<NotificationMessage>(new NotificationMessage(nameof(IndividualCandidateDetailsView_ViewModel)));
 
-	    public void LoadCandidateDetails()
+        }
+
+        public void LoadCandidateDetails()
 	    {
-		  //  var candidates = CandidateService.GetCandidateWithQualificationsDtoList();
-    //        Candidates.Clear();
-		  //  foreach (var v in candidates)
-		  //  {
-    //            Candidates.Add(new CandidateViewDTO()
-				//{
-				//	CandidateWithQualificationsDto = v
-				//});
-		  //  }
+            var candidates = CandidateService.GetAllCandidateViewDtos();
+            Candidates.Clear();
+            foreach (var v in candidates)
+            {
+                Candidates.Add(v);
+            }
 
-	    }
+        }
 	  
 
         public ICommand AddCandidateCommand => new RelayCommand(AddCandidate);
 
         private void AddCandidate()
         {
-
             Messenger.Default.Send<NotificationMessage>(new NotificationMessage(nameof(AddCandidateViewModel)));
         }
     }

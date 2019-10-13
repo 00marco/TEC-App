@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
 
 namespace TEC_App.Services.EmployeeService
 {
@@ -12,6 +13,7 @@ namespace TEC_App.Services.EmployeeService
     {
         List<Candidate> GetCandidatesQualifiedForOpening(Opening opening);
         List<Candidate> GetAllCandidates();
+        List<CandidateViewDTO> GetAllCandidateViewDtos();
         Candidate AddCandidate(Candidate candidate);
         void RemoveCandidate(Candidate candidate);
         Candidate GetCandidateFromId(int id);

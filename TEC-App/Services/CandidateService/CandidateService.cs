@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
+using TEC_App.Services.CandidateService.QueryObjects;
 
 namespace TEC_App.Services.EmployeeService
 {
@@ -55,6 +57,32 @@ namespace TEC_App.Services.EmployeeService
                 .Include(d => d.Placements)
                 .ThenInclude(d => d.Opening)
                 .ThenInclude(d => d.Company)
+                .ToList();
+        }
+
+        public List<CandidateViewDTO> GetAllCandidateViewDtos()
+        {
+            return context.Set<Candidate>()
+                .Include(d => d.Addresses)
+                .ThenInclude(d => d.Address)
+                .Include(d => d.Candidate_Session_Pairs)
+                .ThenInclude(d => d.Session)
+                .ThenInclude(d => d.Session_Location_Pairs)
+                .ThenInclude(d => d.Location)
+                //.ThenInclude(d=>d.Address_Location_Pairs)
+                //.ThenInclude(d=>d.Address)
+                .Include(d => d.CandidateQualifications)
+                .ThenInclude(d => d.Qualification)
+                .Include(d => d.JobHistories)
+                .ThenInclude(d => d.JobHistory_Job_Pairs)
+                .ThenInclude(d => d.Job)
+                .Include(d => d.JobHistories)
+                .ThenInclude(d => d.JobHistory_Company_Pairs)
+                .ThenInclude(d => d.Company)
+                .Include(d => d.Placements)
+                .ThenInclude(d => d.Opening)
+                .ThenInclude(d => d.Company)
+                .MapCandidateToDto()
                 .ToList();
         }
 

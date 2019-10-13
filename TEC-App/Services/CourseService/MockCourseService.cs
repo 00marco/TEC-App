@@ -1,12 +1,18 @@
 ﻿using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
 
 namespace TEC_App.Services.CourseService
 {
     public class MockCourseService : ICourseService
     {
         public List<Course> GetAllCourses()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<CourseViewDTO> GetCourseViewDtos()
         {
             throw new System.NotImplementedException();
         }

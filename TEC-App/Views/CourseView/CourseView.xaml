@@ -45,10 +45,8 @@
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel>
-						<TextBlock Text="{Binding Path=CourseName}"/>
-						<TextBlock Text="{Binding Path=Location}"/>
-						<TextBlock Text="{Binding Path=DateTimeStart}"/>
-						<TextBlock Text="{Binding Path=DateTimeEnd}"/>
+						<TextBlock Text="{Binding Path=Course.Name}"/>
+						<TextBlock Text="{Binding Path=Course.Id}"/>
 					</StackPanel>
 				</DataTemplate>
 			</ListBox.ItemTemplate>

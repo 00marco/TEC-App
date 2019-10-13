@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Services.CompanyService.QueryObjects;
 
 namespace TEC_App.Services.CompanyService
 {
@@ -23,6 +24,15 @@ namespace TEC_App.Services.CompanyService
             return context.Set<Company>()
                 .Include(c => c.Openings)
                 .Include(c=>c.JobHistory_Company_Pairs)
+                .ToList();
+        }
+
+        public List<CompanyViewDTO> GetAllCompanyViewDtos()
+        {
+            return context.Set<Company>()
+                .Include(c => c.Openings)
+                .Include(c => c.JobHistory_Company_Pairs)
+                .MapCompanyToDto()
                 .ToList();
         }
 

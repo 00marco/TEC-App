@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
 using TEC_App.Services.CourseService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCourseView;
@@ -27,8 +28,8 @@ namespace TEC_App.Views.CourseView
             
         }
 
-        public ObservableCollection<CourseWithLocationDTO> CourseViewDtos { get; set; } =
-			new ObservableCollection<CourseWithLocationDTO>();
+        public ObservableCollection<CourseViewDTO> CourseViewDtos { get; set; } =
+			new ObservableCollection<CourseViewDTO>();
         public ICommand AddCourseCommand => new RelayCommand(AddCourse);
 
         private void AddCourse()
@@ -39,12 +40,12 @@ namespace TEC_App.Views.CourseView
 
         public void LoadCourseViewDtos()
         {
-            //var courseViewDtos = CourseService.GetCourseViewDtoList();
-            //CourseViewDtos.Clear();
-            //foreach (var v in courseViewDtos)
-            //{
-            //    CourseViewDtos.Add(v);
-            //}
+            var courseViewDtos = CourseService.GetCourseViewDtos();
+            CourseViewDtos.Clear();
+            foreach (var v in courseViewDtos)
+            {
+                CourseViewDtos.Add(v);
+            }
         }
     }
 }
