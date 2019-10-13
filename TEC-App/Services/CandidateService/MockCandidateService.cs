@@ -33,7 +33,7 @@ namespace TEC_App.Services.EmployeeService
             throw new NotImplementedException();
         }
 
-        public void AddCandidate(Candidate candidate)
+        public Candidate AddCandidate(Candidate candidate)
         {
             throw new NotImplementedException();
         }

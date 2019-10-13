@@ -10,11 +10,11 @@ namespace TEC_App.Services.EmployeeService
 {
     public class CandidateService : ICandidateService
     {
-	    private readonly TecAppContext _context;
+	    private readonly TecAppContext context;
 
 	    public CandidateService(TecAppContext context)
 	    {
-		    _context = context;
+		    this.context = context;
 	    }
 
         public List<Candidate> GetCandidatesQualifiedForOpening(Opening opening)
@@ -35,7 +35,7 @@ namespace TEC_App.Services.EmployeeService
 
         public List<Candidate> GetAllCandidates()
         {
-            return _context.Set<Candidate>()
+            return context.Set<Candidate>()
                 .Include(d => d.Addresses)
                 .ThenInclude(d => d.Address)
                 .Include(d => d.Candidate_Session_Pairs)
@@ -58,10 +58,11 @@ namespace TEC_App.Services.EmployeeService
                 .ToList();
         }
 
-        public void AddCandidate(Candidate candidate)
+        public Candidate AddCandidate(Candidate candidate)
         {
-            _context.Candidates.Add(candidate);
-            
+            context.Candidates.Add(candidate);
+            context.SaveChanges();
+            return candidate;
         }
 
 

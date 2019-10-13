@@ -27,7 +27,38 @@ namespace TEC_App.Services.AddressService
 
         public Address GetAddressFromId(int id)
         {
-            return GetAllAdresses().FirstOrDefault(d => d.Id == id);
+            var address = GetAllAdresses().FirstOrDefault(d => d.Id == id);
+            if (address == null)
+            {
+                return new Address()
+                {
+                    Address_Candidate_Pairs = null,
+                    Locations = null,
+                    City = null,
+                    Province = null,
+                    Street = null,
+                    ZipCode = null,
+                    Id = -1
+                };
+
+            }
+            else
+            {
+                return address;
+            }
+        }
+
+        public Address AddAddress(Address address)
+        {
+            context.Addresses.Add(address);
+            context.SaveChanges();
+            return address;
+        }
+
+        public void RemoveAddress(Address address)
+        {
+            context.Remove(context.Addresses.Single(d => d.Id == address.Id));
+            context.SaveChanges();
         }
     }
 }

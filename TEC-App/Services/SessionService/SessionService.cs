@@ -27,5 +27,12 @@ namespace TEC_App.Services.SessionService
         {
             return GetAllSessions().FirstOrDefault(d => d.Id == id);
         }
+
+        public Session AddSession(Session session)
+        {
+            context.Sessions.Add(session);
+            context.SaveChanges();
+            return session;
+        }
     }
 }

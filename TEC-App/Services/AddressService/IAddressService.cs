@@ -11,5 +11,7 @@ namespace TEC_App.Services.AddressService
     {
         List<Address> GetAllAdresses();
         Address GetAddressFromId(int id);
+        Address AddAddress(Address address);
+        void RemoveAddress(Address address);
     }
 }

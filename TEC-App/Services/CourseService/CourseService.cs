@@ -9,15 +9,15 @@ namespace TEC_App.Services.CourseService
 {
     public class CourseService : ICourseService
     {
-        public readonly TecAppContext _context;
+        public readonly TecAppContext context;
         public CourseService(TecAppContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public List<Course> GetAllCourses()
         {
-            return _context.Set<Course>()
+            return context.Set<Course>()
                 .Include(c => c.PrerequisitesForCourse)
                 .Include(c => c.QualificationsDevelopedByCourse)
                 .Include(c => c.Sessions)
@@ -29,6 +29,13 @@ namespace TEC_App.Services.CourseService
         public Course GetCourseFromId(int id)
         {
             return GetAllCourses().FirstOrDefault(d => d.Id == id);
+        }
+
+        public Course AddCourse(Course course)
+        {
+            context.Courses.Add(course);
+            context.SaveChanges();
+            return course;
         }
     }
 }

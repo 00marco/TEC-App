@@ -11,5 +11,6 @@ namespace TEC_App.Services.LocationService
     {
         List<Location> GetAllLocations();
         Location GetLocationFromId(int id);
+        Location AddLocation(Location location);
     }
 }

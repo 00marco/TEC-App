@@ -17,7 +17,7 @@ namespace TEC_App.Services.OpeningsService
         {
 throw new NotImplementedException();        }
 
-        public void AddOpening(Opening opening)
+        public Opening AddOpening(Opening opening)
         {
             throw new NotImplementedException();
         }

@@ -11,5 +11,6 @@ namespace TEC_App.Services.SessionService
     {
         List<Session> GetAllSessions();
         Session GetSessionFromId(int id);
+        Session AddSession(Session session);
     }
 }

@@ -12,5 +12,6 @@ namespace TEC_App.Services.PlacementsService
     {
         List<Placement> GetAllPlacements();
         Placement GetPlacementFromId(int id);
+        Placement AddPlacement(Placement placement);
     }
 }

@@ -31,5 +31,12 @@ namespace TEC_App.Services.QualificationsService
         {
             return GetAllQualifications().FirstOrDefault(d => d.Id == id);
         }
+
+        public Qualification AddQualification(Qualification qualification)
+        {
+            context.Qualifications.Add(qualification);
+            context.SaveChanges();
+            return qualification;
+        }
     }
 }

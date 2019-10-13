@@ -11,5 +11,6 @@ namespace TEC_App.Services.JobService
     {
         List<Job> GetAllJobs();
         Job GetJobFromId(int id);
+        Job AddJob(Job job);
     }
 }

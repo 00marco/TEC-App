@@ -11,5 +11,6 @@ namespace TEC_App.Services.JobHistoryService
     {
         List<JobHistory> GetAllJobHistories();
         JobHistory GetJobHistoryFromId(int id);
+        JobHistory AddJobHistory(JobHistory jobHistory);
     }
 }

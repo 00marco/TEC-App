@@ -26,5 +26,12 @@ namespace TEC_App.Services.JobService
         {
             return GetAllJobs().FirstOrDefault(d => d.Id == id);
         }
+
+        public Job AddJob(Job job)
+        {
+            context.Jobs.Add(job);
+            context.SaveChanges();
+            return job;
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace TEC_App.Services.CourseService
     {
         List<Course> GetAllCourses();
         Course GetCourseFromId(int id);
+        Course AddCourse(Course course);
     }
 }

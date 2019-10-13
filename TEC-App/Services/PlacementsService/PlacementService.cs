@@ -34,5 +34,11 @@ namespace TEC_App.Services.PlacementsService
             return GetAllPlacements().FirstOrDefault(d => d.Id == id);
         }
 
+        public Placement AddPlacement(Placement placement)
+        {
+            context.Placements.Add(placement);
+            context.SaveChanges();
+            return placement;
+        }
     }
 }

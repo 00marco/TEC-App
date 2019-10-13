@@ -45,5 +45,18 @@ namespace TEC_App.Services.CompanyService
             Assert.AreEqual(company.Name, result);
         }
 
+        [Test]
+        public void AddCompanyTest()
+        {
+            var random = new Random();
+            var newCompany = new Company()
+            {
+                JobHistory_Company_Pairs = new List<JobHistory_Company>(),
+                Name = $"Company-{random.Next()}",
+                Openings = new List<Opening>(),
+                Timestamp = DateTime.Now,
+            };
+            var company = CompanyService.AddCompany(newCompany);
+        }
     }
 }

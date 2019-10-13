@@ -11,5 +11,6 @@ namespace TEC_App.Services.QualificationsService
     {
         List<Qualification> GetAllQualifications();
         Qualification GetQualificationFromId(int id);
+        Qualification AddQualification(Qualification qualification);
     }
 }

@@ -10,17 +10,17 @@ namespace TEC_App.Services.CompanyService
 {
     public class CompanyService : ICompanyService
     {
-        private readonly TecAppContext _context;
+        private readonly TecAppContext context;
 
         public CompanyService(TecAppContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
 
         public List<Company> GetAllCompanies()
         {
-            return _context.Set<Company>()
+            return context.Set<Company>()
                 .Include(c => c.Openings)
                 .Include(c=>c.JobHistory_Company_Pairs)
                 .ToList();
@@ -29,6 +29,13 @@ namespace TEC_App.Services.CompanyService
         public Company GetCompanyFromId(int id)
         {
             return GetAllCompanies().FirstOrDefault(d => d.Id == id);
+        }
+
+        public Company AddCompany(Company company)
+        {
+            context.Companies.Add(company);
+            context.SaveChanges();
+            return company;
         }
     }
 }

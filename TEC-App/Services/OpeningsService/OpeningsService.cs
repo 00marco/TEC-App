@@ -35,10 +35,11 @@ namespace TEC_App.Services.OpeningsService
             
         }
 
-        public void AddOpening(Opening opening)
+        public Opening AddOpening(Opening opening)
         {
             context.Openings.Add(opening);
             context.SaveChanges();
+            return opening;
         }
     }
 }

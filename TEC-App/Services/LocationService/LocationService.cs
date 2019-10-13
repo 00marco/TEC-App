@@ -29,5 +29,12 @@ namespace TEC_App.Services.LocationService
         {
             return GetAllLocations().FirstOrDefault(d => d.Id == id);
         }
+
+        public Location AddLocation(Location location)
+        {
+            context.Locations.Add(location);
+            context.SaveChanges();
+            return location;
+        }
     }
 }

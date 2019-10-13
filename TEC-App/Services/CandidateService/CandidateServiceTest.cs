@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using NUnit.Framework;
 using TEC_App.Helpers;
+using TEC_App.Models.Db;
 using TEC_App.Services.EmployeeService;
 
 namespace TEC_App.Services.CandidateService
@@ -47,6 +48,26 @@ namespace TEC_App.Services.CandidateService
         {
             var candidate = CandidateService.GetCandidateFromId(id);
             Assert.AreEqual(candidate.FirstName, result);
+        }
+
+        [Test]
+        public void AddCandidateTest()
+        {
+            var random = new Random();
+            var newCandidate = new Candidate()
+            {
+                CandidateQualifications = new List<Candidate_Qualification>(),
+                Addresses = new List<Address_Candidate>(),
+                Candidate_Session_Pairs = new List<Candidate_Session>(),
+                JobHistories = new List<JobHistory>(),
+                Placements = new List<Placement>(),
+                Timestamp = DateTime.Now,
+                FirstName = "FName",
+                MiddleName = "MName",
+                LastName = $"{random.Next(5000)}"
+            };
+            CandidateService.AddCandidate(newCandidate);
+
         }
     }
 }
