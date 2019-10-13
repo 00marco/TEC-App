@@ -20,7 +20,17 @@ namespace TEC_App.Services.OpeningsService
         }
         public Opening GetOpeningFromId(int id)
         {
-            return GetAllOpenings().FirstOrDefault(d => d.Id == id);
+            var opening = GetAllOpenings().FirstOrDefault(d => d.Id == id);
+            if (opening == null)
+            {
+                return new Opening()
+                {
+                    Id = -1
+
+                };
+            }
+
+            return opening;
         }
 
         public List<Opening> GetAllOpenings()
@@ -40,6 +50,12 @@ namespace TEC_App.Services.OpeningsService
             context.Openings.Add(opening);
             context.SaveChanges();
             return opening;
+        }
+
+        public void RemoveOpening(Opening opening)
+        {
+            context.Remove(context.Openings.Single(d => d.Id == opening.Id));
+            context.SaveChanges();
         }
     }
 }

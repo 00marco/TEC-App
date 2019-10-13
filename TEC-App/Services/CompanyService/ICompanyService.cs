@@ -9,6 +9,7 @@ namespace TEC_App.Services.CompanyService
         List<Company> GetAllCompanies();
         Company GetCompanyFromId(int id);
         Company AddCompany(Company company);
+        void RemoveCompany(Company company);
 
     }
 }

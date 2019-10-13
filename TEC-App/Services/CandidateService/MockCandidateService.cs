@@ -38,6 +38,11 @@ namespace TEC_App.Services.EmployeeService
             throw new NotImplementedException();
         }
 
+        public void RemoveCandidate(Candidate candidate)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddCandidate(AddCandidateDTO candidate)
         {
             throw new NotImplementedException();

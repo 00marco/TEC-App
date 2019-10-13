@@ -65,10 +65,23 @@ namespace TEC_App.Services.EmployeeService
             return candidate;
         }
 
+        public void RemoveCandidate(Candidate candidate)
+        {
+            context.Remove(context.Candidates.Single(d => d.Id == candidate.Id));
+            context.SaveChanges();
+        }
+
 
         public Candidate GetCandidateFromId(int id)
         {
             var candidate = GetAllCandidates().FirstOrDefault(d => d.Id == id);
+            if (candidate == null)
+            {
+                return new Candidate()
+                {
+                    Id = -1
+                };
+            }
             return candidate;
         }
     }

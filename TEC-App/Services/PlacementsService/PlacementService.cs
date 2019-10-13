@@ -31,7 +31,22 @@ namespace TEC_App.Services.PlacementsService
 
         public Placement GetPlacementFromId(int id )
         {
-            return GetAllPlacements().FirstOrDefault(d => d.Id == id);
+            var placement = GetAllPlacements().FirstOrDefault(d => d.Id == id);
+            if (placement == null)
+            {
+                return new Placement()
+                {
+                    Id = -1
+                };
+            }
+
+            return placement;
+        }
+
+        public void RemovePlacement(Placement placement)
+        {
+            context.Remove(context.Placements.Single(d => d.Id == placement.Id));
+            context.SaveChanges();
         }
 
         public Placement AddPlacement(Placement placement)

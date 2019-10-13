@@ -29,7 +29,16 @@ namespace TEC_App.Services.QualificationsService
 
         public Qualification GetQualificationFromId(int id)
         {
-            return GetAllQualifications().FirstOrDefault(d => d.Id == id);
+            var qualification = GetAllQualifications().FirstOrDefault(d => d.Id == id);
+            if (qualification == null)
+            {
+                return new Qualification()
+                {
+                    Id = -1
+                };
+            }
+
+            return qualification;
         }
 
         public Qualification AddQualification(Qualification qualification)
@@ -37,6 +46,12 @@ namespace TEC_App.Services.QualificationsService
             context.Qualifications.Add(qualification);
             context.SaveChanges();
             return qualification;
+        }
+
+        public void RemoveQualificaiton(Qualification qualification)
+        {
+            context.Remove(context.Qualifications.Single(d => d.Id == qualification.Id));
+            context.SaveChanges();
         }
     }
 }

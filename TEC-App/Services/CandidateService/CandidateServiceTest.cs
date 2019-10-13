@@ -14,6 +14,7 @@ namespace TEC_App.Services.CandidateService
     public class CandidateServiceTest
     {
         public TecAppContext TecAppContext { get; set; }
+        public Candidate Candidate { get; set; }
         public ICandidateService CandidateService { get; set; }
 
         public CandidateServiceTest()
@@ -66,8 +67,22 @@ namespace TEC_App.Services.CandidateService
                 MiddleName = "MName",
                 LastName = $"{random.Next(5000)}"
             };
-            CandidateService.AddCandidate(newCandidate);
+            Candidate = CandidateService.AddCandidate(newCandidate);
 
+        }
+        [Test]
+        public void Y_TestAddedCompany()
+        {
+            var candidate = CandidateService.GetCandidateFromId(Candidate.Id);
+            Assert.AreEqual(candidate.FirstName, Candidate.FirstName);
+        }
+
+        [Test]
+        public void Z_RemoveCompanyTest()
+        {
+            CandidateService.RemoveCandidate(Candidate);
+            var removedCandidate = CandidateService.GetCandidateFromId(Candidate.Id);
+            Assert.AreEqual(removedCandidate.Id, -1);
         }
     }
 }

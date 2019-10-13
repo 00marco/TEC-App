@@ -24,7 +24,19 @@ namespace TEC_App.Services.JobService
 
         public Job GetJobFromId(int id)
         {
-            return GetAllJobs().FirstOrDefault(d => d.Id == id);
+            var job = GetAllJobs().FirstOrDefault(d => d.Id == id);
+            if (job == null)
+            {
+                return new Job(){Id = -1};
+            }
+
+            return job;
+        }
+
+        public void RemoveJob(Job job)
+        {
+            context.Remove(context.Jobs.Single(d => d.Id == job.Id));
+            context.SaveChanges();
         }
 
         public Job AddJob(Job job)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using TEC_App.Helpers;
+using TEC_App.Models.Db;
 
 namespace TEC_App.Services.JobHistoryService
 {
@@ -12,6 +13,7 @@ namespace TEC_App.Services.JobHistoryService
     {
         public TecAppContext TecAppContext { get; set; }
         public IJobHistoryService JobHistoryService { get; set; }
+        public JobHistory JobHistory { get; set; }
 
         public JobHistoryServiceTest()
         {
@@ -42,6 +44,37 @@ namespace TEC_App.Services.JobHistoryService
         {
             var jobHistory = JobHistoryService.GetJobHistoryFromId(id);
             Assert.AreEqual(jobHistory.Candidate.Id, result);
+        }
+
+        [Test]
+        public void AddJobHistoryTest()
+        {
+            var random = new Random();
+            var newJobHistory = new JobHistory()
+            {
+                Candidate = new Candidate(),
+                DateTimeStart = DateTime.Now,
+                DateTimeEnd = DateTime.Now.AddDays(5),
+                JobHistory_Company_Pairs = new List<JobHistory_Company>(),
+                JobHistory_Job_Pairs = new List<JobHistory_Job>()
+            };
+            JobHistory = JobHistoryService.AddJobHistory(newJobHistory);
+        }
+
+        [Test]
+        public void Y_TestAddedJobHistory()
+        {
+            var addedJobHistory = JobHistoryService.GetJobHistoryFromId(JobHistory.Id);
+            Assert.AreEqual(addedJobHistory.DateTimeStart, JobHistory.DateTimeStart);
+            Assert.AreEqual(addedJobHistory.DateTimeEnd, JobHistory.DateTimeEnd);
+        }
+
+        [Test]
+        public void Z_RemoveJobHistoryTest()
+        {
+            JobHistoryService.RemoveJobHistory(JobHistory);
+            var removedJobHistory = JobHistoryService.GetJobHistoryFromId(JobHistory.Id);
+            Assert.AreEqual(removedJobHistory.Id, -1);
         }
     }
 }

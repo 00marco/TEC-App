@@ -27,7 +27,16 @@ namespace TEC_App.Services.LocationService
 
         public Location GetLocationFromId(int id)
         {
-            return GetAllLocations().FirstOrDefault(d => d.Id == id);
+            var location =  GetAllLocations().FirstOrDefault(d => d.Id == id);
+            if (location == null)
+            {
+                return new Location()
+                {
+                    Id = -1
+                };
+            }
+
+            return location;
         }
 
         public Location AddLocation(Location location)
@@ -35,6 +44,12 @@ namespace TEC_App.Services.LocationService
             context.Locations.Add(location);
             context.SaveChanges();
             return location;
+        }
+
+        public void RemoveLocation(Location location)
+        {
+            context.Remove(context.Locations.Single(d => d.Id == location.Id));
+            context.SaveChanges();
         }
     }
 }

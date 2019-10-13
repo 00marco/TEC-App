@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using TEC_App.Helpers;
+using TEC_App.Models.Db;
 
 namespace TEC_App.Services.SessionService
 {
     public class SessionServiceTest
     {
         public TecAppContext TecAppContext { get; set; }
+        public Session Session { get; set; }
         public ISessionService SessionService { get; set; }
 
         public SessionServiceTest()
@@ -38,6 +41,39 @@ namespace TEC_App.Services.SessionService
         {
             var session = SessionService.GetSessionFromId(id);
             Assert.AreEqual(session.CourseId, result);
+        }
+
+        [Test]
+        public void AddSessionTest()
+        {
+            var random = new Random();
+            var newSession = new Session()
+            {
+                Candidate_Session_Pairs = new List<Candidate_Session>(),
+                Course = new Course(),
+                DateTimeEnd = DateTime.Now.AddDays(5),
+                DateTimeStart = DateTime.Now,
+                NumberOfAttendees = random.Next(),
+                Session_Location_Pairs = new List<Session_Location>(),
+                Price = random.Next(),
+
+            };
+            Session = SessionService.AddSession(newSession);
+        }
+
+        [Test]
+        public void Y_TestAddedSession()
+        {
+            var addedSession = SessionService.GetSessionFromId(Session.Id);
+            Assert.AreEqual(addedSession.NumberOfAttendees,Session.NumberOfAttendees);
+        }
+
+        [Test]
+        public void Z_RemoveSessionTest()
+        {
+            SessionService.RemoveSession(Session);
+            var removedSession = SessionService.GetSessionFromId(Session.Id);
+            Assert.AreEqual(removedSession.Id, -1);
         }
 
     }

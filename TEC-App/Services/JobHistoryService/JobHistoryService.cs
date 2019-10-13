@@ -30,7 +30,16 @@ namespace TEC_App.Services.JobHistoryService
 
         public JobHistory GetJobHistoryFromId(int id)
         {
-            return GetAllJobHistories().FirstOrDefault(d => d.Id == id);
+            var jobHistory =  GetAllJobHistories().FirstOrDefault(d => d.Id == id);
+            if (jobHistory == null)
+            {
+                return new JobHistory()
+                {
+                    Id = -1
+                };
+            }
+
+            return jobHistory;
         }
 
         public JobHistory AddJobHistory(JobHistory jobHistory)
@@ -38,6 +47,12 @@ namespace TEC_App.Services.JobHistoryService
             context.JobHistories.Add(jobHistory);
             context.SaveChanges();
             return jobHistory;
+        }
+
+        public void RemoveJobHistory(JobHistory jobHistory)
+        {
+            context.Remove(context.JobHistories.Single(d => d.Id == jobHistory.Id));
+            context.SaveChanges();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using TEC_App.Helpers;
+using TEC_App.Models.Db;
 
 namespace TEC_App.Services.JobService
 {
@@ -12,6 +13,7 @@ namespace TEC_App.Services.JobService
     {
         public TecAppContext TecAppContext { get; set; }
         public IJobService JobService { get; set; }
+        public Job Job { get; set; }
 
         public JobServiceTest()
         {
@@ -42,6 +44,32 @@ namespace TEC_App.Services.JobService
             var job = JobService.GetJobFromId(id);
             Assert.AreEqual(job.Name,result);
 
+        }
+
+        [Test]
+        public void AddJobTest()
+        {
+            var random = new Random();
+            var newJob = new Job()
+            {
+                Name = $"Job-{random.Next()}"
+            };
+            Job = JobService.AddJob(newJob);
+        }
+
+        [Test]
+        public void Y_TestAddedJob()
+        {
+            var addedJob = JobService.GetJobFromId(Job.Id);
+            Assert.AreEqual(addedJob.Name, Job.Name);
+        }
+
+        [Test]
+        public void Z_RemoveJob()
+        {
+            JobService.RemoveJob(Job);
+            var removedJob = JobService.GetJobFromId(Job.Id);
+            Assert.AreEqual(removedJob.Id, -1);
         }
     }
 }

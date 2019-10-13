@@ -28,7 +28,16 @@ namespace TEC_App.Services.CompanyService
 
         public Company GetCompanyFromId(int id)
         {
-            return GetAllCompanies().FirstOrDefault(d => d.Id == id);
+            var company = GetAllCompanies().FirstOrDefault(d => d.Id == id);
+            if (company == null)
+            {
+                return new Company()
+                {
+                    Id = -1
+                };
+            }
+
+            return company;
         }
 
         public Company AddCompany(Company company)
@@ -36,6 +45,12 @@ namespace TEC_App.Services.CompanyService
             context.Companies.Add(company);
             context.SaveChanges();
             return company;
+        }
+
+        public void RemoveCompany(Company company)
+        {
+            context.Remove(context.Companies.Single(d => d.Id == company.Id));
+            context.SaveChanges();
         }
     }
 }

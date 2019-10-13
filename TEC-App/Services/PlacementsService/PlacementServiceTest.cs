@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using TEC_App.Helpers;
+using TEC_App.Models.Db;
+using TEC_App.Services.EmployeeService;
+using TEC_App.Services.OpeningsService;
 
 namespace TEC_App.Services.PlacementsService
 {
@@ -12,11 +15,18 @@ namespace TEC_App.Services.PlacementsService
     {
         public TecAppContext TecAppContext { get; set; }
         public IPlacementService PlacementService { get; set; }
+        public IOpeningsService OpeningsService { get; set; }
+        public ICandidateService CandidateService { get; set; }
+        public Placement Placement { get; set; }
+
+
 
         public PlacementServiceTest()
         {
             TecAppContext = new TecAppContext();
             PlacementService = new PlacementService(TecAppContext);
+            OpeningsService = new OpeningsService.OpeningsService(TecAppContext);
+            CandidateService = new EmployeeService.CandidateService(TecAppContext);
         }
 
         [Test]
@@ -42,6 +52,41 @@ namespace TEC_App.Services.PlacementsService
         {
             var placement = PlacementService.GetPlacementFromId(id);
             Assert.AreEqual(placement.TotalHoursWorked, result);
+        }
+
+        [Test]
+        public void AddPlacementTest()
+        {
+            var random = new Random();
+            var candidates = CandidateService.GetAllCandidates();
+            var openings = OpeningsService.GetAllOpenings();
+            var randomCandidate = candidates[random.Next(999)];
+            var randomOpening = openings[random.Next(999)];
+            var newPlacement = new Placement()
+            {
+                Timestamp = DateTime.Now,
+                Candidate = randomCandidate,
+                Opening = randomOpening,
+                CandidateId = randomCandidate.Id,
+                OpeningId = randomOpening.Id,
+                TotalHoursWorked = random.Next(),
+            };
+            Placement = PlacementService.AddPlacement(newPlacement);
+        }
+
+        [Test]
+        public void Y_TestAddedPlacement()
+        {
+            var addedPlacement = PlacementService.GetPlacementFromId(Placement.Id);
+            Assert.AreEqual(addedPlacement.TotalHoursWorked, Placement.TotalHoursWorked);
+        }
+
+        [Test]
+        public void Z_RemovePlacement()
+        {
+            PlacementService.RemovePlacement(Placement);
+            var removedPlacement = PlacementService.GetPlacementFromId(Placement.Id);
+            Assert.AreEqual(removedPlacement.Id, -1);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using TEC_App.Helpers;
+using TEC_App.Models.Db;
 
 namespace TEC_App.Services.QualificationsService
 {
@@ -12,6 +13,7 @@ namespace TEC_App.Services.QualificationsService
     {
         public TecAppContext TecAppContext { get; set; }
         public IQualificationsService QualificationsService { get; set; }
+        public Qualification Qualification { get; set; }
 
         public QualificationServiceTest()
         {
@@ -46,5 +48,40 @@ namespace TEC_App.Services.QualificationsService
             var qualification = QualificationsService.GetQualificationFromId(id);
             Assert.AreEqual(qualification.Code, result);
         }
+
+        [Test]
+        public void AddQualificationTest()
+        {
+            var random = new Random();
+            var newQualification = new Qualification()
+            {
+                CandidatesQualifications = new List<Candidate_Qualification>(),
+                Code = $"Code-{random.Next()}",
+                Courses = new List<Course>(),
+                Description = $"Description-{random.Next()}",
+                Openings = new List<Opening>(),
+                PrerequisitesForCourse = new List<PrerequisitesForCourse>(),
+                QualificationsDevelopedByCourse = new List<QualificationDevelopedByCourse>()
+            };
+            Qualification = QualificationsService.AddQualification(newQualification);
+        }
+
+        [Test]
+        public void Y_TestAddedQualification()
+        {
+            var addedQualification = QualificationsService.GetQualificationFromId(Qualification.Id);
+            Assert.AreEqual(addedQualification.Id, Qualification.Id);
+
+        }
+
+        [Test]
+        public void Z_RemoveQualificationTest()
+        {
+            QualificationsService.RemoveQualificaiton(Qualification);
+            var removedQualification = QualificationsService.GetQualificationFromId(Qualification.Id);
+            Assert.AreEqual(removedQualification.Id, -1);
+        }
     }
+
+
 }

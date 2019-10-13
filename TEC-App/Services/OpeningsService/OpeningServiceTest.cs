@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using TEC_App.Helpers;
+using TEC_App.Models.Db;
 
 namespace TEC_App.Services.OpeningsService
 {
@@ -13,6 +14,7 @@ namespace TEC_App.Services.OpeningsService
     {
         public TecAppContext TecAppContext { get; set; }
         public IOpeningsService OpeningsService { get; set; }
+        public Opening Opening { get; set; }
 
         public OpeningServiceTest()
         {
@@ -46,6 +48,39 @@ namespace TEC_App.Services.OpeningsService
         {
             var opening = OpeningsService.GetOpeningFromId(id);
             Assert.AreEqual(opening.HourlyPay, result);
+        }
+
+        [Test]
+        public void AddOpeningTest()
+        {
+            var random = new Random();
+            var newOpening = new Opening()
+            {
+                DateTimeStart = DateTime.Now,
+                DateTimeEnd = DateTime.Now.AddDays(5),
+                Company = new Company(),
+                HourlyPay = random.Next(),
+                Placements = new List<Placement>(),
+                RequiredQualification = new Qualification(),
+                Job = new Job()
+                
+            };
+            Opening = OpeningsService.AddOpening(newOpening);
+        }
+
+        [Test]
+        public void Y_TestAddedOpening()
+        {
+            var addedOpening = OpeningsService.GetOpeningFromId(Opening.Id);
+            Assert.AreEqual(addedOpening.HourlyPay, Opening.HourlyPay);
+        }
+
+        [Test]
+        public void Z_RemoveOpeningTest()
+        {
+            OpeningsService.RemoveOpening(Opening);
+            var removedOpening = OpeningsService.GetOpeningFromId(Opening.Id);
+            Assert.AreEqual(removedOpening.Id, -1);
         }
     }
 }

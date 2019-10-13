@@ -21,6 +21,11 @@ namespace TEC_App.Services.CompanyService
             throw new System.NotImplementedException();
         }
 
+        public void RemoveCompany(Company company)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<CompanyViewDTO> GetCompanyViewDtos()
         {
             throw new System.NotImplementedException();

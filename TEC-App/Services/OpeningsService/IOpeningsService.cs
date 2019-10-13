@@ -9,6 +9,7 @@ namespace TEC_App.Services.OpeningsService
         Opening GetOpeningFromId(int id);
         List<Opening> GetAllOpenings();
         Opening AddOpening(Opening opening);
+        void RemoveOpening(Opening opening);
 
     }
 }

@@ -13,6 +13,7 @@ namespace TEC_App.Services.CompanyService
     {
         public TecAppContext TecAppContext { get; set; }
         public ICompanyService CompanyService { get; set; }
+        public Company Company { get; set; }
 
         public CompanyServiceTest()
         {
@@ -56,7 +57,22 @@ namespace TEC_App.Services.CompanyService
                 Openings = new List<Opening>(),
                 Timestamp = DateTime.Now,
             };
-            var company = CompanyService.AddCompany(newCompany);
+            Company = CompanyService.AddCompany(newCompany);
+        }
+
+        [Test]
+        public void Y_TestAddedCompany()
+        {
+            var addedCompany = CompanyService.GetCompanyFromId(Company.Id);
+            Assert.AreEqual(addedCompany.Name, Company.Name);
+        }
+
+        [Test]
+        public void Z_RemoveCompanyTest()
+        {
+            CompanyService.RemoveCompany(Company);
+            var removedCompany = CompanyService.GetCompanyFromId(Company.Id);
+            Assert.AreEqual(removedCompany.Id, -1);
         }
     }
 }

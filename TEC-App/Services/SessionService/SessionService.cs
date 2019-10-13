@@ -25,7 +25,16 @@ namespace TEC_App.Services.SessionService
 
         public Session GetSessionFromId(int id)
         {
-            return GetAllSessions().FirstOrDefault(d => d.Id == id);
+            var session = GetAllSessions().FirstOrDefault(d => d.Id == id);
+            if (session == null)
+            {
+                return new Session()
+                {
+                    Id = -1
+                };
+            }
+
+            return session;
         }
 
         public Session AddSession(Session session)
@@ -33,6 +42,12 @@ namespace TEC_App.Services.SessionService
             context.Sessions.Add(session);
             context.SaveChanges();
             return session;
+        }
+
+        public void RemoveSession(Session session)
+        {
+            context.Remove(context.Sessions.Single(d => d.Id == session.Id));
+            context.SaveChanges();
         }
     }
 }

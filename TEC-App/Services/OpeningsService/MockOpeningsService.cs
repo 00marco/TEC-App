@@ -22,6 +22,11 @@ throw new NotImplementedException();        }
             throw new NotImplementedException();
         }
 
+        public void RemoveOpening(Opening opening)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public List<OpeningViewDTO> GetOpeningViewDTOList()
         {

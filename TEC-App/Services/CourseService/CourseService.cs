@@ -28,7 +28,16 @@ namespace TEC_App.Services.CourseService
 
         public Course GetCourseFromId(int id)
         {
-            return GetAllCourses().FirstOrDefault(d => d.Id == id);
+            var course = GetAllCourses().FirstOrDefault(d => d.Id == id);
+            if (course == null)
+            {
+                return new Course()
+                {
+                    Id = -1
+                };
+            }
+
+            return course;
         }
 
         public Course AddCourse(Course course)
@@ -36,6 +45,12 @@ namespace TEC_App.Services.CourseService
             context.Courses.Add(course);
             context.SaveChanges();
             return course;
+        }
+
+        public void RemoveCourse(Course course)
+        {
+            context.Remove(context.Courses.Single(d => d.Id == course.Id));
+            context.SaveChanges();
         }
     }
 }
