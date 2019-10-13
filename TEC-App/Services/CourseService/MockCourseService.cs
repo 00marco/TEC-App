@@ -11,6 +11,11 @@ namespace TEC_App.Services.CourseService
             throw new System.NotImplementedException();
         }
 
+        public Course GetCourseFromId(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<CourseWithLocationDTO> GetCourseViewDtoList()
         {
             throw new System.NotImplementedException();

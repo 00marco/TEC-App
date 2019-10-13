@@ -49,12 +49,12 @@ namespace TEC_App.Views.CompaniesView
 
         public void LoadCompanies()
         {
-            var companies = CompanyService.GetCompanyViewDtos();
-            CompanyViewDtos.Clear();
-            foreach (var v in companies)
-            {
-                CompanyViewDtos.Add(v);
-            }
+            //var companies = CompanyService.GetCompanyViewDtos();
+            //CompanyViewDtos.Clear();
+            //foreach (var v in companies)
+            //{
+            //    CompanyViewDtos.Add(v);
+            //}
         }
     }
 }

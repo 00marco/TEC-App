@@ -86,7 +86,7 @@ namespace TEC_App.Views.AddOpeningView
         public void LoadCompanies()
         {
             Companies.Clear();
-            var companies = CompanyService.GetCompanies();
+            var companies = CompanyService.GetAllCompanies();
             foreach (var v in companies)
             {
                 Companies.Add(v);

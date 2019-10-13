@@ -5,6 +5,8 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
+using TEC_App.Models.Db;
+using TEC_App.Models.DTO;
 using TEC_App.Models.ViewDTO;
 using TEC_App.Services.EmployeeService;
 using TEC_App.ViewModels;
@@ -17,25 +19,22 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
         public CandidateQualifiedForOpeningViewModel(ICandidateService candidateService)
         {
             CandidateService = candidateService;
-            Messenger.Default.Register<ViewQualifiedCandidatesForOpeningViewMessage>(this, NotifyMe);
+            Messenger.Default.Register<ViewQualifiedCandidatesForOpeningViewMessage>(this, LoadCandidatesQualifiedForOpening);
         }
 
         public ICandidateService CandidateService { get; set; }
-        private void NotifyMe(ViewQualifiedCandidatesForOpeningViewMessage obj)
+        private void LoadCandidatesQualifiedForOpening(ViewQualifiedCandidatesForOpeningViewMessage obj)
         {
-            var candidates = CandidateService.GetCandidateWithQualificationsDtoList();
-            var candidateDTO = new List<CandidatesQualifiedForOpeningDTO>();
+            var candidates = CandidateService.GetCandidatesQualifiedForOpening(obj.Opening);
+            Candidates.Clear();
             foreach (var v in candidates)
             {
-                var newCandidateDTO = new CandidatesQualifiedForOpeningDTO(){CandidateWithQualificationsDto =  v};
-                candidateDTO.Add(newCandidateDTO);
+                Candidates.Add(v);
             }
-            Candidates = new ObservableCollection<CandidatesQualifiedForOpeningDTO>(candidateDTO);
+            //TODO might want to use DTO instead of full candidate soon
         }
 
-        public ObservableCollection<CandidatesQualifiedForOpeningDTO> Candidates { get; set; } = new ObservableCollection<CandidatesQualifiedForOpeningDTO>();
-        //TODO may want to use normal DTO instead of viewDTO since this candidate wont be needing buttons since i wont be putting a button per item
-        //TODO cant add selecteditem until i finalize this
+        public ObservableCollection<Candidate> Candidates { get; set; } = new ObservableCollection<Candidate>();
         public ICommand HireCandidateCommand => new RelayCommand(HireCandidate);
         public void HireCandidate()
         {

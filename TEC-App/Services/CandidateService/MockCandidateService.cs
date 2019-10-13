@@ -23,7 +23,17 @@ namespace TEC_App.Services.EmployeeService
             return testList;
         }
 
-        public List<Candidate> GetCandidateList()
+        public List<Candidate> GetCandidatesQualifiedForOpening(Opening opening)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Candidate> GetAllCandidates()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddCandidate(Candidate candidate)
         {
             throw new NotImplementedException();
         }

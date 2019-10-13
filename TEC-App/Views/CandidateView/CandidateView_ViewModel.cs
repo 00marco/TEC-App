@@ -39,15 +39,15 @@ namespace TEC_App.Views.CandidateView
 
 	    public void LoadCandidateDetails()
 	    {
-		    var candidates = CandidateService.GetCandidateWithQualificationsDtoList();
-            Candidates.Clear();
-		    foreach (var v in candidates)
-		    {
-                Candidates.Add(new CandidateViewDTO()
-				{
-					CandidateWithQualificationsDto = v
-				});
-		    }
+		  //  var candidates = CandidateService.GetCandidateWithQualificationsDtoList();
+    //        Candidates.Clear();
+		  //  foreach (var v in candidates)
+		  //  {
+    //            Candidates.Add(new CandidateViewDTO()
+				//{
+				//	CandidateWithQualificationsDto = v
+				//});
+		  //  }
 
 	    }
 	  

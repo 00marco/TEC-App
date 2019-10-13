@@ -6,7 +6,8 @@ namespace TEC_App.Services.CompanyService
 {
     public interface ICompanyService
     {
-        List<Company> GetCompanies();
-        List<CompanyViewDTO> GetCompanyViewDtos();
+        List<Company> GetAllCompanies();
+        Company GetCompanyFromId(int id);
+
     }
 }

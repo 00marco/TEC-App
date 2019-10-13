@@ -7,7 +7,6 @@ namespace TEC_App.Services.CourseService
     public interface ICourseService
     {
         List<Course> GetCourses();
-        List<CourseWithLocationDTO> GetCourseViewDtoList();
-
+        Course GetCourseFromId(int id);
     }
 }

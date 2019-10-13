@@ -17,24 +17,23 @@ namespace TEC_App.Services.EmployeeService
 		    _context = context;
 	    }
 
-	    public List<CandidateWithQualificationsDTO> GetCandidateWithQualificationsDtoList()
+        public List<Candidate> GetCandidatesQualifiedForOpening(Opening opening)
         {
-            var list = GetCandidateList();
-            var dtoList = new List<CandidateWithQualificationsDTO>();
-            foreach (var v in list)
+            var candidates = GetAllCandidates();
+            var candidatesQualifiedForOpening = new List<Candidate>();
+            foreach (var v in candidates)
             {
-                dtoList.Add(new CandidateWithQualificationsDTO()
+                var candidateQualifications = v.CandidateQualifications.Where(d => d.CandidateId == v.Id);
+                if (candidateQualifications.Any(a => a.QualificationId == opening.RequiredQualificationId))
                 {
-                    ActualCandidateId = v.Id,
-                    CandidateName = v.FullName,
-                    Qualifications =  string.Join(", ", v.CandidateQualifications)
-                });
+                    candidatesQualifiedForOpening.Add(v);
+                }
             }
 
-            return dtoList;
+            return candidatesQualifiedForOpening;
         }
 
-        public List<Candidate> GetCandidateList()
+        public List<Candidate> GetAllCandidates()
         {
             return _context.Set<Candidate>()
                 .Include(d => d.Addresses)
@@ -59,23 +58,17 @@ namespace TEC_App.Services.EmployeeService
                 .ToList();
         }
 
-        public Candidate GetCandidateFromAddCandidateDTO(AddCandidateDTO addCandidateDto)
+        public void AddCandidate(Candidate candidate)
         {
-            var candidate = new Candidate()
-            {
-                //TODO finish this
-            };
-            return candidate;
-        }
-        public void AddCandidate(AddCandidateDTO candidateDto)
-        {
-            var candidate = GetCandidateFromAddCandidateDTO(candidateDto);
             _context.Candidates.Add(candidate);
+            
         }
+
 
         public Candidate GetCandidateFromId(int id)
         {
-            throw new NotImplementedException();
+            var candidate = GetAllCandidates().FirstOrDefault(d => d.Id == id);
+            return candidate;
         }
     }
 }

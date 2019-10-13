@@ -205,10 +205,13 @@
     <Compile Include="Models\ViewDTO\CandidatesQualifiedForOpeningDTO.cs" />
     <Compile Include="Models\ViewDTO\CandidateViewDTO.cs" />
     <Compile Include="Models\ViewDTO\OpeningViewDTO.cs" />
+    <Compile Include="Services\CandidateService\CandidateServiceTest.cs" />
     <Compile Include="Services\CompanyService\CompanyService.cs" />
+    <Compile Include="Services\CompanyService\CompanyServiceTest.cs" />
     <Compile Include="Services\CourseService\CourseService.cs" />
     <Compile Include="Services\CandidateService\CandidateService.cs" />
     <Compile Include="Services\CompanyService\ICompanyService.cs" />
+    <Compile Include="Services\CourseService\CourseServiceTest.cs" />
     <Compile Include="Services\CourseService\ICourseService.cs" />
     <Compile Include="Services\CandidateService\ICandidateService.cs" />
     <Compile Include="Services\JobService\IJobService.cs" />
@@ -224,10 +227,6 @@
     <Compile Include="Services\PlacementsService\PlacementService.cs" />
     <Compile Include="Services\QualificationsService\IQualificationsService.cs" />
     <Compile Include="Services\QualificationsService\QualificationsService.cs" />
-    <Compile Include="Tests\CompanyManagement.cs" />
-    <Compile Include="Tests\CompanyOperationsTests.cs" />
-    <Compile Include="Tests\CourseManagement.cs" />
-    <Compile Include="Tests\EmployeeManagementTests.cs" />
     <Compile Include="Models\DTO\CandidateWithQualificationsDTO.cs" />
     <Compile Include="Views\AddCandidateView\AddCandidateViewModel.cs" />
     <Compile Include="Views\AddCompanyView\AddCompanyViewModel.cs" />

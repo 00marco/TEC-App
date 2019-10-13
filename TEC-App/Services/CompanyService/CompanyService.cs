@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
@@ -17,7 +18,7 @@ namespace TEC_App.Services.CompanyService
         }
 
 
-        public List<Company> GetCompanies()
+        public List<Company> GetAllCompanies()
         {
             return _context.Set<Company>()
                 .Include(c => c.Openings)
@@ -25,20 +26,9 @@ namespace TEC_App.Services.CompanyService
                 .ToList();
         }
 
-        public List<CompanyViewDTO> GetCompanyViewDtos()
+        public Company GetCompanyFromId(int id)
         {
-            var list = _context.Set<Company>()
-                .ToList();
-            var companyViewDtos = new List<CompanyViewDTO>();
-            foreach (var v in list)
-            {
-                companyViewDtos.Add(new CompanyViewDTO()
-                {
-                    CompanyNAme = v.Name,
-                });
-            }
-
-            return companyViewDtos;
+            return GetAllCompanies().FirstOrDefault(d => d.Id == id);
         }
     }
 }

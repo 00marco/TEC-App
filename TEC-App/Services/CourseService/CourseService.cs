@@ -26,22 +26,9 @@ namespace TEC_App.Services.CourseService
                 .ToList();
         }
 
-        public List<CourseWithLocationDTO> GetCourseViewDtoList()
+        public Course GetCourseFromId(int id)
         {
-            var courses = GetCourses();
-            var courseViewDtoList = new List<CourseWithLocationDTO>();
-            foreach (var v in GetCourses())
-            {
-                courseViewDtoList.Add(new CourseWithLocationDTO()
-                {
-                    CourseName = v.Name,
-                });
-            }
-
-            return courseViewDtoList;
-            //TODO CourseView DTO should only be Course{Name, Button to List of Sessions}
-            //TODO Create View for List of Sessions
-            //TODO CourseView DTO should have Started or Not Started 
+            return GetCourses().FirstOrDefault(d => d.Id == id);
         }
     }
 }

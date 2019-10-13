@@ -39,12 +39,12 @@ namespace TEC_App.Views.CourseView
 
         public void LoadCourseViewDtos()
         {
-            var courseViewDtos = CourseService.GetCourseViewDtoList();
-            CourseViewDtos.Clear();
-            foreach (var v in courseViewDtos)
-            {
-                CourseViewDtos.Add(v);
-            }
+            //var courseViewDtos = CourseService.GetCourseViewDtoList();
+            //CourseViewDtos.Clear();
+            //foreach (var v in courseViewDtos)
+            //{
+            //    CourseViewDtos.Add(v);
+            //}
         }
     }
 }

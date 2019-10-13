@@ -35,10 +35,10 @@ namespace TEC_App.Helpers
 		#endregion
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
+        {
 
-            if (MessageBox.Show("PC?", "Setup", MessageBoxButton.YesNo, MessageBoxImage.Warning) ==
-                MessageBoxResult.Yes)
+            bool workingOnPc = true;
+            if(workingOnPc)
             {
                 optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8K7EJ6S;Integrated Security=False;User ID=dev;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Database=TEC_Db");
 

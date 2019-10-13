@@ -10,9 +10,9 @@ namespace TEC_App.Services.EmployeeService
     }
     public interface ICandidateService
     {
-	    List<CandidateWithQualificationsDTO> GetCandidateWithQualificationsDtoList();
-        List<Candidate> GetCandidateList();
-        void AddCandidate(AddCandidateDTO candidate);
+        List<Candidate> GetCandidatesQualifiedForOpening(Opening opening);
+        List<Candidate> GetAllCandidates();
+        void AddCandidate(Candidate candidate);
         Candidate GetCandidateFromId(int id);
     }
 }

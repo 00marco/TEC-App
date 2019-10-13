@@ -6,7 +6,12 @@ namespace TEC_App.Services.CompanyService
 {
     public class MockCompanyService : ICompanyService
     {
-        public List<Company> GetCompanies()
+        public List<Company> GetAllCompanies()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Company GetCompanyFromId(int id)
         {
             throw new System.NotImplementedException();
         }
