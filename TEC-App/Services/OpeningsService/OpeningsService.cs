@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
@@ -19,56 +20,19 @@ namespace TEC_App.Services.OpeningsService
         }
         public Opening GetOpeningFromId(int id)
         {
-            throw new System.NotImplementedException();
+            return GetAllOpenings().FirstOrDefault(d => d.Id == id);
         }
 
-
-        public List<CompanyWithOpeningDetailsDTO> GetCompanyWithOpeningDetailsDtoList()
-        {
-            //throw new NotImplementedException();
-            var openings = GetOpenings();
-            var dtos = new List<CompanyWithOpeningDetailsDTO>();
-            foreach (var v in openings)
-            {
-                dtos.Add(new CompanyWithOpeningDetailsDTO()
-                {
-                    StartDate = v.DateTimeStart,
-                    EndDate = v.DateTimeEnd,
-                    OpeningName = v.Id+"",
-                    CompanyName = v.Company.Name,
-                    RequiredQualifications = v.RequiredQualification.Code,
-                    HourlyPay = v.HourlyPay
-                });
-            }
-
-            return dtos;
-        }
-        public List<OpeningViewDTO> GetOpeningViewDTOList()
-        {
-            var dbDtos = GetCompanyWithOpeningDetailsDtoList();
-            var viewDtos = new List<OpeningViewDTO>();
-            foreach (var v in dbDtos)
-            {
-                viewDtos.Add(new OpeningViewDTO(){CompanyWithOpeningDetailsDto = v});
-            }
-
-            return viewDtos;
-        }
-
-        public List<Opening> GetOpenings()
+        public List<Opening> GetAllOpenings()
         {
                 var openings = context.Set<Opening>()
                     .Include(c => c.RequiredQualification)
                     .Include(c => c.Company)
                     .Include(c => c.Job)
+                    .Include(c=>c.Placements)
                     .ToList();
                 return openings;
             
-        }
-
-        public List<Opening> GetUniqueOpenings()
-        {
-            throw new NotImplementedException();
         }
 
         public void AddOpening(Opening opening)

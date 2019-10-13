@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 
@@ -16,10 +17,19 @@ namespace TEC_App.Services.QualificationsService
         {
             this.context = context;
         }
-        public List<Qualification> GetQualifications()
+        public List<Qualification> GetAllQualifications()
         {
             return context.Set<Qualification>()
+                .Include(d=>d.CandidatesQualifications)
+                .Include(d=>d.Courses)
+                .Include(d=>d.Openings)
+                .Include(d=>d.PrerequisitesForCourse)
                 .ToList();
+        }
+
+        public Qualification GetQualificationFromId(int id)
+        {
+            return GetAllQualifications().FirstOrDefault(d => d.Id == id);
         }
     }
 }

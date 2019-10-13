@@ -9,6 +9,7 @@ namespace TEC_App.Services.QualificationsService
 {
     public interface IQualificationsService
     {
-        List<Qualification> GetQualifications();
+        List<Qualification> GetAllQualifications();
+        Qualification GetQualificationFromId(int id);
     }
 }

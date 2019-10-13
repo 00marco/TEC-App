@@ -10,8 +10,7 @@ namespace TEC_App.Services.PlacementsService
 {
     public interface IPlacementService
     {
-        List<Placement> GetPlacement();
-        List<PlacementWithCandidateDTO> GetPlacementWithCandidateDtos();
-
+        List<Placement> GetAllPlacements();
+        Placement GetPlacementFromId(int id);
     }
 }

@@ -15,7 +15,7 @@ namespace TEC_App.Services.CourseService
             _context = context;
         }
 
-        public List<Course> GetCourses()
+        public List<Course> GetAllCourses()
         {
             return _context.Set<Course>()
                 .Include(c => c.PrerequisitesForCourse)
@@ -28,7 +28,7 @@ namespace TEC_App.Services.CourseService
 
         public Course GetCourseFromId(int id)
         {
-            return GetCourses().FirstOrDefault(d => d.Id == id);
+            return GetAllCourses().FirstOrDefault(d => d.Id == id);
         }
     }
 }

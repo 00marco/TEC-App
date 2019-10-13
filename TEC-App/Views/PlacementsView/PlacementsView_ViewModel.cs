@@ -26,12 +26,6 @@ namespace TEC_App.Views.PlacementsView
 
         public void LoadPlacements()
         {
-            PlacementViewDtos.Clear();
-            var placements = PlacementService.GetPlacementWithCandidateDtos();
-            foreach (var v in placements)
-            {
-                PlacementViewDtos.Add(v);
-            }
         }
 
     }

@@ -28,13 +28,13 @@ namespace TEC_App.Services.CandidateService
             foreach (var v in candidates)
             {
                 Console.WriteLine();
-                Console.WriteLine($"FullName\t\t{v.FullName}");
-                Console.WriteLine($"AddressCount\t\t{v.Addresses.Count}");
-                Console.WriteLine($"CandidateSessionCount\t\t{v.Candidate_Session_Pairs.Count}");
+                Console.WriteLine($"FullName\t\t\t\t{v.FullName}");
+                Console.WriteLine($"AddressCount\t\t\t\t{v.Addresses.Count}");
+                Console.WriteLine($"CandidateSessionCount\t\t\t{v.Candidate_Session_Pairs.Count}");
                 Console.WriteLine($"CandidateQualificationsCount\t\t{v.CandidateQualifications.Count}");
-                Console.WriteLine($"JobHistoriesCount\t\t{v.JobHistories.Count}");
-                Console.WriteLine($"PlacementsCount\t\t{v.Placements.Count}");
-                Console.WriteLine($"TimeStamp\t\t{v.Timestamp}");
+                Console.WriteLine($"JobHistoriesCount\t\t\t{v.JobHistories.Count}");
+                Console.WriteLine($"PlacementsCount\t\t\t\t{v.Placements.Count}");
+                Console.WriteLine($"TimeStamp\t\t\t\t{v.Timestamp}");
                 Console.WriteLine();
             }
         }

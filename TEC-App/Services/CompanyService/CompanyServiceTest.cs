@@ -26,11 +26,11 @@ namespace TEC_App.Services.CompanyService
             foreach (var v in companies)
             {
                 Console.WriteLine();
-                Console.WriteLine($"Id\t{v.Id}");
-                Console.WriteLine($"Name\t{v.Name}");
-                Console.WriteLine($"Job history\t{v.JobHistory_Company_Pairs.Count}");
+                Console.WriteLine($"Id\t\t\t{v.Id}");
+                Console.WriteLine($"Name\t\t\t{v.Name}");
+                Console.WriteLine($"Job history\t\t{v.JobHistory_Company_Pairs.Count}");
                 Console.WriteLine($"Number of openings\t{v.Openings.Count}");
-                Console.WriteLine($"Last edit\t{v.Timestamp}");
+                Console.WriteLine($"Last edit\t\t\t{v.Timestamp}");
                 Console.WriteLine();
             }
         }

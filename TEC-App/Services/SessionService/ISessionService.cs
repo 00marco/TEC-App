@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TEC_App.Models.Db;
 
-namespace TEC_App.Services.JobService
+namespace TEC_App.Services.SessionService
 {
-    public interface IJobService
+    public interface ISessionService
     {
-        List<Job> GetAllJobs();
-        Job GetJobFromId(int id);
+        List<Session> GetAllSessions();
+        Session GetSessionFromId(int id);
     }
 }

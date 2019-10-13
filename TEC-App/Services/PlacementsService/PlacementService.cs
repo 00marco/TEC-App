@@ -18,7 +18,7 @@ namespace TEC_App.Services.PlacementsService
         }
 
         public readonly TecAppContext context;
-        public List<Placement> GetPlacement()
+        public List<Placement> GetAllPlacements()
         {
             var placements = context.Set<Placement>()
                 .Include(c => c.Opening)
@@ -28,24 +28,11 @@ namespace TEC_App.Services.PlacementsService
             return placements;
         }
 
-        public List<PlacementWithCandidateDTO> GetPlacementWithCandidateDtos()
-        {
-            var placements = GetPlacement();
-            var placementWithCandidateDtos = new List<PlacementWithCandidateDTO>();
-            foreach (var v in placements)
-            {
-                placementWithCandidateDtos.Add(new PlacementWithCandidateDTO()
-                {
-                    CandidateName = v.Candidate.FullName,
-                    CompanyName = v.Opening.Company.Name,
-                    DateTimeStart = v.Opening.DateTimeStart,
-                    DateTimeEnd = v.Opening.DateTimeEnd,
-                    HoursWorked = v.TotalHoursWorked,
-                    Payment = v.Opening.HourlyPay * v.TotalHoursWorked //TODO ??? might want to change this
-                });
-            }
 
-            return placementWithCandidateDtos;
+        public Placement GetPlacementFromId(int id )
+        {
+            return GetAllPlacements().FirstOrDefault(d => d.Id == id);
         }
+
     }
 }

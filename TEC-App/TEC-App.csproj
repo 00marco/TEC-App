@@ -205,6 +205,9 @@
     <Compile Include="Models\ViewDTO\CandidatesQualifiedForOpeningDTO.cs" />
     <Compile Include="Models\ViewDTO\CandidateViewDTO.cs" />
     <Compile Include="Models\ViewDTO\OpeningViewDTO.cs" />
+    <Compile Include="Services\AddressService\AddressService.cs" />
+    <Compile Include="Services\AddressService\AddressServiceTest.cs" />
+    <Compile Include="Services\AddressService\IAddressService.cs" />
     <Compile Include="Services\CandidateService\CandidateServiceTest.cs" />
     <Compile Include="Services\CompanyService\CompanyService.cs" />
     <Compile Include="Services\CompanyService\CompanyServiceTest.cs" />
@@ -214,20 +217,33 @@
     <Compile Include="Services\CourseService\CourseServiceTest.cs" />
     <Compile Include="Services\CourseService\ICourseService.cs" />
     <Compile Include="Services\CandidateService\ICandidateService.cs" />
+    <Compile Include="Services\JobHistoryService\IJobHistoryService.cs" />
+    <Compile Include="Services\JobHistoryService\JobHistoryService.cs" />
+    <Compile Include="Services\JobHistoryService\JobHistoryServiceTest.cs" />
     <Compile Include="Services\JobService\IJobService.cs" />
     <Compile Include="Services\JobService\JobService.cs" />
+    <Compile Include="Services\JobService\JobServiceTest.cs" />
+    <Compile Include="Services\LocationService\ILocationService.cs" />
+    <Compile Include="Services\LocationService\LocationService.cs" />
+    <Compile Include="Services\LocationService\LocationServiceTest.cs" />
     <Compile Include="Services\OpeningsService\IOpeningsService.cs" />
     <Compile Include="Services\CompanyService\MockCompanyService.cs" />
     <Compile Include="Services\CourseService\MockCourseService.cs" />
     <Compile Include="Services\CandidateService\MockCandidateService.cs" />
     <Compile Include="Services\OpeningsService\MockOpeningsService.cs" />
+    <Compile Include="Services\OpeningsService\OpeningServiceTest.cs" />
     <Compile Include="Services\OpeningsService\OpeningsService.cs" />
     <Compile Include="Services\OpeningsService\OpeningViewDTOSelect.cs" />
     <Compile Include="Services\PlacementsService\IPlacementService.cs" />
     <Compile Include="Services\PlacementsService\PlacementService.cs" />
+    <Compile Include="Services\PlacementsService\PlacementServiceTest.cs" />
     <Compile Include="Services\QualificationsService\IQualificationsService.cs" />
+    <Compile Include="Services\QualificationsService\QualificationServiceTest.cs" />
     <Compile Include="Services\QualificationsService\QualificationsService.cs" />
     <Compile Include="Models\DTO\CandidateWithQualificationsDTO.cs" />
+    <Compile Include="Services\SessionService\SessionService.cs" />
+    <Compile Include="Services\SessionService\SessionServiceTest.cs" />
+    <Compile Include="Services\SessionService\ISessionService.cs" />
     <Compile Include="Views\AddCandidateView\AddCandidateViewModel.cs" />
     <Compile Include="Views\AddCompanyView\AddCompanyViewModel.cs" />
     <Compile Include="Views\AddCourseView\AddCourseViewModel.cs" />
@@ -399,7 +415,9 @@
   <ItemGroup>
     <Resource Include="Fonts\OFL.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\OpeningsService\QueryObjects\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

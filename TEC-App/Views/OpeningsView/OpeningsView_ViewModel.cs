@@ -29,12 +29,6 @@ namespace TEC_App.Views.OpeningsView
 
         private void LoadOpenings()
         {
-            var openings = OpeningsService.GetOpeningViewDTOList();
-            CompanyOpeningDtos.Clear();
-            foreach (var v in openings)
-            {
-                CompanyOpeningDtos.Add(v);
-            }
         }
 
         public ObservableCollection<OpeningViewDTO> CompanyOpeningDtos { get; set; } =

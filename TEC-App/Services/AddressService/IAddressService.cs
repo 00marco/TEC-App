@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TEC_App.Models.Db;
 
-namespace TEC_App.Services.JobService
+namespace TEC_App.Services.AddressService
 {
-    public interface IJobService
+    public interface IAddressService
     {
-        List<Job> GetAllJobs();
-        Job GetJobFromId(int id);
+        List<Address> GetAllAdresses();
+        Address GetAddressFromId(int id);
     }
 }

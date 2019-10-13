@@ -65,7 +65,7 @@ namespace TEC_App.Views.AddOpeningView
 
         public void LoadJobs()
         {
-            var jobs = JobService.GetJobs();
+            var jobs = JobService.GetAllJobs();
             Jobs.Clear();
             foreach (var v in jobs)
             {
@@ -76,7 +76,7 @@ namespace TEC_App.Views.AddOpeningView
         private void LoadQualifications()
         {
             Qualifications.Clear();
-            var qualifications = QualificationsService.GetQualifications();
+            var qualifications = QualificationsService.GetAllQualifications();
             foreach (var v in qualifications)
             {
                 Qualifications.Add(v);

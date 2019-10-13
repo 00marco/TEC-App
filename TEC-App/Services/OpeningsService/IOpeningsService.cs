@@ -7,10 +7,7 @@ namespace TEC_App.Services.OpeningsService
     public interface IOpeningsService
     {
         Opening GetOpeningFromId(int id);
-        List<OpeningViewDTO> GetOpeningViewDTOList();
-        List<Opening> GetOpenings();
-        List<Opening> GetUniqueOpenings();
-        //TODO Fix this. You should only have GetOpenings - you need a function to map the resulting openings to a dto
+        List<Opening> GetAllOpenings();
         void AddOpening(Opening opening);
 
     }

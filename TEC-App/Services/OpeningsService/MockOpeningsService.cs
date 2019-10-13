@@ -57,7 +57,7 @@ throw new NotImplementedException();        }
             return openings;
         }
 
-        public List<Opening> GetOpenings()
+        public List<Opening> GetAllOpenings()
         {
             throw new NotImplementedException();
         }

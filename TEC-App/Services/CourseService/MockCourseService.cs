@@ -6,7 +6,7 @@ namespace TEC_App.Services.CourseService
 {
     public class MockCourseService : ICourseService
     {
-        public List<Course> GetCourses()
+        public List<Course> GetAllCourses()
         {
             throw new System.NotImplementedException();
         }

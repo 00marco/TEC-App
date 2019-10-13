@@ -9,7 +9,8 @@ namespace TEC_App.Models.Db
 		public string Code { get; set; }
 
 
-		public ICollection<Course> Courses { get; set; }
+		public ICollection<Course> Courses { get; set; } //TODO ??????????????
+
 		public ICollection<Opening> Openings { get; set; }
 		public ICollection<Candidate_Qualification> CandidatesQualifications { get; set; }
 		public ICollection<QualificationDevelopedByCourse> QualificationsDevelopedByCourse { get; set; }
