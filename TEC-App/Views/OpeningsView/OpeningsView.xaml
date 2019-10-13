@@ -43,16 +43,16 @@
                  BorderThickness="0"
                  Grid.ColumnSpan="2" 
                  Grid.Column="0"
-                 ItemsSource="{Binding Path=CompanyOpeningDtos}">
+                 ItemsSource="{Binding Path=Openings}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Margin="0,5">
-						<TextBlock Text="{Binding Path=CompanyWithOpeningDetailsDto.CompanyName}"></TextBlock>
-                        <TextBlock Text="{Binding Path=CompanyWithOpeningDetailsDto.OpeningName}"></TextBlock>
-                        <TextBlock Text="{Binding Path=CompanyWithOpeningDetailsDto.RequiredQualifications}"></TextBlock>
-                        <TextBlock Text="{Binding Path=CompanyWithOpeningDetailsDto.StartDate}"></TextBlock>
-                        <TextBlock Text="{Binding Path=CompanyWithOpeningDetailsDto.EndDate}"></TextBlock>
-                        <TextBlock Text="{Binding Path=CompanyWithOpeningDetailsDto.HourlyPay}"></TextBlock>
+						<TextBlock Text="{Binding Path=Opening.Company.Name}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Opening.Job.Name}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Opening.RequiredQualification.Code}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Opening.DateTimeStart}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Opening.DateTimeEnd}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Opening.HourlyPay}"></TextBlock>
                         <Button Content="See Qualified Candidates"
                                 Margin="5"
                                 Padding="5,2"

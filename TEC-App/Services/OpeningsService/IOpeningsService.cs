@@ -8,6 +8,7 @@ namespace TEC_App.Services.OpeningsService
     {
         Opening GetOpeningFromId(int id);
         List<Opening> GetAllOpenings();
+        List<OpeningViewDTO> GetAllOpeningsAsViewDtos();
         Opening AddOpening(Opening opening);
         void RemoveOpening(Opening opening);
 

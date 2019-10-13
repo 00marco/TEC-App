@@ -29,17 +29,16 @@ namespace TEC_App.Views.OpeningsView
 
         private void LoadOpenings()
         {
+            Openings.Clear();
+            var openings = OpeningsService.GetAllOpeningsAsViewDtos();
+            foreach (var v in openings)
+            {
+                Openings.Add(v);
+            }
         }
 
-        public ObservableCollection<OpeningViewDTO> CompanyOpeningDtos { get; set; } =
-		    new ObservableCollection<OpeningViewDTO>();
-
-		public ICommand GotoListOfQualifiedCandidatesForOpeningCommand => new RelayCommand(GotoListOfQualifiedCandidatesForOpeningProc);
-
-		private void GotoListOfQualifiedCandidatesForOpeningProc()
-		{
-			throw new NotImplementedException();
-		}
+        public ObservableCollection<OpeningViewDTO> Openings { get; set; } = new ObservableCollection<OpeningViewDTO>();
+		
 
         public ICommand AddOpeningCommand => new RelayCommand(AddOpeningProc);
 

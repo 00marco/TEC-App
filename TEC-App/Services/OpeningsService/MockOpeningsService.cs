@@ -17,6 +17,11 @@ namespace TEC_App.Services.OpeningsService
         {
 throw new NotImplementedException();        }
 
+        public List<OpeningViewDTO> GetAllOpeningsAsViewDtos()
+        {
+            throw new NotImplementedException();
+        }
+
         public Opening AddOpening(Opening opening)
         {
             throw new NotImplementedException();
@@ -30,36 +35,8 @@ throw new NotImplementedException();        }
 
         public List<OpeningViewDTO> GetOpeningViewDTOList()
         {
-            var openings = new List<OpeningViewDTO>();
-            var opening1 = new CompanyWithOpeningDetailsDTO()
-            {
-                CompanyName = "Company 1",
-                EndDate = DateTime.Now.AddDays(2),
-                StartDate = DateTime.Now,
-                HourlyPay = 10,
-                OpeningName = "Opening 1",
-                RequiredQualifications = "A,B,C"
-
-            };
-            var opening2 = new CompanyWithOpeningDetailsDTO()
-            {
-                CompanyName = "Company 2",
-                EndDate = DateTime.Now.AddDays(2),
-                StartDate = DateTime.Now,
-                HourlyPay = 10,
-                OpeningName = "Opening 2",
-                RequiredQualifications = "D,E,F"
-
-            };
-            openings.Add(new OpeningViewDTO()
-            {
-                CompanyWithOpeningDetailsDto = opening1
-            });
-            openings.Add(new OpeningViewDTO()
-            {
-                CompanyWithOpeningDetailsDto = opening2
-            });
-            return openings;
+            throw new NotImplementedException();
+            ;
         }
 
         public List<Opening> GetAllOpenings()

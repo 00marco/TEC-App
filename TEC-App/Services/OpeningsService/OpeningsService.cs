@@ -7,6 +7,7 @@ using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
 using TEC_App.Models.ViewDTO;
+using TEC_App.Services.OpeningsService.QueryObjects;
 
 namespace TEC_App.Services.OpeningsService
 {
@@ -43,6 +44,18 @@ namespace TEC_App.Services.OpeningsService
                     .ToList();
                 return openings;
             
+        }
+
+        public List<OpeningViewDTO> GetAllOpeningsAsViewDtos()
+        {
+            var openingViewDtos = context.Set<Opening>()
+                .Include(c => c.RequiredQualification)
+                .Include(c => c.Company)
+                .Include(c => c.Job)
+                .Include(c => c.Placements)
+                .MapOpeningToDto()
+                .ToList();
+            return openingViewDtos;
         }
 
         public Opening AddOpening(Opening opening)

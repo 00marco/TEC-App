@@ -8,7 +8,7 @@ using TEC_App.Services.CourseService;
 using TEC_App.Services.EmployeeService;
 using TEC_App.Services.JobService;
 using TEC_App.Services.OpeningsService;
-using TEC_App.Services.PlacementsService;
+using TEC_App.Services.PlacementService;
 using TEC_App.Services.QualificationsService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;

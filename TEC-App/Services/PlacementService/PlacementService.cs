@@ -4,32 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
-using TEC_App.Models.DTO;
 
-namespace TEC_App.Services.PlacementsService
+namespace TEC_App.Services.PlacementService
 {
     public class PlacementService : IPlacementService
     {
-        public PlacementService(TecAppContext _context)
-        {
-            context = _context;
-        }
-
         public readonly TecAppContext context;
-        public List<Placement> GetAllPlacements()
+
+        public PlacementService(TecAppContext context)
         {
-            var placements = context.Set<Placement>()
-                .Include(c => c.Opening)
-                .ThenInclude(c=>c.Company)
-                .Include(c => c.Candidate)
-                .ToList();
-            return placements;
+            this.context = context;
         }
-
-
-        public Placement GetPlacementFromId(int id )
+        public Placement GetPlacementFromId(int id)
         {
             var placement = GetAllPlacements().FirstOrDefault(d => d.Id == id);
             if (placement == null)
@@ -43,10 +32,12 @@ namespace TEC_App.Services.PlacementsService
             return placement;
         }
 
-        public void RemovePlacement(Placement placement)
+        public List<Placement> GetAllPlacements()
         {
-            context.Remove(context.Placements.Single(d => d.Id == placement.Id));
-            context.SaveChanges();
+            return context.Set<Placement>()
+                .Include(d => d.Opening)
+                .Include(d => d.Candidate)
+                .ToList();
         }
 
         public Placement AddPlacement(Placement placement)
@@ -55,5 +46,12 @@ namespace TEC_App.Services.PlacementsService
             context.SaveChanges();
             return placement;
         }
+
+        public void RemovePlacement(Placement placement)
+        {
+            context.Remove(context.Placements.Single(d => d.Id == placement.Id));
+            context.SaveChanges();
+        }
+
     }
 }
