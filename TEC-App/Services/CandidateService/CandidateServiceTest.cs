@@ -8,6 +8,7 @@ using NUnit.Framework;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Services.EmployeeService;
+using TEC_App.Services.OpeningsService;
 
 namespace TEC_App.Services.CandidateService
 {
@@ -16,10 +17,12 @@ namespace TEC_App.Services.CandidateService
         public TecAppContext TecAppContext { get; set; }
         public Candidate Candidate { get; set; }
         public ICandidateService CandidateService { get; set; }
+        public IOpeningsService OpeningsService { get; set; }
 
         public CandidateServiceTest()
         {
             TecAppContext = new TecAppContext();
+            OpeningsService = new OpeningsService.OpeningsService(TecAppContext);
             CandidateService = new EmployeeService.CandidateService(TecAppContext);
         }
 
@@ -83,6 +86,26 @@ namespace TEC_App.Services.CandidateService
             CandidateService.RemoveCandidate(Candidate);
             var removedCandidate = CandidateService.GetCandidateFromId(Candidate.Id);
             Assert.AreEqual(removedCandidate.Id, -1);
+        }
+
+        [Test]
+        public void GetCandidatesQualifiedForOpeningTest()
+        {
+            var random = new Random();
+            var allOpenings = OpeningsService.GetAllOpenings();
+           
+            foreach (var x in allOpenings)
+            {
+                var candidatesQualifiedForOpening = CandidateService.GetCandidatesQualifiedForOpening(x.Id);
+                Console.WriteLine();
+                Console.WriteLine($"Job\t{x.Job.Name}");
+                Console.WriteLine("--------------------------");
+                foreach (var v in candidatesQualifiedForOpening)
+                {
+                    Console.WriteLine($"Name\t-{v.FullName}");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
 using TEC_App.Models.ViewDTO;
 using TEC_App.Services.EmployeeService;
+using TEC_App.Services.OpeningsService;
 using TEC_App.ViewModels;
 using TEC_App.Views.OpeningsView;
 
@@ -16,18 +17,20 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
 {
     public class CandidateQualifiedForOpeningViewModel : ViewModelBase
     {
-        public CandidateQualifiedForOpeningViewModel(ICandidateService candidateService)
+        public CandidateQualifiedForOpeningViewModel(ICandidateService candidateService, IOpeningsService openingService)
         {
             CandidateService = candidateService;
+            OpeningsService = openingService;
             Messenger.Default.Register<ViewQualifiedCandidatesForOpeningViewMessage>(this, LoadCandidatesQualifiedForOpening);
         }
 
         public ObservableCollection<Candidate> Candidates { get; set; } = new ObservableCollection<Candidate>();
         public Candidate SelectedCandidate { get; set; }
         public ICandidateService CandidateService { get; set; }
+        public IOpeningsService OpeningsService { get; set; }
         private void LoadCandidatesQualifiedForOpening(ViewQualifiedCandidatesForOpeningViewMessage obj)
         {
-            var candidates = CandidateService.GetCandidatesQualifiedForOpening(obj.Opening);
+            var candidates = CandidateService.GetCandidatesQualifiedForOpening(obj.OpeningId);
             Candidates.Clear();
             foreach (var v in candidates)
             {

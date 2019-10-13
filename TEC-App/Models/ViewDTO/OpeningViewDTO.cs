@@ -22,7 +22,10 @@ namespace TEC_App.Models.ViewDTO
         private void GotoListOfQualifiedCandidates()
         {
             Messenger.Default.Send(new NotificationMessage(nameof(CandidateQualifiedForOpeningViewModel)));
-            Messenger.Default.Send(new ViewQualifiedCandidatesForOpeningViewMessage());
+            Messenger.Default.Send(new ViewQualifiedCandidatesForOpeningViewMessage()
+            {
+                OpeningId = Opening.Id
+            });
         }
     }
 }
