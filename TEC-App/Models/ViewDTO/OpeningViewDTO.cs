@@ -24,7 +24,7 @@ namespace TEC_App.Models.ViewDTO
             Messenger.Default.Send(new NotificationMessage(nameof(CandidateQualifiedForOpeningViewModel)));
             Messenger.Default.Send(new ViewQualifiedCandidatesForOpeningViewMessage()
             {
-                OpeningId = Opening.Id
+                RequiredQualificationId = Opening.RequiredQualificationId
             });
         }
     }

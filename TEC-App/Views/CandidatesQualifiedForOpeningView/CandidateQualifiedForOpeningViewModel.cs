@@ -30,7 +30,7 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
         public IOpeningsService OpeningsService { get; set; }
         private void LoadCandidatesQualifiedForOpening(ViewQualifiedCandidatesForOpeningViewMessage obj)
         {
-            var candidates = CandidateService.GetCandidatesQualifiedForOpening(obj.OpeningId);
+            var candidates = CandidateService.GetCandidatesQualifiedForRequiredQualification(obj.RequiredQualificationId);
             Candidates.Clear();
             foreach (var v in candidates)
             {

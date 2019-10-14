@@ -45,6 +45,25 @@ namespace TEC_App.Services.CandidateQualificationService
 
         }
 
+        //[TestCase(11, 3)]
+        //[TestCase(12, 3)]
+        //[TestCase(13, 3)]
+        //[TestCase(14, 3)]
+        public void AddSpecificCandidateQualificationTest(int candidateId, int qualificationId)
+        {
+            var random = new Random();
+            Candidate = CandidateService.GetCandidateFromId(candidateId);
+            Qualification = QualificationsService.GetQualificationFromId(qualificationId);
+            CandidateQualification = CandidateQualificationService.Add(new Candidate_Qualification()
+            {
+                Candidate = Candidate,
+                CandidateId = Candidate.Id,
+                Qualification = Qualification,
+                QualificationId = Qualification.Id
+            });
+
+        }
+
         [Test]
         public void GetTest()
         {

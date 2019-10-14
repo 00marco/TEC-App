@@ -9,6 +9,6 @@ namespace TEC_App.Messages
 {
     public class ViewQualifiedCandidatesForOpeningViewMessage
     {
-        public int OpeningId { get; set; }
+        public int RequiredQualificationId { get; set; }
     }
 }

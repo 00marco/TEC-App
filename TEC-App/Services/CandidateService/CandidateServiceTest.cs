@@ -96,7 +96,7 @@ namespace TEC_App.Services.CandidateService
            
             foreach (var x in allOpenings)
             {
-                var candidatesQualifiedForOpening = CandidateService.GetCandidatesQualifiedForOpening(x.Id);
+                var candidatesQualifiedForOpening = CandidateService.GetCandidatesQualifiedForRequiredQualification(x.Id);
                 Console.WriteLine();
                 Console.WriteLine($"Job\t{x.Job.Name}");
                 Console.WriteLine("--------------------------");

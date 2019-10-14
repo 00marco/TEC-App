@@ -19,14 +19,14 @@ namespace TEC_App.Services.EmployeeService
 		    this.context = context;
 	    }
 
-        public List<Candidate> GetCandidatesQualifiedForOpening(int openingId)
+        public List<Candidate> GetCandidatesQualifiedForRequiredQualification(int requiredQualificationId)
         {
             var candidates = GetAllCandidates();
             var candidatesQualifiedForOpening = new List<Candidate>();
             foreach (var v in candidates)
             {
                 var candidateQualifications = v.CandidateQualifications.Where(d => d.CandidateId == v.Id);
-                if (candidateQualifications.Any(a => a.QualificationId == openingId))
+                if (candidateQualifications.Any(a => a.QualificationId == requiredQualificationId))
                 {
                     candidatesQualifiedForOpening.Add(v);
                 }

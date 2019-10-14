@@ -270,7 +270,7 @@ namespace TEC_App.Migrations
 
                     b.Property<int>("CandidateId");
 
-                    b.Property<int>("OpeningId");
+                    b.Property<int>("RequiredQualificationId");
 
                     b.Property<DateTime>("Timestamp");
 
@@ -280,7 +280,7 @@ namespace TEC_App.Migrations
 
                     b.HasIndex("CandidateId");
 
-                    b.HasIndex("OpeningId");
+                    b.HasIndex("RequiredQualificationId");
 
                     b.ToTable("Placement");
                 });
@@ -495,7 +495,7 @@ namespace TEC_App.Migrations
 
                     b.HasOne("TEC_App.Models.Opening", "Opening")
                         .WithMany("Placements")
-                        .HasForeignKey("OpeningId")
+                        .HasForeignKey("RequiredQualificationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

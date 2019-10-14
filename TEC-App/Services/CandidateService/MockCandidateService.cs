@@ -25,7 +25,7 @@ namespace TEC_App.Services.EmployeeService
         }
 
 
-        public List<Candidate> GetCandidatesQualifiedForOpening(int openingId)
+        public List<Candidate> GetCandidatesQualifiedForRequiredQualification(int requiredQualificationId)
         {
             throw new NotImplementedException();
         }
