@@ -34,8 +34,14 @@ namespace TEC_App.Services.QualificationDevelopedByCourseService
 
         public QualificationDevelopedByCourse GetFromIdPair(int courseId, int qualificationId)
         {
-            return GetAll().Single(d =>
+            var ret = GetAll().FirstOrDefault(d =>
                 d.CourseId == courseId && d.QualificationId == qualificationId);
+            if (ret == null)
+            {
+                return new QualificationDevelopedByCourse(){Id = -1};
+            }
+
+            return ret;
 
         }
 

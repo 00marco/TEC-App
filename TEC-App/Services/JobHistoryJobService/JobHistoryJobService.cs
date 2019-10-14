@@ -43,7 +43,16 @@ namespace TEC_App.Services.JobHistoryJobService
 
         public JobHistory_Job GetFromIdPair(int jobHistoryId, int jobId)
         {
-            return GetAll().Single(d => d.JobHistoryId == jobHistoryId && d.JobId == jobId);
+            var ret = GetAll().FirstOrDefault(d => d.JobHistoryId == jobHistoryId && d.JobId == jobId);
+            if (ret == null)
+            {
+                return new JobHistory_Job()
+                {
+                    Id = -1
+                };
+            }
+
+            return ret;
 
         }
     }

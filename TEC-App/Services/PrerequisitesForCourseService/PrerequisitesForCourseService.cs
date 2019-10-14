@@ -35,9 +35,14 @@ namespace TEC_App.Services.PrerequisitesForCourseService
 
         public PrerequisitesForCourse GetFromIdPair(int courseId, int qualificationId)
         {
-            return GetAll().Single(d =>
+            var ret = GetAll().FirstOrDefault(d =>
                 d.CourseId == courseId && d.QualificationId == qualificationId);
+            if (ret == null)
+            {
+                return new PrerequisitesForCourse(){Id =-1};
+            }
 
+            return ret;
         }
 
         public void Remove(int courseId, int qualificationId)

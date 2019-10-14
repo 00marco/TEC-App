@@ -35,8 +35,17 @@ namespace TEC_App.Services.JobHistoryCompanyService
 
         public JobHistory_Company GetFromIdPair(int jobHistoryId, int companyId)
         {
-            return GetAll().Single(d => d.JobHistoryId == jobHistoryId && d.CompanyId == companyId);
-            
+            var ret= GetAll().FirstOrDefault(d => d.JobHistoryId == jobHistoryId && d.CompanyId == companyId);
+            if (ret == null)
+            {
+                return new JobHistory_Company()
+                {
+                    Id = -1
+                };
+            }
+
+            return ret;
+
         }
 
         public void Remove(int jobHistoryId, int companyId)

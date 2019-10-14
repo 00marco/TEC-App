@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 
@@ -27,7 +28,16 @@ namespace TEC_App.Services.SessionLocationService
 
         public Session_Location GetFromIdPair(int sessionId, int locationId)
         {
-            return GetAll().Single(d => d.LocationId == locationId && d.SessionId == sessionId);
+            var ret = GetAll().FirstOrDefault(d => d.LocationId == locationId && d.SessionId == sessionId);
+            if (ret == null)
+            {
+                return new Session_Location()
+                {
+                    Id = -1
+                };
+            }
+
+            return ret;
         }
 
         public void Remove(int sessionId, int locationId)

@@ -34,7 +34,16 @@ namespace TEC_App.Services.CandidateQualificationService
 
         public Candidate_Qualification GetFromIdPair(int candidateId, int qualificationId)
         {
-            return GetAll().Single(d => d.CandidateId == candidateId && d.QualificationId == qualificationId);
+            var ret = GetAll().FirstOrDefault(d => d.CandidateId == candidateId && d.QualificationId == qualificationId);
+            if (ret == null)
+            {
+                return new Candidate_Qualification()
+                {
+                    Id = -1
+                };
+            }
+
+            return ret;
 
         }
 

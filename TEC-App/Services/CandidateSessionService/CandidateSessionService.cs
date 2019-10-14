@@ -27,7 +27,16 @@ namespace TEC_App.Services.CandidateSessionService
 
         public Candidate_Session GetFromIdPair(int candidateId, int sessionId)
         {
-            return GetAll().Single(d => d.CandidateId == candidateId && d.SessionId == sessionId);
+            var ret = GetAll().FirstOrDefault(d => d.CandidateId == candidateId && d.SessionId == sessionId);
+            if (ret == null)
+            {
+                return new Candidate_Session()
+                {
+                    Id =  -1
+                };
+            }
+
+            return ret;
         }
 
         public void Remove(int candidateId, int sessionId)
