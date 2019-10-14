@@ -18,6 +18,7 @@ namespace TEC_App.Services.JobHistoryCompanyService
         public JobHistory JobHistory { get; set; }
         public Company Company { get; set; }
         public JobHistory_Company JobHistoryCompany { get; set; }
+        public bool End { get; set; }
 
 
         public JobHistoryCompanyServiceTest()
@@ -26,14 +27,22 @@ namespace TEC_App.Services.JobHistoryCompanyService
             JobHistoryService = new JobHistoryService.JobHistoryService(TecAppContext);
             CompanyService = new CompanyService.CompanyService(TecAppContext);
             JobHistoryCompanyService = new JobHistoryCompanyService(TecAppContext);
+            End = false;
         }
 
         [Test]
         public void AddTest()
         {
             var random = new Random();
-            JobHistory = JobHistoryService.GetAllJobHistories()[random.Next(100)];
-            Company = CompanyService.GetAllCompanies()[random.Next(100)];
+            var count = JobHistoryService.GetAllJobHistories().Count;
+            var allJobHistories = JobHistoryService.GetAllJobHistories();
+            if (count == 0)
+            {
+                End = true;
+                return;
+            }
+            JobHistory = allJobHistories[random.Next(count)];
+            Company = CompanyService.GetAllCompanies()[random.Next(CompanyService.GetAllCompanies().Count)];
             JobHistoryCompany = JobHistoryCompanyService.Add(new JobHistory_Company()
             {
                 JobHistory = JobHistory,
@@ -46,6 +55,7 @@ namespace TEC_App.Services.JobHistoryCompanyService
         [Test]
         public void GetTest()
         {
+            if (End) return;
             var added = JobHistoryCompanyService.GetFromIdPair(JobHistory.Id, Company.Id);
             Assert.AreEqual(added.Id, JobHistoryCompany.Id);
         }
@@ -53,6 +63,7 @@ namespace TEC_App.Services.JobHistoryCompanyService
         [Test]
         public void RemoveTest()
         {
+            if (End) return;
             JobHistoryCompanyService.Remove(JobHistory.Id, Company.Id);
             var removed = JobHistoryCompanyService.GetFromIdPair(JobHistory.Id, Company.Id);
             Assert.AreEqual(removed.Id, -1);

@@ -23,7 +23,7 @@
             <RowDefinition />
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Add Opening"
+        <TextBlock Text="AddAddressToCandidate Opening"
                    Grid.Row="0"
                    FontSize="20"
                    Margin="20"
@@ -112,7 +112,7 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             >
-            <Button Content="Add"
+            <Button Content="AddAddressToCandidate"
                     Padding="5"
                     Foreground="White"
                     BorderThickness="0"

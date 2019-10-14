@@ -35,7 +35,7 @@ namespace TEC_App.Services.CandidateQualificationService
             var random = new Random();
             Candidate = CandidateService.GetAllCandidates()[random.Next(100)];
             Qualification = QualificationsService.GetAllQualifications()[random.Next(10)];
-            CandidateQualification = CandidateQualificationService.Add(new Candidate_Qualification()
+            CandidateQualification = CandidateQualificationService.AddQualificationToCandidate(new Candidate_Qualification()
             {
                 Candidate = Candidate,
                 Qualification = Qualification,
@@ -53,7 +53,7 @@ namespace TEC_App.Services.CandidateQualificationService
             var random = new Random();
             Candidate = CandidateService.GetCandidateFromId(candidateId);
             Qualification = QualificationsService.GetQualificationFromId(qualificationId);
-            CandidateQualification = CandidateQualificationService.Add(new Candidate_Qualification()
+            CandidateQualification = CandidateQualificationService.AddQualificationToCandidate(new Candidate_Qualification()
             {
                 Candidate = Candidate,
                 CandidateId = Candidate.Id,
@@ -76,7 +76,7 @@ namespace TEC_App.Services.CandidateQualificationService
         [Test]
         public void RemoveTest()
         {
-            CandidateQualificationService.Remove(Candidate.Id, Qualification.Id);
+            CandidateQualificationService.RemoveQualificationFromCandidate(Candidate.Id, Qualification.Id);
             var removed = CandidateQualificationService.GetFromIdPair(Candidate.Id, Qualification.Id);
             Assert.AreEqual(removed.Id, -1);
 

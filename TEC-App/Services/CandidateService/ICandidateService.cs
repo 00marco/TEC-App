@@ -11,16 +11,14 @@ namespace TEC_App.Services.EmployeeService
     }
     public interface ICandidateService
     {
+        List<CandidateViewDTO> GetAllCandidateViewDtos();
+
         List<Candidate> GetCandidatesQualifiedForRequiredQualification(int requiredQualificationId);
         List<Candidate> GetAllCandidates();
-        List<CandidateViewDTO> GetAllCandidateViewDtos();
         Candidate AddCandidate(Candidate candidate);
         void RemoveCandidate(Candidate candidate);
         Candidate GetCandidateFromId(int id);
+        
 
-        void AddAddressToCandidate(int candidateId, Address address);
-        void AddSessionToCandidate(int candidateId, Candidate candidate);
-        void AddQualificationToCandidate(int candidateId, Qualification qualification);
-        void AddJobHistoryToCandidate(int candidateId, JobHistory jobHistory);
     }
 }

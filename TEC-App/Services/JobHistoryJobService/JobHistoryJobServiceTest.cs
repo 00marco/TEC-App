@@ -18,6 +18,7 @@ namespace TEC_App.Services.JobHistoryJobService
         public Job Job { get; set; }
         public JobHistory JobHistory { get; set; }
         public JobHistory_Job JobHistoryJob { get; set; }
+        public bool End { get; set; }
 
 
         public JobHistoryJobServiceTest()
@@ -26,14 +27,20 @@ namespace TEC_App.Services.JobHistoryJobService
             JobHistoryJobService = new JobHistoryJobService(TecAppContext);
             JobHistoryService = new JobHistoryService.JobHistoryService(TecAppContext);
             JobService = new JobService.JobService(TecAppContext);
+            End = false;
         }
 
         [Test]
         public void AddTest()
         {
             var random = new Random();
-            Job = JobService.GetAllJobs()[random.Next(100)];
-            JobHistory = JobHistoryService.GetAllJobHistories()[random.Next(100)];
+            if (JobHistoryService.GetAllJobHistories().Count == 0)
+            {
+                End = true;
+                return;
+            }
+            Job = JobService.GetAllJobs()[random.Next(JobService.GetAllJobs().Count)];
+            JobHistory = JobHistoryService.GetAllJobHistories()[random.Next(JobHistoryService.GetAllJobHistories().Count)];
             JobHistoryJob = JobHistoryJobService.Add(new JobHistory_Job()
             {
                 Job = Job,
@@ -47,6 +54,7 @@ namespace TEC_App.Services.JobHistoryJobService
         [Test]
         public void GetTest()
         {
+            if (End) return;
             var added = JobHistoryJobService.GetFromIdPair(JobHistory.Id, Job.Id);
             Assert.AreEqual(added.Id, JobHistoryJob.Id);
 
@@ -55,6 +63,7 @@ namespace TEC_App.Services.JobHistoryJobService
         [Test]
         public void RemoveTest()
         {
+            if (End) return;
             JobHistoryJobService.Remove(JobHistory.Id, Job.Id);
             var removed = JobHistoryJobService.GetFromIdPair(JobHistory.Id, Job.Id);
             Assert.AreEqual(removed.Id, -1);

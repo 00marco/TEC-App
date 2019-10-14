@@ -18,17 +18,22 @@ namespace TEC_App.Services.AddressCandidateService
             this.context = context;
         }
 
-        public Address_Candidate Add(Address_Candidate addressCandidate)
+        public Address_Candidate AddAddressToCandidate(Address_Candidate addressCandidate)
         {
             context.Address_Candidate_Pairs.Add(addressCandidate);
             context.SaveChanges();
             return addressCandidate;
         }
 
-        public void Remove(int addressId, int candidateId)
+        public void RemoveAddressFromCandidate(int addressId, int candidateId)
         {
             context.Remove(context.Address_Candidate_Pairs.Single(d => d.AddressId == addressId && d.CandidateId == candidateId));
             context.SaveChanges();
+        }
+
+        public void Soft_RemoveAddressFromCandidate(int addressId, int candidateId)
+        {
+            throw new NotImplementedException();
         }
 
         public void Remove(Address_Candidate addressCandidate)
@@ -37,7 +42,7 @@ namespace TEC_App.Services.AddressCandidateService
             context.SaveChanges();
         }
 
-        public List<Address_Candidate> GetAllAddressCandidates()
+        public List<Address_Candidate> GetAllAddressCandidatePairs()
         {
             var addressCandidatePairs = context.Set<Address_Candidate>()
                 .Include(d => d.Candidate)
@@ -46,9 +51,9 @@ namespace TEC_App.Services.AddressCandidateService
             return addressCandidatePairs;
         }
 
-        public Address_Candidate GetFromAddressAndCandidateId(int addressId, int candidateId)
+        public Address_Candidate GetPairFromAddressAndCandidateId(int addressId, int candidateId)
         {
-            var ret = GetAllAddressCandidates().FirstOrDefault(d => d.AddressId == addressId && d.CandidateId == candidateId);
+            var ret = GetAllAddressCandidatePairs().FirstOrDefault(d => d.AddressId == addressId && d.CandidateId == candidateId);
             if (ret == null)
             {
                 return new Address_Candidate()

@@ -24,7 +24,7 @@
             <Button Margin="0,5"
                     Padding="5"
                     Background="{StaticResource ThemeColorDark}"
-                    Content="Add Company"
+                    Content="AddAddressToCandidate Company"
                     Foreground="White"
                     BorderThickness="0"
                     Command="{Binding Path=AddCompanyCommand}"></Button>

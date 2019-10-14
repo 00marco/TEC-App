@@ -53,7 +53,7 @@ namespace TEC_App.Services.PlacementService
                 .ToList();
         }
 
-        public Placement AddPlacement(Placement placement)
+        public Placement AddPlacementToCandidate(Placement placement)
         {
             context.Placements.Add(placement);
             context.SaveChanges();

@@ -12,5 +12,6 @@ namespace TEC_App.Services.CompanyService
         Company AddCompany(Company company);
         void RemoveCompany(Company company);
 
+        void CreateOpening(Qualification qualification, Job job);
     }
 }

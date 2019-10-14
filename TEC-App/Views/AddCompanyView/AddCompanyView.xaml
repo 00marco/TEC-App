@@ -18,7 +18,7 @@
             <RowDefinition />
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Add Company"
+        <TextBlock Text="AddAddressToCandidate Company"
                    Grid.Row="0"
                    FontSize="20"
                    Margin="20"

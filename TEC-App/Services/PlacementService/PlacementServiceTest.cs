@@ -50,7 +50,7 @@ namespace TEC_App.Services.PlacementService
                 Timestamp = DateTime.Now,
                 TotalHoursWorked = random.Next()
             };
-            Placement = PlacementService.AddPlacement(newPlacement);
+            Placement = PlacementService.AddPlacementToCandidate(newPlacement);
         }
 
         [Test]

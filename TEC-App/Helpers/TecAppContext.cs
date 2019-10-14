@@ -79,6 +79,7 @@ namespace TEC_App.Helpers
 				c.HasMany(d => d.Address_Candidate_Pairs)
 					.WithOne(d => d.Address)
 					.HasForeignKey(d => d.AddressId);
+
 			});
 			modelBuilder.Entity<Address_Candidate>(c => {
 				c.ToTable("Address_Candidate");

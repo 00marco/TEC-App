@@ -64,5 +64,10 @@ namespace TEC_App.Services.CompanyService
             context.Remove(context.Companies.Single(d => d.Id == company.Id));
             context.SaveChanges();
         }
+
+        public void CreateOpening(Qualification qualification, Job job)
+        {
+            //TODO CREATE OPENING
+        }
     }
 }

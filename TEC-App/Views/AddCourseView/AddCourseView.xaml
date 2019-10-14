@@ -20,7 +20,7 @@
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Add Course"
+        <TextBlock Text="AddAddressToCandidate Course"
                    Grid.Row="0"
                    FontSize="20"
                    Margin="20"

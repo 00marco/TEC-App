@@ -31,7 +31,7 @@
             <Button Margin="0,5"
                     Padding="5,5"
                     Background="{StaticResource ThemeColorDark}"
-                    Content="Add Candidate"
+                    Content="AddAddressToCandidate Candidate"
                     Foreground="White"
                     BorderThickness="0"
                     Command="{Binding Path=AddCandidateCommand}"></Button>

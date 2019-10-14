@@ -13,7 +13,7 @@ namespace TEC_App.Services.PlacementService
         Placement GetPlacementFromId(int id);
         List<Placement> GetAllPlacements();
         List<PlacementViewDTO> GetAllPlacementViewDtos();
-        Placement AddPlacement(Placement placement);
+        Placement AddPlacementToCandidate(Placement placement);
         void RemovePlacement(Placement placement);
     }
 }

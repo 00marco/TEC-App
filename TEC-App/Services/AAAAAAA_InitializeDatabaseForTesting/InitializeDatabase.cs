@@ -7,6 +7,7 @@ using NUnit.Framework;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Views.AddCourseView;
+using TEC_App.Views.AddOpeningView;
 
 namespace TEC_App.Services.AAAAAAA_InitializeDatabaseForTesting
 {
@@ -22,6 +23,10 @@ namespace TEC_App.Services.AAAAAAA_InitializeDatabaseForTesting
         public SessionService.SessionService SessionService { get; set; }
         public LocationService.LocationService LocationService { get; set; }
         public SessionLocationService.SessionLocationService SessionLocationService { get; set; }
+        public OpeningsService.OpeningsService OpeningService { get; set; }
+        public PlacementService.PlacementService PlacementService { get; set; }
+        public JobHistoryJobService.JobHistoryJobService JobHistoryJobService { get; set; }
+        public JobHistoryService.JobHistoryService JobHistoryService { get; set; }
 
 
         public InitializeDatabase()
@@ -35,13 +40,19 @@ namespace TEC_App.Services.AAAAAAA_InitializeDatabaseForTesting
             JobService = new JobService.JobService(context);
             SessionService = new SessionService.SessionService(context);
             LocationService = new LocationService.LocationService(context);
+            OpeningService = new OpeningsService.OpeningsService(context);
+            PlacementService = new PlacementService.PlacementService(context);
+            JobHistoryService = new JobHistoryService.JobHistoryService(context);
 
             SessionLocationService = new SessionLocationService.SessionLocationService(context);
+            JobHistoryJobService = new JobHistoryJobService.JobHistoryJobService(context);
+
         }
 
         [Test]
         public void AddTest()
         {
+            //initialize independent entities
             AddQualification();
             for (int x = 0; x < 200; x++)
             {
@@ -51,34 +62,91 @@ namespace TEC_App.Services.AAAAAAA_InitializeDatabaseForTesting
                 AddCompany();
                 AddJob();
             }
+
+            //initialize sessions and locations
             for (int x = 0; x < 200; x++)
             {
-                AddLocation();
+                AddSessionAndLocation();
             }
 
-            
+            //initialize openings
+            foreach (var v in CompanyService.GetAllCompanies())
+            {
+                AddOpening(v);
+            }
 
+            //fill in fillable positions
+            foreach (var v in OpeningService.GetAllOpenings())
+            {
+                AddPlacementAndJobHistory(v);
+            }
+
+            var jobhistory = JobHistoryService.GetAllJobHistories();
+            var jobs = JobService.GetAllJobs();
         }
 
-        private void AddLocation()
+        
+
+        private void AddPlacementAndJobHistory(Opening opening)
         {
-            var random = new Random();
+            //basically put all qualified candidates into each opening. regardless of what conflict there is
+            //TODO CONFLICT case
+            var candidates = CandidateService.GetCandidatesQualifiedForRequiredQualification(opening.RequiredQualificationId);
+            foreach (var v in candidates)
+            {
+                PlacementService.AddPlacementToCandidate(new Placement()
+                {
+                    Candidate = v,
+                    Opening = opening,
+                    Timestamp = DateTime.Now
+                });
+                var jobHistory = JobHistoryService.AddJobHistory(new JobHistory()
+                {
+                    Candidate = v,
+                });
+                JobHistoryJobService.Add(new JobHistory_Job()
+                {
+                    JobHistory = jobHistory,
+                    Job = opening.Job
+                });
+
+            }
+        }
+
+        private void AddOpening(Company v)
+        {
+            var randomJob = JobService.GetAllJobs()[random.Next(100)];
+            var randomQualification = QualificationsService.GetAllQualifications()[random.Next(10)];
+            var newOpening = new Opening()
+            {
+                Company = v,
+                Job = randomJob,
+                RequiredQualification = randomQualification
+            };
+            OpeningService.AddOpening(newOpening);
+        }
+
+
+        private void AddSessionAndLocation()
+        {
+            var randomCourse = CourseService.GetAllCourses()[random.Next(100)];
             var randomAddress = AddressService.GetAllAdresses()[random.Next(100)];
-            LocationService.AddLocation(new Location()
+            var newLocation = LocationService.AddLocation(new Location()
             {
                 Address = randomAddress,
 
             });
-        }
-
-        private void AddSession()
-        {
-            var randomCourse = CourseService.GetAllCourses()[random.Next(100)];
-            var randomLocation = LocationService.GetAllLocations()[random.Next(100)];
             var addedSession = new Session()
             {
                 Course = randomCourse
             };
+
+            SessionService.AddSession(addedSession);
+            SessionLocationService.Add(new Session_Location()
+            {
+                Session = addedSession,
+                Location = newLocation
+            });
         }
 
         private void AddJob()

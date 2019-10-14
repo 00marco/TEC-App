@@ -29,7 +29,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"/>
 
-        <TextBlock Text="Address/es: "
+        <TextBlock Text="AddQualificationToCandidateAddQualificationToCandidateressToCandidateress/es: "
                    Grid.Row="1"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"

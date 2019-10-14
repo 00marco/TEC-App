@@ -24,7 +24,7 @@
             <RowDefinition Height="300"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Add Candidate"
+        <TextBlock Text="AddAddressToCandidate Candidate"
                    Grid.Row="0"
                    FontSize="20"
                    Margin="20"
@@ -71,7 +71,7 @@
                  Grid.Column="1"
                  Margin="10,5"></TextBox>
 
-        <TextBlock Text="Address 1:"
+        <TextBlock Text="AddAddressToCandidateress 1:"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"
                    Margin="5"
@@ -84,7 +84,7 @@
                  Grid.Column="1"
                  Margin="10,5"></TextBox>
 
-        <TextBlock Text="Address 2:"
+        <TextBlock Text="AddAddressToCandidateress 2:"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"
                    Margin="5"
@@ -97,7 +97,7 @@
                  Grid.Column="1"
                  Margin="10,5"></TextBox>
 
-        <TextBlock Text="Address 3"
+        <TextBlock Text="AddAddressToCandidateress 3"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"
                    Margin="5"

@@ -39,7 +39,7 @@ namespace TEC_App.Services.AddressCandidateService
                 Candidate = randomCandidate,
                 Address =  randomAddress
             };
-            AddressCandidate = AddressCandidateService.Add(newAddressCandidate);
+            AddressCandidate = AddressCandidateService.AddAddressToCandidate(newAddressCandidate);
             Address = AddressCandidate.Address;
             Candidate = AddressCandidate.Candidate;
 
@@ -48,7 +48,7 @@ namespace TEC_App.Services.AddressCandidateService
         [Test]
         public void GetTest()
         {
-            var addressCandidate = AddressCandidateService.GetFromAddressAndCandidateId(Address.Id, Candidate.Id);
+            var addressCandidate = AddressCandidateService.GetPairFromAddressAndCandidateId(Address.Id, Candidate.Id);
             Assert.AreEqual(addressCandidate.AddressId, Address.Id);
             Assert.AreEqual(addressCandidate.CandidateId, Candidate.Id);
             Assert.AreEqual(addressCandidate.Id, AddressCandidate.Id);
@@ -57,9 +57,9 @@ namespace TEC_App.Services.AddressCandidateService
         [Test]
         public void RemoveTest()
         {
-            AddressCandidateService.Remove(AddressCandidate.AddressId, AddressCandidate.CandidateId);
+            AddressCandidateService.RemoveAddressFromCandidate(AddressCandidate.AddressId, AddressCandidate.CandidateId);
             var removedAddressCandidate =
-                AddressCandidateService.GetFromAddressAndCandidateId(AddressCandidate.AddressId,
+                AddressCandidateService.GetPairFromAddressAndCandidateId(AddressCandidate.AddressId,
                     AddressCandidate.CandidateId);
             Assert.AreEqual(removedAddressCandidate.Id, -1);
 
