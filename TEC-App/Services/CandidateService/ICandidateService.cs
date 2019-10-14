@@ -17,5 +17,10 @@ namespace TEC_App.Services.EmployeeService
         Candidate AddCandidate(Candidate candidate);
         void RemoveCandidate(Candidate candidate);
         Candidate GetCandidateFromId(int id);
+
+        void AddAddressToCandidate(int candidateId, Address address);
+        void AddSessionToCandidate(int candidateId, Candidate candidate);
+        void AddQualificationToCandidate(int candidateId, Qualification qualification);
+        void AddJobHistoryToCandidate(int candidateId, JobHistory jobHistory);
     }
 }

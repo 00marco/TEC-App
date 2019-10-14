@@ -26,15 +26,22 @@ namespace TEC_App.Helpers
 		public DbSet<Placement> Placements { get; set; }
 		public DbSet<Qualification> Qualifications { get; set; }
 		public DbSet<Session> Sessions { get; set; }
-		public DbSet<PrerequisitesForCourse> PrerequisitesForCourses { get; set; }
 		public DbSet<Address> Addresses { get; set; }
 		public DbSet<Job> Jobs { get; set; }
 		public DbSet<Location> Locations { get; set; }
-		public DbSet<Candidate_Qualification> CandidateQualifications { get; set; }
-		public DbSet<Candidate_Session> Candidate_Session_Pairs { get; set; }
-		#endregion
+		public DbSet<Candidate_Qualification> Candidate_Qualification_Pairs { get; set; }
+		public DbSet<Address_Candidate> Address_Candidate_Pairs { get; set; }
+        public DbSet<Candidate_Session> Candidate_Session_Pairs { get; set; }
+        public DbSet<JobHistory_Company> JobHistory_Company_Pairs { get; set; }
+        public DbSet<JobHistory_Job> JobHistory_Job_Pairs { get; set; }
+        public DbSet<Session_Location> Session_Location_Pairs { get; set; }
+        public DbSet<PrerequisitesForCourse> PrerequisitesForCourses { get; set; }
+        public DbSet<QualificationDevelopedByCourse> QualificationsDevelopedByCourse { get; set; }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        #endregion
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
              
             bool workingOnPc = true;

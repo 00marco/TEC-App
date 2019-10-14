@@ -112,5 +112,24 @@ namespace TEC_App.Services.EmployeeService
             }
             return candidate;
         }
+
+        public void AddAddressToCandidate(int candidateId, Address address)
+        {
+        }
+
+        public void AddSessionToCandidate(int candidateId, Candidate candidate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddQualificationToCandidate(int candidateId, Qualification qualification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddJobHistoryToCandidate(int candidateId, JobHistory jobHistory)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -3,13 +3,21 @@ using System.Data.SqlTypes;
 using GalaSoft.MvvmLight.Ioc;
 using TEC_App.Models.Db;
 using TEC_App.Services;
+using TEC_App.Services.AddressCandidateService;
+using TEC_App.Services.CandidateQualificationService;
+using TEC_App.Services.CandidateSessionService;
 using TEC_App.Services.CompanyService;
 using TEC_App.Services.CourseService;
 using TEC_App.Services.EmployeeService;
+using TEC_App.Services.JobHistoryCompanyService;
+using TEC_App.Services.JobHistoryJobService;
 using TEC_App.Services.JobService;
 using TEC_App.Services.OpeningsService;
 using TEC_App.Services.PlacementService;
+using TEC_App.Services.PrerequisitesForCourseService;
+using TEC_App.Services.QualificationDevelopedByCourseService;
 using TEC_App.Services.QualificationsService;
+using TEC_App.Services.SessionLocationService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;
 using TEC_App.Views.AddCompanyView;
@@ -70,6 +78,17 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<IOpeningsService, OpeningsService>();
 			SimpleIoc.Default.Register<IQualificationsService, QualificationsService>();
 			SimpleIoc.Default.Register<IJobService, JobService>();
+
+			SimpleIoc.Default.Register<IAddressCandidateService, AddressCandidateService>();
+			SimpleIoc.Default.Register<ICandidateSessionService, CandidateSessionService>();
+			SimpleIoc.Default.Register<ICandidateQualificationService, CandidateQualificationService>();
+			SimpleIoc.Default.Register<IJobHistoryCompanyService, JobHistoryCompanyService>();
+			SimpleIoc.Default.Register<IJobHistoryJobService, JobHistoryJobService>();
+			SimpleIoc.Default.Register<ISessionLocationService, SessionLocationService>();
+			SimpleIoc.Default.Register<IQualificationDevelopedByCourseService, QualificationDevelopedByCourseService>();
+			SimpleIoc.Default.Register<IPrerequisitesForCourseService, PrerequisitesForCourseService>();
+
+			
         }
 
 		private void RegisterTestServices()
@@ -83,5 +102,6 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<IOpeningsService, MockOpeningsService>();
 
         }
+        //TODO TEST ALL ASSOCIATIVE ENTITY SERVICES
 	}
 }
