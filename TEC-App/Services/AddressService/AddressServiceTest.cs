@@ -33,11 +33,11 @@ namespace TEC_App.Services.AddressService
             }
         }
 
-        [TestCase(1, "Texas")]
-        [TestCase(2, "Wyoming")]
-        [TestCase(3, "Indiana")]
-        [TestCase(4, "Texas")]
-        [TestCase(9999, null)]
+        //[TestCase(1, "Texas")]
+        //[TestCase(2, "Wyoming")]
+        //[TestCase(3, "Indiana")]
+        //[TestCase(4, "Texas")]
+        //[TestCase(9999, null)]
         public void GetAddressFromIdTest(int id, string result)
         {
             var address = AddressService.GetAddressFromId(id);

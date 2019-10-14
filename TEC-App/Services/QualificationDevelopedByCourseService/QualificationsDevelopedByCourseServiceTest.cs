@@ -32,8 +32,8 @@ namespace TEC_App.Services.QualificationDevelopedByCourseService
         public void AddTest()
         {
             var random = new Random();
-            Qualification = QualificationsService.GetQualificationFromId(random.Next(10));
-            Course = CourseService.GetCourseFromId(random.Next(100));
+            Qualification = QualificationsService.GetAllQualifications()[random.Next(10)];
+            Course = CourseService.GetAllCourses()[random.Next(100)];
             QualificationDevelopedByCourse = QualificationDevelopedByCourseService.Add(
                 new QualificationDevelopedByCourse()
                 {

@@ -39,11 +39,11 @@ namespace TEC_App.Services.OpeningsService
             }
         }
 
-        [TestCase(1, 77f)]
-        [TestCase(2, 23f)]
-        [TestCase(3, 75f)]
-        [TestCase(4, 56f)]
-        [TestCase(5, 76f)]
+        //[TestCase(1, 77f)]
+        //[TestCase(2, 23f)]
+        //[TestCase(3, 75f)]
+        //[TestCase(4, 56f)]
+        //[TestCase(5, 76f)]
         public void GetOpeningFromIdTest(int id, float result)
         {
             var opening = OpeningsService.GetOpeningFromId(id);

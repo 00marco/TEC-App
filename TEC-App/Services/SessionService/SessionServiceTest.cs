@@ -33,10 +33,10 @@ namespace TEC_App.Services.SessionService
             }
         }
 
-        [TestCase(1, 536)]
-        [TestCase(2, 512)]
-        [TestCase(3, 667)]
-        [TestCase(4, 672)]
+        //[TestCase(1, 536)]
+        //[TestCase(2, 512)]
+        //[TestCase(3, 667)]
+        //[TestCase(4, 672)]
         public void GetSessionFromId(int id, int result)
         {
             var session = SessionService.GetSessionFromId(id);

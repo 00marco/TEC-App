@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace TEC_App.Models.Db
 {
@@ -22,5 +24,9 @@ namespace TEC_App.Models.Db
 
 		public ICollection<Candidate_Session> Candidate_Session_Pairs { get; set; }
 		public ICollection<Session_Location> Session_Location_Pairs { get; set; }
-	}
+
+        [NotMapped]
+        public Location Location => Session_Location_Pairs.FirstOrDefault(d => d.SessionId == Id).Location != null ? Session_Location_Pairs.FirstOrDefault(d => d.SessionId == Id).Location : new Location(){Id = -1};
+
+    }
 }

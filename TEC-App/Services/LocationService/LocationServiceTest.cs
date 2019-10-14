@@ -38,10 +38,10 @@ namespace TEC_App.Services.LocationService
             }
         }
 
-        [TestCase(1, 892)]
-        [TestCase(2, 70)]
-        [TestCase(3, 555)]
-        [TestCase(4, 290)]
+        //[TestCase(1, 892)]
+        //[TestCase(2, 70)]
+        //[TestCase(3, 555)]
+        //[TestCase(4, 290)]
         public void GetLocationFromId(int id, int result)
         {
             var location = LocationService.GetLocationFromId(id);

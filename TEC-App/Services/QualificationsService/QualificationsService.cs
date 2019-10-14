@@ -48,7 +48,7 @@ namespace TEC_App.Services.QualificationsService
             return qualification;
         }
 
-        public void RemoveQualificaiton(Qualification qualification)
+        public void RemoveQualification(Qualification qualification)
         {
             context.Remove(context.Qualifications.Single(d => d.Id == qualification.Id));
             context.SaveChanges();

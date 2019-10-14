@@ -21,6 +21,7 @@ namespace TEC_App.Services.AddressService
         {
             return context.Set<Address>()
                 .Include(d => d.Address_Candidate_Pairs)
+                .ThenInclude(d=>d.Candidate)
                 .Include(d => d.Locations)
                 .ToList();
         }

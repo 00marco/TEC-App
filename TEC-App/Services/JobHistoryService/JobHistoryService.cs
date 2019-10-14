@@ -23,7 +23,9 @@ namespace TEC_App.Services.JobHistoryService
         {
             return context.Set<JobHistory>()
                 .Include(d => d.JobHistory_Company_Pairs)
+                .ThenInclude(d=>d.Company)
                 .Include(d => d.JobHistory_Job_Pairs)
+                .ThenInclude(d=>d.Job)
                 .Include(d => d.Candidate)
                 .ToList();
         }

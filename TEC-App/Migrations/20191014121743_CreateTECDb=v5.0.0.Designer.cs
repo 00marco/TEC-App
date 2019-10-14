@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TEC_App.Helpers;
 
 namespace TEC_App.Migrations
 {
     [DbContext(typeof(TecAppContext))]
-    partial class TecAppContextModelSnapshot : ModelSnapshot
+    [Migration("20191014121743_CreateTECDb=v5.0.0")]
+    partial class CreateTECDbv500
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

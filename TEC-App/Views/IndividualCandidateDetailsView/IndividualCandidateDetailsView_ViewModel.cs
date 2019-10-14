@@ -11,6 +11,11 @@ namespace TEC_App.Views.IndividualCandidateDetailsView
 {
     public class IndividualCandidateDetailsView_ViewModel : ViewModelBase
     {
+        private JobHistory _selectedJobHistory;
+        private Candidate_Qualification _selectedCandidateQualification;
+        private Candidate_Session _selectedCandidateSession;
+        private Address_Candidate _selectedAddressCandidate;
+
         public IndividualCandidateDetailsView_ViewModel(ICandidateService candidateService)
         {
             CandidateService = candidateService;
@@ -31,7 +36,32 @@ namespace TEC_App.Views.IndividualCandidateDetailsView
         public Candidate Candidate { get; set; }
         public ICandidateService CandidateService { get; set; }
 
-		public ICommand BackCommand => new RelayCommand(BackProc);
+        public Address_Candidate SelectedAddressCandidate
+        {
+            get => _selectedAddressCandidate;
+            set => _selectedAddressCandidate = value;
+        }
+
+        public Candidate_Session SelectedCandidateSession
+        {
+            get => _selectedCandidateSession;
+            set => _selectedCandidateSession = value;
+        }
+
+        public Candidate_Qualification SelectedCandidateQualification
+        {
+            get => _selectedCandidateQualification;
+            set => _selectedCandidateQualification = value;
+        }
+
+        public JobHistory SelectedJobHistory
+        {
+            get => _selectedJobHistory;
+            set => _selectedJobHistory = value;
+        }
+
+
+        public ICommand BackCommand => new RelayCommand(BackProc);
 
 		private void BackProc()
 		{

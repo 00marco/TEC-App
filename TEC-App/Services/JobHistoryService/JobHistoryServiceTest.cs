@@ -36,10 +36,10 @@ namespace TEC_App.Services.JobHistoryService
             }
         }
 
-        [TestCase(1, 559)]
-        [TestCase(2, 523)]
-        [TestCase(3, 917)]
-        [TestCase(4, 43)]
+        //[TestCase(1, 559)]
+        //[TestCase(2, 523)]
+        //[TestCase(3, 917)]
+        //[TestCase(4, 43)]
         public void GetJobHistoryFromIdTest(int id, int result)
         {
             var jobHistory = JobHistoryService.GetJobHistoryFromId(id);

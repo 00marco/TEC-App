@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace TEC_App.Models.Db
 {
@@ -17,7 +19,5 @@ namespace TEC_App.Models.Db
 		public ICollection<JobHistory_Job> JobHistory_Job_Pairs { get; set; }
 
 
-
-		
-	}
+    }
 }

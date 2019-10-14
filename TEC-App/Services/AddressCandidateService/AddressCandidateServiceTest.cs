@@ -31,8 +31,9 @@ namespace TEC_App.Services.AddressCandidateService
         public void AddTest()
         {
             var random = new Random();
-            var randomAddress = AddressService.GetAllAdresses()[random.Next(100)];
-            var randomCandidate = CandidateService.GetAllCandidates()[random.Next(100)];
+
+            var randomAddress = AddressService.AddAddress(new Address());
+            var randomCandidate = CandidateService.AddCandidate(new Candidate());
             var newAddressCandidate=  new Address_Candidate()
             {
                 Candidate = randomCandidate,
@@ -41,6 +42,7 @@ namespace TEC_App.Services.AddressCandidateService
             AddressCandidate = AddressCandidateService.Add(newAddressCandidate);
             Address = AddressCandidate.Address;
             Candidate = AddressCandidate.Candidate;
+
         }
 
         [Test]
@@ -60,6 +62,9 @@ namespace TEC_App.Services.AddressCandidateService
                 AddressCandidateService.GetFromAddressAndCandidateId(AddressCandidate.AddressId,
                     AddressCandidate.CandidateId);
             Assert.AreEqual(removedAddressCandidate.Id, -1);
+
+            AddressService.RemoveAddress(Address);
+            CandidateService.RemoveCandidate(Candidate);
         }
     }
 }

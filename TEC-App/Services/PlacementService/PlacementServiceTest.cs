@@ -18,6 +18,8 @@ namespace TEC_App.Services.PlacementService
         public IOpeningsService OpeningsService { get; set; }
         public ICandidateService CandidateService { get; set; }
         public Placement Placement { get; set; }
+        public Opening Opening { get; set; }
+        public Candidate Candidate { get; set; }
 
         public PlacementServiceTest()
         {
@@ -37,14 +39,14 @@ namespace TEC_App.Services.PlacementService
         public void AddPlacementTest()
         {
             var random = new Random();
-            var randomOpening = OpeningsService.GetAllOpenings()[random.Next(999)];
-            var randomCandidate = CandidateService.GetAllCandidates()[random.Next(999)];
+            Opening = OpeningsService.GetAllOpenings()[random.Next(100)];
+            Candidate = CandidateService.GetAllCandidates()[random.Next(100)];
             var newPlacement = new Placement()
             {
-                Opening = randomOpening,
-                Candidate =  randomCandidate,
-                CandidateId = randomCandidate.Id,
-                OpeningId = randomOpening.Id,
+                Opening = Opening,
+                Candidate = Candidate,
+                CandidateId = Candidate.Id,
+                OpeningId = Opening.Id,
                 Timestamp = DateTime.Now,
                 TotalHoursWorked = random.Next()
             };
@@ -64,6 +66,7 @@ namespace TEC_App.Services.PlacementService
             PlacementService.RemovePlacement(Placement);
             var removedPlacement = PlacementService.GetPlacementFromId(Placement.Id);
             Assert.AreEqual(removedPlacement.Id, -1);
+
         }
     }
 }

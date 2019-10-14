@@ -189,6 +189,10 @@
     <Compile Include="Migrations\20190919083219_CreateTECDb-v4.0.0.designer.cs">
       <DependentUpon>20190919083219_CreateTECDb-v4.0.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191014121743_CreateTECDb=v5.0.0.cs" />
+    <Compile Include="Migrations\20191014121743_CreateTECDb=v5.0.0.designer.cs">
+      <DependentUpon>20191014121743_CreateTECDb=v5.0.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Db\Address.cs" />
     <Compile Include="Models\Db\Address_Candidate.cs" />
@@ -208,6 +212,7 @@
     <Compile Include="Models\ViewDTO\CourseViewDTO.cs" />
     <Compile Include="Models\ViewDTO\OpeningViewDTO.cs" />
     <Compile Include="Models\ViewDTO\PlacementViewDTO.cs" />
+    <Compile Include="Services\AAAAAAA_InitializeDatabaseForTesting\InitializeDatabase.cs" />
     <Compile Include="Services\AddressCandidateService\AddressCandidateService.cs" />
     <Compile Include="Services\AddressCandidateService\AddressCandidateServiceTest.cs" />
     <Compile Include="Services\AddressCandidateService\IAddressCandidateService.cs" />
@@ -275,6 +280,7 @@
     <Compile Include="Services\SessionService\SessionService.cs" />
     <Compile Include="Services\SessionService\SessionServiceTest.cs" />
     <Compile Include="Services\SessionService\ISessionService.cs" />
+    <Compile Include="Services\ZZZZZZZ_RemoveAllDatabaseEntriesAfterTesting\EmptyDatabase.cs" />
     <Compile Include="Views\AddCandidateView\AddCandidateViewModel.cs" />
     <Compile Include="Views\AddCompanyView\AddCompanyViewModel.cs" />
     <Compile Include="Views\AddCourseView\AddCourseViewModel.cs" />

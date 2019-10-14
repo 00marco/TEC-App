@@ -38,10 +38,9 @@ namespace TEC_App.Services.CandidateQualificationService
             CandidateQualification = CandidateQualificationService.Add(new Candidate_Qualification()
             {
                 Candidate = Candidate,
-                CandidateId = Candidate.Id,
                 Qualification = Qualification,
-                QualificationId = Qualification.Id
             });
+
 
         }
 
@@ -80,6 +79,8 @@ namespace TEC_App.Services.CandidateQualificationService
             CandidateQualificationService.Remove(Candidate.Id, Qualification.Id);
             var removed = CandidateQualificationService.GetFromIdPair(Candidate.Id, Qualification.Id);
             Assert.AreEqual(removed.Id, -1);
+
+
         }
     }
 }

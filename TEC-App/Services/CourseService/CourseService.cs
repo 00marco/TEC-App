@@ -21,10 +21,13 @@ namespace TEC_App.Services.CourseService
         {
             return context.Set<Course>()
                 .Include(c => c.PrerequisitesForCourse)
+                .ThenInclude(d=>d.Qualification)
                 .Include(c => c.QualificationsDevelopedByCourse)
+                .ThenInclude(d=>d.Qualification)
                 .Include(c => c.Sessions)
                 .ThenInclude(c=>c.Session_Location_Pairs)
                 .ThenInclude(c=>c.Location)
+                .ThenInclude(d=>d.Address)
                 .ToList();
         }
 

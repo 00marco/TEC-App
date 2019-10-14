@@ -23,7 +23,9 @@ namespace TEC_App.Services.CompanyService
         {
             return context.Set<Company>()
                 .Include(c => c.Openings)
+                .ThenInclude(d=>d.Job)
                 .Include(c=>c.JobHistory_Company_Pairs)
+                .ThenInclude(d=>d.JobHistory)
                 .ToList();
         }
 

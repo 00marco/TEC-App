@@ -36,10 +36,10 @@ namespace TEC_App.Services.CourseService
             }
         }
 
-        [TestCase(1, "TMN")]
-        [TestCase(2, "CWSP")]
-        [TestCase(3, "Disaster Recovery")]
-        [TestCase(4, "Nutrition")]
+        //[TestCase(1, "TMN")]
+        //[TestCase(2, "CWSP")]
+        //[TestCase(3, "Disaster Recovery")]
+        //[TestCase(4, "Nutrition")]
         public void GetCourseFromIdTest(int id, string result)
         {
             var course = CourseService.GetCourseFromId(id);

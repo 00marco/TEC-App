@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,14 +33,14 @@ namespace TEC_App.Services.CandidateSessionService
         public void AddTest()
         {
             var random = new Random();
+            var candidates = CandidateService.GetAllCandidates();
+            var sessions = SessionService.GetAllSessions();
             Candidate = CandidateService.GetAllCandidates()[random.Next(100)];
             Session = SessionService.GetAllSessions()[random.Next(100)];
             CandidateSession = CandidateSessionService.Add(new Candidate_Session()
             {
                 Candidate = Candidate,
-                CandidateId = Candidate.Id,
                 Session = Session,
-                SessionId = Session.Id
             });
         }
 
@@ -56,6 +57,7 @@ namespace TEC_App.Services.CandidateSessionService
             CandidateSessionService.Remove(Candidate.Id, Session.Id);
             var removed = CandidateSessionService.GetFromIdPair(Candidate.Id, Session.Id);
             Assert.AreEqual(removed.Id, -1);
+
         }
     }
 }

@@ -31,8 +31,8 @@ namespace TEC_App.Services.SessionLocationService
         public void AddTest()
         {
             var random = new Random();
-            Session = SessionService.GetSessionFromId(random.Next(100));
-            Location = LocationService.GetLocationFromId(random.Next(100));
+            Session = SessionService.GetAllSessions()[random.Next(100)];
+            Location = LocationService.GetAllLocations()[random.Next(100)];
             SessionLocation = SessionLocationService.Add(new Session_Location()
             {
                 Session = Session,

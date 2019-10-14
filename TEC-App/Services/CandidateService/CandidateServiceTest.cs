@@ -44,10 +44,10 @@ namespace TEC_App.Services.CandidateService
             }
         }
 
-        [TestCase(1, "Dorthea")]
-        [TestCase(2, "Farah")]
-        [TestCase(3, "Cairistiona")]
-        [TestCase(4, "Uriel")]
+        //[TestCase(1, "Dorthea")]
+        //[TestCase(2, "Farah")]
+        //[TestCase(3, "Cairistiona")]
+        //[TestCase(4, "Uriel")]
         public void GetCandidateFromIdTest(int id, string result)
         {
             var candidate = CandidateService.GetCandidateFromId(id);

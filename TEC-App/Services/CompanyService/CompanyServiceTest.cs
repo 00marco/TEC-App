@@ -36,10 +36,10 @@ namespace TEC_App.Services.CompanyService
             }
         }
 
-        [TestCase(1, "Skinix")]
-        [TestCase(2, "Demizz")]
-        [TestCase(3, "Snaptags")]
-        [TestCase(4, "Yodo")]
+        //[TestCase(1, "Skinix")]
+        //[TestCase(2, "Demizz")]
+        //[TestCase(3, "Snaptags")]
+        //[TestCase(4, "Yodo")]
         public void GetCompanyFromIdTest(int id, string result)
         {
             var company = CompanyService.GetCompanyFromId(id);

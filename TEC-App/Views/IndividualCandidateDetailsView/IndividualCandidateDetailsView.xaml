@@ -37,8 +37,17 @@
                    Grid.Column="0"/>
         <ListView ItemsSource="{Binding Path=Candidate.Addresses}"
                  Grid.Row="1"
+                 SelectedItem="{Binding Path=SelectedAddressCandidate}"
                  Margin="0,5,20,5"
-                 Grid.Column="1"></ListView>
+                 Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Address.FullAddress}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <TextBlock Text="Qualifications: "
                    Grid.Row="2"
@@ -48,9 +57,19 @@
                    Grid.Column="0"/>
         <ListView ItemsSource="{Binding Path=Candidate.CandidateQualifications}"
                  Grid.Row="2"
+                 SelectedItem="{Binding Path=SelectedCandidateQualification}"
                  Margin="0,5,20,5"
                  Grid.Column="1"
-                 ></ListView>
+                 >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Qualification.Code}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
 
         <TextBlock Text="Sessions attended: "
                    Grid.Row="3"
@@ -60,9 +79,22 @@
                    Grid.Column="0"/>
         <ListView ItemsSource="{Binding Path=Candidate.Candidate_Session_Pairs}"
                  Margin="0,5,20,5"
+                 SelectedItem="{Binding Path=SelectedCandidateSession}"
                  Grid.Row="3"
                  Grid.Column="1"
-        ></ListView>
+        >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Session.DateTimeStart}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Session.DateTimeEnd}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Session.Course.Name}"></TextBlock>
+                        <!--add location-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
 
         <TextBlock Text="Job history: "
                    Grid.Row="4"
@@ -73,8 +105,20 @@
         <ListView ItemsSource="{Binding Path=Candidate.JobHistories}"
                   Margin="0,5,20,5"
                   Grid.Row="4"
+                  SelectedItem="{Binding Path=SelectedJobHistory}"
                   Grid.Column="1"
-        ></ListView>
+        >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=DateTimeStart}"></TextBlock>
+                        <TextBlock Text="{Binding Path=DateTimeEnd}"></TextBlock>
+                        <!--add job name-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
 
 		<Button Grid.Row="5"
 		        Margin="5"

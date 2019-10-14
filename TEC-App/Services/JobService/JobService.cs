@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
@@ -19,7 +20,14 @@ namespace TEC_App.Services.JobService
         }
         public List<Job> GetAllJobs()
         {
-            return context.Set<Job>().ToList();
+            return context.Set<Job>()
+                .Include(d=>d.JobHistory_Job_Pairs)
+                .ThenInclude(d=>d.JobHistory)
+                .Include(d=>d.Openings)
+                .ThenInclude(d=>d.Company)
+                .Include(d => d.Openings)
+                .ThenInclude(d => d.Job)
+                .ToList();
         }
 
         public Job GetJobFromId(int id)

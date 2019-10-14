@@ -35,10 +35,10 @@ namespace TEC_App.Services.JobService
             }
         }
 
-        [TestCase(1, "Dental Hygienist")]
-        [TestCase(2, "Marketing Assistant")]
-        [TestCase(3, "Web Developer IV")]
-        [TestCase(4, "Paralegal")]
+        //[TestCase(1, "Dental Hygienist")]
+        //[TestCase(2, "Marketing Assistant")]
+        //[TestCase(3, "Web Developer IV")]
+        //[TestCase(4, "Paralegal")]
         public void GetJobFromId(int id, string result)
         {
             var job = JobService.GetJobFromId(id);

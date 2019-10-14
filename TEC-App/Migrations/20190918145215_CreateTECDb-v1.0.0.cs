@@ -551,7 +551,8 @@ namespace TEC_App.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Placement_OpeningId",
                 table: "Placement",
-                column: "RequiredQualificationId");
+                column: "OpeningId");
+            //todo was originally RequiredQualificationId
 
             migrationBuilder.CreateIndex(
                 name: "IX_PrerequisitesForCourse_CourseId",

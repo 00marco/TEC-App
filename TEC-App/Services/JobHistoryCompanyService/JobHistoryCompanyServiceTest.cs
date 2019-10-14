@@ -56,6 +56,7 @@ namespace TEC_App.Services.JobHistoryCompanyService
             JobHistoryCompanyService.Remove(JobHistory.Id, Company.Id);
             var removed = JobHistoryCompanyService.GetFromIdPair(JobHistory.Id, Company.Id);
             Assert.AreEqual(removed.Id, -1);
+
         }
     }
 }

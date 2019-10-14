@@ -27,12 +27,14 @@ namespace TEC_App.Services.PrerequisitesForCourseService
             CourseService = new CourseService.CourseService(TecAppContext);
         }
 
+        
+
         [Test]
         public void AddTest()
         {
             var random = new Random();
-            Qualification = QualificationsService.GetQualificationFromId(random.Next(10));
-            Course = CourseService.GetCourseFromId(random.Next(100));
+            Qualification = QualificationsService.GetAllQualifications()[random.Next(10)];
+            Course = CourseService.GetAllCourses()[random.Next(100)];
             PrerequisitesForCourse = PrerequisitesForCourseService.Add(new PrerequisitesForCourse()
             {
                 Qualification = Qualification,

@@ -33,7 +33,7 @@ namespace TEC_App.Services.JobHistoryJobService
         {
             var random = new Random();
             Job = JobService.GetAllJobs()[random.Next(100)];
-            JobHistory = JobHistoryService.GetJobHistoryFromId(random.Next(100));
+            JobHistory = JobHistoryService.GetAllJobHistories()[random.Next(100)];
             JobHistoryJob = JobHistoryJobService.Add(new JobHistory_Job()
             {
                 Job = Job,
@@ -58,6 +58,7 @@ namespace TEC_App.Services.JobHistoryJobService
             JobHistoryJobService.Remove(JobHistory.Id, Job.Id);
             var removed = JobHistoryJobService.GetFromIdPair(JobHistory.Id, Job.Id);
             Assert.AreEqual(removed.Id, -1);
+
         }
 
     }

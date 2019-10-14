@@ -39,10 +39,10 @@ namespace TEC_App.Services.QualificationsService
             }
         }
 
-        [TestCase(1, "SEC-45")]
-        [TestCase(2, "SEC-60")]
-        [TestCase(3, "CLERK")]
-        [TestCase(4, "PRG-VB")]
+        //[TestCase(1, "SEC-45")]
+        //[TestCase(2, "SEC-60")]
+        //[TestCase(3, "CLERK")]
+        //[TestCase(4, "PRG-VB")]
         public void GetQualificationFromIdTest(int id, string result)
         {
             var qualification = QualificationsService.GetQualificationFromId(id);
@@ -77,7 +77,7 @@ namespace TEC_App.Services.QualificationsService
         [Test]
         public void Z_RemoveQualificationTest()
         {
-            QualificationsService.RemoveQualificaiton(Qualification);
+            QualificationsService.RemoveQualification(Qualification);
             var removedQualification = QualificationsService.GetQualificationFromId(Qualification.Id);
             Assert.AreEqual(removedQualification.Id, -1);
         }
