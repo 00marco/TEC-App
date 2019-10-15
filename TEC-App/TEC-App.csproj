@@ -169,6 +169,7 @@
     <Compile Include="Messages\LoadAddCompanyViewMessage.cs" />
     <Compile Include="Messages\LoadAddCourseViewMessage.cs" />
     <Compile Include="Messages\LoadAddOpeningViewMessage.cs" />
+    <Compile Include="Messages\LoadAddSessionMessage.cs" />
     <Compile Include="Messages\LoadCandidateViewMessage.cs" />
     <Compile Include="Messages\LoadCompanyViewMessage.cs" />
     <Compile Include="Messages\LoadCourseViewMessage.cs" />
@@ -214,6 +215,10 @@
     <Compile Include="Services\SessionService\QueryObjects\SessionViewDtoSelect.cs" />
     <Compile Include="Views\AddCandidateView\AddCandidateQualificationsDTO.cs" />
     <Compile Include="Views\AddCourseView\QualificationWithCheckboxViewDto.cs" />
+    <Compile Include="Views\AddSessionView\AddSessionView.xaml.cs">
+      <DependentUpon>AddSessionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSessionView\AddSession_ViewModel.cs" />
     <Compile Include="Views\CandidatesQualifiedForOpeningView\CandidatesQualifiedForOpeningDTO.cs" />
     <Compile Include="Views\CandidateView\CandidateViewDTO.cs" />
     <Compile Include="Views\CompaniesView\CompanyViewDTO.cs" />
@@ -371,6 +376,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddOpeningView\AddOpeningView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddSessionView\AddSessionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

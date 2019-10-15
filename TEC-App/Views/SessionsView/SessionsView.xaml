@@ -44,7 +44,7 @@
                     Content="Add New Session"
                     Foreground="White"
                     BorderThickness="0"
-                    Command="{Binding Path=HireCandidateCommand}"></Button>
+                    Command="{Binding Path=AddNewSessionCommand}"></Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"

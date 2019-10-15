@@ -11,6 +11,7 @@ using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.Db;
 using TEC_App.Services.SessionService;
+using TEC_App.Views.AddSessionView;
 using TEC_App.Views.CourseView;
 using ViewModelBase = TEC_App.ViewModels.ViewModelBase;
 
@@ -46,6 +47,8 @@ namespace TEC_App.Views.SessionsView
         public ICommand AddNewSessionCommand => new RelayCommand(AddNewSession);
         private void AddNewSession()
         {
+            Messenger.Default.Send(new NotificationMessage(nameof(AddSession_ViewModel)));
+            Messenger.Default.Send(new LoadAddSessionMessage(){Course = Course});
         }
 
         public ICommand BackCommand => new RelayCommand(BackProc);
