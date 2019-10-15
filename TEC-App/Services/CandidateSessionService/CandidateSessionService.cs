@@ -41,14 +41,23 @@ namespace TEC_App.Services.CandidateSessionService
 
         public void Remove(int candidateId, int sessionId)
         {
-            context.Remove(GetFromIdPair(candidateId, sessionId));
-            context.SaveChanges();
+            if (GetFromIdPair(candidateId, sessionId).Id != -1)
+            {
+                context.Remove(GetFromIdPair(candidateId, sessionId));
+                context.SaveChanges();
+            }
+            
         }
 
         public Candidate_Session Add(Candidate_Session candidateSession)
         {
-            context.Candidate_Session_Pairs.Add(candidateSession);
-            context.SaveChanges();
+            var duplicates = GetAll().Where(d =>
+                d.CandidateId == candidateSession.Candidate.Id && d.SessionId == candidateSession.Session.Id).ToList();
+            if (duplicates.Count() == 0)
+            {
+                context.Candidate_Session_Pairs.Add(candidateSession);
+                context.SaveChanges();
+            }
             return candidateSession;
         }
     }

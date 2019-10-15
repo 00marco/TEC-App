@@ -81,6 +81,7 @@
                         <TextBlock Text="{Binding Path=Session.Price}"></TextBlock>
                         <TextBlock Text="{Binding Path=Session.Location.Address.FullAddress}"></TextBlock>
                         <TextBlock Text="{Binding Path=Session.Location.Capacity}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Session.NumberOfAttendees}"></TextBlock>
                         <Button Margin="5"
                                 Padding="5,5"
                                 Background="{StaticResource ThemeColorDark}"

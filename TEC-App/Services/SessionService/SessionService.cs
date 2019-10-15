@@ -71,6 +71,14 @@ namespace TEC_App.Services.SessionService
             return session;
         }
 
+        public Session UpdateSessionNumberOfAttendees(Session oldSession, int numberOfAttendees)
+        {
+            var _session = context.Sessions.Find(oldSession.Id);
+            _session.NumberOfAttendees = numberOfAttendees;
+            context.SaveChanges();
+            return _session;
+        }
+
         public void RemoveSession(Session session)
         {
             context.Remove(context.Sessions.Single(d => d.Id == session.Id));

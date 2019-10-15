@@ -28,6 +28,27 @@
                    Grid.ColumnSpan="2"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"/>
+        <StackPanel Orientation="Horizontal"
+                    Margin="10"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Grid.Column="1">
+            <Button Content="Delete Candidate"
+                    Margin="5"
+                    Padding="5"
+                    BorderThickness="0"
+                    Command="{Binding Path=RemoveCandidateCommand}"
+                    Background="{StaticResource ThemeColorDark}"
+                    Foreground="White"/>
+            <Button Content="Update Details"
+                    BorderThickness="0"
+                    Padding="5"
+                    Margin="5"
+                    Command="{Binding Path=UpdateDetails}"
+                    Background="{StaticResource ThemeColorDark}"
+                    Foreground="White"/>
+
+        </StackPanel>
 
         <TextBlock Text="AddQualificationToCandidateAddQualificationToCandidateressToCandidateress/es: "
                    Grid.Row="1"
