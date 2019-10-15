@@ -12,6 +12,7 @@ using TEC_App.Services.CourseService;
 using TEC_App.Services.EmployeeService;
 using TEC_App.Services.JobHistoryCompanyService;
 using TEC_App.Services.JobHistoryJobService;
+using TEC_App.Services.JobHistoryService;
 using TEC_App.Services.JobService;
 using TEC_App.Services.LocationService;
 using TEC_App.Services.OpeningsService;
@@ -88,6 +89,7 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<IAddressService, AddressService>();
 			SimpleIoc.Default.Register<ISessionService, SessionService>();
 			SimpleIoc.Default.Register<ILocationService, LocationService>();
+			SimpleIoc.Default.Register<IJobHistoryService, JobHistoryService>();
 
             SimpleIoc.Default.Register<IAddressCandidateService, AddressCandidateService>();
 			SimpleIoc.Default.Register<ICandidateSessionService, CandidateSessionService>();

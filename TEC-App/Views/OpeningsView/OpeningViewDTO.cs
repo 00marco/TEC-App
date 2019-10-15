@@ -17,7 +17,8 @@ namespace TEC_App.Views.OpeningsView
             Messenger.Default.Send(new NotificationMessage(nameof(CandidateQualifiedForOpeningViewModel)));
             Messenger.Default.Send(new ViewQualifiedCandidatesForOpeningViewMessage()
             {
-                RequiredQualificationId = Opening.RequiredQualificationId
+                RequiredQualificationId = Opening.RequiredQualificationId,
+                Opening = Opening
             });
         }
     }

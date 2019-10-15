@@ -55,6 +55,7 @@
         <ListBox Margin="10"
                  Padding="10"
                  BorderThickness="0"
+                 SelectedItem="{Binding Path=SelectedCandidate}"
                  Grid.Row="1"
                  Grid.ColumnSpan="2"
 		         ItemsSource="{Binding Path=Candidates}">
