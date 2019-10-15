@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TEC_App.Models.Db;
 
-namespace TEC_App.Views.AddCourseView
+namespace TEC_App.Models.ViewDTO
 {
-    public class QualificationWithCheckboxViewDto
+    public class CandidateWithCheckBoxDTO
     {
-        public Qualification Qualification { get; set; }
+        public Candidate Candidate { get; set; }
         public bool IsSelected { get; set; }
     }
 }

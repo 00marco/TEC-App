@@ -175,6 +175,7 @@
     <Compile Include="Messages\LoadCourseViewMessage.cs" />
     <Compile Include="Messages\LoadOpeningsViewMessage.cs" />
     <Compile Include="Messages\LoadPlacementsViewMessage.cs" />
+    <Compile Include="Messages\LoadSessionAttendanceViewMessage.cs" />
     <Compile Include="Messages\LoadSessionsViewMessage.cs" />
     <Compile Include="Messages\ViewCandidateDetailsMessage.cs" />
     <Compile Include="Messages\ViewQualifiedCandidatesForOpeningViewMessage.cs" />
@@ -211,10 +212,12 @@
     <Compile Include="Models\Db\PrerequisitesForCourse.cs" />
     <Compile Include="Models\Db\QualificationDevelopedByCourse.cs" />
     <Compile Include="Models\Db\Session_Location.cs" />
-    <Compile Include="Services\QualificationsService\QueryObjects\AddCandidateQualificationDtoSelect.cs" />
+    <Compile Include="Models\ViewDTO\CandidateWithCheckBoxDTO.cs" />
+    <Compile Include="Models\ViewDTO\QualificationWithCheckboxViewDto.cs" />
+    <Compile Include="Services\QualificationsService\QueryObjects\QualificationWithCheckBoxDtoSelect.cs" />
+    <Compile Include="Services\CandidateService\QueryObjects\CandidateWithCheckBoxDtoSelect.cs" />
     <Compile Include="Services\SessionService\QueryObjects\SessionViewDtoSelect.cs" />
     <Compile Include="Views\AddCandidateView\AddCandidateQualificationsDTO.cs" />
-    <Compile Include="Views\AddCourseView\QualificationWithCheckboxViewDto.cs" />
     <Compile Include="Views\AddSessionView\AddSessionView.xaml.cs">
       <DependentUpon>AddSessionView.xaml</DependentUpon>
     </Compile>
@@ -346,6 +349,10 @@
     <Compile Include="Views\PlacementsView\PlacementsView.xaml.cs">
       <DependentUpon>PlacementsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SessionAttendanceView\SessionAttendanceView.xaml.cs">
+      <DependentUpon>SessionAttendanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SessionAttendanceView\SessionAttendanceView_ViewModel.cs" />
     <Compile Include="Views\SessionsView\SessionsView.xaml.cs">
       <DependentUpon>SessionsView.xaml</DependentUpon>
     </Compile>
@@ -408,6 +415,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlacementsView\PlacementsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SessionAttendanceView\SessionAttendanceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -478,9 +489,7 @@
   <ItemGroup>
     <Resource Include="Fonts\OFL.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\ViewDTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

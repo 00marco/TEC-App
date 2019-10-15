@@ -16,6 +16,7 @@ using TEC_App.Views.CourseView;
 using TEC_App.Views.IndividualCandidateDetailsView;
 using TEC_App.Views.OpeningsView;
 using TEC_App.Views.PlacementsView;
+using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
 
 namespace TEC_App.Helpers
@@ -40,7 +41,8 @@ namespace TEC_App.Helpers
             CandidateQualifiedForOpeningViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateQualifiedForOpeningViewModel>();
             SessionsViewViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<SessionsView_ViewModel>();
             AddSession_ViewModel = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddSession_ViewModel>();
-
+            SessionAttendanceView_ViewModel =
+                CommonServiceLocator.ServiceLocator.Current.GetInstance<SessionAttendanceView_ViewModel>();
 
         }
 		public MainViewModel MainViewModel { get; set; }
@@ -57,5 +59,6 @@ namespace TEC_App.Helpers
 		public CandidateQualifiedForOpeningViewModel CandidateQualifiedForOpeningViewModel { get; set; }
 		public SessionsView_ViewModel SessionsViewViewModel { get; set; }
 		public AddSession_ViewModel AddSession_ViewModel { get; set; }
+		public SessionAttendanceView_ViewModel SessionAttendanceView_ViewModel { get; set; }
     }
 }

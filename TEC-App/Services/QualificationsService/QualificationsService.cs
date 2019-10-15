@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
+using TEC_App.Models.ViewDTO;
 using TEC_App.Services.QualificationsService.QueryObjects;
 using TEC_App.Views.AddCandidateView;
 using TEC_App.Views.AddCourseView;

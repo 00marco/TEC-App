@@ -19,6 +19,7 @@ using TEC_App.Views.CourseView;
 using TEC_App.Views.IndividualCandidateDetailsView;
 using TEC_App.Views.OpeningsView;
 using TEC_App.Views.PlacementsView;
+using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
 
 namespace TEC_App.ViewModels
@@ -87,6 +88,10 @@ namespace TEC_App.ViewModels
                     break;
                 case nameof(CandidateQualifiedForOpeningViewModel):
                     CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CandidateQualifiedForOpeningViewModel>();
+
+                    break;
+                case nameof(SessionAttendanceView_ViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<SessionAttendanceView_ViewModel>();
 
                     break;
             }

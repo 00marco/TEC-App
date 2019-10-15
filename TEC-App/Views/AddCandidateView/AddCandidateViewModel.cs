@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.Db;
+using TEC_App.Models.ViewDTO;
 using TEC_App.Services.AddressCandidateService;
 using TEC_App.Services.AddressService;
 using TEC_App.Services.CandidateQualificationService;

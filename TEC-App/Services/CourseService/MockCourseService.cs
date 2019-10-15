@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Models.ViewDTO;
 using TEC_App.Views.AddCourseView;
 using TEC_App.Views.CourseView;
 

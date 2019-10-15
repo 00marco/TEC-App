@@ -67,7 +67,6 @@ namespace TEC_App.Services.CompanyService
 
         public void CreateOpening(Qualification qualification, Job job)
         {
-            //TODO CREATE OPENING
         }
     }
 }

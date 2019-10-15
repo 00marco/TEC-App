@@ -18,6 +18,7 @@
              xmlns:addCandidateView="clr-namespace:TEC_App.Views.AddCandidateView"
              xmlns:sessionsView="clr-namespace:TEC_App.Views.SessionsView"
              xmlns:addSessionView="clr-namespace:TEC_App.Views.AddSessionView"
+             xmlns:sessionAttendanceView="clr-namespace:TEC_App.Views.SessionAttendanceView"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 	    <ResourceDictionary>
@@ -61,6 +62,10 @@
             <DataTemplate DataType="{x:Type addSessionView:AddSession_ViewModel}">
                 <addSessionView:AddSessionView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type sessionAttendanceView:SessionAttendanceView_ViewModel}">
+                <sessionAttendanceView:SessionAttendanceView/>
+            </DataTemplate>
+
 
 
 
