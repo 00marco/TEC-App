@@ -29,5 +29,10 @@ namespace TEC_App.Views.AddOpeningView
         {
 
         }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

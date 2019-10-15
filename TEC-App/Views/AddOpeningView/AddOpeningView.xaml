@@ -23,7 +23,7 @@
             <RowDefinition />
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="AddAddressToCandidate Opening"
+        <TextBlock Text="Add Opening"
                    Grid.Row="0"
                    FontSize="20"
                    Margin="20"
@@ -53,19 +53,17 @@
                   Margin="5"
                   SelectedItem="{Binding Path=Opening.RequiredQualification}"
                   DisplayMemberPath="Code"
-                  Grid.Column="1"></ComboBox>
+                  Grid.Column="1" SelectionChanged="ComboBox_SelectionChanged_1"></ComboBox>
 
         <TextBlock Text="Job"
                    Grid.Row="3"
                    Margin="5"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"></TextBlock>
-        <ComboBox ItemsSource="{Binding Path=Jobs}"
+        <TextBox Text="{Binding Path=Job}"
                   Grid.Row="3"
-                  Margin="5"
-                  SelectedItem="{Binding Path=Opening.Job}"
-                  DisplayMemberPath="Name"
-                  Grid.Column="1"></ComboBox>
+                  Margin="10,5,0,5"
+                  Grid.Column="1"></TextBox>
 
 
         <TextBlock Text="Start Date:"

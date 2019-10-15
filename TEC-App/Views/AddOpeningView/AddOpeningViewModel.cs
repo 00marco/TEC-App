@@ -22,16 +22,17 @@ namespace TEC_App.Views.AddOpeningView
             QualificationsService = qualificationsService;
             CompanyService = companyService;
             OpeningsService = openingsService;
-            Opening = new Opening()
-            {
-                DateTimeStart = DateTime.Now,
-                DateTimeEnd = DateTime.Now.AddDays(30)
-            };
+            
             Messenger.Default.Register<LoadAddOpeningViewMessage>(this, s => NotifyMe(s));
         }
 
         private void NotifyMe(LoadAddOpeningViewMessage message)
         {
+            Opening = new Opening()
+            {
+                DateTimeStart = DateTime.Now,
+                DateTimeEnd = DateTime.Now.AddDays(30)
+            };
             LoadCompanies();
             LoadQualifications();
             LoadJobs();
@@ -46,19 +47,25 @@ namespace TEC_App.Views.AddOpeningView
         public List<Company> Companies { get; set; } = new List<Company>();
         public List<Qualification> Qualifications { get; set; } = new List<Qualification>();
         public List<Job> Jobs { get; set; } = new List<Job>();
+        public string Job { get; set; }
 
         public ICommand BackCommand => new RelayCommand(BackProc);
 
         private void BackProc()
         {
             Messenger.Default.Send(new NotificationMessage(nameof(OpeningsView_ViewModel)));
+            Messenger.Default.Send(new LoadOpeningsViewMessage());
         }
         public ICommand AddOpeningCommand => new RelayCommand(AddOpeningProc);
 
         private void AddOpeningProc()
         {
-            OpeningsService.AddOpening(Opening);
-            Opening = new Opening();
+            var job = JobService.AddJob(new Job()
+            {
+                Name = Job
+            });
+            Opening.Job = job;
+            Opening = OpeningsService.AddOpening(Opening);
             BackProc();
             
         }
