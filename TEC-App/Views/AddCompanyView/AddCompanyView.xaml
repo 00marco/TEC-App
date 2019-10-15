@@ -37,16 +37,31 @@
                  Margin="5"
                  Padding="3"
                  ></TextBox>
-        <Button Content="Back"
-                Grid.Row="3"
-                Padding="5"
-                Foreground="White"
-                BorderThickness="0"
-                    Background="{StaticResource ThemeColorDark}"
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                 Grid.ColumnSpan="2"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Margin="10"
-                Command="{Binding Path=BackCommand}"></Button>
+                    Orientation="Horizontal"
+                Grid.Row="3"
+                    >
+            <Button Content="Add"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource Yes}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Command="{Binding Path=AddCommand}"></Button>
+            <Button Content="Back"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource No}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Command="{Binding Path=BackCommand}"></Button>
+
+        </StackPanel>
     </Grid>
 </UserControl>

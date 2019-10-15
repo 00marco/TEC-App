@@ -43,8 +43,8 @@ namespace TEC_App.Views.CompaniesView
 
         private void AddCompany()
         {
-            
             Messenger.Default.Send(new NotificationMessage(nameof(AddCompanyViewModel)));
+            Messenger.Default.Send(new LoadAddCompanyViewMessage());
         }
 
         public void LoadCompanies()

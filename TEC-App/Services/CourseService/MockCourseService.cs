@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Views.AddCourseView;
 using TEC_App.Views.CourseView;
 
 namespace TEC_App.Services.CourseService
@@ -13,6 +14,11 @@ namespace TEC_App.Services.CourseService
         }
 
         public List<CourseViewDTO> GetCourseViewDtos()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<QualificationWithCheckboxViewDto> GetAllAndMapToQualificationWithCheckBoxViewDtos()
         {
             throw new System.NotImplementedException();
         }

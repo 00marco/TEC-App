@@ -33,8 +33,9 @@ namespace TEC_App.Views.CourseView
 
         private void AddCourse()
         {
-
             Messenger.Default.Send(new NotificationMessage(nameof(AddCourseViewModel)));
+            Messenger.Default.Send(new LoadAddCourseViewMessage());
+
         }
 
         public void LoadCourseViewDtos()

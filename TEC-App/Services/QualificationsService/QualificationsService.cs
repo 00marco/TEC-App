@@ -8,6 +8,7 @@ using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Services.QualificationsService.QueryObjects;
 using TEC_App.Views.AddCandidateView;
+using TEC_App.Views.AddCourseView;
 
 namespace TEC_App.Services.QualificationsService
 {
@@ -29,14 +30,14 @@ namespace TEC_App.Services.QualificationsService
                 .ToList();
         }
 
-        public List<AddCandidateQualificationsDTO> GetAllAndMapToAddCandidateQualificationDTOs()
+        public List<QualificationWithCheckboxViewDto> GetAllAndMapToQualificationWithCheckBoxDto()
         {
             return context.Set<Qualification>()
                 .Include(d => d.CandidatesQualifications)
                 .Include(d => d.Courses)
                 .Include(d => d.Openings)
                 .Include(d => d.PrerequisitesForCourse)
-                .MapQualificationToAddCandidateDTO()
+                .MapQualificationToQualificationWithCheckBoxDto()
                 .ToList();
 
         }

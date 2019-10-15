@@ -14,6 +14,7 @@ using TEC_App.Services.CandidateQualificationService;
 using TEC_App.Services.EmployeeService;
 using TEC_App.Services.QualificationsService;
 using TEC_App.ViewModels;
+using TEC_App.Views.AddCourseView;
 using TEC_App.Views.CandidateView;
 
 namespace TEC_App.Views.AddCandidateView
@@ -41,7 +42,7 @@ namespace TEC_App.Views.AddCandidateView
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string Address3 { get; set; }
-        public List<AddCandidateQualificationsDTO> Qualifications { get; set; } = new List<AddCandidateQualificationsDTO>();
+        public List<QualificationWithCheckboxViewDto> Qualifications { get; set; } = new List<QualificationWithCheckboxViewDto>();
 
 
 
@@ -52,7 +53,7 @@ namespace TEC_App.Views.AddCandidateView
         public void LoadQualifications()
         {
             Qualifications.Clear();
-            foreach (var v in QualificationsService.GetAllAndMapToAddCandidateQualificationDTOs())
+            foreach (var v in QualificationsService.GetAllAndMapToQualificationWithCheckBoxDto())
             {
                 Qualifications.Add(v);
             }

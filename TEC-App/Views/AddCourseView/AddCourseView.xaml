@@ -47,7 +47,16 @@
                  Grid.Row="2"
                  Grid.Column="1"
                  Margin="5"
-                 ></ListBox>
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Qualification.Code}"></TextBlock>
+                        <CheckBox IsChecked="{Binding Path=IsSelected}"></CheckBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <TextBlock Text="Qualifications Developed:"
                    Grid.Row="3"
@@ -58,17 +67,43 @@
                  Grid.Row="3"
                  Grid.Column="1"
                  Margin="5"
-                 ></ListBox>
-        <Button Content="Back"
-                Grid.Row="4"
-                Padding="5"
-                Foreground="White"
-                BorderThickness="0"
-                Margin="10"
-                    Background="{StaticResource ThemeColorDark}"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Command="{Binding Path=BackCommand}"></Button>
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Qualification.Code}"></TextBlock>
+                        <CheckBox IsChecked="{Binding Path=IsSelected}"></CheckBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Button Content="Add"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Margin="10"
+                    Background="{StaticResource Yes}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Command="{Binding Path=AddCommand}">
+            </Button>
+            <Button Content="Back"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Margin="10"
+                    Background="{StaticResource No}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Command="{Binding Path=BackCommand}">
+            </Button>
+
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -5,6 +5,7 @@ using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
 using TEC_App.Services.CourseService.QueryObjects;
+using TEC_App.Views.AddCourseView;
 using TEC_App.Views.CourseView;
 
 namespace TEC_App.Services.CourseService
@@ -42,6 +43,8 @@ namespace TEC_App.Services.CourseService
                 .MapCourseToDto()
                 .ToList();
         }
+
+      
 
 
         public Course GetCourseFromId(int id)

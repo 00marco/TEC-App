@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TEC_App.Models.Db;
+using TEC_App.Views.AddCourseView;
 using TEC_App.Views.CourseView;
 
 namespace TEC_App.Services.CourseService.QueryObjects
@@ -18,4 +19,6 @@ namespace TEC_App.Services.CourseService.QueryObjects
             });
         }
     }
+    
+
 }
