@@ -3,6 +3,8 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
+using TEC_App.Services.SessionService.QueryObjects;
+using TEC_App.Views.SessionsView;
 
 namespace TEC_App.Services.SessionService
 {
@@ -20,7 +22,32 @@ namespace TEC_App.Services.SessionService
                 .Include(d => d.Candidate_Session_Pairs)
                 .Include(d => d.Course)
                 .Include(d => d.Session_Location_Pairs)
+                .ThenInclude(d=>d.Location)
+                .ThenInclude(d=>d.Address)
                 .ToList();
+        }
+
+        public List<Session> GetAllSessionsOfGivenCourse(int courseId)
+        {
+            return GetAllSessions().Where(d => d.CourseId == courseId).ToList();
+        }
+
+        public List<SessionViewDTO> GetAllSessionsAndMapToViewDTO()
+        {
+            return context.Set<Session>()
+                .Include(d => d.Candidate_Session_Pairs)
+                .Include(d => d.Course)
+                .Include(d => d.Session_Location_Pairs)
+                .ThenInclude(d => d.Location)
+                .ThenInclude(d => d.Address)
+                .MapToSessionViewDTO()
+                .ToList();
+        }
+
+        public List<SessionViewDTO> GetAllSessionsOfGivenCourseAngMapToViewDTO(int courseId)
+        {
+            return GetAllSessionsAndMapToViewDTO().Where(d => d.Session.CourseId == courseId).ToList();
+
         }
 
         public Session GetSessionFromId(int id)

@@ -18,11 +18,12 @@ using TEC_App.Views.CourseView;
 using TEC_App.Views.IndividualCandidateDetailsView;
 using TEC_App.Views.OpeningsView;
 using TEC_App.Views.PlacementsView;
+using TEC_App.Views.SessionsView;
 
 namespace TEC_App.ViewModels
 {
 	public class MainViewModel : ViewModelBase
-	{
+    {
 		private ViewModelBase _currentVm;
 
 		public MainViewModel()
@@ -36,11 +37,15 @@ namespace TEC_App.ViewModels
 		{
 			switch (message.Notification)
 			{
-				case nameof(IndividualCandidateDetailsView_ViewModel):
-					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<IndividualCandidateDetailsView_ViewModel>();
-					break;
+                case nameof(IndividualCandidateDetailsView_ViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<IndividualCandidateDetailsView_ViewModel>();
+                    break;
 
-				case nameof(OpeningsView_ViewModel):
+                case nameof(SessionsView_ViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<SessionsView_ViewModel>();
+                    break;
+
+                case nameof(OpeningsView_ViewModel):
 					CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<OpeningsView_ViewModel>();
 					break;
 				case nameof(CandidateView_ViewModel):

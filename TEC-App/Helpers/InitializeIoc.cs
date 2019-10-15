@@ -19,6 +19,7 @@ using TEC_App.Services.PrerequisitesForCourseService;
 using TEC_App.Services.QualificationDevelopedByCourseService;
 using TEC_App.Services.QualificationsService;
 using TEC_App.Services.SessionLocationService;
+using TEC_App.Services.SessionService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;
 using TEC_App.Views.AddCompanyView;
@@ -31,6 +32,7 @@ using TEC_App.Views.CourseView;
 using TEC_App.Views.IndividualCandidateDetailsView;
 using TEC_App.Views.OpeningsView;
 using TEC_App.Views.PlacementsView;
+using TEC_App.Views.SessionsView;
 
 namespace TEC_App.Helpers
 {
@@ -68,6 +70,7 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<AddCourseViewModel>();
 			SimpleIoc.Default.Register<AddOpeningViewModel>();
 			SimpleIoc.Default.Register<CandidateQualifiedForOpeningViewModel>();
+			SimpleIoc.Default.Register<SessionsView_ViewModel>();
         }
 
 		private void RegisterServices()
@@ -80,9 +83,10 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<IQualificationsService, QualificationsService>();
 			SimpleIoc.Default.Register<IJobService, JobService>();
 			SimpleIoc.Default.Register<IAddressService, AddressService>();
+			SimpleIoc.Default.Register<ISessionService, SessionService>();
 
 
-			SimpleIoc.Default.Register<IAddressCandidateService, AddressCandidateService>();
+            SimpleIoc.Default.Register<IAddressCandidateService, AddressCandidateService>();
 			SimpleIoc.Default.Register<ICandidateSessionService, CandidateSessionService>();
 			SimpleIoc.Default.Register<ICandidateQualificationService, CandidateQualificationService>();
 			SimpleIoc.Default.Register<IJobHistoryCompanyService, JobHistoryCompanyService>();
@@ -105,6 +109,5 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<IOpeningsService, MockOpeningsService>();
 
         }
-        //TODO TEST ALL ASSOCIATIVE ENTITY SERVICES
 	}
 }

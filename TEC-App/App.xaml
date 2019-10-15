@@ -16,6 +16,7 @@
              xmlns:addCourseView="clr-namespace:TEC_App.Views.AddCourseView"
              xmlns:addCompanyView="clr-namespace:TEC_App.Views.AddCompanyView"
              xmlns:addCandidateView="clr-namespace:TEC_App.Views.AddCandidateView"
+             xmlns:sessionsView="clr-namespace:TEC_App.Views.SessionsView"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 	    <ResourceDictionary>
@@ -26,7 +27,6 @@
 		    <DataTemplate DataType="{x:Type individualCandidateDetailsView:IndividualCandidateDetailsView_ViewModel}">
 			    <individualCandidateDetailsView:IndividualCandidateDetailsView/>
 		    </DataTemplate>
-
 			<DataTemplate DataType="{x:Type companiesView:CompaniesView_ViewModel}">
 			    <companiesView:CompaniesView/>
 		    </DataTemplate>
@@ -54,6 +54,10 @@
             <DataTemplate DataType="{x:Type candidatesQualifiedForOpeningView:CandidateQualifiedForOpeningViewModel}">
                 <candidatesQualifiedForOpeningView:CandidatesQualifiedForOpening/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type sessionsView:SessionsView_ViewModel}">
+                <sessionsView:SessionsView/>
+            </DataTemplate>
+
 
 
             <Style TargetType="{x:Type TextBlock}">

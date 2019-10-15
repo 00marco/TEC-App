@@ -47,6 +47,8 @@
                     <StackPanel Margin="0,5">
 						<TextBlock Text="{Binding Path=Course.Name}"/>
 						<TextBlock Text="{Binding Path=Course.Id}"/>
+                        <Button Content="Details"
+                                Command="{Binding Path=ViewCourseDetails}"></Button>
 					</StackPanel>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
