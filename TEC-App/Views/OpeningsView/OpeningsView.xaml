@@ -26,7 +26,7 @@
                     Foreground="White"
                     BorderThickness="0"
                     Background="{StaticResource ThemeColorDark}"
-                    Content="AddAddressToCandidate Opening"
+                    Content="Add Opening"
                     Command="{Binding Path=AddOpeningCommand}" Click="Button_Click"></Button>
         </StackPanel>
 
