@@ -44,7 +44,7 @@
                  Grid.Row="1">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<StackPanel>
+                    <StackPanel Margin="0,5">
 						<TextBlock Text="{Binding Path=Course.Name}"/>
 						<TextBlock Text="{Binding Path=Course.Id}"/>
 					</StackPanel>

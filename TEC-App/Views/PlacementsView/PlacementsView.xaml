@@ -26,7 +26,7 @@
                  Grid.Row="1">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<StackPanel>
+                    <StackPanel Margin="0,5">
 						<TextBlock Text="{Binding Path=Placement.Opening.Job.Name}"></TextBlock>
 						<TextBlock Text="{Binding Path=Placement.Candidate.FullName}"></TextBlock>
 						<TextBlock Text="{Binding Path=Placement.Timestamp}"></TextBlock>

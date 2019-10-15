@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
-using TEC_App.Models.ViewDTO;
+using TEC_App.Views.CandidateView;
 
 namespace TEC_App.Services.EmployeeService
 {

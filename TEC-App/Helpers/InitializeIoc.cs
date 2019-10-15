@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Ioc;
 using TEC_App.Models.Db;
 using TEC_App.Services;
 using TEC_App.Services.AddressCandidateService;
+using TEC_App.Services.AddressService;
 using TEC_App.Services.CandidateQualificationService;
 using TEC_App.Services.CandidateSessionService;
 using TEC_App.Services.CompanyService;
@@ -78,6 +79,8 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<IOpeningsService, OpeningsService>();
 			SimpleIoc.Default.Register<IQualificationsService, QualificationsService>();
 			SimpleIoc.Default.Register<IJobService, JobService>();
+			SimpleIoc.Default.Register<IAddressService, AddressService>();
+
 
 			SimpleIoc.Default.Register<IAddressCandidateService, AddressCandidateService>();
 			SimpleIoc.Default.Register<ICandidateSessionService, CandidateSessionService>();

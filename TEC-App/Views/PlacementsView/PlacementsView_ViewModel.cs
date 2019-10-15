@@ -3,7 +3,6 @@ using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.DTO;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.PlacementService;
 using TEC_App.ViewModels;
 

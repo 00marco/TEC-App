@@ -116,22 +116,50 @@
                    VerticalAlignment="Top"
                    Margin="5"
                    Grid.Row="7"/>
-        <ListBox ItemsSource="{Binding Path=Candidate.CandidateQualifications}"
+        <ListBox ItemsSource="{Binding Path=Qualifications}"
                  Grid.Row="7"
                  Grid.Column="1"
-                 Margin="10,5"></ListBox>
+                 Margin="10,5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,5">
+                        <CheckBox IsChecked="{Binding Path=IsSelected}"/>
+                        <TextBlock Text="{Binding Path=Qualification.Code}"></TextBlock>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
 
-        <Button Content="Back"
-                Grid.Row="8"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Grid.ColumnSpan="2"
+        <StackPanel Orientation="Horizontal"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    >
+            <Button Content="Add"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Background="{StaticResource ThemeColorDark}"
-                Padding="5"
-                Foreground="White"
-                BorderThickness="0"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
                     Margin="10"
-                    Command="{Binding Path=BackCommand}"></Button>
+                    Command="{Binding Path=AddCommand}">
+            </Button>
+            <Button Content="Back"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="{StaticResource ThemeColorDark}"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Margin="10"
+                    Command="{Binding Path=BackCommand}">
+            </Button>
+
+
+        </StackPanel>
     </Grid>
 </UserControl>

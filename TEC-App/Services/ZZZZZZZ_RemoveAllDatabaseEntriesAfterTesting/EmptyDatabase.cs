@@ -57,7 +57,7 @@ namespace TEC_App.Services.ZZZZZZZ_RemoveAllDatabaseEntriesAfterTesting
                 new QualificationDevelopedByCourseService.QualificationDevelopedByCourseService(context);
 
         }
-        //[Test]
+        [Test]
         public void RemoveTest()
         {
             

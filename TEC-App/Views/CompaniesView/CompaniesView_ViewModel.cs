@@ -29,8 +29,8 @@ namespace TEC_App.Views.CompaniesView
             
         }
 
-        public ObservableCollection<CompanyViewDTO> CompanyViewDtos { get; set; } =
-		    new ObservableCollection<CompanyViewDTO>();
+        public ObservableCollection<Models.DTO.CompanyViewDTO> CompanyViewDtos { get; set; } =
+		    new ObservableCollection<Models.DTO.CompanyViewDTO>();
 		public ICommand FullCompanyDetailsDTO => new RelayCommand(GotoFullCompanyDetailsProc);
 
 		private void GotoFullCompanyDetailsProc()

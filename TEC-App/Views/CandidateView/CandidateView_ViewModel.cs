@@ -5,7 +5,6 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.EmployeeService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;
@@ -56,6 +55,7 @@ namespace TEC_App.Views.CandidateView
         private void AddCandidate()
         {
             Messenger.Default.Send<NotificationMessage>(new NotificationMessage(nameof(AddCandidateViewModel)));
+            Messenger.Default.Send<LoadAddCandidateViewMessage>(new LoadAddCandidateViewMessage());
         }
     }
 }

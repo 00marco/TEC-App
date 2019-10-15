@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
+using TEC_App.Services.QualificationsService.QueryObjects;
+using TEC_App.Views.AddCandidateView;
 
 namespace TEC_App.Services.QualificationsService
 {
@@ -25,6 +27,18 @@ namespace TEC_App.Services.QualificationsService
                 .Include(d=>d.Openings)
                 .Include(d=>d.PrerequisitesForCourse)
                 .ToList();
+        }
+
+        public List<AddCandidateQualificationsDTO> GetAllAndMapToAddCandidateQualificationDTOs()
+        {
+            return context.Set<Qualification>()
+                .Include(d => d.CandidatesQualifications)
+                .Include(d => d.Courses)
+                .Include(d => d.Openings)
+                .Include(d => d.PrerequisitesForCourse)
+                .MapQualificationToAddCandidateDTO()
+                .ToList();
+
         }
 
         public Qualification GetQualificationFromId(int id)

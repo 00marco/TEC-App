@@ -5,7 +5,6 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.DTO;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.CourseService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCourseView;

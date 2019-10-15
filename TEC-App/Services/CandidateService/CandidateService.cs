@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.CandidateService.QueryObjects;
+using TEC_App.Views.CandidateView;
 
 namespace TEC_App.Services.EmployeeService
 {

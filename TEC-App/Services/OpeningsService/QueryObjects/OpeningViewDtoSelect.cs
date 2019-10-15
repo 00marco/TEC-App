@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TEC_App.Models.Db;
-using TEC_App.Models.ViewDTO;
+using TEC_App.Views.OpeningsView;
 
 namespace TEC_App.Services.OpeningsService.QueryObjects
 {

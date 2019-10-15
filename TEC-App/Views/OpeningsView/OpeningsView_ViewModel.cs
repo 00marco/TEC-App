@@ -5,7 +5,6 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.Db;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.OpeningsService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddOpeningView;

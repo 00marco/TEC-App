@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TEC_App.Models.Db;
 
-namespace TEC_App.Models.ViewDTO
+namespace TEC_App.Messages
 {
-    public class CourseViewDTO
+    public class LoadAddCandidateViewMessage
     {
-        public Course Course { get; set; }
+        
     }
 }

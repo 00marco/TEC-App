@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.CourseService.QueryObjects;
+using TEC_App.Views.CourseView;
 
 namespace TEC_App.Services.CourseService
 {

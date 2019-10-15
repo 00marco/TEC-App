@@ -45,7 +45,7 @@
                  Grid.ColumnSpan="2">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<StackPanel Margin="10">
+                    <StackPanel Margin="0,5">
                         <TextBlock Text="Company Name:"></TextBlock>
                         <TextBlock Text="{Binding Path=Company.Name}"/>
 					</StackPanel>

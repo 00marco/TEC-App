@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.Db;
-using TEC_App.Models.DTO;
-using TEC_App.ViewModels;
 using TEC_App.Views.IndividualCandidateDetailsView;
 
-namespace TEC_App.Models.ViewDTO
+namespace TEC_App.Views.CandidateView
 {
     public class CandidateViewDTO 
     {

@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.PlacementService.QueryObjects;
+using TEC_App.Views.PlacementsView;
 
 namespace TEC_App.Services.PlacementService
 {

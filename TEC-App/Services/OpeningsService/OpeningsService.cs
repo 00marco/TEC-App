@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore.Internal;
 using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
-using TEC_App.Models.ViewDTO;
 using TEC_App.Services.OpeningsService.QueryObjects;
+using TEC_App.Views.OpeningsView;
 
 namespace TEC_App.Services.OpeningsService
 {
