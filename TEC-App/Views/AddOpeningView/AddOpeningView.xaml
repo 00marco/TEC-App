@@ -110,7 +110,7 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             >
-            <Button Content="AddAddressToCandidate"
+            <Button Content="Add"
                     Padding="5"
                     Foreground="White"
                     BorderThickness="0"

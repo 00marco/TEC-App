@@ -374,22 +374,22 @@ namespace TEC_App.Helpers
 					.WithMany(d => d.Session_Location_Pairs)
 					.HasForeignKey(d => d.LocationId);
 			});
-			//modelBuilder.Entity<Address>(c =>
-			//	{
-			//		c.ToTable("Address");
-			//		c.HasKey(d => d.Id);
-			//		c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
-			//		c.HasOne(d => d.Candidate)
-			//			.WithOne(d => d.Address)
-			//			.HasForeignKey<Candidate>(d=>d.AddressId);
+            //modelBuilder.Entity<Address>(c =>
+            //	{
+            //		c.ToTable("Address");
+            //		c.HasKey(d => d.Id);
+            //		c.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+            //		c.HasOne(d => d.Candidate)
+            //			.WithOne(d => d.Address)
+            //			.HasForeignKey<Candidate>(d=>d.AddressId);
 
 
-			//		c.HasOne(d => d.Location)
-			//			.WithOne(d => d.Address)
-			//			.HasForeignKey<Location>(d=>d.AddressId);
-			//	}
-			//);
+            //		c.HasOne(d => d.Location)
+            //			.WithOne(d => d.Address)
+            //			.HasForeignKey<Location>(d=>d.AddressId);
+            //	}
+            //);
 
-		}
-	}
+        }
+    }
 }

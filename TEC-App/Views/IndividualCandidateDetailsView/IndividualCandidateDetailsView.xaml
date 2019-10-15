@@ -37,20 +37,20 @@
                     Margin="5"
                     Padding="5"
                     BorderThickness="0"
-                    Command="{Binding Path=RemoveCandidateCommand}"
+                    Command="{Binding Path=RemoveCommand}"
                     Background="{StaticResource ThemeColorDark}"
                     Foreground="White"/>
             <Button Content="Update Details"
                     BorderThickness="0"
                     Padding="5"
                     Margin="5"
-                    Command="{Binding Path=UpdateDetails}"
+                    Command="{Binding Path=UpdateCommand}"
                     Background="{StaticResource ThemeColorDark}"
                     Foreground="White"/>
 
         </StackPanel>
 
-        <TextBlock Text="AddQualificationToCandidateAddQualificationToCandidateressToCandidateress/es: "
+        <TextBlock Text="Address/es: "
                    Grid.Row="1"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"

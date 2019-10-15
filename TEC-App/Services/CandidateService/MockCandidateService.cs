@@ -51,6 +51,11 @@ namespace TEC_App.Services.EmployeeService
             throw new NotImplementedException();
         }
 
+        public Candidate UpdateCandidate(Candidate oldCandidate, Candidate newCandidate)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveCandidate(Candidate candidate)
         {
             throw new NotImplementedException();

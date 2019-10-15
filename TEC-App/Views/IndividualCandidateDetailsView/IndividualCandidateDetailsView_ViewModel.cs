@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
@@ -11,6 +12,7 @@ using TEC_App.Services.EmployeeService;
 using TEC_App.Services.JobHistoryService;
 using TEC_App.ViewModels;
 using TEC_App.Views.CandidateView;
+using TEC_App.Views.UpdateCandidateView;
 
 namespace TEC_App.Views.IndividualCandidateDetailsView
 {
@@ -90,6 +92,10 @@ namespace TEC_App.Views.IndividualCandidateDetailsView
             if (MessageBox.Show("Are you sure?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 CandidateService.RemoveCandidate(Candidate);
+                RemoveAllRelatedAddressCandidates();
+                RemoveAllRelatedCandidateSessions();
+                RemoveAllRelatedCandidateQualifications();
+                RemoveAllJobHistories();
                 BackProc();
             }
         }
@@ -98,7 +104,46 @@ namespace TEC_App.Views.IndividualCandidateDetailsView
 
         private void UpdateProc()
         {
-            throw new System.NotImplementedException();
+            Messenger.Default.Send(new NotificationMessage(nameof(UpdateCandidateview_ViewModel)));
+            Messenger.Default.Send(new LoadUpdateCandidateViewMessage(){Candidate = Candidate});
         }
+        private void RemoveAllRelatedAddressCandidates()
+        {
+            var related = AddressCandidateService.GetAllAddressCandidatePairs()
+                .Where(d => d.CandidateId == Candidate.Id);
+            foreach (var v in related)
+            {
+                AddressCandidateService.RemoveAddressFromCandidate(v.AddressId, v.CandidateId);
+            }
+        }
+
+        private void RemoveAllRelatedCandidateSessions()
+        {
+            var related = CandidateSessionService.GetAll().Where(c => c.CandidateId == Candidate.Id);
+            foreach (var v in related)
+            {
+                CandidateSessionService.Remove(v.CandidateId, v.SessionId);
+            }
+        }
+
+        private void RemoveAllRelatedCandidateQualifications()
+        {
+            var related = CandidateQualificationService.GetAll().Where(c => c.CandidateId == Candidate.Id);
+            foreach (var v in related)
+            {
+                CandidateQualificationService.RemoveQualificationFromCandidate(v.CandidateId, v.QualificationId);
+            }
+        }
+
+        private void RemoveAllJobHistories()
+        {
+            var related = JobHistoryService.GetAllJobHistories().Where(c => c.CandidateId == Candidate.Id);
+            foreach (var v in related)
+            {
+                JobHistoryService.RemoveJobHistory(v);
+            }
+        }
+
+       
     }
 }

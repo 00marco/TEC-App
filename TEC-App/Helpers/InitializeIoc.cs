@@ -37,6 +37,7 @@ using TEC_App.Views.OpeningsView;
 using TEC_App.Views.PlacementsView;
 using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
+using TEC_App.Views.UpdateCandidateView;
 
 namespace TEC_App.Helpers
 {
@@ -77,6 +78,7 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<SessionsView_ViewModel>();
 			SimpleIoc.Default.Register<AddSession_ViewModel>();
 			SimpleIoc.Default.Register<SessionAttendanceView_ViewModel>();
+			SimpleIoc.Default.Register<UpdateCandidateview_ViewModel>();
         }
 
 		private void RegisterServices()

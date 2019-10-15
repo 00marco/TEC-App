@@ -21,6 +21,7 @@ using TEC_App.Views.OpeningsView;
 using TEC_App.Views.PlacementsView;
 using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
+using TEC_App.Views.UpdateCandidateView;
 
 namespace TEC_App.ViewModels
 {
@@ -94,6 +95,11 @@ namespace TEC_App.ViewModels
                     CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<SessionAttendanceView_ViewModel>();
 
                     break;
+                case nameof(UpdateCandidateview_ViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<UpdateCandidateview_ViewModel>();
+
+                    break;
+
             }
 
         }

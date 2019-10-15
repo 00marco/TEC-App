@@ -177,6 +177,7 @@
     <Compile Include="Messages\LoadPlacementsViewMessage.cs" />
     <Compile Include="Messages\LoadSessionAttendanceViewMessage.cs" />
     <Compile Include="Messages\LoadSessionsViewMessage.cs" />
+    <Compile Include="Messages\LoadUpdateCandidateViewMessage.cs" />
     <Compile Include="Messages\ViewCandidateDetailsMessage.cs" />
     <Compile Include="Messages\ViewQualifiedCandidatesForOpeningViewMessage.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.cs" />
@@ -198,6 +199,10 @@
     <Compile Include="Migrations\20191014121743_CreateTECDb=v5.0.0.cs" />
     <Compile Include="Migrations\20191014121743_CreateTECDb=v5.0.0.designer.cs">
       <DependentUpon>20191014121743_CreateTECDb=v5.0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191015152423_CreateTECDb-v6.0.0.cs" />
+    <Compile Include="Migrations\20191015152423_CreateTECDb-v6.0.0.designer.cs">
+      <DependentUpon>20191015152423_CreateTECDb-v6.0.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Db\Address.cs" />
@@ -358,6 +363,10 @@
     </Compile>
     <Compile Include="Views\SessionsView\SessionsView_ViewModel.cs" />
     <Compile Include="Views\SessionsView\SessionViewDTO.cs" />
+    <Compile Include="Views\UpdateCandidateView\UpdateCandidateView.xaml.cs">
+      <DependentUpon>UpdateCandidateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateCandidateView\UpdateCandidateview_ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -423,6 +432,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SessionsView\SessionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateCandidateView\UpdateCandidateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

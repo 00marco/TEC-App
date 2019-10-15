@@ -120,6 +120,17 @@ namespace TEC_App.Services.EmployeeService
             return candidate;
         }
 
+        public Candidate UpdateCandidate(Candidate oldCandidate, Candidate newCandidate)
+        {
+            var candidate = context.Candidates.Find(oldCandidate.Id);
+            candidate.FirstName = newCandidate.FirstName;
+            candidate.MiddleName = newCandidate.MiddleName;
+            candidate.LastName = newCandidate.LastName;
+            candidate.Timestamp = DateTime.Now;
+            context.SaveChanges();
+            return candidate;
+        }
+
         public void RemoveCandidate(Candidate candidate)
         {
             context.Remove(context.Candidates.Single(d => d.Id == candidate.Id));

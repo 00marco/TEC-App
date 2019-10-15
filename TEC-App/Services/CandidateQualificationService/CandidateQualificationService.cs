@@ -49,9 +49,11 @@ namespace TEC_App.Services.CandidateQualificationService
 
         public void RemoveQualificationFromCandidate(int candidateId, int qualificationId)
         {
-            context.Remove(GetFromIdPair(candidateId, qualificationId));
-            context.SaveChanges();
-
+            if (GetFromIdPair(candidateId, qualificationId).Id != -1)
+            {
+                context.Remove(GetFromIdPair(candidateId, qualificationId));
+                context.SaveChanges();
+            }
         }
     }
 }

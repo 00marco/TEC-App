@@ -9,6 +9,7 @@ using TEC_App.Services.EmployeeService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCandidateView;
 using TEC_App.Views.IndividualCandidateDetailsView;
+using TEC_App.Views.UpdateCandidateView;
 
 namespace TEC_App.Views.CandidateView
 {
