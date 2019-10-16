@@ -31,6 +31,7 @@ using TEC_App.Views.AddSessionView;
 using TEC_App.Views.CandidatesQualifiedForOpeningView;
 using TEC_App.Views.CandidateView;
 using TEC_App.Views.CompaniesView;
+using TEC_App.Views.CompanyDetailsView;
 using TEC_App.Views.CourseView;
 using TEC_App.Views.IndividualCandidateDetailsView;
 using TEC_App.Views.OpeningsView;
@@ -38,6 +39,7 @@ using TEC_App.Views.PlacementsView;
 using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
 using TEC_App.Views.UpdateCandidateView;
+using TEC_App.Views.UpdateCompanyDetailsView;
 
 namespace TEC_App.Helpers
 {
@@ -79,6 +81,8 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<AddSession_ViewModel>();
 			SimpleIoc.Default.Register<SessionAttendanceView_ViewModel>();
 			SimpleIoc.Default.Register<UpdateCandidateview_ViewModel>();
+			SimpleIoc.Default.Register<CompanyDetailsView_ViewModel>();
+			SimpleIoc.Default.Register<UpdateCompanyDetailsView_ViewModel>();
         }
 
 		private void RegisterServices()

@@ -29,14 +29,9 @@ namespace TEC_App.Views.CompaniesView
             
         }
 
-        public ObservableCollection<Models.DTO.CompanyViewDTO> CompanyViewDtos { get; set; } =
-		    new ObservableCollection<Models.DTO.CompanyViewDTO>();
-		public ICommand FullCompanyDetailsDTO => new RelayCommand(GotoFullCompanyDetailsProc);
-
-		private void GotoFullCompanyDetailsProc()
-		{
-			throw new NotImplementedException();
-		}
+        public ObservableCollection<CompanyViewDTO> CompanyViewDtos { get; set; } =
+		    new ObservableCollection<CompanyViewDTO>();
+		
 
 		public string Test { get; set; }
         public ICommand AddCompanyCommand => new RelayCommand(AddCompany);

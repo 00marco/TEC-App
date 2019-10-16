@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Views.CompaniesView;
 
 namespace TEC_App.Services.CompanyService
 {
@@ -11,6 +12,7 @@ namespace TEC_App.Services.CompanyService
         Company GetCompanyFromId(int id);
         Company AddCompany(Company company);
         void RemoveCompany(Company company);
+        Company UpdateCompany(Company oldCompany, Company newCompany);
 
         void CreateOpening(Qualification qualification, Job job);
     }

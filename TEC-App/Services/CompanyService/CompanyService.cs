@@ -6,6 +6,7 @@ using TEC_App.Helpers;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
 using TEC_App.Services.CompanyService.QueryObjects;
+using TEC_App.Views.CompaniesView;
 
 namespace TEC_App.Services.CompanyService
 {
@@ -63,6 +64,14 @@ namespace TEC_App.Services.CompanyService
         {
             context.Remove(context.Companies.Single(d => d.Id == company.Id));
             context.SaveChanges();
+        }
+
+        public Company UpdateCompany(Company oldCompany, Company newCompany)
+        {
+            var company = context.Companies.Find(oldCompany.Id);
+            company.Name = newCompany.Name;
+            context.SaveChanges();
+            return company;
         }
 
         public void CreateOpening(Qualification qualification, Job job)

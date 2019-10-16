@@ -170,7 +170,9 @@
     <Compile Include="Messages\LoadAddCourseViewMessage.cs" />
     <Compile Include="Messages\LoadAddOpeningViewMessage.cs" />
     <Compile Include="Messages\LoadAddSessionMessage.cs" />
+    <Compile Include="Messages\LoadCandidateDetailsViewMessage.cs" />
     <Compile Include="Messages\LoadCandidateViewMessage.cs" />
+    <Compile Include="Messages\LoadCompanyDetailsViewMessage.cs" />
     <Compile Include="Messages\LoadCompanyViewMessage.cs" />
     <Compile Include="Messages\LoadCourseViewMessage.cs" />
     <Compile Include="Messages\LoadOpeningsViewMessage.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Messages\LoadSessionAttendanceViewMessage.cs" />
     <Compile Include="Messages\LoadSessionsViewMessage.cs" />
     <Compile Include="Messages\LoadUpdateCandidateViewMessage.cs" />
+    <Compile Include="Messages\LoadUpdateCompanyViewMessage.cs" />
     <Compile Include="Messages\ViewCandidateDetailsMessage.cs" />
     <Compile Include="Messages\ViewQualifiedCandidatesForOpeningViewMessage.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.cs" />
@@ -230,6 +233,10 @@
     <Compile Include="Views\CandidatesQualifiedForOpeningView\CandidatesQualifiedForOpeningDTO.cs" />
     <Compile Include="Views\CandidateView\CandidateViewDTO.cs" />
     <Compile Include="Views\CompaniesView\CompanyViewDTO.cs" />
+    <Compile Include="Views\CompanyDetailsView\CompanyDetailsView.xaml.cs">
+      <DependentUpon>CompanyDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CompanyDetailsView\CompanyDetailsView_ViewModel.cs" />
     <Compile Include="Views\CourseView\CourseViewDTO.cs" />
     <Compile Include="Views\OpeningsView\OpeningViewDTO.cs" />
     <Compile Include="Views\PlacementsView\PlacementViewDTO.cs" />
@@ -309,7 +316,6 @@
     <Compile Include="Views\CandidatesQualifiedForOpeningView\CandidateQualifiedForOpeningViewModel.cs" />
     <Compile Include="Views\CandidateView\CandidateView_ViewModel.cs" />
     <Compile Include="Views\CompaniesView\CompaniesView_ViewModel.cs" />
-    <Compile Include="Models\DTO\CompanyViewDTO.cs" />
     <Compile Include="Models\DTO\CourseWithLocationDTO.cs" />
     <Compile Include="Models\DTO\CompanyWithOpeningDetailsDTO.cs" />
     <Compile Include="Views\CourseView\CourseView_ViewModel.cs" />
@@ -367,6 +373,10 @@
       <DependentUpon>UpdateCandidateView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateCandidateView\UpdateCandidateview_ViewModel.cs" />
+    <Compile Include="Views\UpdateCompanyDetailsView\UpdateCompanyDetailsView.xaml.cs">
+      <DependentUpon>UpdateCompanyDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateCompanyDetailsView\UpdateCompanyDetailsView_ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -411,6 +421,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CompanyDetailsView\CompanyDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CourseView\CourseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -436,6 +450,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UpdateCandidateView\UpdateCandidateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateCompanyDetailsView\UpdateCompanyDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

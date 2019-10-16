@@ -15,6 +15,7 @@ using TEC_App.Views.AddSessionView;
 using TEC_App.Views.CandidatesQualifiedForOpeningView;
 using TEC_App.Views.CandidateView;
 using TEC_App.Views.CompaniesView;
+using TEC_App.Views.CompanyDetailsView;
 using TEC_App.Views.CourseView;
 using TEC_App.Views.IndividualCandidateDetailsView;
 using TEC_App.Views.OpeningsView;
@@ -22,6 +23,7 @@ using TEC_App.Views.PlacementsView;
 using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
 using TEC_App.Views.UpdateCandidateView;
+using TEC_App.Views.UpdateCompanyDetailsView;
 
 namespace TEC_App.ViewModels
 {
@@ -39,7 +41,14 @@ namespace TEC_App.ViewModels
 		private void NotifyMe(NotificationMessage message)
 		{
 			switch (message.Notification)
-			{
+            {
+                case nameof(UpdateCompanyDetailsView_ViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<UpdateCompanyDetailsView_ViewModel>();
+                    break;
+
+                case nameof(CompanyDetailsView_ViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<CompanyDetailsView_ViewModel>();
+                    break;
 
                 case nameof(AddSession_ViewModel):
                     CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<AddSession_ViewModel>();

@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="TEC_App.Views.CompanyDetailsView.CompanyDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TEC_App.Views.CompanyDetailsView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding Path=CompanyDetailsViewViewModel,Source={StaticResource Locator}}">
+    <Grid Margin="10"
+          Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Company Details"
+                   Grid.Row="0"
+                   Grid.RowSpan="2"
+
+                   FontSize="20"
+                   Margin="20"
+                   HorizontalAlignment="Left"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Top"></TextBlock>
+
+        <TextBlock Text="Name:"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"
+                   Margin="5"></TextBlock>
+        <TextBlock Text="{Binding Path=Company.Name}"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="5"
+                 Padding="3"
+                 ></TextBlock>
+        <StackPanel HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                Grid.ColumnSpan="2"
+
+                    Orientation="Horizontal"
+                Grid.Row="0"
+                    >
+            <Button Content="Back"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource ThemeColorDark}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="5"
+                    Command="{Binding Path=BackCommand}"></Button>
+
+            <Button Content="Delete"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource No}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="5"
+                    Command="{Binding Path=DeleteCommand}"></Button>
+            <Button Content="Update Details"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource ThemeColorDark}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="5"
+                    Command="{Binding Path=UpdateCommand}"></Button>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

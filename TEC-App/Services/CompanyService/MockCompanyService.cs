@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Views.CompaniesView;
 
 namespace TEC_App.Services.CompanyService
 {
@@ -27,6 +28,11 @@ namespace TEC_App.Services.CompanyService
         }
 
         public void RemoveCompany(Company company)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Company UpdateCompany(Company oldCompany, Company newCompany)
         {
             throw new System.NotImplementedException();
         }

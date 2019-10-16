@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TEC_App.Models.Db;
 using TEC_App.Models.DTO;
+using TEC_App.Views.CompaniesView;
 
 namespace TEC_App.Services.CompanyService.QueryObjects
 {

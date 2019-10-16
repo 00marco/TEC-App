@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="TEC_App.Views.UpdateCompanyDetailsView.UpdateCompanyDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TEC_App.Views.UpdateCompanyDetailsView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding Path=UpdateCompanyDetailsViewViewModel,Source={StaticResource Locator}}">
+    <Grid Margin="10"
+          Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Update Company"
+                   Grid.Row="0"
+                   Grid.RowSpan="2"
+                   FontSize="20"
+                   Margin="20"
+                   HorizontalAlignment="Left"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Top"></TextBlock>
+
+        <TextBlock Text="Name:"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"
+                   Margin="5"></TextBlock>
+        <TextBox Text="{Binding Path=NewCompany.Name}"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="5"
+                 Padding="3"
+                 ></TextBox>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                Grid.Row="3"
+                    >
+            <Button Content="Update"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource Yes}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Command="{Binding Path=UpdateCommand}"></Button>
+            <Button Content="Back"
+                    Padding="5"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Background="{StaticResource No}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Command="{Binding Path=BackCommand}"></Button>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
