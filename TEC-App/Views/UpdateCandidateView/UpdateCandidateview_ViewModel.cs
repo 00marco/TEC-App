@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
@@ -33,18 +34,34 @@ namespace TEC_App.Views.UpdateCandidateView
 
         private void NotifyMe(LoadUpdateCandidateViewMessage obj)
         {
-            Qualifications.Clear();
-            foreach (var v in QualificationsService.GetAllAndMapToQualificationWithCheckBoxDto())
-            {
-                Qualifications.Add(v);
-            }
-
             OldCandidate = obj.Candidate;
             NewCandidate = DeepCopy(OldCandidate);
             var addressCandidates = OldCandidate.Addresses.Where(d => d.CandidateId == OldCandidate.Id).ToList();
             Address1 = OldCandidate.Addresses.Where(d => d.CandidateId == OldCandidate.Id).ToList()[0].Address.FullAddress;
             Address2 = OldCandidate.Addresses.Where(d => d.CandidateId == OldCandidate.Id).ToList()[1].Address.FullAddress;
             Address3 = OldCandidate.Addresses.Where(d => d.CandidateId == OldCandidate.Id).ToList()[2].Address.FullAddress;
+
+
+            var candidateQualifications =
+                CandidateQualificationService.GetAll().Where(c => c.CandidateId == OldCandidate.Id);
+
+            
+            Qualifications.Clear();
+            foreach (var v in QualificationsService.GetAllAndMapToQualificationWithCheckBoxDto())
+            {
+                if (candidateQualifications.Any(d =>
+                    d.CandidateId == OldCandidate.Id && d.QualificationId == v.Qualification.Id))
+                {
+                    v.IsSelected = true;
+                }
+                else
+                {
+                    v.IsSelected = false;
+                }
+                Qualifications.Add(v);
+            }
+
+            
             
         }
 
@@ -81,24 +98,28 @@ namespace TEC_App.Views.UpdateCandidateView
 
         private void UpdateProc()
         {
-            //TODO add message
-            var newCandidate = OldCandidate;
-            OldCandidate = CandidateService.UpdateCandidate(OldCandidate, NewCandidate);
-            foreach (var v in Qualifications)
+            if (MessageBox.Show("Are you sure?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if (v.IsSelected)
+                //TODO add message
+                var newCandidate = OldCandidate;
+                OldCandidate = CandidateService.UpdateCandidate(OldCandidate, NewCandidate);
+                foreach (var v in Qualifications)
                 {
-                    CandidateQualificationService.AddQualificationToCandidate(new Candidate_Qualification()
+                    if (v.IsSelected)
                     {
-                        Candidate = OldCandidate,
-                        Qualification = v.Qualification
-                    });
-                }
-                else
-                {
-                    CandidateQualificationService.RemoveQualificationFromCandidate(OldCandidate.Id, v.Qualification.Id);
+                        CandidateQualificationService.AddQualificationToCandidate(new Candidate_Qualification()
+                        {
+                            Candidate = OldCandidate,
+                            Qualification = v.Qualification
+                        });
+                    }
+                    else
+                    {
+                        CandidateQualificationService.RemoveQualificationFromCandidate(OldCandidate.Id, v.Qualification.Id);
+                    }
                 }
             }
+            BackProc();
         }
 
         public ICommand BackCommand => new RelayCommand(BackProc);

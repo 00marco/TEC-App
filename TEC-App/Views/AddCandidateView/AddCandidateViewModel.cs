@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -53,9 +54,11 @@ namespace TEC_App.Views.AddCandidateView
         }
         public void LoadQualifications()
         {
+            
             Qualifications.Clear();
             foreach (var v in QualificationsService.GetAllAndMapToQualificationWithCheckBoxDto())
             {
+                
                 Qualifications.Add(v);
             }
         }

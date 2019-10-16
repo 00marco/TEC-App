@@ -27,6 +27,12 @@ namespace TEC_App.Services.CandidateQualificationService
 
         public Candidate_Qualification AddQualificationToCandidate(Candidate_Qualification candidateQualification)
         {
+            if (GetAll().Any(d =>
+                d.CandidateId == candidateQualification.Candidate.Id &&
+                d.QualificationId == candidateQualification.Qualification.Id))
+            {
+                return candidateQualification;
+            }
             context.Candidate_Qualification_Pairs.Add(candidateQualification);
             context.SaveChanges();
             return candidateQualification;
