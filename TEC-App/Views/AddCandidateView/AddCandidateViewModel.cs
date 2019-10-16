@@ -14,6 +14,7 @@ using TEC_App.Services.AddressCandidateService;
 using TEC_App.Services.AddressService;
 using TEC_App.Services.CandidateQualificationService;
 using TEC_App.Services.EmployeeService;
+using TEC_App.Services.PlacementService;
 using TEC_App.Services.QualificationsService;
 using TEC_App.ViewModels;
 using TEC_App.Views.AddCourseView;
@@ -54,7 +55,6 @@ namespace TEC_App.Views.AddCandidateView
         }
         public void LoadQualifications()
         {
-            
             Qualifications.Clear();
             foreach (var v in QualificationsService.GetAllAndMapToQualificationWithCheckBoxDto())
             {

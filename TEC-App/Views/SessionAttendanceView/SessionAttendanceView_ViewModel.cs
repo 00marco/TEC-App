@@ -66,6 +66,11 @@ namespace TEC_App.Views.SessionAttendanceView
         {
             if (MessageBox.Show("Are you sure?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                if (CandidateWithCheckBoxDtos.Count(d => d.IsSelected) > SelectedSession.Location.Capacity)
+                {
+                    MessageBox.Show("Too many attendees");
+                    return;
+                }
                 foreach (var v in CandidateWithCheckBoxDtos)
                 {
                     if (v.IsSelected)

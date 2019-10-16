@@ -60,6 +60,7 @@ namespace TEC_App.Services.OpeningsService
 
         public Opening AddOpening(Opening opening)
         {
+            opening.IsOpen = true;
             context.Openings.Add(opening);
             context.SaveChanges();
             return opening;
@@ -69,6 +70,14 @@ namespace TEC_App.Services.OpeningsService
         {
             context.Remove(context.Openings.Single(d => d.Id == opening.Id));
             context.SaveChanges();
+        }
+
+        public void CloseOpening(Opening opening)
+        {
+            var selectedOpening = context.Openings.Find(opening.Id);
+            selectedOpening.IsOpen = false;
+            context.SaveChanges();
+            
         }
     }
 }

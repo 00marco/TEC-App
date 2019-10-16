@@ -11,6 +11,6 @@ namespace TEC_App.Services.OpeningsService
         List<OpeningViewDTO> GetAllOpeningsAsViewDtos();
         Opening AddOpening(Opening opening);
         void RemoveOpening(Opening opening);
-
+        void CloseOpening(Opening opening);
     }
 }

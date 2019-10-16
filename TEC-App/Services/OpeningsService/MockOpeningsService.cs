@@ -32,6 +32,11 @@ throw new NotImplementedException();        }
             throw new NotImplementedException();
         }
 
+        public void CloseOpening(Opening opening)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public List<OpeningViewDTO> GetOpeningViewDTOList()
         {

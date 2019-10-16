@@ -34,6 +34,7 @@ namespace TEC_App.Services.CourseService
 
         public List<CourseViewDTO> GetCourseViewDtos()
         {
+            var courses = context.Courses.ToList();
             return context.Set<Course>()
                 .Include(c => c.PrerequisitesForCourse)
                 .Include(c => c.QualificationsDevelopedByCourse)

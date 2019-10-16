@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TEC_App.Views.AddSessionView"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding Path=AddSession_ViewModel,Source={StaticResource Locator}}">
@@ -69,30 +70,31 @@
                  Grid.Column="1"
                  Margin="10,5"></TextBox>
 
+
         <TextBlock Text="Starts at:"
                    HorizontalAlignment="Right"
                    Margin="0,5,5,19"
                    Grid.Row="4"/>
-        <DatePicker Text="{Binding Path=Session.DateTimeStart}"
+        <xctk:DateTimePicker Text="{Binding Path=Session.DateTimeStart}"
                  Padding="3"
                  Grid.Row="4"
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Grid.Column="1"
-                 Margin="10,5"></DatePicker>
+                 Margin="10,5"></xctk:DateTimePicker>
 
         <TextBlock Text="Ends at:"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"
                    Margin="5"
                    Grid.Row="5"/>
-        <DatePicker Text="{Binding Path=Session.DateTimeEnd}"
+        <xctk:DateTimePicker Text="{Binding Path=Session.DateTimeEnd}"
                  VerticalContentAlignment="Center"
                  Padding="3"
                  Grid.Row="5"
                  VerticalAlignment="Top"
                  Grid.Column="1"
-                 Margin="10,5"></DatePicker>
+                 Margin="10,5"></xctk:DateTimePicker>
 
         <TextBlock Text="Price"
                    HorizontalAlignment="Right"

@@ -14,7 +14,21 @@ namespace TEC_App.Views.SessionsView
 {
     public class SessionViewDTO
     {
-        public Session Session { get; set; }
+        private Session _session;
+        public string QualificationsString { get; set; }
+
+
+        public Session Session
+        {
+            get => _session;
+            set
+            {
+                _session = value;
+            }
+        }
+
+        
+        public List<Qualification> Qualification { get; set; }
         public ICommand GotoAttendanceViewCommand => new RelayCommand(GotoAttendanceProc);
 
         private void GotoAttendanceProc()

@@ -157,6 +157,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -206,6 +221,26 @@
     <Compile Include="Migrations\20191015152423_CreateTECDb-v6.0.0.cs" />
     <Compile Include="Migrations\20191015152423_CreateTECDb-v6.0.0.designer.cs">
       <DependentUpon>20191015152423_CreateTECDb-v6.0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191016092404_CreateTECDb-v7.0.0.cs" />
+    <Compile Include="Migrations\20191016092404_CreateTECDb-v7.0.0.designer.cs">
+      <DependentUpon>20191016092404_CreateTECDb-v7.0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191016093017_CreateTECDb-v7.0.1.cs" />
+    <Compile Include="Migrations\20191016093017_CreateTECDb-v7.0.1.designer.cs">
+      <DependentUpon>20191016093017_CreateTECDb-v7.0.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191016093352_CreateTECDb-v7.0.2.cs" />
+    <Compile Include="Migrations\20191016093352_CreateTECDb-v7.0.2.designer.cs">
+      <DependentUpon>20191016093352_CreateTECDb-v7.0.2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191016094238_CreateTECDb-v8.0.0.cs" />
+    <Compile Include="Migrations\20191016094238_CreateTECDb-v8.0.0.designer.cs">
+      <DependentUpon>20191016094238_CreateTECDb-v8.0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191016102023_CreateTECDb-v9.0.0.cs" />
+    <Compile Include="Migrations\20191016102023_CreateTECDb-v9.0.0.designer.cs">
+      <DependentUpon>20191016102023_CreateTECDb-v9.0.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TecAppContextModelSnapshot.cs" />
     <Compile Include="Models\Db\Address.cs" />

@@ -25,7 +25,6 @@ namespace TEC_App.Services.QualificationsService
         {
             return context.Set<Qualification>()
                 .Include(d=>d.CandidatesQualifications)
-                .Include(d=>d.Courses)
                 .Include(d=>d.Openings)
                 .Include(d=>d.PrerequisitesForCourse)
                 .ToList();
@@ -35,7 +34,6 @@ namespace TEC_App.Services.QualificationsService
         {
             return context.Set<Qualification>()
                 .Include(d => d.CandidatesQualifications)
-                .Include(d => d.Courses)
                 .Include(d => d.Openings)
                 .Include(d => d.PrerequisitesForCourse)
                 .MapQualificationToQualificationWithCheckBoxDto()

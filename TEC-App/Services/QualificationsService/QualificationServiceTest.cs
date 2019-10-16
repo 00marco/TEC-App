@@ -32,7 +32,6 @@ namespace TEC_App.Services.QualificationsService
                 Console.WriteLine($"{v.Description}");
                 Console.WriteLine($"{v.QualificationsDevelopedByCourse}");
                 Console.WriteLine($"{v.CandidatesQualifications.Count}");
-                Console.WriteLine($"{v.Courses.Count}");
                 Console.WriteLine($"{v.Openings.Count}");
                 Console.WriteLine($"{v.PrerequisitesForCourse.Count}");
                 Console.WriteLine();
@@ -57,7 +56,6 @@ namespace TEC_App.Services.QualificationsService
             {
                 CandidatesQualifications = new List<Candidate_Qualification>(),
                 Code = $"Code-{random.Next()}",
-                Courses = new List<Course>(),
                 Description = $"Description-{random.Next()}",
                 Openings = new List<Opening>(),
                 PrerequisitesForCourse = new List<PrerequisitesForCourse>(),

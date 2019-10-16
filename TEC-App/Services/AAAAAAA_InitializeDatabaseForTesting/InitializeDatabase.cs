@@ -216,7 +216,7 @@ namespace TEC_App.Services.AAAAAAA_InitializeDatabaseForTesting
             });
             QualificationsService.AddQualification(new Qualification()
             {
-                Code = "DBA-DB2",
+                Code = "DBA-SQLSERV",
                 Description = "Database Administrator, MS SQL Server",
             });
             QualificationsService.AddQualification(new Qualification()

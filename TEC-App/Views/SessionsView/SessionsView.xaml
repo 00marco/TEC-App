@@ -20,7 +20,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
@@ -35,21 +35,30 @@
 	                Grid.ColumnSpan="2"
 	                HorizontalAlignment="Center"
 	                VerticalAlignment="Center"
+                    Foreground="White"
+                    Background="{StaticResource ThemeColorDark}"
 	                Content="Back"
 	                Command="{Binding Path=BackCommand}"></Button>
 
             <Button Margin="5"
                     Padding="5,5"
-                    Background="{StaticResource ThemeColorDark}"
+                    Background="{StaticResource Yes}"
                     Content="Add New Session"
                     Foreground="White"
                     BorderThickness="0"
                     Command="{Binding Path=AddNewSessionCommand}"></Button>
 
-            
+            <Button Margin="5"
+                    Padding="5,5"
+                    Background="{StaticResource No}"
+                    Content="Delete Course"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Command="{Binding Path=DeleteCourseCommand}"></Button>
+
 
         </StackPanel>
-        <StackPanel Orientation="Horizontal"
+        <StackPanel 
                     Grid.Row="0"
                     Grid.Column="0"
                     VerticalAlignment="Center">
@@ -57,14 +66,16 @@
                        Grid.Column="0"
                        FontSize="20"
                        VerticalAlignment="Center"
-                       Text="Sessions for:"
-                       Margin="10"></TextBlock>
+                       Margin="10">
+                <Run Text="Sessions for: "></Run>
+                <Run Text="{Binding Path=Course.Name}"></Run>
+            </TextBlock>
             <TextBlock Grid.Row="0"
                        Grid.Column="0"
-                       FontSize="20"
+                       FontSize="10"
                        VerticalAlignment="Center"
-                       Text="{Binding Path=Course.Name}"
-                       Margin="10"></TextBlock>
+                       Text="{Binding Path=QualificationString}"
+                       Margin="10,0"></TextBlock>
 
         </StackPanel>
         <ListBox Margin="10"
@@ -72,7 +83,7 @@
                  BorderThickness="0"
                  Grid.Row="1"
                  Grid.ColumnSpan="2"
-		         ItemsSource="{Binding Path=Sessions}">
+                 ItemsSource="{Binding Path=Sessions}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,5">
@@ -94,6 +105,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
 
     </Grid>
 </UserControl>

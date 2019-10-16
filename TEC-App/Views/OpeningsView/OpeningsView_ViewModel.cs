@@ -32,7 +32,10 @@ namespace TEC_App.Views.OpeningsView
             var openings = OpeningsService.GetAllOpeningsAsViewDtos();
             foreach (var v in openings)
             {
-                Openings.Add(v);
+                if (v.Opening.IsOpen )
+                {
+                    Openings.Add(v);
+                }
             }
         }
 

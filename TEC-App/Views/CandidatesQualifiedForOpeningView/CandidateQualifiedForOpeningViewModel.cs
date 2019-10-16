@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
@@ -45,11 +46,16 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
 
         private void LoadCandidatesQualifiedForOpening(ViewQualifiedCandidatesForOpeningViewMessage obj)
         {
+            var placements = PlacementService.GetAllPlacements().Where(d => d.OpeningId == obj.Opening.Id);
             Opening = obj.Opening;
             var candidates = CandidateService.GetCandidatesQualifiedForRequiredQualification(obj.RequiredQualificationId);
             Candidates.Clear();
             foreach (var v in candidates)
             {
+                if (placements.Any(d => d.CandidateId == v.Id && d.OpeningId == Opening.Id))
+                {
+                    continue;
+                }
                 Candidates.Add(v);
             }
             //TODO might want to use DTO instead of full candidate soon
@@ -60,6 +66,11 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
         public ICommand HireCandidateCommand => new RelayCommand(HireCandidate);
         public void HireCandidate()
         {
+            if (SelectedCandidate == null)
+            {
+                MessageBox.Show("Please select a candidate");
+                return;
+            }
             if (MessageBox.Show("Are you sure?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 var placement = PlacementService.AddPlacementToCandidate(new Placement()
@@ -86,7 +97,13 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
                     JobHistory = jobHistory,
                     Job = Opening.Job
                 });
+
+                if (MessageBox.Show("Close opening?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    OpeningsService.CloseOpening(Opening);
+                }
                 BackProc();
+
                 //TODO opening does not disappear after candidate is hired
             }
 

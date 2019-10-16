@@ -30,7 +30,7 @@ namespace TEC_App.Services.OpeningsService
             {
                 Console.WriteLine();
                 Console.WriteLine($"Company Name\t\t{v.Company.Name}");
-                Console.WriteLine($"Reqd Qualifications\t{v.RequiredQualification.Code}");
+                Console.WriteLine($"Reqd QualificationsString\t{v.RequiredQualification.Code}");
                 Console.WriteLine($"Placement Count\t{v.Placements.Count}");
                 Console.WriteLine($"DateTime Start\t{v.DateTimeStart}");
                 Console.WriteLine($"DateTime End\t{v.DateTimeEnd}");

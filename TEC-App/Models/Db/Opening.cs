@@ -10,7 +10,7 @@ namespace TEC_App.Models.Db
 		public DateTime DateTimeStart { get; set; }
 		public DateTime DateTimeEnd { get; set; }
 		public float HourlyPay { get; set; }
-
+        public bool IsOpen { get; set; }
 
 		public int CompanyId { get; set; }
 		public Company Company { get; set; }
