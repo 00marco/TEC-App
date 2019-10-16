@@ -14,7 +14,7 @@ namespace TEC_App.Services.SessionService
         List<Session> GetAllSessionsOfGivenCourse(int courseId);
 
         List<SessionViewDTO> GetAllSessionsAndMapToViewDTO();
-        List<SessionViewDTO> GetAllSessionsOfGivenCourseAngMapToViewDTO(int courseId);
+        List<SessionViewDTO> GetAllSessionsOfGivenCourseAndMapToViewDTO(int courseId);
         Session GetSessionFromId(int id);
         Session AddSession(Session session);
         Session UpdateSessionNumberOfAttendees(Session oldSession, int numberOfAttendees);

@@ -44,7 +44,7 @@ namespace TEC_App.Services.SessionService
                 .ToList();
         }
 
-        public List<SessionViewDTO> GetAllSessionsOfGivenCourseAngMapToViewDTO(int courseId)
+        public List<SessionViewDTO> GetAllSessionsOfGivenCourseAndMapToViewDTO(int courseId)
         {
             return GetAllSessionsAndMapToViewDTO().Where(d => d.Session.CourseId == courseId).ToList();
 

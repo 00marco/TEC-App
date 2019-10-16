@@ -184,7 +184,6 @@ namespace TEC_App.Helpers
 				c.HasMany(d => d.PrerequisitesForCourse)
 					.WithOne(d => d.Course)
 					.HasForeignKey(d => d.CourseId);
-
 				//c.HasOne(d => d.Qualification)
 				//	.WithMany(d => d.Courses)
 				//	.HasForeignKey(d => d.QualificationId);

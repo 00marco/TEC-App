@@ -39,7 +39,7 @@ namespace TEC_App.Views.SessionsView
         public void LoadSessions()
         {
             Sessions.Clear();
-            foreach (var v in SessionService.GetAllSessionsOfGivenCourseAngMapToViewDTO(Course.Id))
+            foreach (var v in SessionService.GetAllSessionsOfGivenCourseAndMapToViewDTO(Course.Id))
             {
                 Sessions.Add(v);
             }

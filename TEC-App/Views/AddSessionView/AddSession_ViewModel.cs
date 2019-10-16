@@ -15,6 +15,7 @@ using TEC_App.Services.LocationService;
 using TEC_App.Services.SessionLocationService;
 using TEC_App.Services.SessionService;
 using TEC_App.ViewModels;
+using TEC_App.Views.AddCourseView;
 using TEC_App.Views.SessionsView;
 
 namespace TEC_App.Views.AddSessionView

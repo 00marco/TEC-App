@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -10,29 +11,49 @@ using TEC_App.Services.CourseService;
 using TEC_App.Services.PrerequisitesForCourseService;
 using TEC_App.Services.QualificationDevelopedByCourseService;
 using TEC_App.Services.QualificationsService;
+using TEC_App.Services.SessionService;
 using TEC_App.ViewModels;
+using TEC_App.Views.AddSessionView;
 using TEC_App.Views.CourseView;
+using TEC_App.Views.SessionsView;
 
 namespace TEC_App.Views.AddCourseView
 {
     
     public class AddCourseViewModel : ViewModelBase
     {
-        public AddCourseViewModel(IQualificationsService qualificationsService, IPrerequisitesForCourseService prerequisitesForCourseService, IQualificationDevelopedByCourseService qualificationDevelopedByCourseService, ICourseService courseService)
+        public AddCourseViewModel(IQualificationsService qualificationsService, IPrerequisitesForCourseService prerequisitesForCourseService, IQualificationDevelopedByCourseService qualificationDevelopedByCourseService, ICourseService courseService, ISessionService sessionService)
         {
             CourseService = courseService;
             QualificationsService = qualificationsService;
             PrerequisitesForCourseService = prerequisitesForCourseService;
             QualificationDevelopedByCourseService = qualificationDevelopedByCourseService;
+            SessionService = sessionService;
             Messenger.Default.Register<LoadAddCourseViewMessage>(this, s => NotifyMe(s));
+        }
+
+        private void LoadSessions()
+        {
+
+            Sessions.Clear();
+            foreach (var v in SessionService.GetAllSessionsOfGivenCourseAndMapToViewDTO(Course.Id))
+            {
+                Sessions.Add(v);
+            }
+
         }
 
         private void NotifyMe(LoadAddCourseViewMessage message)
         {
-            Course = new Course();
+            if (message.ReloadCourse)
+            {
+                Course = new Course();
+            }
             LoadQualifications();
+            LoadSessions();
         }
 
+        public List<SessionViewDTO> Sessions { get; set; } = new List<SessionViewDTO>();
         public ICourseService CourseService { get; set; }
         public Course Course { get; set; }
         public ObservableCollection<QualificationWithCheckboxViewDto> PrerequisiteQualifications { get; set; } = new ObservableCollection<QualificationWithCheckboxViewDto>();
@@ -40,6 +61,22 @@ namespace TEC_App.Views.AddCourseView
         public IQualificationsService QualificationsService { get; set; }
         public IPrerequisitesForCourseService PrerequisitesForCourseService { get; set; }
         public IQualificationDevelopedByCourseService QualificationDevelopedByCourseService { get; set; }
+        public ISessionService SessionService { get; set; }
+
+
+        public ICommand AddSessionCommand => new RelayCommand(AddSessionProc);
+
+        private void AddSessionProc()
+        {
+            if (string.IsNullOrEmpty(Course.Name))
+            {
+                MessageBox.Show("Name cannot be empty");
+                return;
+            }
+            Messenger.Default.Send(new NotificationMessage(nameof(AddSession_ViewModel)));
+            Messenger.Default.Send(new LoadAddSessionMessage() { Course = Course });
+
+        }
 
         public ICommand BackCommand => new RelayCommand(BackProc);
 
@@ -75,6 +112,8 @@ namespace TEC_App.Views.AddCourseView
                 Course = CourseService.AddCourse(Course);
                 AddPrerequisites();
                 AddQualificationsDeveloped();
+                Messenger.Default.Send(new NotificationMessage(nameof(SessionsView_ViewModel)));
+                Messenger.Default.Send(new LoadSessionsViewMessage() { Course = Course });
             }
         }
 

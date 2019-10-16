@@ -8,6 +8,6 @@ namespace TEC_App.Messages
 {
     public class LoadAddCourseViewMessage
     {
-        
+        public bool ReloadCourse { get; set; }
     }
 }
