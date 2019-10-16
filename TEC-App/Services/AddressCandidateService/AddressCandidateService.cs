@@ -20,6 +20,12 @@ namespace TEC_App.Services.AddressCandidateService
 
         public Address_Candidate AddAddressToCandidate(Address_Candidate addressCandidate)
         {
+            //if it exists, do nothing
+            if (GetAllAddressCandidatePairs().Any(d =>
+                d.AddressId == addressCandidate.Address.Id && d.CandidateId == addressCandidate.Candidate.Id))
+            {
+                return addressCandidate;
+            }
             context.Address_Candidate_Pairs.Add(addressCandidate);
             context.SaveChanges();
             return addressCandidate;
@@ -27,8 +33,15 @@ namespace TEC_App.Services.AddressCandidateService
 
         public void RemoveAddressFromCandidate(int addressId, int candidateId)
         {
-            context.Remove(context.Address_Candidate_Pairs.Single(d => d.AddressId == addressId && d.CandidateId == candidateId));
-            context.SaveChanges();
+            //if it exists, remove it
+            //if it doesnt do nothing
+            if (GetAllAddressCandidatePairs().Any(d =>
+                d.AddressId == addressId && d.CandidateId == candidateId))
+            {
+                context.Remove(context.Address_Candidate_Pairs.Single(d => d.AddressId == addressId && d.CandidateId == candidateId));
+                context.SaveChanges();
+            }
+            
         }
 
         public void Soft_RemoveAddressFromCandidate(int addressId, int candidateId)
