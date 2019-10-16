@@ -25,6 +25,7 @@ namespace TEC_App.Services.CandidateQualificationService
                 .ToList();
         }
 
+
         public Candidate_Qualification AddQualificationToCandidate(Candidate_Qualification candidateQualification)
         {
             if (GetAll().Any(d =>
