@@ -95,8 +95,12 @@
             <SolidColorBrush x:Key="No" Color="#c0392b"/>
             <SolidColorBrush x:Key="ThemeColorLight" Color="#34495e"/>
             <SolidColorBrush x:Key="ThemeColorDark" Color="#2c3e50"/>
-            <SolidColorBrush x:Key="AccentColorLight" Color="#f39c12"/>
+            <SolidColorBrush x:Key="DarkGrey" Color="#ededed"/>
+            <SolidColorBrush x:Key="AccentColorYellow" Color="#f39c12"/>
+            <SolidColorBrush x:Key="AccentColorGreen" Color="#27ae60"/>
+            <SolidColorBrush x:Key="AccentColorDarkerBlue" Color="#192a56"/>
+            <SolidColorBrush x:Key="AccentColorDarkerLightBlue" Color="#2980b9"/>
 
-        </ResourceDictionary>
+</ResourceDictionary>
 	</Application.Resources>
 </Application>

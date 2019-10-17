@@ -20,14 +20,13 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="70"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
                     Grid.Column="1"
 					Orientation="Horizontal"
-                    Margin="10"
+                    Margin="20"
                     Grid.RowSpan="2"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right">
@@ -38,6 +37,8 @@
 	                HorizontalAlignment="Center"
 	                VerticalAlignment="Center"
 	                Content="Back"
+                    Foreground="White"
+                    Background="{StaticResource No}"
 	                Command="{Binding Path=BackCommand}"></Button>
 
             <Button Margin="0,5"
@@ -52,15 +53,17 @@
                    Grid.Column="0"
                    FontSize="20"
                    VerticalAlignment="Center"
-                   Margin="10">
+                   Margin="20">
             <Run Text="Attendance for: "></Run>
             <Run Text="{Binding Path=SelectedSession.Course.Name}"></Run>
         </TextBlock>
-        <TextBlock Grid.Row="1"
+        <TextBlock Grid.Row="0"
                    Grid.Column="0"
-                   FontSize="20"
-                   VerticalAlignment="Center"
-                   Margin="10">
+                   FontSize="10"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Margin="20,10">
             <Run Text="{Binding Path=SelectedSession.DateTimeStart}"></Run>
             <Run Text="-"></Run>
             <Run Text="{Binding Path=SelectedSession.DateTimeEnd}"></Run>
@@ -73,10 +76,21 @@
 		         ItemsSource="{Binding Path=CandidateWithCheckBoxDtos}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="0,5">
-                        <TextBlock Text="{Binding Path=Candidate.FullName}"/>
-                        <CheckBox IsChecked="{Binding Path=IsSelected}"></CheckBox>
-                    </StackPanel>
+                    <Grid
+                        Width="720"
+                        Margin="0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Path=Candidate.FullName}"
+                                   Grid.Column="0"/>
+                        <CheckBox IsChecked="{Binding Path=IsSelected}"
+                                  Grid.Row="1"
+                                  HorizontalAlignment="Right"
+                                  Margin="5"></CheckBox>
+
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

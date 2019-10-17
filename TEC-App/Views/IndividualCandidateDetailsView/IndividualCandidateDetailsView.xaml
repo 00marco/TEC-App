@@ -12,6 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition />
+            <ColumnDefinition Width="0.1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -29,9 +30,10 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"/>
         <StackPanel Orientation="Horizontal"
-                    Margin="10"
+                    Margin="20,10"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
+                    Grid.ColumnSpan="2"
                     Grid.Column="1">
             <Button Content="Delete Candidate"
                     Margin="5"
@@ -147,7 +149,9 @@
 				Content="Back"
 				VerticalAlignment="Center"
 				HorizontalAlignment="Center"
-				Grid.ColumnSpan="2"
+                Background="{StaticResource ThemeColorDark}"
+                Foreground="White"
+				Grid.ColumnSpan="3"
 		        Command="{Binding Path=BackCommand}"></Button>
 
         <!--<TextBlock Text="Placements: "

@@ -13,7 +13,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="70"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
@@ -21,7 +21,7 @@
                     Margin="10"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
-            <Button Margin="0,5"
+            <Button Margin="20,5"
                     Padding="5"
                     Background="{StaticResource ThemeColorDark}"
                     Content="Add Company"
@@ -35,7 +35,7 @@
                    FontSize="20"
                    VerticalAlignment="Center"
                    Text="Companies"
-                   Margin="10"></TextBlock>
+                   Margin="20"></TextBlock>
         <ListBox Margin ="10"
                  Grid.Row="1"
                  BorderThickness="0"
@@ -45,12 +45,31 @@
                  Grid.ColumnSpan="2">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-                    <StackPanel Margin="0,5">
-                        <TextBlock Text="Company Name:"></TextBlock>
-                        <TextBlock Text="{Binding Path=Company.Name}"/>
+                    <Grid
+                        Width="720"
+                        Margin="0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0">
+                            <!--<Run Text="Name: "/>-->
+                            <Run Text="{Binding Path=Company.Name}"></Run>
+                        </TextBlock>
                         <Button Content="Details"
+                                Grid.Row="1"
+                                Padding="5"
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                Background="{StaticResource ThemeColorLight}"
+                                Foreground="White"
                                 Command="{Binding Path=GotoCompanyDetailsCommand}"></Button>
-					</StackPanel>
+                    </Grid>
+
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>

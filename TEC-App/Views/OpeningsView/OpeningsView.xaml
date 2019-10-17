@@ -13,7 +13,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="70"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
@@ -21,7 +21,7 @@
                     Margin="10"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
-            <Button Margin="0,5"
+            <Button Margin="20,5"
                     Padding="5"
                     Foreground="White"
                     BorderThickness="0"
@@ -35,7 +35,7 @@
                    VerticalAlignment="Center"
                    Text="Openings"
                    FontSize="20"
-                   Margin="10"></TextBlock>
+                   Margin="20"></TextBlock>
 
         <ListBox Margin="10"
                  Padding="10"
@@ -46,18 +46,64 @@
                  ItemsSource="{Binding Path=Openings}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<StackPanel Margin="0,5">
-						<TextBlock Text="{Binding Path=Opening.Company.Name}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Opening.Job.Name}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Opening.RequiredQualification.Code}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Opening.DateTimeStart}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Opening.DateTimeEnd}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Opening.HourlyPay}"></TextBlock>
+                    <Grid
+                        Width="720"
+                        Margin="0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                                   Grid.Row="0">
+                            <Run Text="Company Name: "></Run>
+                            <Run Text="{Binding Path=Opening.Company.Name}"></Run>
+                        </TextBlock>
+                        <TextBlock 
+                                   Grid.Row="1">
+                            <Run Text="Job Name: "></Run>
+                            <Run Text="{Binding Path=Opening.Job.Name}"></Run>
+                        </TextBlock>
+                        <TextBlock 
+                                   Grid.Row="2">
+                            <Run Text="Required Qualification: "/>
+                            <Run Text="{Binding Path=Opening.RequiredQualification.Code}"/>
+                        </TextBlock>
+                        <TextBlock 
+                                   Grid.Row="3">
+                            <Run Text="Starts at: "></Run>
+                            <Run Text="{Binding Path=Opening.DateTimeStart}"></Run>
+                        </TextBlock>
+                        <TextBlock 
+                                   Grid.Row="4">
+                            <Run Text="Ends at: "></Run>
+                            <Run Text="{Binding Path=Opening.DateTimeEnd}"></Run>
+                        </TextBlock>
+                        <TextBlock 
+                                   Grid.Row="5">
+                            <Run Text="Hourly Pay: "></Run>
+                            <Run Text="{Binding Path=Opening.HourlyPay}"></Run>
+                        </TextBlock>
                         <Button Content="See Qualified Candidates"
                                 Margin="5"
-                                Padding="5,2"
+                                Padding="5"
+                                Grid.Column="1"
+                                Foreground="White"
+                                Background="{StaticResource ThemeColorDark}"
+                                Grid.Row="6"
+                                HorizontalAlignment="Right"
                                 Command="{Binding Path=GotoListOfQualifiedCandidatesViewCommand}"></Button>
-                    </StackPanel>
+
+                    </Grid>
+
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>

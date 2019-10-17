@@ -20,18 +20,18 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="70"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
                     Grid.Column="1"
 					Orientation="Horizontal"
-                    Margin="10"
+                    Margin="20,10"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
             <Button Grid.Row="2"
 	                Margin="5"
-	                Padding="5,2"
+	                Padding="5"
 	                Grid.ColumnSpan="2"
 	                HorizontalAlignment="Center"
 	                VerticalAlignment="Center"
@@ -42,7 +42,7 @@
 
             <Button Margin="5"
                     Padding="5,5"
-                    Background="{StaticResource Yes}"
+                    Background="{StaticResource ThemeColorDark}"
                     Content="Add New Session"
                     Foreground="White"
                     BorderThickness="0"
@@ -61,12 +61,13 @@
         <StackPanel 
                     Grid.Row="0"
                     Grid.Column="0"
+                    Margin="20,10"
                     VerticalAlignment="Center">
             <TextBlock Grid.Row="0"
                        Grid.Column="0"
                        FontSize="20"
                        VerticalAlignment="Center"
-                       Margin="10">
+                       >
                 <Run Text="Sessions for: "></Run>
                 <Run Text="{Binding Path=Course.Name}"></Run>
             </TextBlock>
@@ -74,7 +75,7 @@
                        Grid.Column="0"
                        FontSize="10"
                        VerticalAlignment="Center"
-                       Margin="10,0">
+                       >
                 <Run Text="Qualification Developed: "></Run>
                 <Run Text="{Binding Path=QualificationString}"></Run>
             </TextBlock>
@@ -88,22 +89,59 @@
                  ItemsSource="{Binding Path=Sessions}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="0,5">
-                        <TextBlock Text="{Binding Path=Session.DateTimeStart}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Session.DateTimeEnd}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Session.Price}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Session.Location.Address.FullAddress}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Session.Location.Capacity}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Session.NumberOfAttendees}"></TextBlock>
+                    <Grid
+                        Width="720"
+                        Margin="0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0">
+                            <Run Text="Starts at: "></Run>
+                            <Run Text="{Binding Path=Session.DateTimeStart}"></Run>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1">
+                            <Run Text="Ends at: "></Run>
+                            <Run Text="{Binding Path=Session.DateTimeEnd}"></Run>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2">
+                            <Run Text="Price: "></Run>
+                            <Run Text="{Binding Path=Session.Price}"></Run>
+                        </TextBlock>
+                        <TextBlock Grid.Row="3">
+                            <Run Text="Full Address: "></Run>
+                            <Run Text="{Binding Path=Session.Location.Address.FullAddress, Mode=OneWay}"></Run>
+                        </TextBlock>
+                        <TextBlock Grid.Row="4">
+                            <Run Text="Capacity: "></Run>
+                            <Run Text="{Binding Path=Session.Location.Capacity, Mode=OneWay}"></Run>
+                        </TextBlock>
+                        <TextBlock Grid.Row="5">
+                            <Run Text="Number of Attendees: "></Run>
+                            <Run Text="{Binding Path=Session.NumberOfAttendees}"></Run>
+                        </TextBlock>
                         <Button Margin="5"
                                 Padding="5,5"
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
                                 Background="{StaticResource ThemeColorDark}"
                                 Content="Attendance"
                                 Foreground="White"
                                 BorderThickness="0"
                                 Command="{Binding Path=GotoAttendanceViewCommand}"></Button>
 
-                    </StackPanel>
+                    </Grid>
+
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
