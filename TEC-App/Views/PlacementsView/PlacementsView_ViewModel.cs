@@ -41,6 +41,11 @@ namespace TEC_App.Views.PlacementsView
 
         private void UpdateProc()
         {
+            if (SelectedPlacementViewDTO == null)
+            {
+                MessageBox.Show("Please select a placement record");
+                return;
+            }
             Messenger.Default.Send(new NotificationMessage(nameof(UpdatePlacementView_ViewModel)));
             Messenger.Default.Send(new LoadUpdatePlacementViewMessage(){SelectedPlacement = SelectedPlacementViewDTO.Placement});
 
