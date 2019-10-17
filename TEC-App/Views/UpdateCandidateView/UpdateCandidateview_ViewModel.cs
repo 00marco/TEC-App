@@ -18,6 +18,7 @@ using TEC_App.Services.EmployeeService;
 using TEC_App.Services.QualificationsService;
 using TEC_App.ViewModels;
 using TEC_App.Views.CandidateView;
+using TEC_App.Views.IndividualCandidateDetailsView;
 
 namespace TEC_App.Views.UpdateCandidateView
 {
@@ -270,8 +271,8 @@ namespace TEC_App.Views.UpdateCandidateView
 
         private void BackProc()
         {
-            Messenger.Default.Send(new NotificationMessage(nameof(CandidateView_ViewModel)));
-            Messenger.Default.Send(new LoadCandidateViewMessage());
+            Messenger.Default.Send(new NotificationMessage(nameof(IndividualCandidateDetailsView_ViewModel)));
+            Messenger.Default.Send(new LoadCandidateDetailsViewMessage(){Candidate = OldCandidate});
         }
         //private void AddAddresses()
         //{

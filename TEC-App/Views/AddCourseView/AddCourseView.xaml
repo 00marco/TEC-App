@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="0.9*"/>
@@ -126,7 +126,7 @@
                     Foreground="White"
                     BorderThickness="0"
                     Margin="10"
-                    Background="{StaticResource Yes}"
+                    Background="{StaticResource ThemeColorDark}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Command="{Binding Path=AddCommand}">
@@ -136,7 +136,7 @@
                     Foreground="White"
                     BorderThickness="0"
                     Margin="10"
-                    Background="{StaticResource ThemeColorDark}"
+                    Background="{StaticResource No}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Command="{Binding Path=BackCommand}">

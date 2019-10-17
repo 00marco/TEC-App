@@ -46,6 +46,8 @@ namespace TEC_App.Views.CandidatesQualifiedForOpeningView
 
         private void LoadCandidatesQualifiedForOpening(ViewQualifiedCandidatesForOpeningViewMessage obj)
         {
+            SelectedCandidate = new Candidate();
+            
             var placements = PlacementService.GetAllPlacements().Where(d => d.OpeningId == obj.Opening.Id);
             Opening = obj.Opening;
             var candidates = CandidateService.GetCandidatesQualifiedForRequiredQualification(obj.RequiredQualificationId);

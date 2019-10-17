@@ -30,6 +30,7 @@ namespace TEC_App.Views.AddOpeningView
         {
             Opening = new Opening()
             {
+                HourlyPay = 0,
                 DateTimeStart = DateTime.Now,
                 DateTimeEnd = DateTime.Now.AddDays(30)
             };

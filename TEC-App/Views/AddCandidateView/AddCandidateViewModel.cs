@@ -42,17 +42,27 @@ namespace TEC_App.Views.AddCandidateView
         public ICandidateQualificationService CandidateQualificationService { get; set; }
 
         public Candidate Candidate { get; set; }
-        public string Address1 { get; set; }
-        public string Address2 { get; set; }
-        public string Address3 { get; set; }
+        public Address Address1 { get; set; }
+        public Address Address2 { get; set; }
+        public Address Address3 { get; set; }
         public List<QualificationWithCheckboxViewDto> Qualifications { get; set; } = new List<QualificationWithCheckboxViewDto>();
 
 
 
         private void NotifyMe(LoadAddCandidateViewMessage obj)
         {
+            Candidate = new Candidate();
             LoadQualifications();
+            LoadAddresses();
         }
+
+        private void LoadAddresses()
+        {
+            Address1 = new Address();
+            Address2 = new Address();
+            Address3 = new Address();
+        }
+
         public void LoadQualifications()
         {
             Qualifications.Clear();
@@ -97,53 +107,50 @@ namespace TEC_App.Views.AddCandidateView
                 }
             }
         }
+        private void UpdateCandidateAddresses()
+        {
+            
+           
+        }
 
         private void AddAddresses()
         {
-            if (!string.IsNullOrEmpty(Address1))
-            {
-                var newAddress = AddressService.AddAddress(new Address()
+            ////if string changed - add new, remove old
+            ////if string empty - remove old
+                if (!(string.IsNullOrEmpty(Address1.City) && string.IsNullOrEmpty(Address1.ZipCode) && string.IsNullOrEmpty(Address1.Street) && string.IsNullOrEmpty(Address1.Province)))
                 {
-                    ZipCode = Address1
-                    //TODO make way to parse Address object from strings
-                });
+                    Address1 = AddressService.AddAddress(Address1);
 
-                AddressCandidateService.AddAddressToCandidate(new Address_Candidate()
+                    AddressCandidateService.AddAddressToCandidate(new Address_Candidate()
+                    {
+                        Address = Address1,
+                        Candidate = Candidate
+                    });
+                }
+                //remove old address
+                if (!(string.IsNullOrEmpty(Address2.City) && string.IsNullOrEmpty(Address2.ZipCode) && string.IsNullOrEmpty(Address2.Street) && string.IsNullOrEmpty(Address2.Province)))
                 {
-                    Address = newAddress,
-                    Candidate = Candidate
-                });
-            }
+                    Address2 = AddressService.AddAddress(Address2);
 
-            if (!string.IsNullOrEmpty(Address2))
-            {
-                var newAddress = AddressService.AddAddress(new Address()
-                {
-                    ZipCode = Address2
-                    //TODO make way to parse Address object from strings
-                });
+                    AddressCandidateService.AddAddressToCandidate(new Address_Candidate()
+                    {
+                        Address = Address2,
+                        Candidate = Candidate
+                    });
+                }
 
-                AddressCandidateService.AddAddressToCandidate(new Address_Candidate()
+                //remove old address
+                if (!(string.IsNullOrEmpty(Address3.City) && string.IsNullOrEmpty(Address3.ZipCode) && string.IsNullOrEmpty(Address3.Street) && string.IsNullOrEmpty(Address3.Province)))
                 {
-                    Address = newAddress,
-                    Candidate = Candidate
-                });
-            }
+                    Address3 = AddressService.AddAddress(Address3);
 
-            if (!string.IsNullOrEmpty(Address3))
-            {
-                var newAddress = AddressService.AddAddress(new Address()
-                {
-                    ZipCode = Address3
-                    //TODO make way to parse Address object from strings
-                });
+                    AddressCandidateService.AddAddressToCandidate(new Address_Candidate()
+                    {
+                        Address = Address3,
+                        Candidate = Candidate
+                    });
+                }
 
-                AddressCandidateService.AddAddressToCandidate(new Address_Candidate()
-                {
-                    Address = newAddress,
-                    Candidate = Candidate
-                });
-            }
         }
     }
 }

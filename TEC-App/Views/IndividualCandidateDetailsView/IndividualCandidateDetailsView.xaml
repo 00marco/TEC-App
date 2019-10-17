@@ -134,8 +134,18 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Path=DateTimeStart}"></TextBlock>
-                        <TextBlock Text="{Binding Path=DateTimeEnd}"></TextBlock>
+                        <TextBlock >
+                            <Run Text="Job: "></Run>
+                            <Run Text="{Binding Path=Job.Name, Mode=OneWay}"></Run>
+                        </TextBlock>
+                        <TextBlock >
+                            <Run Text="Started at: "></Run>
+                            <Run Text="{Binding Path=DateTimeStart}"></Run>
+                        </TextBlock>
+                        <TextBlock >
+                            <Run Text="Ended at: "></Run>
+                            <Run Text="{Binding Path=DateTimeEnd}"></Run>
+                        </TextBlock>
                         <!--add job name-->
                     </StackPanel>
                 </DataTemplate>

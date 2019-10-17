@@ -52,6 +52,12 @@ namespace TEC_App.Views.UpdatePlacementView
         public ICommand UpdatePlacement => new RelayCommand(UpdateProc);
         private void UpdateProc()
         {
+            var duration = (SelectedPlacement.Opening.DateTimeEnd - SelectedPlacement.Opening.DateTimeStart).TotalHours;
+            if (NewPlacement.TotalHoursWorked > duration)
+            {
+                MessageBox.Show($"Number of hours worked cannot exceed duration of the Opening ({duration} hours)");
+                return;
+            }
             if (MessageBox.Show("Are you sure?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 NewPlacement.Timestamp = DateTime.Now;

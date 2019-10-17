@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -109,10 +110,21 @@ namespace TEC_App.Views.AddCourseView
 
         private void AddProc()
         {
+            if (SelectedQualification == null)
+            {
+                MessageBox.Show("Qualification developed by course cannot be null");
+                return;
+            }
             if (MessageBox.Show("Are you sure?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Course = CourseService.AddCourse(Course);
-                AddPrerequisites();
+                var prerequisites = AddPrerequisites();
+                if (prerequisites.Any(d => d.QualificationId == SelectedQualification.Qualification.Id))
+                {
+                    MessageBox.Show(
+                        "Qualification developed by course cannot be the same with the/one of the Prerequisite Qualification/s");
+                    return;
+                }
                 AddQualificationsDeveloped();
                 Messenger.Default.Send(new NotificationMessage(nameof(SessionsView_ViewModel)));
                 Messenger.Default.Send(new LoadSessionsViewMessage() { Course = Course });
@@ -121,6 +133,7 @@ namespace TEC_App.Views.AddCourseView
 
         private void AddQualificationsDeveloped()
         {
+            
             QualificationDevelopedByCourseService.Add(new QualificationDevelopedByCourse()
             {
                 Course = Course,
@@ -139,19 +152,23 @@ namespace TEC_App.Views.AddCourseView
             //}
         }
 
-        private void AddPrerequisites()
+        private ICollection<PrerequisitesForCourse> AddPrerequisites()
         {
+            var prerequisites = new List<PrerequisitesForCourse>();
             foreach (var v in PrerequisiteQualifications)
             {
                 if (v.IsSelected)
                 {
-                    PrerequisitesForCourseService.Add(new PrerequisitesForCourse()
+                    var x = PrerequisitesForCourseService.Add(new PrerequisitesForCourse()
                     {
                         Course = Course,
                         Qualification = v.Qualification
                     });
+                    prerequisites.Add(x);
                 }
             }
+
+            return prerequisites;
         }
     }
 }

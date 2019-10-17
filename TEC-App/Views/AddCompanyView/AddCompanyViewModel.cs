@@ -39,6 +39,7 @@ namespace TEC_App.Views.AddCompanyView
         private void BackProc()
         {
             Messenger.Default.Send(new NotificationMessage(nameof(CompaniesView_ViewModel)));
+            Messenger.Default.Send(new LoadAddCompanyViewMessage());
         }
 
         public ICommand AddCommand => new RelayCommand(AddProc);

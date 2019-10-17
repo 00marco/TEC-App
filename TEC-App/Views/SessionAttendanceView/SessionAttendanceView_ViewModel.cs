@@ -100,6 +100,7 @@ namespace TEC_App.Views.SessionAttendanceView
                     {
                         CandidateSessionService.Remove(v.Candidate.Id, SelectedSession.Id);
                     }
+                    
                 }
 
                 var candidateSessions = CandidateSessionService.GetAll().Where(d => d.SessionId == SelectedSession.Id);

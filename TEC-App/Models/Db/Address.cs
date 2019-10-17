@@ -12,7 +12,7 @@ namespace TEC_App.Models.Db
 		public string Street { get; set; }
 
         [NotMapped]
-        public string FullAddress => $"{ZipCode}-{Province}, {City}, {Street}";
+        public string FullAddress => $"{ZipCode} {Province}, {City}, {Street}";
 
 
         //public ICollection<Address_Location> Address_Location_Pairs { get; set; }

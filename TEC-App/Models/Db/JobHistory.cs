@@ -18,6 +18,7 @@ namespace TEC_App.Models.Db
 		public ICollection<JobHistory_Company> JobHistory_Company_Pairs { get; set; }
 		public ICollection<JobHistory_Job> JobHistory_Job_Pairs { get; set; }
 
+        public Job Job => JobHistory_Job_Pairs.Single(d => d.JobHistoryId == Id).Job;
 
     }
 }

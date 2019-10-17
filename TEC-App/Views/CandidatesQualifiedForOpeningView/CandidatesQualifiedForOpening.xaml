@@ -36,6 +36,8 @@
 	                HorizontalAlignment="Center"
 	                VerticalAlignment="Center"
 	                Content="Back"
+                    Foreground="White"
+                    Background="{StaticResource No}"
 	                Command="{Binding Path=BackCommand}"></Button>
 
 <Button Margin="0,5"

@@ -49,7 +49,7 @@ namespace TEC_App.Services.AAAAAAA_InitializeDatabaseForTesting
 
         }
 
-        [Test]
+        //[Test]
         public void AddTest()
         {
             //initialize independent entities
@@ -177,7 +177,8 @@ namespace TEC_App.Services.AAAAAAA_InitializeDatabaseForTesting
             });
         }
 
-        private void AddQualification()
+        [Test]
+        public void AddQualification()
         {
             QualificationsService.AddQualification(new Qualification()
             {
