@@ -68,6 +68,7 @@
                    Margin="5"/>
         <ListBox ItemsSource="{Binding Path=DevelopedQualifications}"
                  Grid.Row="3"
+                 SelectedItem="{Binding Path=SelectedQualification}"
                  Grid.Column="1"
                  Margin="5"
                  >
@@ -75,7 +76,6 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Path=Qualification.Code}"></TextBlock>
-                        <CheckBox IsChecked="{Binding Path=IsSelected}"></CheckBox>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -22,6 +22,7 @@
              xmlns:updateCandidateView="clr-namespace:TEC_App.Views.UpdateCandidateView"
              xmlns:companyDetailsView="clr-namespace:TEC_App.Views.CompanyDetailsView"
              xmlns:updateCompanyDetailsView="clr-namespace:TEC_App.Views.UpdateCompanyDetailsView"
+             xmlns:updatePlacementView="clr-namespace:TEC_App.Views.UpdatePlacementView"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 	    <ResourceDictionary>
@@ -77,6 +78,10 @@
             <DataTemplate DataType="{x:Type updateCompanyDetailsView:UpdateCompanyDetailsView_ViewModel}">
                 <updateCompanyDetailsView:UpdateCompanyDetailsView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type updatePlacementView:UpdatePlacementView_ViewModel}">
+                <updatePlacementView:UpdatePlacementView/>
+            </DataTemplate>
+
 
 
 

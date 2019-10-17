@@ -40,6 +40,7 @@ using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
 using TEC_App.Views.UpdateCandidateView;
 using TEC_App.Views.UpdateCompanyDetailsView;
+using TEC_App.Views.UpdatePlacementView;
 
 namespace TEC_App.Helpers
 {
@@ -83,6 +84,7 @@ namespace TEC_App.Helpers
 			SimpleIoc.Default.Register<UpdateCandidateview_ViewModel>();
 			SimpleIoc.Default.Register<CompanyDetailsView_ViewModel>();
 			SimpleIoc.Default.Register<UpdateCompanyDetailsView_ViewModel>();
+			SimpleIoc.Default.Register<UpdatePlacementView_ViewModel>();
         }
 
 		private void RegisterServices()

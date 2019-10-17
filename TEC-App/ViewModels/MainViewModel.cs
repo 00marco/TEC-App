@@ -24,6 +24,7 @@ using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
 using TEC_App.Views.UpdateCandidateView;
 using TEC_App.Views.UpdateCompanyDetailsView;
+using TEC_App.Views.UpdatePlacementView;
 
 namespace TEC_App.ViewModels
 {
@@ -42,6 +43,10 @@ namespace TEC_App.ViewModels
 		{
 			switch (message.Notification)
             {
+                case nameof(UpdatePlacementView_ViewModel):
+                    CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<UpdatePlacementView_ViewModel>();
+                    break;
+
                 case nameof(UpdateCompanyDetailsView_ViewModel):
                     CurrentVM = CommonServiceLocator.ServiceLocator.Current.GetInstance<UpdateCompanyDetailsView_ViewModel>();
                     break;

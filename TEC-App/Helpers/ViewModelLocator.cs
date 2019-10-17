@@ -21,6 +21,7 @@ using TEC_App.Views.SessionAttendanceView;
 using TEC_App.Views.SessionsView;
 using TEC_App.Views.UpdateCandidateView;
 using TEC_App.Views.UpdateCompanyDetailsView;
+using TEC_App.Views.UpdatePlacementView;
 
 namespace TEC_App.Helpers
 {
@@ -54,6 +55,8 @@ namespace TEC_App.Helpers
                 CommonServiceLocator.ServiceLocator.Current.GetInstance<CompanyDetailsView_ViewModel>();
             UpdateCompanyDetailsViewViewModel = CommonServiceLocator.ServiceLocator.Current
                 .GetInstance<UpdateCompanyDetailsView_ViewModel>();
+            UpdatePlacementViewViewModel =
+                CommonServiceLocator.ServiceLocator.Current.GetInstance<UpdatePlacementView_ViewModel>();
 
         }
 		public MainViewModel MainViewModel { get; set; }
@@ -74,5 +77,7 @@ namespace TEC_App.Helpers
 		public SessionAttendanceView_ViewModel SessionAttendanceView_ViewModel { get; set; }
         public UpdateCandidateview_ViewModel UpdateCandidateviewViewModel { get; set; }
         public UpdateCompanyDetailsView_ViewModel UpdateCompanyDetailsViewViewModel { get; set; }
+        public UpdatePlacementView_ViewModel UpdatePlacementViewViewModel { get; set; }
+
     }
 }

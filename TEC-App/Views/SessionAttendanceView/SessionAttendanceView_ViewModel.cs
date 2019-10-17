@@ -11,8 +11,10 @@ using Microsoft.EntityFrameworkCore.Query.ExpressionVisitors.Internal;
 using TEC_App.Messages;
 using TEC_App.Models.Db;
 using TEC_App.Models.ViewDTO;
+using TEC_App.Services.CandidateQualificationService;
 using TEC_App.Services.CandidateSessionService;
 using TEC_App.Services.EmployeeService;
+using TEC_App.Services.PrerequisitesForCourseService;
 using TEC_App.Services.SessionService;
 using TEC_App.ViewModels;
 using TEC_App.Views.SessionsView;
@@ -21,12 +23,14 @@ namespace TEC_App.Views.SessionAttendanceView
 {
     public class SessionAttendanceView_ViewModel : ViewModelBase
     {
-        public SessionAttendanceView_ViewModel(ICandidateSessionService candidateSessionService, ICandidateService candidateService, ISessionService sessionService)
+        public SessionAttendanceView_ViewModel(ICandidateSessionService candidateSessionService, ICandidateService candidateService, ISessionService sessionService, ICandidateQualificationService candidateQualificaitonsService, IPrerequisitesForCourseService prerequisitesForCourseService)
         {
             Messenger.Default.Register<LoadSessionAttendanceViewMessage>(this, s => NotifyMe(s));
             CandidateSessionService = candidateSessionService;
             CandidateService = candidateService;
             SessionService = sessionService;
+            CandidateQualificationService = candidateQualificaitonsService;
+            PrerequisitesForCourseService = prerequisitesForCourseService;
         }
 
         private void NotifyMe(LoadSessionAttendanceViewMessage loadSessionAttendanceViewMessage)
@@ -56,7 +60,9 @@ namespace TEC_App.Views.SessionAttendanceView
         }
 
         public Session SelectedSession { get; set; }
+        public ICandidateQualificationService CandidateQualificationService { get; set; }
         public ISessionService SessionService { get; set; }
+        public IPrerequisitesForCourseService PrerequisitesForCourseService { get; set; }
         public ICandidateSessionService CandidateSessionService { get; set; }
         public ICandidateService CandidateService { get; set; }
         public List<CandidateWithCheckBoxDTO> CandidateWithCheckBoxDtos { get; set; } = new List<CandidateWithCheckBoxDTO>();
@@ -75,6 +81,15 @@ namespace TEC_App.Views.SessionAttendanceView
                 {
                     if (v.IsSelected)
                     {
+                        var candidateQualifications = CandidateQualificationService.GetAll()
+                            .Where(d => d.CandidateId == v.Candidate.Id);
+                        var coursePrerequisites = PrerequisitesForCourseService.GetAll()
+                            .Where(d => d.CourseId == SelectedSession.Course.Id);
+                        if (CandidateIsNotQualified(v.Candidate, candidateQualifications, coursePrerequisites))
+                        {
+                            MessageBox.Show($"{v.Candidate.FullName} is not qualified for this course");
+                            return;
+                        }
                         CandidateSessionService.Add(new Candidate_Session()
                         {
                             Candidate = v.Candidate,
@@ -92,6 +107,20 @@ namespace TEC_App.Views.SessionAttendanceView
             }
             BackProc();
             
+        }
+
+        private bool CandidateIsNotQualified(Candidate vCandidate, IEnumerable<Candidate_Qualification> candidateQualifications, IEnumerable<PrerequisitesForCourse> coursePrerequisites)
+        {
+            foreach (var v in candidateQualifications)
+            {
+                if (coursePrerequisites.Any(d => d.QualificationId == v.QualificationId))
+                {
+                    //candidate is qualified
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public ICommand BackCommand => new RelayCommand(BackProc);

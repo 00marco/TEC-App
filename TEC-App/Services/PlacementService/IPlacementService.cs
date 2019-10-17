@@ -15,5 +15,6 @@ namespace TEC_App.Services.PlacementService
         List<PlacementViewDTO> GetAllPlacementViewDtos();
         Placement AddPlacementToCandidate(Placement placement);
         void RemovePlacement(Placement placement);
+        Placement UpdatePlacement(Placement oldPlacement, Placement newPlacement);
     }
 }

@@ -66,5 +66,13 @@ namespace TEC_App.Services.PlacementService
             context.SaveChanges();
         }
 
+        public Placement UpdatePlacement(Placement oldPlacement, Placement newPlacement)
+        {
+            var placement = context.Placements.Find(oldPlacement.Id);
+            placement.TotalHoursWorked = newPlacement.TotalHoursWorked;
+            placement.Timestamp = newPlacement.Timestamp;
+            context.SaveChanges();
+            return placement;
+        }
     }
 }

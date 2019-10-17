@@ -1,10 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using TEC_App.Messages;
 using TEC_App.Models.DTO;
 using TEC_App.Services.PlacementService;
 using TEC_App.ViewModels;
+using TEC_App.Views.UpdatePlacementView;
 
 namespace TEC_App.Views.PlacementsView
 {
@@ -16,6 +19,7 @@ namespace TEC_App.Views.PlacementsView
             Messenger.Default.Register<LoadPlacementsViewMessage>(this, s => NotifyMe(s));
         }
 
+        public PlacementViewDTO SelectedPlacementViewDTO { get; set; }
         public IPlacementService PlacementService { get; set; }
         private void NotifyMe(LoadPlacementsViewMessage message)
         {
@@ -33,6 +37,13 @@ namespace TEC_App.Views.PlacementsView
                 PlacementViewDtos.Add(v);
             }
         }
+        public ICommand UpdatePlacementCommand => new RelayCommand(UpdateProc);
 
+        private void UpdateProc()
+        {
+            Messenger.Default.Send(new NotificationMessage(nameof(UpdatePlacementView_ViewModel)));
+            Messenger.Default.Send(new LoadUpdatePlacementViewMessage(){SelectedPlacement = SelectedPlacementViewDTO.Placement});
+
+        }
     }
 }

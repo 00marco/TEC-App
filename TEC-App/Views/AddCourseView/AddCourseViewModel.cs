@@ -53,6 +53,7 @@ namespace TEC_App.Views.AddCourseView
             LoadSessions();
         }
 
+        public QualificationWithCheckboxViewDto SelectedQualification { get; set; }
         public List<SessionViewDTO> Sessions { get; set; } = new List<SessionViewDTO>();
         public ICourseService CourseService { get; set; }
         public Course Course { get; set; }
@@ -87,6 +88,7 @@ namespace TEC_App.Views.AddCourseView
 
         public void LoadQualifications()
         {
+            SelectedQualification = new QualificationWithCheckboxViewDto();
             var prerequisites = QualificationsService.GetAllAndMapToQualificationWithCheckBoxDto();
             var developedQualifications = QualificationsService.GetAllAndMapToQualificationWithCheckBoxDto();
             PrerequisiteQualifications.Clear();
@@ -119,17 +121,22 @@ namespace TEC_App.Views.AddCourseView
 
         private void AddQualificationsDeveloped()
         {
-            foreach (var v in DevelopedQualifications)
+            QualificationDevelopedByCourseService.Add(new QualificationDevelopedByCourse()
             {
-                if (v.IsSelected)
-                {
-                    QualificationDevelopedByCourseService.Add(new QualificationDevelopedByCourse()
-                    {
-                        Course = Course,
-                        Qualification = v.Qualification
-                    });
-                }
-            }
+                Course = Course,
+                Qualification = SelectedQualification.Qualification
+            });
+            //foreach (var v in DevelopedQualifications)
+            //{
+            //    if (v.IsSelected)
+            //    {
+            //        QualificationDevelopedByCourseService.Add(new QualificationDevelopedByCourse()
+            //        {
+            //            Course = Course,
+            //            Qualification = v.Qualification
+            //        });
+            //    }
+            //}
         }
 
         private void AddPrerequisites()

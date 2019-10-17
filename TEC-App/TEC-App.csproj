@@ -196,6 +196,7 @@
     <Compile Include="Messages\LoadSessionsViewMessage.cs" />
     <Compile Include="Messages\LoadUpdateCandidateViewMessage.cs" />
     <Compile Include="Messages\LoadUpdateCompanyViewMessage.cs" />
+    <Compile Include="Messages\LoadUpdatePlacementViewMessage.cs" />
     <Compile Include="Messages\ViewCandidateDetailsMessage.cs" />
     <Compile Include="Messages\ViewQualifiedCandidatesForOpeningViewMessage.cs" />
     <Compile Include="Migrations\20190918145215_CreateTECDb-v1.0.0.cs" />
@@ -412,6 +413,10 @@
       <DependentUpon>UpdateCompanyDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateCompanyDetailsView\UpdateCompanyDetailsView_ViewModel.cs" />
+    <Compile Include="Views\UpdatePlacementView\UpdatePlacementView.xaml.cs">
+      <DependentUpon>UpdatePlacementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdatePlacementView\UpdatePlacementView_ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -489,6 +494,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UpdateCompanyDetailsView\UpdateCompanyDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdatePlacementView\UpdatePlacementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

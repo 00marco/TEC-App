@@ -74,8 +74,10 @@
                        Grid.Column="0"
                        FontSize="10"
                        VerticalAlignment="Center"
-                       Text="{Binding Path=QualificationString}"
-                       Margin="10,0"></TextBlock>
+                       Margin="10,0">
+                <Run Text="Qualification Developed: "></Run>
+                <Run Text="{Binding Path=QualificationString}"></Run>
+            </TextBlock>
 
         </StackPanel>
         <ListBox Margin="10"
